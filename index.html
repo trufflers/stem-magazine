@@ -101,14 +101,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Hero Section */
@@ -121,7 +115,6 @@
             overflow: hidden;
         }
 
-        /* The Centrifuge SVG Background */
         .hero::before {
             content: '';
             position: absolute;
@@ -135,30 +128,20 @@
             pointer-events: none;
         }
 
-        .hero-content {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .hero-content { position: relative; max-width: 900px; margin: 0 auto; }
 
         .hero h1 {
-            font-family: 'Outfit', sans-serif;
             font-size: 4.5rem;
-            font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            letter-spacing: -0.03em;
         }
 
         .hero p {
-            font-family: 'Lora', serif;
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 3rem;
             max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
+            margin: 0 auto 3rem auto;
         }
 
         .cta-button {
@@ -170,1673 +153,209 @@
             text-decoration: none;
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
-            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(93, 93, 255, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(93, 93, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(97, 103, 203, 0.4);
         }
 
-        /* Container */
+        /* Content Sections */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 5rem 2rem;
         }
 
-        /* Featured Articles Grid */
+        .section-heading { text-align: center; margin-bottom: 4rem; }
+        .section-heading h2 { font-size: 3rem; margin-bottom: 1rem; }
+
+        /* Articles Grid */
         .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
         .article-card {
             background: white;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
 
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-        }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
 
         .article-image {
-            width: 100%;
-            height: 280px;
+            height: 200px;
             background: var(--dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4.5rem;
-            color: white;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        .article-content {
-            padding: 2rem;
-        }
-
-        .article-category {
-            display: inline-block;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .article-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: var(--dark);
-            line-height: 1.3;
-        }
-
-        .article-excerpt {
-            font-family: 'Lora', serif;
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Outfit', sans-serif;
-            color: var(--gray);
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Section Heading */
-        .section-heading {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-heading h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--dark);
-            letter-spacing: -0.03em;
-        }
-
-        .section-heading p {
-            font-family: 'Lora', serif;
-            color: var(--gray);
-            font-size: 1.15rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--dark);
-            color: white;
-            padding: 5rem 2rem;
-            margin: 6rem 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .stat-item p {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* About Page */
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-content h2 {
-            font-family: 'Outfit', sans-serif;
             font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            color: var(--dark);
         }
 
-        .about-content p {
-            font-family: 'Lora', serif;
-            font-size: 1.15rem;
-            color: var(--text);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
+        .article-content { padding: 2rem; }
+        .article-category { color: var(--primary); font-size: 0.75rem; font-family: 'Outfit'; font-weight: 700; text-transform: uppercase; }
+        .article-title { margin: 0.5rem 0 1rem 0; font-size: 1.4rem; }
 
+        /* Mission Box */
         .mission-box {
             background: var(--dark);
             color: white;
             padding: 4rem;
-            margin: 4rem 0;
+            margin-top: 3rem;
             border-left: 4px solid var(--primary);
         }
 
-        .mission-box h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .mission-box p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
-        }
-
-        /* Issues Grid */
-        .issues-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .issue-card {
-            background: white;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-        }
-
-        .issue-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .issue-cover {
-            width: 100%;
-            height: 450px;
-            background: var(--dark);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            padding: 3rem;
-            text-align: center;
-            border-bottom: 3px solid var(--primary);
-        }
-
-        .issue-cover h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .issue-cover p {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            opacity: 0.7;
-        }
-
-        .issue-cover div {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            margin-top: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .issue-info {
-            padding: 2rem;
-            background: white;
-        }
-
-        .issue-info p {
-            font-family: 'Lora', serif;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        /* Submit Form */
+        /* Form Styling */
         .submit-form {
             max-width: 700px;
             margin: 0 auto;
             background: white;
-            padding: 4rem;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--dark);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-family: 'Outfit'; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            font-size: 1rem;
-            font-family: 'Lora', serif;
-            transition: border-color 0.3s;
-            background: var(--paper);
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            font-family: 'Lora';
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-button {
+        .submit-btn {
+            width: 100%;
             background: var(--primary);
             color: white;
-            padding: 1.2rem 3rem;
             border: none;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
+            padding: 1rem;
+            font-family: 'Outfit';
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
             cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(93, 93, 255, 0.3);
-        }
-
-        /* Contact Page */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            padding: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .contact-details p {
-            font-family: 'Lora', serif;
-            color: var(--gray);
-            line-height: 1.6;
         }
 
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
-            padding: 4rem 2rem 2rem;
-            margin-top: 8rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-section p {
-            font-family: 'Lora', serif;
-            line-height: 1.7;
-        }
-
-        .footer-section a {
-            display: block;
-            font-family: 'Lora', serif;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            margin-bottom: 0.8rem;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4rem 2rem;
             text-align: center;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* List Styling for About Page */
-        .about-content ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 2rem 0;
-        }
-
-        .about-content ul li {
-            padding: 1.5rem;
-            background: white;
-            margin-bottom: 1rem;
-            border-left: 3px solid var(--primary);
-        }
-
-        .about-content ul li strong {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        /* Team Page */
-        .team-hero {
-            background: var(--dark);
-            color: white;
-            padding: 8rem 2rem 5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(97, 103, 203, 0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 50%, rgba(97, 103, 203, 0.1) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .team-hero h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .team-hero p {
-            font-family: 'Lora', serif;
-            font-size: 1.15rem;
-            opacity: 0.85;
-            max-width: 550px;
-            margin: 0 auto;
-            line-height: 1.7;
-            position: relative;
-        }
-
-        .team-back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            cursor: pointer;
-            transition: color 0.3s;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .team-back-link:hover {
-            color: var(--primary);
-        }
-
-        .team-section-label {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-card {
-            background: white;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-            cursor: pointer;
-        }
-
-        .team-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), #8b8fff);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .team-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .team-avatar {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            margin: 0 auto 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 2rem;
-            color: white;
-            position: relative;
-            transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .team-card:hover .team-avatar {
-            transform: scale(1.05);
-        }
-
-        .team-avatar img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .avatar-gradient-1 { background: linear-gradient(135deg, #6167cb, #8b8fff); }
-        .avatar-gradient-2 { background: linear-gradient(135deg, #0D0D0D, #3a3a3a); }
-        .avatar-gradient-3 { background: linear-gradient(135deg, #4a3f8a, #6167cb); }
-        .avatar-gradient-4 { background: linear-gradient(135deg, #2d2d5e, #6167cb); }
-        .avatar-gradient-5 { background: linear-gradient(135deg, #1a1a3e, #4a4a8a); }
-        .avatar-gradient-6 { background: linear-gradient(135deg, #3b3b7a, #7a7aff); }
-
-        .team-name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.4rem;
-            letter-spacing: -0.01em;
-        }
-
-        .team-grade {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gray);
-            margin-bottom: 0.3rem;
-        }
-
-        .team-card-hint {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(0, 0, 0, 0.2);
-            margin-top: 1rem;
-            transition: color 0.3s;
-        }
-
-        .team-card:hover .team-card-hint {
-            color: var(--primary);
-        }
-
-        /* Team Modal Overlay */
-        .team-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(6px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.35s ease;
-            padding: 2rem;
-        }
-
-        .team-modal-overlay.open {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .team-modal {
-            background: white;
-            max-width: 560px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 3.5rem;
-            position: relative;
-            transform: translateY(30px) scale(0.97);
-            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .team-modal-overlay.open .team-modal {
-            transform: translateY(0) scale(1);
-        }
-
-        .team-modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 36px;
-            height: 36px;
-            background: var(--light);
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--gray);
-            transition: all 0.25s;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .team-modal-close:hover {
-            background: var(--dark);
-            color: white;
-        }
-
-        .team-modal-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.8rem;
-            color: white;
-        }
-
-        .team-modal-avatar img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .team-modal-name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--dark);
-            text-align: center;
-            margin-bottom: 0.3rem;
-            letter-spacing: -0.02em;
-        }
-
-        .team-modal-grade {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--gray);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .team-modal-divider {
-            width: 40px;
-            height: 2px;
-            background: var(--primary);
-            margin: 0 auto 2rem;
-        }
-
-        .team-modal-bio {
-            font-family: 'Lora', serif;
-            font-size: 1.05rem;
-            color: var(--text);
-            line-height: 1.8;
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .team-modal-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .team-modal-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--dark);
-            text-decoration: none;
-            padding: 0.7rem 1.4rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-
-        .team-modal-link:hover {
-            background: var(--dark);
-            color: white;
-            border-color: var(--dark);
-        }
-
-        /* Meet the Team button on About page */
-        .meet-team-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: var(--dark);
-            color: white;
-            padding: 1.1rem 2.5rem;
-            border-radius: 0;
-            text-decoration: none;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            cursor: pointer;
-            transition: all 0.35s ease;
-            border: none;
-            margin-top: 1rem;
-        }
-
-        .meet-team-btn:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
-        }
-
-        .meet-team-btn span {
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-
-        .meet-team-btn:hover span {
-            transform: translateX(4px);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .nav-links {
-                gap: 1.2rem;
-                font-size: 0.75rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-heading h2 {
-                font-size: 2.5rem;
-            }
-
-            .submit-form {
-                padding: 2rem;
-            }
-
-            .team-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .team-modal {
-                padding: 2.5rem 1.5rem;
-            }
+            margin-top: 5rem;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">The Centrifuge</div>
-            <ul class="nav-links">
-                <li><a onclick="showPage('home')">Home</a></li>
-                <li><a onclick="showPage('about')">About</a></li>
-                <li><a onclick="showPage('issues')">Browse Issues</a></li>
-                <li><a onclick="showPage('submit')">Submit</a></li>
-                <li><a onclick="showPage('subscribe')">Subscribe</a></li>
-                <li><a onclick="showPage('contact')">Contact</a></li>
-            </ul>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">The Centrifuge</div>
+        <ul class="nav-links">
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('about')">About</a></li>
+            <li><a onclick="showPage('issues')">Issues</a></li>
+            <li><a onclick="showPage('submit')">Submit</a></li>
+            <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="home" class="page active">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>The Centrifuge</h1>
+            <p>A high school magazine exploring science, technology, engineering, and mathematics through student discovery.</p>
+            <a onclick="showPage('submit')" class="cta-button">Submit Your Work</a>
         </div>
-    </nav>
+    </div>
 
-    <div id="home" class="page active">
-        <div class="hero">
-            <div class="hero-content">
-                <h1>The Centrifuge</h1>
-                <p>A high school magazine exploring science, technology, engineering, and mathematics through the lens of student discovery</p>
-                <a href="#" class="cta-button" onclick="showPage('submit')">Submit Your Work</a>
-            </div>
+    <div class="container">
+        <div class="section-heading">
+            <h2>Featured Articles</h2>
         </div>
-
-        <div class="container">
-            <div class="section-heading">
-                <h2>Featured Articles</h2>
-                <p>Latest insights from student researchers and writers</p>
-            </div>
-
-            <div class="articles-grid">
-                <div class="article-card">
-                    <div class="article-image">🧬</div>
-                    <div class="article-content">
-                        <span class="article-category">Biology</span>
-                        <h3 class="article-title">CRISPR in Action: Gene Editing's Future</h3>
-                        <p class="article-excerpt">Exploring how CRISPR technology is revolutionizing medicine and what it means for our generation...</p>
-                        <div class="article-meta">
-                            <span>Sarah Chen</span>
-                            <span>5 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card">
-                    <div class="article-image">🤖</div>
-                    <div class="article-content">
-                        <span class="article-category">Computer Science</span>
-                        <h3 class="article-title">Building My First AI Model</h3>
-                        <p class="article-excerpt">A student's journey through machine learning, from theory to deployment on a real-world project...</p>
-                        <div class="article-meta">
-                            <span>Marcus Johnson</span>
-                            <span>8 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card">
-                    <div class="article-image">🚀</div>
-                    <div class="article-content">
-                        <span class="article-category">Physics</span>
-                        <h3 class="article-title">The Physics of Space Travel</h3>
-                        <p class="article-excerpt">Understanding the challenges and innovations that make interplanetary travel possible...</p>
-                        <div class="article-meta">
-                            <span>Emma Rodriguez</span>
-                            <span>6 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card">
-                    <div class="article-image">⚡</div>
-                    <div class="article-content">
-                        <span class="article-category">Engineering</span>
-                        <h3 class="article-title">Renewable Energy Solutions</h3>
-                        <p class="article-excerpt">How student engineers are contributing to sustainable energy innovations in their communities...</p>
-                        <div class="article-meta">
-                            <span>Aiden Patel</span>
-                            <span>7 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card">
-                    <div class="article-image">🔬</div>
-                    <div class="article-content">
-                        <span class="article-category">Chemistry</span>
-                        <h3 class="article-title">Nanomaterials & Their Applications</h3>
-                        <p class="article-excerpt">Diving into the microscopic world where chemistry meets nanotechnology...</p>
-                        <div class="article-meta">
-                            <span>Olivia Kim</span>
-                            <span>6 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-card">
-                    <div class="article-image">📊</div>
-                    <div class="article-content">
-                        <span class="article-category">Mathematics</span>
-                        <h3 class="article-title">Cryptography: Math Protecting Privacy</h3>
-                        <p class="article-excerpt">How mathematical principles safeguard our digital communications every day...</p>
-                        <div class="article-meta">
-                            <span>Jake Williams</span>
-                            <span>5 min read</span>
-                        </div>
-                    </div>
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-image">🔬</div>
+                <div class="article-content">
+                    <span class="article-category">Biology</span>
+                    <h3 class="article-title">The Future of Synthetic Organs</h3>
+                    <p>How 3D bioprinting is changing the landscape of modern transplant surgery...</p>
                 </div>
             </div>
-        </div>
-
-        <div class="stats">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>500+</h3>
-                    <p>Student Contributors</p>
-                </div>
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>Schools Worldwide</p>
-                </div>
-                <div class="stat-item">
-                    <h3>200+</h3>
-                    <p>Published Articles</p>
-                </div>
-                <div class="stat-item">
-                    <h3>15</h3>
-                    <p>Issues Released</p>
+            <div class="article-card">
+                <div class="article-image">💻</div>
+                <div class="article-content">
+                    <span class="article-category">Technology</span>
+                    <h3 class="article-title">Quantum Computing 101</h3>
+                    <p>Breaking down qubits and superposition for the modern high school student...</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="about" class="page">
-        <div class="container">
-            <div class="about-content">
-                <h2>About The Centrifuge</h2>
-                <p>The Centrifuge is a student-run STEM magazine that focuses on bringing clarity to complex scientific ideas. Just as a centrifuge separates the essential components of a mixture, we help high school students distill complex concepts, frame their discoveries, and share their unique perspectives on science, technology, engineering, and mathematics.</p>
-
-                <div class="mission-box">
-                    <h3>Our Mission</h3>
-                    <p>To create a platform where high school students can share their research, insights, and passion for STEM with peers around the world. We aim to foster a community of young scientists and innovators who support and inspire each other.</p>
-                </div>
-
-                <h2>What We Publish</h2>
-                <p>We feature a wide range of content, including:</p>
-                <ul>
-                    <li>
-                        <strong>Technical Tutorials</strong> - How-to guides and coding projects
-                    </li>
-                    <li>
-                        <strong>Opinion Pieces</strong> - Perspectives on scientific developments
-                    </li>
-                    <li>
-                        <strong>Interviews</strong> - Conversations with student researchers and professionals
-                    </li>
-                </ul>
-
-                <h2>Why The Centrifuge?</h2>
-                <p>In science, a centrifuge clarifies the opaque by separating the noise from the essential elements. High school students bring fresh eyes to STEM, seeing details others might miss and asking questions that challenge conventions. The Centrifuge gives those perspectives a platform, bringing student discoveries to the forefront.</p>
-
-                <p style="margin-top: 3rem; font-size: 1.2rem; color: var(--dark); font-family: 'Outfit', sans-serif; font-weight: 700;">Join us in celebrating student innovation and building the next generation of STEM leaders.</p>
-
-                <button class="meet-team-btn" onclick="showPage('team')">Meet the Team <span>&rarr;</span></button>
-            </div>
+<div id="about" class="page">
+    <div class="container">
+        <div class="section-heading">
+            <h2>About Us</h2>
+        </div>
+        <p>The Centrifuge is a student-led publication dedicated to making complex STEM topics accessible and engaging for everyone.</p>
+        <div class="mission-box">
+            <h3>Our Mission</h3>
+            <p>To foster a community of young scientific thinkers and provide a professional platform for student research and technical writing.</p>
         </div>
     </div>
+</div>
 
-    <div id="team" class="page">
-        <div class="team-hero">
-            <a class="team-back-link" onclick="showPage('about')">&larr; Back to About</a>
-            <h1>Our Team</h1>
-            <p>The students behind The Centrifuge, working to bring STEM stories to life</p>
+<div id="submit" class="page">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Submit Your Article</h2>
+            <p>Join our next issue. We accept research papers, op-eds, and reviews.</p>
         </div>
-
-        <div class="container">
-            <div class="team-section-label">The Team</div>
-            <div class="team-grid">
-
-                <div class="team-card" onclick="openTeamModal(0)">
-                    <div class="team-avatar avatar-gradient-1">
-                        F L
-                    </div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(1)">
-                    <div class="team-avatar avatar-gradient-2">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(2)">
-                    <div class="team-avatar avatar-gradient-3">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(3)">
-                    <div class="team-avatar avatar-gradient-4">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(4)">
-                    <div class="team-avatar avatar-gradient-5">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(5)">
-                    <div class="team-avatar avatar-gradient-6">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(6)">
-                    <div class="team-avatar avatar-gradient-1">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(7)">
-                    <div class="team-avatar avatar-gradient-2">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(8)">
-                    <div class="team-avatar avatar-gradient-3">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
+        <form class="submit-form">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Your name">
             </div>
-        </div>
+            <div class="form-group">
+                <label>STEM Category</label>
+                <select>
+                    <option>Biology</option>
+                    <option>Physics/Chemistry</option>
+                    <option>Mathematics</option>
+                    <option>Computer Science</option>
+                    <option>Engineering</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Article Pitch</label>
+                <textarea placeholder="Tell us about your article..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Submission</button>
+        </form>
     </div>
+</div>
 
-    <div class="team-modal-overlay" id="teamModal" onclick="closeTeamModal(event)">
-        <div class="team-modal">
-            <button class="team-modal-close" onclick="closeTeamModal(event, true)">&times;</button>
-            <div class="team-modal-avatar" id="modalAvatar"></div>
-            <h2 class="team-modal-name" id="modalName"></h2>
-            <div class="team-modal-grade" id="modalGrade"></div>
-            <div class="team-modal-divider"></div>
-            <p class="team-modal-bio" id="modalBio"></p>
-            <div class="team-modal-links" id="modalLinks"></div>
-        </div>
-    </div>
+<div id="issues" class="page"><div class="container"><h2>Browse Issues</h2><p>Coming soon...</p></div></div>
+<div id="contact" class="page"><div class="container"><h2>Contact Us</h2><p>Email: editors@thecentrifuge.edu</p></div></div>
 
-    <div id="issues" class="page">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Browse Past Issues</h2>
-                <p>Explore our collection of published magazines</p>
-            </div>
+<footer>
+    <p>&copy; 2026 The Centrifuge STEM Magazine. All rights reserved.</p>
+</footer>
 
-            <div class="issues-grid">
-                <div class="issue-card">
-                    <div class="issue-cover">
-                        <h3>Issue #15</h3>
-                        <p>Winter 2025</p>
-                        <div>Climate Tech Special</div>
-                    </div>
-                    <div class="issue-info">
-                        <p>12 articles exploring sustainable innovations and environmental science</p>
-                    </div>
-                </div>
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+</script>
 
-                <div class="issue-card">
-                    <div class="issue-cover">
-                        <h3>Issue #14</h3>
-                        <p>Fall 2024</p>
-                        <div>AI & Ethics</div>
-                    </div>
-                    <div class="issue-info">
-                        <p>Exploring the intersection of artificial intelligence and ethical considerations</p>
-                    </div>
-                </div>
-
-                <div class="issue-card">
-                    <div class="issue-cover">
-                        <h3>Issue #13</h3>
-                        <p>Summer 2024</p>
-                        <div>Space Exploration</div>
-                    </div>
-                    <div class="issue-info">
-                        <p>Student perspectives on the final frontier and space technology</p>
-                    </div>
-                </div>
-
-                <div class="issue-card">
-                    <div class="issue-cover">
-                        <h3>Issue #12</h3>
-                        <p>Spring 2024</p>
-                        <div>Biotech Revolution</div>
-                    </div>
-                    <div class="issue-info">
-                        <p>Cutting-edge developments in biotechnology and genetic engineering</p>
-                    </div>
-                </div>
-
-                <div class="issue-card">
-                    <div class="issue-cover">
-                        <h3>Issue #11</h3>
-                        <p>Winter 2024</p>
-                        <div>Quantum Computing</div>
-                    </div>
-                    <div class="issue-info">
-                        <p>Breaking down quantum mechanics and its computing applications</p>
-                    </div>
-                </div>
-
-                <div class="issue-card">
-                    <div class="issue-cover">
-                        <h3>Issue #10</h3>
-                        <p>Fall 2023</p>
-                        <div>Materials Science</div>
-                    </div>
-                    <div class="issue-info">
-                        <p>Innovative materials shaping the future of technology</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="submit" class="page">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Submit Your Work</h2>
-                <p>Share your STEM insights with high schoolers worldwide</p>
-            </div>
-
-            <form class="submit-form" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="school">School Name *</label>
-                    <input type="text" id="school" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="grade">Grade Level *</label>
-                    <select id="grade" required>
-                        <option value="">Select grade...</option>
-                        <option value="9">9th Grade</option>
-                        <option value="10">10th Grade</option>
-                        <option value="11">11th Grade</option>
-                        <option value="12">12th Grade</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Article Category *</label>
-                    <select id="category" required>
-                        <option value="">Select category...</option>
-                        <option value="biology">Biology</option>
-                        <option value="chemistry">Chemistry</option>
-                        <option value="physics">Physics</option>
-                        <option value="computer-science">Computer Science</option>
-                        <option value="engineering">Engineering</option>
-                        <option value="mathematics">Mathematics</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="title">Article Title *</label>
-                    <input type="text" id="title" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="abstract">Abstract/Summary (250 words max) *</label>
-                    <textarea id="abstract" required placeholder="Provide a brief summary of your article..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Additional Information</label>
-                    <textarea id="message" placeholder="Any additional details, questions, or comments..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-button">Submit Article</button>
-                <p style="text-align: center; margin-top: 1.5rem; color: var(--gray); font-family: 'Lora', serif; font-size: 0.95rem;">
-                    We'll review your submission and get back to you within 2 weeks
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <div id="subscribe" class="page">
-        <div class="hero" style="padding: 8rem 2rem 6rem;">
-            <div class="hero-content">
-                <h1 style="font-size: 3.5rem;">Never Miss an Issue</h1>
-                <p>Get the latest student research, insights, and discoveries delivered straight to your inbox every month. Completely free.</p>
-            </div>
-        </div>
-
-        <div class="container" style="padding-top: 3rem;">
-            <div style="max-width: 700px; margin: 0 auto;">
-                
-                <div style="background: var(--dark); color: white; padding: 4rem 3rem; margin-bottom: 4rem; border-left: 4px solid var(--primary);">
-                    <h3 style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">What You'll Get</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; padding-left: 2rem; position: relative; line-height: 1.7;">
-                            <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Monthly digital magazine with the latest student research and articles
-                        </li>
-                        <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; padding-left: 2rem; position: relative; line-height: 1.7;">
-                            <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Access to our complete archive of past issues
-                        </li>
-                        <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; padding-left: 2rem; position: relative; line-height: 1.7;">
-                            <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Behind-the-scenes updates from our editorial team
-                        </li>
-                        <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; padding-left: 2rem; position: relative; line-height: 1.7;">
-                            <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Early notifications about submission deadlines and opportunities
-                        </li>
-                        <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 0; padding-left: 2rem; position: relative; line-height: 1.7;">
-                            <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Join our community Discord server
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="section-heading">
-                    <h2>Subscribe for Free</h2>
-                    <p>Join thousands of students staying curious</p>
-                </div>
-
-                <form class="submit-form" onsubmit="handleSubscribe(event)">
-                    <div class="form-group">
-                        <label for="sub-name">Full Name *</label>
-                        <input type="text" id="sub-name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sub-email">Email Address *</label>
-                        <input type="email" id="sub-email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sub-school">School/Institution (Optional)</label>
-                        <input type="text" id="sub-school">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sub-interests">What STEM topics interest you most? (Optional)</label>
-                        <textarea id="sub-interests" placeholder="Biology, computer science, physics, engineering, mathematics, etc." rows="3"></textarea>
-                    </div>
-
-                    <div class="form-group" style="margin-top: 2rem;">
-                        <label style="display: flex; align-items: flex-start; text-transform: none; letter-spacing: normal; font-size: 1rem; cursor: pointer;">
-                            <input type="checkbox" required style="width: auto; margin-right: 0.8rem; margin-top: 0.2rem; flex-shrink: 0;">
-                            <span style="font-family: 'Lora', serif; font-weight: 400;">I agree to receive monthly issues and occasional updates from The Centrifuge Magazine. You can unsubscribe at any time.</span>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="submit-button">Subscribe Now</button>
-                    <p style="text-align: center; margin-top: 1.5rem; color: var(--gray); font-family: 'Lora', serif; font-size: 0.95rem;">
-                        We respect your privacy. No spam, ever. Unsubscribe anytime.
-                    </p>
-                </form>
-
-                <div style="margin-top: 6rem; padding: 4rem 3rem; background: white; border: 1px solid rgba(0, 0, 0, 0.08);">
-                    <h3 style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem; color: var(--dark); text-align: center;">Why We're Free</h3>
-                    <p style="font-family: 'Lora', serif; color: var(--text); line-height: 1.8; font-size: 1.1rem; margin-bottom: 1.5rem;">
-                        We believe knowledge should be accessible to everyone. The Centrifuge is run by students, for students, and we're committed to keeping our content free forever.
-                    </p>
-                    <p style="font-family: 'Lora', serif; color: var(--text); line-height: 1.8; font-size: 1.1rem;">
-                        Our mission is to amplify student voices in STEM, not to put them behind paywalls. By subscribing, you're joining a community that believes in open access to student research and scientific curiosity.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="contact" class="page">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Get In Touch</h2>
-                <p>Questions, suggestions, or just want to say hi? We'd love to hear from you!</p>
-            </div>
-
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <h3>Email Us</h3>
-                            <p>editors@The Centrifugemag.org</p>
-                            <p>submit@The Centrifugemag.org</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">🌐</div>
-                        <div class="contact-details">
-                            <h3>Follow Us</h3>
-                            <p>@The Centrifugemag on Instagram</p>
-                            <p>@The Centrifugemag on Twitter</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">💬</div>
-                        <div class="contact-details">
-                            <h3>Join Our Community</h3>
-                            <p>Discord: The Centrifugemag.gg</p>
-                            <p>Connect with fellow student scientists</p>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="submit-form" onsubmit="handleContactSubmit(event)">
-                    <div class="form-group">
-                        <label for="contact-name">Name</label>
-                        <input type="text" id="contact-name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact-email">Email</label>
-                        <input type="email" id="contact-email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact-subject">Subject</label>
-                        <input type="text" id="contact-subject" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact-message">Message</label>
-                        <textarea id="contact-message" required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>The Centrifuge</h3>
-                <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
-                    Bringing student perspectives on STEM into focus. By high schoolers, for high schoolers.
-                </p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a onclick="showPage('home')">Home</a>
-                <a onclick="showPage('about')">About Us</a>
-                <a onclick="showPage('issues')">Browse Issues</a>
-                <a onclick="showPage('submit')">Submit Article</a>
-                <a onclick="showPage('subscribe')">Subscribe</a>
-            </div>
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <a href="#">Submission Guidelines</a>
-                <a href="#">Style Guide</a>
-                <a href="#">FAQ</a>
-                <a href="#">Editorial Team</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-                <a href="#">Discord</a>
-                <a href="#">Newsletter</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 The Centrifuge Magazine. Made by students, for students. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your submission! We\'ll review your article and get back to you soon.');
-            event.target.reset();
-        }
-
-        function handleContactSubmit(event) {
-            event.preventDefault();
-            alert('Thanks for reaching out! We\'ll get back to you as soon as possible.');
-            event.target.reset();
-        }
-
-        function handleSubscribe(event) {
-            event.preventDefault();
-            alert('Thank you for subscribing to The Centrifuge! Check your email for confirmation.');
-            event.target.reset();
-        }
-
-        // ── Team member data (fill in your details here) ──
-        const teamMembers = [
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-1',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-2',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-3',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-4',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-5',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-6',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-1',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-2',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-3',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            }
-        ];
-
-        // ── Team modal logic ──
-        function openTeamModal(index) {
-            const member = teamMembers[index];
-            if (!member) return;
-
-            const overlay = document.getElementById('teamModal');
-            const avatar = document.getElementById('modalAvatar');
-            const name = document.getElementById('modalName');
-            const grade = document.getElementById('modalGrade');
-            const bio = document.getElementById('modalBio');
-            const links = document.getElementById('modalLinks');
-
-            // Set avatar
-            avatar.className = 'team-modal-avatar ' + member.gradient;
-            avatar.innerHTML = member.initials;
-
-            name.textContent = member.name;
-            grade.textContent = member.grade;
-            bio.textContent = member.bio;
-
-            // Build links
-            let linksHTML = '';
-            if (member.email) {
-                linksHTML += '<a href="mailto:' + member.email + '" class="team-modal-link">&#9993; Email</a>';
-            }
-            if (member.linkedin) {
-                linksHTML += '<a href="' + member.linkedin + '" target="_blank" rel="noopener" class="team-modal-link">in LinkedIn</a>';
-            }
-            links.innerHTML = linksHTML;
-
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeTeamModal(e, force) {
-            const overlay = document.getElementById('teamModal');
-            if (force || e.target === overlay) {
-                overlay.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeTeamModal(null, true);
-            }
-        });
-
-        // Staggered entrance animation for team cards
-        function animateTeamCards() {
-            const cards = document.querySelectorAll('#team .team-card');
-            cards.forEach((card, i) => {
-                card.classList.remove('visible');
-                setTimeout(() => {
-                    card.classList.add('visible');
-                }, 100 * i + 150);
-            });
-        }
-
-        // Patch showPage to trigger team animations
-        const _originalShowPage = showPage;
-        showPage = function(pageId) {
-            _originalShowPage(pageId);
-            if (pageId === 'team') {
-                animateTeamCards();
-            }
-        };
-
-        // Smooth scroll for CTA button
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctaButton = document.querySelector('.cta-button');
-            if (ctaButton) {
-                ctaButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showPage('submit');
-                });
-            }
-        });
-    </script>
 </body>
 </html>
-
-
