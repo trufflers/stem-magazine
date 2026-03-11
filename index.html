@@ -211,7 +211,7 @@
             overflow: hidden;
         }
 
-        /* The Centrifuge SVG Background */
+        /* Centrifuge SVG Background */
         .hero::before {
             content: '';
             position: absolute;
@@ -264,12 +264,12 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(93, 93, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(97, 103, 203, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(93, 93, 255, 0.4);
+            box-shadow: 0 15px 50px rgba(97, 103, 203, 0.4);
         }
 
         /* Container */
@@ -293,6 +293,7 @@
             overflow: hidden;
             transition: all 0.4s ease;
             cursor: pointer;
+            border-radius: 8px;
         }
 
         .article-card:hover {
@@ -576,6 +577,25 @@
             line-height: 1.8;
         }
 
+        .about-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 2rem 0;
+        }
+
+        .about-content ul li {
+            padding: 1.5rem;
+            background: white;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        .about-content ul li strong {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
         /* Issues Grid */
         .issues-grid {
             display: grid;
@@ -588,6 +608,7 @@
             overflow: hidden;
             border: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.4s ease;
+            border-radius: 8px;
         }
 
         .issue-card:hover {
@@ -708,20 +729,16 @@
 
         .submit-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(93, 93, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(97, 103, 203, 0.3);
         }
 
         /* Contact Page */
         .contact-grid {
             display: grid;
-            grid-template-columns: 350 px 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 5rem;
             max-width: 1200px;
             margin: 0 auto;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
         }
 
         .contact-info {
@@ -770,25 +787,12 @@
             overflow: hidden;
         }
 
-        .team-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(97, 103, 203, 0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 50%, rgba(97, 103, 203, 0.1) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
         .team-hero h1 {
             font-family: 'Outfit', sans-serif;
             font-size: clamp(2rem, 7vw, 3.8rem);
             font-weight: 800;
             letter-spacing: -0.03em;
             margin-bottom: 1rem;
-            position: relative;
         }
 
         .team-hero p {
@@ -798,7 +802,6 @@
             max-width: 550px;
             margin: 0 auto;
             line-height: 1.7;
-            position: relative;
         }
 
         .team-back-link {
@@ -815,22 +818,10 @@
             cursor: pointer;
             transition: color 0.3s;
             margin-bottom: 2rem;
-            position: relative;
         }
 
         .team-back-link:hover {
             color: var(--primary);
-        }
-
-        .team-section-label {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-align: center;
         }
 
         .team-grid {
@@ -846,38 +837,13 @@
             border: 1px solid rgba(0, 0, 0, 0.06);
             padding: 2.5rem 2rem;
             text-align: center;
-            transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .team-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), #8b8fff);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.45s ease;
+            cursor: pointer;
         }
 
         .team-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-card:hover::before {
-            transform: scaleX(1);
         }
 
         .team-avatar {
@@ -892,19 +858,6 @@
             font-weight: 800;
             font-size: 2rem;
             color: white;
-            position: relative;
-            transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .team-card:hover .team-avatar {
-            transform: scale(1.05);
-        }
-
-        .team-avatar img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
         }
 
         .avatar-gradient-1 { background: linear-gradient(135deg, #6167cb, #8b8fff); }
@@ -920,7 +873,6 @@
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 0.4rem;
-            letter-spacing: -0.01em;
         }
 
         .team-grade {
@@ -948,7 +900,32 @@
             color: var(--primary);
         }
 
-        /* Team Modal Overlay */
+        .meet-team-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--dark);
+            color: white;
+            padding: 1.1rem 2.5rem;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            border: none;
+            margin-top: 1rem;
+        }
+
+        .meet-team-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
+        }
+
+        /* Team Modal */
         .team-modal-overlay {
             position: fixed;
             top: 0;
@@ -980,12 +957,6 @@
             overflow-y: auto;
             padding: 3.5rem;
             position: relative;
-            transform: translateY(30px) scale(0.97);
-            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .team-modal-overlay.open .team-modal {
-            transform: translateY(0) scale(1);
         }
 
         .team-modal-close {
@@ -1003,7 +974,6 @@
             font-size: 1.2rem;
             color: var(--gray);
             transition: all 0.25s;
-            font-family: 'Outfit', sans-serif;
         }
 
         .team-modal-close:hover {
@@ -1025,13 +995,6 @@
             color: white;
         }
 
-        .team-modal-avatar img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
         .team-modal-name {
             font-family: 'Outfit', sans-serif;
             font-size: 1.8rem;
@@ -1039,7 +1002,6 @@
             color: var(--dark);
             text-align: center;
             margin-bottom: 0.3rem;
-            letter-spacing: -0.02em;
         }
 
         .team-modal-grade {
@@ -1051,13 +1013,6 @@
             color: var(--gray);
             text-align: center;
             margin-bottom: 2rem;
-        }
-
-        .team-modal-divider {
-            width: 40px;
-            height: 2px;
-            background: var(--primary);
-            margin: 0 auto 2rem;
         }
 
         .team-modal-bio {
@@ -1098,270 +1053,64 @@
             border-color: var(--dark);
         }
 
-
-        .meet-team-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
+        /* Footer */
+        footer {
             background: var(--dark);
             color: white;
-            padding: 1.1rem 2.5rem;
-            border-radius: 0;
-            text-decoration: none;
+            padding: 4rem 2rem 2rem;
+            margin-top: 8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            cursor: pointer;
-            transition: all 0.35s ease;
-            border: none;
-            margin-top: 1rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
         }
 
-        .meet-team-btn:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
-        }
-
-        .meet-team-btn span {
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-
-        .meet-team-btn:hover span {
-            transform: translateX(4px);
-        }
-
-        /* Active Nav Link */
-        .nav-links a.active {
-            color: var(--primary);
-            position: relative;
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--primary);
-        }
-
-        /* Nav Link Hover Microanimation — sliding underline */
-        .nav-links a {
-            position: relative;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        .nav-links a.active::before {
-            display: none;
-        }
-
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary), #8b8fff);
-            z-index: 1001;
-            transition: width 0.1s linear;
-        }
-
-        /* Hero Gradient Accent */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(97, 103, 203, 0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 50%, rgba(97, 103, 203, 0.1) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        /* Card Border Radius */
-        .article-card,
-        .issue-card {
-            border-radius: 8px;
-        }
-
-        .article-image:first-child {
-            border-radius: 8px 8px 0 0;
-        }
-
-        .issue-cover {
-            border-radius: 8px 8px 0 0;
-        }
-
-        /* Noise Texture Overlay for Dark Sections */
-        .hero,
-        .stats,
-        .team-hero {
-            position: relative;
-        }
-
-        .noise-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.04;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 256px 256px;
-            z-index: 0;
-        }
-
-        /* Form Success State */
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 3rem 2rem;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .form-success.show {
-            display: block;
-        }
-
-        .form-success-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
-            animation: scaleIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        @keyframes scaleIn {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
-        }
-
-        .form-success h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.8rem;
-        }
-
-        .form-success p {
+        .footer-section p {
             font-family: 'Lora', serif;
-            color: var(--gray);
             line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Dark Mode Variables */
-        body.dark-mode {
-            --dark: #F5F5F5;
-            --text: #E0E0E0;
-            --gray: #A0A0A0;
-            --light: #1A1A1A;
-            --paper: #121212;
+        .footer-section a {
+            display: block;
+            font-family: 'Lora', serif;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+            cursor: pointer;
         }
 
-        body.dark-mode nav {
-            background: rgba(18, 18, 18, 0.98);
-            border-bottom-color: rgba(255,255,255,0.06);
+        .footer-section a:hover {
+            color: var(--primary);
         }
 
-        body.dark-mode .hamburger span {
-            background: #E0E0E0;
-        }
-
-        body.dark-mode .article-card,
-        body.dark-mode .issue-card,
-        body.dark-mode .submit-form,
-        body.dark-mode .about-content ul li {
-            background: #1A1A1A;
-            border-color: rgba(255,255,255,0.06);
-        }
-
-        body.dark-mode .hero,
-        body.dark-mode .stats,
-        body.dark-mode .team-hero,
-        body.dark-mode .mission-box,
-        body.dark-mode .contact-icon {
-            background: #0A0A0A;
-        }
-
-        body.dark-mode footer {
-            background: #0A0A0A;
-        }
-
-        body.dark-mode .issue-cover {
-            background: #0A0A0A;
-        }
-
-        body.dark-mode .issue-info {
-            background: #1A1A1A;
-        }
-
-        body.dark-mode .team-card {
-            background: #1A1A1A;
-            border-color: rgba(255,255,255,0.06);
-        }
-
-        body.dark-mode .team-modal {
-            background: #1A1A1A;
-        }
-
-        body.dark-mode .form-group input,
-        body.dark-mode .form-group textarea,
-        body.dark-mode .form-group select {
-            background: #1A1A1A;
-            border-color: rgba(255,255,255,0.12);
-            color: #E0E0E0;
-        }
-        /* Issue Cover SVG Art */
-        .issue-cover {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .issue-cover-art {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.06;
-            pointer-events: none;
-        }
-
-        .issue-cover > * {
-            position: relative;
-            z-index: 1;
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.5);
         }
 
         /* Responsive */
@@ -1380,7 +1129,6 @@
 
             .team-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .team-modal {
@@ -1394,33 +1142,27 @@
     <nav>
         <div class="nav-container">
             <div class="logo">The Centrifuge</div>
-            <div class="nav-right">
-                <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+                <span></span><span></span><span></span>
+            </button>
             <ul class="nav-links" id="navLinks">
-                <li><a onclick="showPage('home')" data-page="home">Home</a></li>
-                <li><a onclick="showPage('about')" data-page="about">About</a></li>
-                <li><a onclick="showPage('issues')" data-page="issues">Browse Issues</a></li>
-                <li><a onclick="showPage('submit')" data-page="submit">Submit</a></li>
-                <li><a onclick="showPage('subscribe')" data-page="subscribe">Subscribe</a></li>
-                <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('about')">About</a></li>
+                <li><a onclick="showPage('issues')">Browse Issues</a></li>
+                <li><a onclick="showPage('submit')">Submit</a></li>
+                <li><a onclick="showPage('subscribe')">Subscribe</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
             </ul>
             <div class="nav-overlay" id="navOverlay" onclick="toggleMobileNav()"></div>
         </div>
     </nav>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
     <!-- Home Page -->
     <div id="home" class="page active">
         <div class="hero">
-            <div class="noise-overlay"></div>
             <div class="hero-content">
                 <h1>The Centrifuge</h1>
-                <p>A high school magazine exploring science, technology, engineering, and mathematics through the lens of student discovery</p>
+                <p>Separating signal from noise in student STEM research. A high school magazine exploring science, technology, engineering, and mathematics.</p>
                 <a href="#" class="cta-button" onclick="showPage('submit')">Submit Your Work</a>
             </div>
         </div>
@@ -1434,7 +1176,7 @@
             <div class="articles-grid">
                 <div class="article-card">
                     <div class="article-image grad-bio">
-                        <span class="card-icon">&#x1F9EC;</span>
+                        <span class="card-icon">🧬</span>
                         <span class="card-label">Biology</span>
                     </div>
                     <div class="article-content">
@@ -1450,7 +1192,7 @@
 
                 <div class="article-card">
                     <div class="article-image grad-cs">
-                        <span class="card-icon">&#x1F916;</span>
+                        <span class="card-icon">🤖</span>
                         <span class="card-label">Computer Science</span>
                     </div>
                     <div class="article-content">
@@ -1466,7 +1208,7 @@
 
                 <div class="article-card">
                     <div class="article-image grad-phys">
-                        <span class="card-icon">&#x1F680;</span>
+                        <span class="card-icon">🚀</span>
                         <span class="card-label">Physics</span>
                     </div>
                     <div class="article-content">
@@ -1482,7 +1224,7 @@
 
                 <div class="article-card">
                     <div class="article-image grad-eng">
-                        <span class="card-icon">&#x26A1;</span>
+                        <span class="card-icon">⚡</span>
                         <span class="card-label">Engineering</span>
                     </div>
                     <div class="article-content">
@@ -1498,7 +1240,7 @@
 
                 <div class="article-card">
                     <div class="article-image grad-chem">
-                        <span class="card-icon">&#x1F52C;</span>
+                        <span class="card-icon">🔬</span>
                         <span class="card-label">Chemistry</span>
                     </div>
                     <div class="article-content">
@@ -1514,7 +1256,7 @@
 
                 <div class="article-card">
                     <div class="article-image grad-math">
-                        <span class="card-icon">&#x1F4CA;</span>
+                        <span class="card-icon">📊</span>
                         <span class="card-label">Mathematics</span>
                     </div>
                     <div class="article-content">
@@ -1531,7 +1273,6 @@
         </div>
 
         <div class="stats">
-            <div class="noise-overlay"></div>
             <div class="stats-grid">
                 <div class="stat-item">
                     <h3>500+</h3>
@@ -1552,139 +1293,111 @@
             </div>
         </div>
     </div>
+
     <!-- About Page -->
     <div id="about" class="page">
         <div class="container">
             <div class="about-content">
                 <h2>About The Centrifuge</h2>
-                <p>The Centrifuge is a student-run STEM magazine that focuses on bringing clarity to complex scientific ideas. Just as a centrifuge separates the essential components of a mixture, we help high school students distill complex concepts, frame their discoveries, and share their unique perspectives on science, technology, engineering, and mathematics.</p>
+                <p>The Centrifuge is a student-run STEM magazine that separates signal from noise in scientific research. Just as a laboratory centrifuge isolates essential components from complex mixtures, we help high school students distill breakthrough ideas, clarify dense concepts, and share their discoveries with peers worldwide.</p>
 
                 <div class="mission-box">
                     <h3>Our Mission</h3>
-                    <p>To create a platform where high school students can share their research, insights, and passion for STEM with peers around the world. We aim to foster a community of young scientists and innovators who support and inspire each other.</p>
+                    <p>To create a platform where high school students can publish rigorous research, technical insights, and innovative perspectives on STEM. We foster a community of young scientists and engineers who challenge each other, collaborate openly, and push the boundaries of student-led inquiry.</p>
                 </div>
 
                 <h2>What We Publish</h2>
-                <p>We feature a wide range of content, including:</p>
+                <p>We feature content that represents the full spectrum of student STEM work:</p>
                 <ul>
-                    <li>
-                        <strong>Technical Tutorials</strong> - How-to guides and coding projects
-                    </li>
-                    <li>
-                        <strong>Opinion Pieces</strong> - Perspectives on scientific developments
-                    </li>
-                    <li>
-                        <strong>Interviews</strong> - Conversations with student researchers and professionals
-                    </li>
+                    <li><strong>Original Research</strong> - Student-led experiments, data analysis, and findings</li>
+                    <li><strong>Technical Tutorials</strong> - Step-by-step guides, coding projects, and methodology breakdowns</li>
+                    <li><strong>Opinion & Analysis</strong> - Critical perspectives on emerging technologies and scientific developments</li>
+                    <li><strong>Interviews</strong> - Conversations with student researchers, professors, and industry professionals</li>
                 </ul>
 
                 <h2>Why The Centrifuge?</h2>
-                <p>In science, a centrifuge clarifies the opaque by separating the noise from the essential elements. High school students bring fresh eyes to STEM, seeing details others might miss and asking questions that challenge conventions. The Centrifuge gives those perspectives a platform, bringing student discoveries to the forefront.</p>
+                <p>In every lab, a centrifuge clarifies what's opaque by spinning away the noise. High school students approach STEM with fresh perspectives, spotting patterns others miss and asking uncomfortable questions. The Centrifuge amplifies these voices, bringing student-driven discoveries into sharp focus and proving that groundbreaking work doesn't wait for college.</p>
 
                 <p style="margin-top: 3rem; font-size: 1.2rem; color: var(--dark); font-family: 'Outfit', sans-serif; font-weight: 700;">Join us in celebrating student innovation and building the next generation of STEM leaders.</p>
 
-                <button class="meet-team-btn" onclick="showPage('team')">Meet the Team <span>&rarr;</span></button>
+                <button class="meet-team-btn" onclick="showPage('team')">Meet the Team <span>→</span></button>
             </div>
         </div>
     </div>
 
+    <!-- Team Page -->
     <div id="team" class="page">
         <div class="team-hero">
-            <a class="team-back-link" onclick="showPage('about')">&larr; Back to About</a>
+            <a class="team-back-link" onclick="showPage('about')">← Back to About</a>
             <h1>Our Team</h1>
-            <p>The students behind The Centrifuge, working to bring STEM stories to life</p>
+            <p>The students behind The Centrifuge, working to elevate peer research</p>
         </div>
 
         <div class="container">
-            <div class="team-section-label">The Team</div>
             <div class="team-grid">
-
                 <div class="team-card" onclick="openTeamModal(0)">
-                    <div class="team-avatar avatar-gradient-1">
-                        F L
-                    </div>
+                    <div class="team-avatar avatar-gradient-1">FL</div>
                     <h3 class="team-name">First Last</h3>
                     <div class="team-grade">Grade</div>
                     <div class="team-card-hint">Click to learn more</div>
                 </div>
 
                 <div class="team-card" onclick="openTeamModal(1)">
-                    <div class="team-avatar avatar-gradient-2">F L</div>
+                    <div class="team-avatar avatar-gradient-2">FL</div>
                     <h3 class="team-name">First Last</h3>
                     <div class="team-grade">Grade</div>
                     <div class="team-card-hint">Click to learn more</div>
                 </div>
 
                 <div class="team-card" onclick="openTeamModal(2)">
-                    <div class="team-avatar avatar-gradient-3">F L</div>
+                    <div class="team-avatar avatar-gradient-3">FL</div>
                     <h3 class="team-name">First Last</h3>
                     <div class="team-grade">Grade</div>
                     <div class="team-card-hint">Click to learn more</div>
                 </div>
 
                 <div class="team-card" onclick="openTeamModal(3)">
-                    <div class="team-avatar avatar-gradient-4">F L</div>
+                    <div class="team-avatar avatar-gradient-4">FL</div>
                     <h3 class="team-name">First Last</h3>
                     <div class="team-grade">Grade</div>
                     <div class="team-card-hint">Click to learn more</div>
                 </div>
 
                 <div class="team-card" onclick="openTeamModal(4)">
-                    <div class="team-avatar avatar-gradient-5">F L</div>
+                    <div class="team-avatar avatar-gradient-5">FL</div>
                     <h3 class="team-name">First Last</h3>
                     <div class="team-grade">Grade</div>
                     <div class="team-card-hint">Click to learn more</div>
                 </div>
 
                 <div class="team-card" onclick="openTeamModal(5)">
-                    <div class="team-avatar avatar-gradient-6">F L</div>
+                    <div class="team-avatar avatar-gradient-6">FL</div>
                     <h3 class="team-name">First Last</h3>
                     <div class="team-grade">Grade</div>
                     <div class="team-card-hint">Click to learn more</div>
                 </div>
-
-                <div class="team-card" onclick="openTeamModal(6)">
-                    <div class="team-avatar avatar-gradient-1">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(7)">
-                    <div class="team-avatar avatar-gradient-2">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
-                <div class="team-card" onclick="openTeamModal(8)">
-                    <div class="team-avatar avatar-gradient-3">F L</div>
-                    <h3 class="team-name">First Last</h3>
-                    <div class="team-grade">Grade</div>
-                    <div class="team-card-hint">Click to learn more</div>
-                </div>
-
             </div>
         </div>
     </div>
 
+    <!-- Team Modal -->
     <div class="team-modal-overlay" id="teamModal" onclick="closeTeamModal(event)">
         <div class="team-modal">
-            <button class="team-modal-close" onclick="closeTeamModal(event, true)">&times;</button>
+            <button class="team-modal-close" onclick="closeTeamModal(event, true)">×</button>
             <div class="team-modal-avatar" id="modalAvatar"></div>
             <h2 class="team-modal-name" id="modalName"></h2>
             <div class="team-modal-grade" id="modalGrade"></div>
-            <div class="team-modal-divider"></div>
             <p class="team-modal-bio" id="modalBio"></p>
             <div class="team-modal-links" id="modalLinks"></div>
         </div>
     </div>
 
+    <!-- Issues Page -->
     <div id="issues" class="page">
         <div class="container">
             <div class="section-heading">
                 <h2>Browse Past Issues</h2>
-                <p>Explore our collection of published magazines</p>
+                <p>Explore our archive of published research and articles</p>
             </div>
 
             <div class="issues-grid">
@@ -1695,7 +1408,7 @@
                         <div>Climate Tech Special</div>
                     </div>
                     <div class="issue-info">
-                        <p>12 articles exploring sustainable innovations and environmental science</p>
+                        <p>12 articles exploring sustainable innovations and environmental science breakthroughs</p>
                     </div>
                 </div>
 
@@ -1706,7 +1419,7 @@
                         <div>AI & Ethics</div>
                     </div>
                     <div class="issue-info">
-                        <p>Exploring the intersection of artificial intelligence and ethical considerations</p>
+                        <p>Student perspectives on artificial intelligence, machine learning, and ethical frameworks</p>
                     </div>
                 </div>
 
@@ -1717,7 +1430,7 @@
                         <div>Space Exploration</div>
                     </div>
                     <div class="issue-info">
-                        <p>Student perspectives on the final frontier and space technology</p>
+                        <p>The next frontier: propulsion systems, astrobiology, and interplanetary colonization</p>
                     </div>
                 </div>
 
@@ -1728,7 +1441,7 @@
                         <div>Biotech Revolution</div>
                     </div>
                     <div class="issue-info">
-                        <p>Cutting-edge developments in biotechnology and genetic engineering</p>
+                        <p>CRISPR, synthetic biology, and the student-led bioengineering movement</p>
                     </div>
                 </div>
 
@@ -1739,7 +1452,7 @@
                         <div>Quantum Computing</div>
                     </div>
                     <div class="issue-info">
-                        <p>Breaking down quantum mechanics and its computing applications</p>
+                        <p>Breaking down quantum mechanics, qubits, and the race to quantum supremacy</p>
                     </div>
                 </div>
 
@@ -1750,18 +1463,19 @@
                         <div>Materials Science</div>
                     </div>
                     <div class="issue-info">
-                        <p>Innovative materials shaping the future of technology</p>
+                        <p>Graphene, metamaterials, and innovations shaping the future of technology</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Submit Page -->
     <div id="submit" class="page">
         <div class="container">
             <div class="section-heading">
                 <h2>Submit Your Work</h2>
-                <p>Share your STEM insights with high schoolers worldwide</p>
+                <p>Share your research and insights with students worldwide</p>
             </div>
 
             <form class="submit-form" onsubmit="handleSubmit(event)">
@@ -1801,7 +1515,7 @@
                         <option value="computer-science">Computer Science</option>
                         <option value="engineering">Engineering</option>
                         <option value="mathematics">Mathematics</option>
-                        <option value="other">Other</option>
+                        <option value="other">Other STEM</option>
                     </select>
                 </div>
 
@@ -1812,7 +1526,7 @@
 
                 <div class="form-group">
                     <label for="abstract">Abstract/Summary (250 words max) *</label>
-                    <textarea id="abstract" required placeholder="Provide a brief summary of your article..."></textarea>
+                    <textarea id="abstract" required placeholder="Provide a brief summary of your research or article..."></textarea>
                 </div>
 
                 <div class="form-group">
@@ -1828,11 +1542,12 @@
         </div>
     </div>
 
+    <!-- Subscribe Page -->
     <div id="subscribe" class="page">
         <div class="hero" style="padding: 8rem 2rem 6rem;">
             <div class="hero-content">
                 <h1 style="font-size: 3.5rem;">Never Miss an Issue</h1>
-                <p>Get the latest student research, insights, and discoveries delivered straight to your inbox every month. Completely free.</p>
+                <p>Get cutting-edge student research and STEM insights delivered to your inbox every month. Completely free.</p>
             </div>
         </div>
 
@@ -1844,30 +1559,30 @@
                     <ul style="list-style: none; padding: 0;">
                         <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; padding-left: 2rem; position: relative; line-height: 1.7;">
                             <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Monthly digital magazine with the latest student research and articles
+                            Monthly digital magazine with original student research and technical articles
                         </li>
                         <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; padding-left: 2rem; position: relative; line-height: 1.7;">
                             <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Access to our complete archive of past issues
+                            Full access to our archive of published issues and research papers
                         </li>
                         <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; padding-left: 2rem; position: relative; line-height: 1.7;">
                             <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Behind-the-scenes updates from our editorial team
+                            Behind-the-scenes editorial updates and submission opportunities
                         </li>
                         <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; padding-left: 2rem; position: relative; line-height: 1.7;">
                             <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Early notifications about submission deadlines and opportunities
+                            Early notifications about deadlines, calls for papers, and special issues
                         </li>
                         <li style="font-family: 'Lora', serif; color: rgba(255,255,255,0.9); margin-bottom: 0; padding-left: 2rem; position: relative; line-height: 1.7;">
                             <span style="position: absolute; left: 0; color: var(--primary); font-size: 1.2rem;">✓</span>
-                            Join our community Discord server
+                            Join our Discord community of student researchers
                         </li>
                     </ul>
                 </div>
 
                 <div class="section-heading">
                     <h2>Subscribe for Free</h2>
-                    <p>Join thousands of students staying curious</p>
+                    <p>Join thousands of students advancing STEM research</p>
                 </div>
 
                 <form class="submit-form" onsubmit="handleSubscribe(event)">
@@ -1894,7 +1609,7 @@
                     <div class="form-group" style="margin-top: 2rem;">
                         <label style="display: flex; align-items: flex-start; text-transform: none; letter-spacing: normal; font-size: 1rem; cursor: pointer;">
                             <input type="checkbox" required style="width: auto; margin-right: 0.8rem; margin-top: 0.2rem; flex-shrink: 0;">
-                            <span style="font-family: 'Lora', serif; font-weight: 400;">I agree to receive monthly issues and occasional updates from The Centrifuge Magazine. You can unsubscribe at any time.</span>
+                            <span style="font-family: 'Lora', serif; font-weight: 400;">I agree to receive monthly issues and occasional updates from The Centrifuge. You can unsubscribe at any time.</span>
                         </label>
                     </div>
 
@@ -1907,21 +1622,22 @@
                 <div style="margin-top: 6rem; padding: 4rem 3rem; background: white; border: 1px solid rgba(0, 0, 0, 0.08);">
                     <h3 style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem; color: var(--dark); text-align: center;">Why We're Free</h3>
                     <p style="font-family: 'Lora', serif; color: var(--text); line-height: 1.8; font-size: 1.1rem; margin-bottom: 1.5rem;">
-                        We believe knowledge should be accessible to everyone. The Centrifuge is run by students, for students, and we're committed to keeping our content free forever.
+                        We believe rigorous research should be accessible to everyone. The Centrifuge is run by students, for students, and we're committed to keeping all content free forever.
                     </p>
                     <p style="font-family: 'Lora', serif; color: var(--text); line-height: 1.8; font-size: 1.1rem;">
-                        Our mission is to amplify student voices in STEM, not to put them behind paywalls. By subscribing, you're joining a community that believes in open access to student research and scientific curiosity.
+                        Our mission is to amplify student voices in STEM, not put them behind paywalls. By subscribing, you're joining a community that believes in open access to student research and scientific collaboration.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Contact Page -->
     <div id="contact" class="page">
         <div class="container">
             <div class="section-heading">
                 <h2>Get In Touch</h2>
-                <p>Questions, suggestions, or just want to say hi? We'd love to hear from you!</p>
+                <p>Questions, collaboration ideas, or feedback? We'd love to hear from you!</p>
             </div>
 
             <div class="contact-grid">
@@ -1941,25 +1657,26 @@
                             <p>@thecentrifugemag on Instagram</p>
                         </div>
                     </div>
+                </div>
 
-                <form class="submit-form" onsubmit="handleContactSubmit(event)">
+                <form class="submit-form" onsubmit="handleContactSubmit(event)" style="margin: 0;">
                     <div class="form-group">
-                        <label for="contact-name">Name</label>
+                        <label for="contact-name">Name *</label>
                         <input type="text" id="contact-name" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="contact-email">Email</label>
+                        <label for="contact-email">Email *</label>
                         <input type="email" id="contact-email" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="contact-subject">Subject</label>
+                        <label for="contact-subject">Subject *</label>
                         <input type="text" id="contact-subject" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="contact-message">Message</label>
+                        <label for="contact-message">Message *</label>
                         <textarea id="contact-message" required></textarea>
                     </div>
 
@@ -1968,70 +1685,13 @@
             </div>
         </div>
     </div>
-    /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 2rem 2rem;
-            margin-top: 8rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
 
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-section p {
-            font-family: 'Lora', serif;
-            line-height: 1.7;
-        }
-
-        .footer-section a {
-            display: block;
-            font-family: 'Lora', serif;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            margin-bottom: 0.8rem;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255, 255, 255, 0.5);
-        }
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>The Centrifuge</h3>
-                <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
-                    Bringing student perspectives on STEM into focus. By high schoolers, for high schoolers.
-                </p>
+                <p>Separating signal from noise in student STEM research. By high schoolers, for high schoolers.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -2046,14 +1706,13 @@
                 <a href="#">Submission Guidelines</a>
                 <a href="#">Style Guide</a>
                 <a href="#">FAQ</a>
-                <a href="#">Editorial Team</a>
+                <a onclick="showPage('team')">Editorial Team</a>
             </div>
             <div class="footer-section">
                 <h3>Connect</h3>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
+                <a href="https://instagram.com/thecentrifugemag" target="_blank">Instagram</a>
                 <a href="#">Discord</a>
-                <a href="#">Newsletter</a>
+                <a href="mailto:thecentrifugemag@gmail.com">Email</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -2062,22 +1721,93 @@
     </footer>
 
     <script>
+        // Team member data
+        const teamMembers = [
+            {
+                name: 'First Last',
+                initials: 'FL',
+                gradient: 'avatar-gradient-1',
+                grade: 'Grade',
+                bio: 'Short bio about this team member.',
+                email: 'email@example.com',
+                linkedin: 'https://linkedin.com/in/username'
+            },
+            {
+                name: 'First Last',
+                initials: 'FL',
+                gradient: 'avatar-gradient-2',
+                grade: 'Grade',
+                bio: 'Short bio about this team member.',
+                email: 'email@example.com',
+                linkedin: 'https://linkedin.com/in/username'
+            },
+            {
+                name: 'First Last',
+                initials: 'FL',
+                gradient: 'avatar-gradient-3',
+                grade: 'Grade',
+                bio: 'Short bio about this team member.',
+                email: 'email@example.com'
+            },
+            {
+                name: 'First Last',
+                initials: 'FL',
+                gradient: 'avatar-gradient-4',
+                grade: 'Grade',
+                bio: 'Short bio about this team member.',
+                email: 'email@example.com'
+            },
+            {
+                name: 'First Last',
+                initials: 'FL',
+                gradient: 'avatar-gradient-5',
+                grade: 'Grade',
+                bio: 'Short bio about this team member.',
+                email: 'email@example.com'
+            },
+            {
+                name: 'First Last',
+                initials: 'FL',
+                gradient: 'avatar-gradient-6',
+                grade: 'Grade',
+                bio: 'Short bio about this team member.',
+                email: 'email@example.com'
+            }
+        ];
+
         function showPage(pageId) {
-            // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Show selected page
             document.getElementById(pageId).classList.add('active');
-            
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Close mobile nav if open
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            const overlay = document.getElementById('navOverlay');
+            
+            if (navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        }
+
+        function toggleMobileNav() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            const overlay = document.getElementById('navOverlay');
+            
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
         }
 
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Thank you for your submission! We\'ll review your article and get back to you soon.');
+            alert('Thank you for your submission! We\'ll review your article and get back to you within 2 weeks.');
             event.target.reset();
         }
 
@@ -2093,92 +1823,6 @@
             event.target.reset();
         }
 
-        // ── Team member data (fill in your details here) ──
-        const teamMembers = [
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-1',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-2',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-3',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-4',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-5',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-6',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-1',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-2',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'F L',
-                gradient: 'avatar-gradient-3',
-                grade: 'Grade',
-                bio: 'Short bio',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            }
-        ];
-
-        // ── Team modal logic ──
         function openTeamModal(index) {
             const member = teamMembers[index];
             if (!member) return;
@@ -2190,21 +1834,19 @@
             const bio = document.getElementById('modalBio');
             const links = document.getElementById('modalLinks');
 
-            // Set avatar
             avatar.className = 'team-modal-avatar ' + member.gradient;
-            avatar.innerHTML = member.initials;
+            avatar.textContent = member.initials;
 
             name.textContent = member.name;
             grade.textContent = member.grade;
             bio.textContent = member.bio;
 
-            // Build links
             let linksHTML = '';
             if (member.email) {
-                linksHTML += '<a href="mailto:' + member.email + '" class="team-modal-link">&#9993; Email</a>';
+                linksHTML += `<a href="mailto:${member.email}" class="team-modal-link">✉ Email</a>`;
             }
             if (member.linkedin) {
-                linksHTML += '<a href="' + member.linkedin + '" target="_blank" rel="noopener" class="team-modal-link">in LinkedIn</a>';
+                linksHTML += `<a href="${member.linkedin}" target="_blank" rel="noopener" class="team-modal-link">in LinkedIn</a>`;
             }
             links.innerHTML = linksHTML;
 
@@ -2220,34 +1862,13 @@
             }
         }
 
-        // Close modal on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeTeamModal(null, true);
             }
         });
 
-        // Staggered entrance animation for team cards
-        function animateTeamCards() {
-            const cards = document.querySelectorAll('#team .team-card');
-            cards.forEach((card, i) => {
-                card.classList.remove('visible');
-                setTimeout(() => {
-                    card.classList.add('visible');
-                }, 100 * i + 150);
-            });
-        }
-
-        // Patch showPage to trigger team animations
-        const _originalShowPage = showPage;
-        showPage = function(pageId) {
-            _originalShowPage(pageId);
-            if (pageId === 'team') {
-                animateTeamCards();
-            }
-        };
-
-        // Smooth scroll for CTA button
+        // CTA button handler
         document.addEventListener('DOMContentLoaded', function() {
             const ctaButton = document.querySelector('.cta-button');
             if (ctaButton) {
@@ -2258,41 +1879,5 @@
             }
         });
     </script>
-        <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>The Centrifuge</h3>
-                <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
-                    Bringing student perspectives on STEM into focus. By high schoolers, for high schoolers.
-                </p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a onclick="showPage('home')">Home</a>
-                <a onclick="showPage('about')">About Us</a>
-                <a onclick="showPage('issues')">Browse Issues</a>
-                <a onclick="showPage('submit')">Submit Article</a>
-                <a onclick="showPage('subscribe')">Subscribe</a>
-            </div>
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <a href="#">Submission Guidelines</a>
-                <a href="#">Style Guide</a>
-                <a href="#">FAQ</a>
-                <a href="#">Editorial Team</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-                <a href="#">Discord</a>
-                <a href="#">Newsletter</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 The Centrifuge Magazine. Made by students, for students. All rights reserved.</p>
-        </div>
-    </footer>
-
 </body>
 </html>
