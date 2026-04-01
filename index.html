@@ -2410,13 +2410,55 @@
             }
         ];
 
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // ✅ Update the URL hash so back/forward works
+    history.pushState({ page: pageId }, '', '#' + pageId);
+
+    // Close mobile nav if open
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('navOverlay');
+
+    if (navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+}
+
+// ✅ Handle back/forward button
+window.addEventListener('popstate', function(e) {
+    const pageId = e.state?.page || 'home';
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ✅ On first load, check if there's a hash in the URL (e.g. someone shared a link)
+window.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) {
+        showPage(hash);
+    } else {
+        history.replaceState({ page: 'home' }, '', '#home');
+    }
+
+    // Your existing CTA button handler
+    const ctaButton = document.querySelector('.cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPage('submit');
+        });
+    }
+});
             
             // Close mobile nav if open
             const navLinks = document.getElementById('navLinks');
@@ -2551,16 +2593,28 @@
             }
         });
 
-        // CTA button handler
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctaButton = document.querySelector('.cta-button');
-            if (ctaButton) {
-                ctaButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showPage('submit');
-                });
-            }
+window.addEventListener('popstate', function(e) {
+    const pageId = e.state?.page || 'home';
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+        window.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) {
+        showPage(hash);
+    } else {
+        history.replaceState({ page: 'home' }, '', '#home');
+    }
+
+    const ctaButton = document.querySelector('.cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPage('submit');
         });
+    }
+});
     </script>
 </body>
 </html>
