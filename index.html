@@ -1363,7 +1363,49 @@
         });
 
         // On first load: honour hash in URL, or default to home
+        // ── Mobile Nav ─────────────────────────────────────────────
+        function toggleMobileNav() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            const overlay   = document.getElementById('navOverlay');
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // ── Team Modal ─────────────────────────────────────────────
+        function openTeamModal(index) {
+            const member = teamMembers[index];
+            if (!member) return;
+            document.getElementById('modalAvatar').className = 'team-modal-avatar ' + member.gradient;
+            document.getElementById('modalAvatar').textContent = member.initials;
+            document.getElementById('modalName').textContent  = member.name;
+            document.getElementById('modalGrade').textContent = member.grade;
+            document.getElementById('modalBio').textContent   = member.bio;
+            let linksHTML = '';
+            if (member.email)    linksHTML += `<a href="mailto:${member.email}" class="team-modal-link">✉ Email</a>`;
+            if (member.linkedin) linksHTML += `<a href="${member.linkedin}" target="_blank" rel="noopener" class="team-modal-link">in LinkedIn</a>`;
+            document.getElementById('modalLinks').innerHTML = linksHTML;
+            document.getElementById('teamModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTeamModal(e, force) {
+            const overlay = document.getElementById('teamModal');
+            if (force || e.target === overlay) {
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeTeamModal(null, true);
+        });
+
+        // ── Forms & buttons (run after DOM is ready) ───────────────
         window.addEventListener('DOMContentLoaded', function() {
+
+            // Hash routing
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) {
                 showPage(hash);
@@ -1380,110 +1422,76 @@
                 });
             }
 
-            // Hamburger menu
+            // Hamburger
             document.getElementById('hamburger').addEventListener('click', toggleMobileNav);
             document.getElementById('navOverlay').addEventListener('click', toggleMobileNav);
+
+            // Submit form
+            const scriptURL  = 'https://script.google.com/macros/s/AKfycbxnRk6toCyjNeFwvTBAhhd6ko6DYhrHmSON8gAu3CjMYGkBlfKQmwNZRulkx4dlCkLxiA/exec';
+            const submitForm = document.querySelector('#submit-form');
+            const submitBtn  = document.querySelector('#submission-btn');
+            submitForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Loading...';
+                fetch(scriptURL, { method: 'POST', body: new FormData(submitForm) })
+                    .then(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Submit Article';
+                        alert('Thank you! We will get back to you within 2 weeks.');
+                        submitForm.reset();
+                    })
+                    .catch(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Submit Article';
+                        alert('Error! Please try again later.');
+                    });
+            });
+
+            // Subscribe form
+            const urlSubscribe  = 'https://script.google.com/macros/s/AKfycbxvf8omiz3Zqn7XYclhZ0R-M3LoaZcLYAK4mpbQarjNgf_uRzGdSBIWJfeDdDmVbxR66Q/exec';
+            const subscribeForm = document.querySelector('#form-subscribe');
+            const subscribeBtn  = document.querySelector('#subscribe-button');
+            subscribeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                subscribeBtn.disabled = true;
+                subscribeBtn.innerHTML = 'Loading...';
+                fetch(urlSubscribe, { method: 'POST', body: new FormData(subscribeForm) })
+                    .then(() => {
+                        subscribeBtn.disabled = false;
+                        subscribeBtn.innerHTML = 'Subscribe Now';
+                        alert('Thank you for subscribing!');
+                        subscribeForm.reset();
+                    })
+                    .catch(() => {
+                        subscribeBtn.disabled = false;
+                        subscribeBtn.innerHTML = 'Subscribe Now';
+                        alert('Error! Please try again later.');
+                    });
+            });
+
+            // Contact form
+            const urlContact  = 'https://script.google.com/macros/s/AKfycbxhSvflKIcTCLsxF318Z9lOOuzHy3LZLcVZESw5432Ced0OQRLHB2LoLWvhbe5QtNl1/exec';
+            const contactForm = document.querySelector('#contact-submit');
+            const contactBtn  = document.querySelector('#contact_button');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                contactBtn.disabled = true;
+                contactBtn.innerHTML = 'Loading...';
+                fetch(urlContact, { method: 'POST', body: new FormData(contactForm) })
+                    .then(() => {
+                        contactBtn.disabled = false;
+                        contactBtn.innerHTML = 'Send Message';
+                        alert('Thank you for your message!');
+                        contactForm.reset();
+                    })
+                    .catch(() => {
+                        contactBtn.disabled = false;
+                        contactBtn.innerHTML = 'Send Message';
+                        alert('Error! Please try again later.');
+                    });
+            });
         });
-
-        // ── Mobile Nav ─────────────────────────────────────────────
-        function toggleMobileNav() {
-            const navLinks = document.getElementById('navLinks');
-            const hamburger = document.getElementById('hamburger');
-            const overlay   = document.getElementById('navOverlay');
-            navLinks.classList.toggle('open');
-            hamburger.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
-        // ── Submit Form ────────────────────────────────────────────
-        const scriptURL      = 'https://script.google.com/macros/s/AKfycbxnRk6toCyjNeFwvTBAhhd6ko6DYhrHmSON8gAu3CjMYGkBlfKQmwNZRulkx4dlCkLxiA/exec';
-        const submitForm     = document.querySelector('#submit-form');
-        const submitBtn      = document.querySelector('#submission-btn');
-
-        submitForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Loading...';
-            fetch(scriptURL, { method: 'POST', body: new FormData(submitForm) })
-                .then(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Submit Article';
-                    alert('Thank you for your interest! We will review your submission and get back to you within 2 weeks.');
-                    submitForm.reset();
-                })
-                .catch(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Submit Article';
-                    alert('Error! Please try again later.');
-                });
-        });
-
-        // ── Subscribe Form ─────────────────────────────────────────
-        const urlSubscribe    = 'https://script.google.com/macros/s/AKfycbxvf8omiz3Zqn7XYclhZ0R-M3LoaZcLYAK4mpbQarjNgf_uRzGdSBIWJfeDdDmVbxR66Q/exec';
-        const subscribeForm   = document.querySelector('#form-subscribe');
-        const subscribeBtn    = document.querySelector('#subscribe-button');
-
-        subscribeForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            subscribeBtn.disabled = true;
-            subscribeBtn.innerHTML = 'Loading...';
-            fetch(urlSubscribe, { method: 'POST', body: new FormData(subscribeForm) })
-                .then(() => {
-                    subscribeBtn.disabled = false;
-                    subscribeBtn.innerHTML = 'Subscribe Now';
-                    alert('Thank you for subscribing to The Centrifuge! Check your email for confirmation.');
-                    subscribeForm.reset();
-                })
-                .catch(() => {
-                    subscribeBtn.disabled = false;
-                    subscribeBtn.innerHTML = 'Subscribe Now';
-                    alert('Error! Please try again later.');
-                });
-        });
-
-        // ── Contact Form ───────────────────────────────────────────
-        const urlContact    = 'https://script.google.com/macros/s/AKfycbxhSvflKIcTCLsxF318Z9lOOuzHy3LZLcVZESw5432Ced0OQRLHB2LoLWvhbe5QtNl1/exec';
-        const contactForm   = document.querySelector('#contact-submit');
-        const contactBtn    = document.querySelector('#contact_button');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            contactBtn.disabled = true;
-            contactBtn.innerHTML = 'Loading...';
-            fetch(urlContact, { method: 'POST', body: new FormData(contactForm) })
-                .then(() => {
-                    contactBtn.disabled = false;
-                    contactBtn.innerHTML = 'Send Message';
-                    alert('Thank you for your message!');
-                    contactForm.reset();
-                })
-                .catch(() => {
-                    contactBtn.disabled = false;
-                    contactBtn.innerHTML = 'Send Message';
-                    alert('Error! Please try again later.');
-                });
-        });
-
-        // ── Team Modal ─────────────────────────────────────────────
-        function openTeamModal(index) {
-            const member = teamMembers[index];
-            if (!member) return;
-
-            document.getElementById('modalAvatar').className = 'team-modal-avatar ' + member.gradient;
-            document.getElementById('modalAvatar').textContent = member.initials;
-            document.getElementById('modalName').textContent  = member.name;
-            document.getElementById('modalGrade').textContent = member.grade;
-            document.getElementById('modalBio').textContent   = member.bio;
-
-            let linksHTML = '';
-            if (member.email)    linksHTML += `<a href="mailto:${member.email}" class="team-modal-link">✉ Email</a>`;
-            if (member.linkedin) linksHTML += `<a href="${member.linkedin}" target="_blank" rel="noopener" class="team-modal-link">in LinkedIn</a>`;
-            document.getElementById('modalLinks').innerHTML = linksHTML;
-
-            document.getElementById('teamModal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeTeamModal(e, force) {
-            const overlay = document.getElementById('teamModal');
-            if (force || e.target === overlay) {
+    </script>
+</body>
+</html>
