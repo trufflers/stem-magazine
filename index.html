@@ -1,74 +1,1350 @@
-// Team member data
-        const teamMembers = [
-            {
-                name: 'First Last',
-                initials: 'FL',
-                gradient: 'avatar-gradient-1',
-                grade: 'Grade',
-                bio: 'Short bio about this team member.',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'FL',
-                gradient: 'avatar-gradient-2',
-                grade: 'Grade',
-                bio: 'Short bio about this team member.',
-                email: 'email@example.com',
-                linkedin: 'https://linkedin.com/in/username'
-            },
-            {
-                name: 'First Last',
-                initials: 'FL',
-                gradient: 'avatar-gradient-3',
-                grade: 'Grade',
-                bio: 'Short bio about this team member.',
-                email: 'email@example.com'
-            },
-            {
-                name: 'First Last',
-                initials: 'FL',
-                gradient: 'avatar-gradient-4',
-                grade: 'Grade',
-                bio: 'Short bio about this team member.',
-                email: 'email@example.com'
-            },
-            {
-                name: 'First Last',
-                initials: 'FL',
-                gradient: 'avatar-gradient-5',
-                grade: 'Grade',
-                bio: 'Short bio about this team member.',
-                email: 'email@example.com'
-            },
-            {
-                name: 'First Last',
-                initials: 'FL',
-                gradient: 'avatar-gradient-6',
-                grade: 'Grade',
-                bio: 'Short bio about this team member.',
-                email: 'email@example.com'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Centrifuge | High School STEM Magazine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6167cb;
+            --dark: #0D0D0D;
+            --text: #1A1A1A;
+            --gray: #6B6B6B;
+            --light: #F5F5F5;
+            --paper: #FDFDFD;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--paper);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 253, 253, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.03em;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-decoration: none;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
             }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -280px;
+                width: 280px;
+                height: 100vh;
+                background: var(--paper);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                gap: 0;
+                z-index: 1050;
+                box-shadow: -5px 0 30px rgba(0,0,0,0.15);
+                transition: right 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1rem;
+                border-bottom: 1px solid rgba(0,0,0,0.06);
+            }
+
+            .nav-overlay {
+                display: block;
+                pointer-events: none;
+            }
+
+            .nav-overlay.active {
+                pointer-events: all;
+            }
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--dark);
+            color: white;
+            padding: 10rem 2rem 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 800px;
+            height: 800px;
+            background-image: url('data:image/svg+xml,<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="white" stroke-width="2" opacity="0.05"><circle cx="400" cy="400" r="350"/><circle cx="400" cy="400" r="300"/><circle cx="400" cy="400" r="250"/><path d="M 400 50 L 480 180 L 620 220 L 580 360 L 650 480 L 520 520 L 480 650 L 400 580 L 320 650 L 280 520 L 150 480 L 220 360 L 180 220 L 320 180 Z"/><path d="M 400 100 L 460 200 L 570 230 L 540 340 L 600 440 L 500 470 L 460 580 L 400 520 L 340 580 L 300 470 L 200 440 L 260 340 L 230 230 L 340 200 Z"/></g></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(97, 103, 203, 0.3);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(97, 103, 203, 0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .article-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 280px;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-image::before,
+        .article-image::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            transition: transform 0.6s ease;
+        }
+
+        .article-card:hover .article-image::before,
+        .article-card:hover .article-image::after {
+            transform: scale(1.15);
+        }
+
+        .article-image.grad-bio { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+        .article-image.grad-bio::before { width: 200px; height: 200px; background: radial-gradient(circle, rgba(97,103,203,0.4), transparent 70%); top: -40px; right: -30px; }
+        .article-image.grad-bio::after  { width: 150px; height: 150px; background: radial-gradient(circle, rgba(0,200,150,0.3), transparent 70%); bottom: -20px; left: 20px; }
+
+        .article-image.grad-cs { background: linear-gradient(135deg, #0d0d2b, #1a1a4e, #2d2d7a); }
+        .article-image.grad-cs::before { width: 250px; height: 250px; background: radial-gradient(circle, rgba(97,103,203,0.5), transparent 70%); top: -60px; left: -40px; }
+        .article-image.grad-cs::after  { width: 180px; height: 180px; background: radial-gradient(circle, rgba(139,143,255,0.35), transparent 70%); bottom: -40px; right: -20px; }
+
+        .article-image.grad-phys { background: linear-gradient(135deg, #1a0a2e, #2d1b69, #44318d); }
+        .article-image.grad-phys::before { width: 220px; height: 220px; background: radial-gradient(circle, rgba(255,100,100,0.3), transparent 70%); top: -30px; right: -50px; }
+        .article-image.grad-phys::after  { width: 160px; height: 160px; background: radial-gradient(circle, rgba(97,103,203,0.4), transparent 70%); bottom: -30px; left: -20px; }
+
+        .article-image.grad-eng { background: linear-gradient(135deg, #1a1a0a, #2d2d0a, #4a4a1a); }
+        .article-image.grad-eng::before { width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,180,50,0.35), transparent 70%); top: -20px; left: -30px; }
+        .article-image.grad-eng::after  { width: 170px; height: 170px; background: radial-gradient(circle, rgba(97,103,203,0.3), transparent 70%); bottom: -40px; right: 10px; }
+
+        .article-image.grad-chem { background: linear-gradient(135deg, #0a1a2e, #0a2d4a, #1a4a6e); }
+        .article-image.grad-chem::before { width: 180px; height: 180px; background: radial-gradient(circle, rgba(0,200,255,0.3), transparent 70%); top: -30px; right: 20px; }
+        .article-image.grad-chem::after  { width: 200px; height: 200px; background: radial-gradient(circle, rgba(97,103,203,0.35), transparent 70%); bottom: -50px; left: -30px; }
+
+        .article-image.grad-math { background: linear-gradient(135deg, #1a0a1a, #3a1a3a, #5a2a5a); }
+        .article-image.grad-math::before { width: 230px; height: 230px; background: radial-gradient(circle, rgba(200,100,255,0.3), transparent 70%); top: -50px; left: 10px; }
+        .article-image.grad-math::after  { width: 150px; height: 150px; background: radial-gradient(circle, rgba(97,103,203,0.4), transparent 70%); bottom: -20px; right: -30px; }
+
+        .article-image .card-icon  { position: relative; z-index: 1; font-size: 3rem; opacity: 0.9; }
+        .article-image .card-label { position: absolute; bottom: 1.2rem; left: 1.5rem; font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); z-index: 1; }
+
+        .article-content  { padding: 2rem; }
+
+        .article-category {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            font-family: 'Lora', serif;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Outfit', sans-serif;
+            color: var(--gray);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Section Heading */
+        .section-heading { text-align: center; margin-bottom: 4rem; }
+        .section-heading h2 { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; color: var(--dark); letter-spacing: -0.03em; }
+        .section-heading p  { font-family: 'Lora', serif; color: var(--gray); font-size: 1.15rem; max-width: 600px; margin: 0 auto; }
+
+        /* Stats */
+        .stats { background: var(--dark); color: white; padding: 5rem 2rem; margin: 6rem 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .stat-item h3 { font-family: 'Outfit', sans-serif; font-size: 4rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .stat-item p  { font-family: 'Outfit', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; opacity: 0.9; }
+
+        /* About */
+        .about-content { max-width: 900px; margin: 0 auto; }
+        .about-content h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; margin-bottom: 2rem; color: var(--dark); }
+        .about-content p  { font-family: 'Lora', serif; font-size: 1.15rem; color: var(--text); margin-bottom: 2rem; line-height: 1.8; }
+
+        .mission-box { background: var(--dark); color: white; padding: 4rem; margin: 4rem 0; border-left: 4px solid var(--primary); }
+        .mission-box h3 { font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        .mission-box p  { color: rgba(255,255,255,0.9); line-height: 1.8; }
+
+        .about-content ul { list-style: none; padding-left: 0; margin: 2rem 0; }
+        .about-content ul li { padding: 1.5rem; background: white; margin-bottom: 1rem; border-left: 3px solid var(--primary); }
+        .about-content ul li strong { font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--dark); }
+
+        /* Issues */
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 3rem; }
+
+        .issue-card { background: white; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); transition: all 0.4s ease; border-radius: 8px; cursor: pointer; }
+        .issue-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,0,0,0.15); }
+
+        .issue-cover { width: 100%; height: 450px; background: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; padding: 3rem; text-align: center; border-bottom: 3px solid var(--primary); }
+        .issue-cover h3  { font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .issue-cover p   { font-family: 'Outfit', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.7; }
+        .issue-cover div { font-family: 'Lora', serif; font-style: italic; margin-top: 2rem; font-size: 1.1rem; }
+
+        .issue-info p { font-family: 'Lora', serif; color: var(--gray); line-height: 1.7; padding: 2rem; }
+
+        /* Forms */
+        .submit-form { max-width: 700px; margin: 0 auto; background: white; padding: 4rem; border: 1px solid rgba(0,0,0,0.08); }
+
+        .form-group { margin-bottom: 2rem; }
+        .form-group label { display: block; margin-bottom: 0.8rem; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dark); }
+        .form-group input,
+        .form-group textarea,
+        .form-group select { width: 100%; padding: 1rem; border: 1px solid rgba(0,0,0,0.15); font-size: 1rem; font-family: 'Lora', serif; transition: border-color 0.3s; background: var(--paper); }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus { outline: none; border-color: var(--primary); }
+        .form-group textarea { min-height: 150px; resize: vertical; }
+
+        .submit-button { background: var(--primary); color: white; padding: 1.2rem 3rem; border: none; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease; width: 100%; }
+        .submit-button:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(97,103,203,0.3); }
+
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1200px; margin: 0 auto; }
+        .contact-info { padding: 2rem; }
+        .contact-item { display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 3rem; }
+        .contact-icon { width: 60px; height: 60px; background: var(--dark); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; flex-shrink: 0; }
+        .contact-details h3 { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; }
+        .contact-details p  { font-family: 'Lora', serif; color: var(--gray); line-height: 1.6; }
+
+        /* Team */
+        .team-hero { background: var(--dark); color: white; padding: 8rem 2rem 5rem; text-align: center; position: relative; overflow: hidden; }
+        .team-hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 7vw, 3.8rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .team-hero p  { font-family: 'Lora', serif; font-size: 1.15rem; opacity: 0.85; max-width: 550px; margin: 0 auto; line-height: 1.7; }
+
+        .team-back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); text-decoration: none; cursor: pointer; transition: color 0.3s; margin-bottom: 2rem; }
+        .team-back-link:hover { color: var(--primary); }
+
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
+
+        .team-card { background: white; border: 1px solid rgba(0,0,0,0.06); padding: 2.5rem 2rem; text-align: center; transition: all 0.45s ease; cursor: pointer; }
+        .team-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,0,0,0.1); }
+
+        .team-avatar { width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 1.8rem; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 2rem; color: white; }
+
+        .avatar-gradient-1 { background: linear-gradient(135deg, #6167cb, #8b8fff); }
+        .avatar-gradient-2 { background: linear-gradient(135deg, #0D0D0D, #3a3a3a); }
+        .avatar-gradient-3 { background: linear-gradient(135deg, #4a3f8a, #6167cb); }
+        .avatar-gradient-4 { background: linear-gradient(135deg, #2d2d5e, #6167cb); }
+        .avatar-gradient-5 { background: linear-gradient(135deg, #1a1a3e, #4a4a8a); }
+        .avatar-gradient-6 { background: linear-gradient(135deg, #3b3b7a, #7a7aff); }
+
+        .team-name      { font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
+        .team-grade     { font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); margin-bottom: 0.3rem; }
+        .team-card-hint { font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(0,0,0,0.2); margin-top: 1rem; transition: color 0.3s; }
+        .team-card:hover .team-card-hint { color: var(--primary); }
+
+        .meet-team-btn { display: inline-flex; align-items: center; gap: 0.8rem; background: var(--dark); color: white; padding: 1.1rem 2.5rem; text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; transition: all 0.35s ease; border: none; margin-top: 1rem; }
+        .meet-team-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(97,103,203,0.25); }
+
+        /* Team Modal */
+        .team-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; padding: 2rem; }
+        .team-modal-overlay.open { opacity: 1; pointer-events: all; }
+
+        .team-modal { background: white; max-width: 560px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 3.5rem; position: relative; }
+
+        .team-modal-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 36px; height: 36px; background: var(--light); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--gray); transition: all 0.25s; }
+        .team-modal-close:hover { background: var(--dark); color: white; }
+
+        .team-modal-avatar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.8rem; color: white; }
+        .team-modal-name  { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--dark); text-align: center; margin-bottom: 0.3rem; }
+        .team-modal-grade { font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray); text-align: center; margin-bottom: 2rem; }
+        .team-modal-bio   { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--text); line-height: 1.8; text-align: center; margin-bottom: 2.5rem; }
+        .team-modal-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .team-modal-link  { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dark); text-decoration: none; padding: 0.7rem 1.4rem; border: 1px solid rgba(0,0,0,0.1); transition: all 0.3s; }
+        .team-modal-link:hover { background: var(--dark); color: white; border-color: var(--dark); }
+
+        /* Footer */
+        footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; margin-top: 8rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; margin-bottom: 3rem; }
+        .footer-section h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+        .footer-section p  { font-family: 'Lora', serif; line-height: 1.7; color: rgba(255,255,255,0.7); }
+        .footer-section a  { display: block; font-family: 'Lora', serif; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.8rem; transition: color 0.3s; cursor: pointer; }
+        .footer-section a:hover { color: var(--primary); }
+        .footer-bottom { max-width: 1400px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-family: 'Outfit', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); }
+
+        /* Article pages */
+        .article-hero-header { background: var(--dark); color: white; padding: 8rem 2rem 5rem; text-align: center; }
+        .article-hero-inner  { max-width: 800px; margin: 0 auto; }
+
+        .article-back-link { display: inline-block; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); text-decoration: none; cursor: pointer; transition: color 0.3s; margin-bottom: 2rem; }
+        .article-back-link:hover { color: var(--primary); }
+
+        .article-hero-category { display: block; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--primary); margin-bottom: 1.5rem; }
+        .article-hero-title    { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 2rem; line-height: 1.1; }
+        .article-hero-meta     { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); }
+        .article-meta-dot      { margin: 0 0.8rem; }
+
+        .article-body-container { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 8rem; }
+
+        .article-body p           { font-family: 'Lora', serif; font-size: 1.15rem; line-height: 1.85; color: var(--text); margin-bottom: 1.8rem; }
+        .article-body h2          { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--dark); margin: 3rem 0 1.2rem; letter-spacing: -0.02em; }
+        .article-body h3          { font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--dark); margin: 2rem 0 1rem; }
+        .article-body blockquote  { border-left: 3px solid var(--primary); padding: 1rem 1.5rem; margin: 2.5rem 0; background: var(--light); }
+        .article-body blockquote p{ font-style: italic; margin-bottom: 0; color: var(--gray); }
+        .article-body hr          { border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 3rem 0; }
+        .article-body ul          { padding-left: 1.5rem; margin-bottom: 1.8rem; }
+        .article-body ul li       { font-family: 'Lora', serif; font-size: 1.15rem; line-height: 1.85; color: var(--text); margin-bottom: 0.6rem; }
+
+        .article-body .equation   { font-family: 'Lora', serif; font-style: italic; text-align: center; padding: 1.2rem 2rem; margin: 1.5rem 0; background: var(--light); font-size: 1.1rem; letter-spacing: 0.02em; border-left: 3px solid var(--primary); }
+        .article-body .bibliography { font-size: 0.95rem; color: var(--gray); line-height: 1.7; margin-bottom: 1rem; }
+
+        .article-body table    { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: 'Outfit', sans-serif; }
+        .article-body table th { background: var(--dark); color: white; padding: 0.8rem 1.2rem; text-align: left; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-body table td { padding: 0.8rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 1rem; }
+        .article-body table tr:hover td { background: var(--light); }
+
+        .article-body figure     { display: flex; flex-direction: column; align-items: center; margin: 2rem 0; }
+        .article-body figcaption { text-align: center; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-grid   { grid-template-columns: 1fr; }
+            .articles-grid  { grid-template-columns: 1fr; }
+            .submit-form    { padding: 2rem; }
+            .team-grid      { grid-template-columns: 1fr; }
+            .team-modal     { padding: 2.5rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" onclick="showPage('home')">The Centrifuge</div>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('about')">About</a></li>
+                <li><a onclick="showPage('issues')">Browse Issues</a></li>
+                <li><a onclick="showPage('submit')">Submit</a></li>
+                <li><a onclick="showPage('subscribe')">Subscribe</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
+            </ul>
+            <div class="nav-overlay" id="navOverlay" onclick="toggleMobileNav()"></div>
+        </div>
+    </nav>
+
+    <!-- ========== HOME PAGE ========== -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>The Centrifuge</h1>
+                <p>Separating signal from noise in student STEM research. A high school magazine exploring science, technology, engineering, and mathematics.</p>
+                <a href="#" class="cta-button">Submit Your Work</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-heading">
+                <h2>Featured Articles</h2>
+                <p>Latest insights from student researchers and writers</p>
+            </div>
+
+            <div class="articles-grid">
+                <div class="article-card" onclick="showPage('article-1')">
+                    <div class="article-image">
+                        <img src="https://cdn.who.int/media/images/default-source/amr-lib/blink-shoot-malbran_sarah-pabst_00285.tmb-1920v.jpg?sfvrsn=dd75ea20_4" alt="A Petri dish with microbial cultures" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Biology</span>
+                        <h3 class="article-title">When Medicine Stops Working: the Threat of Antimicrobial Resistance</h3>
+                        <p class="article-excerpt">Since the discovery of penicillin in 1928, antimicrobials have saved millions of lives — but an alarming trend is making them obsolete against the infections they treat...</p>
+                        <div class="article-meta">
+                            <span>Maria Matias</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="showPage('article-2')">
+                    <div class="article-image">
+                        <p>📈</p>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Mathematics</span>
+                        <h3 class="article-title">Spectral Graph Theory and Epidemic Containment</h3>
+                        <p class="article-excerpt">How graph theory and linear algebra model epidemic spread, predict outbreak thresholds, and guide containment strategies for real-world networks...</p>
+                        <div class="article-meta">
+                            <span>Ritisha Agarwal</span>
+                            <span>10 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="showPage('article-3')">
+                    <div class="article-image">
+                        <img src="https://stjohnseyeassociates.com/wp-content/uploads/2022/07/vision-comparison-img.jpg" alt="A clear image vs blurry image of a forest" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Medicine</span>
+                        <h3 class="article-title">The World Is Going Blurry: Understanding the Global Myopia Epidemic</h3>
+                        <p class="article-excerpt">Nearly half of Americans are nearsighted — and by 2050, more than half the world will be too. Here's what's happening inside our eyes, why it's getting worse, and what science says we can do about it...</p>
+                        <div class="article-meta">
+                            <span>Teresa Pan</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="showPage('article-4')">
+                    <div class="article-image">
+                        <img src="https://static.scientificamerican.com/sciam/cache/file/37110581-A303-4A6D-B47E3F1844F0707D_source.jpg?w=1200" alt="Surreal Man in a Suit looks through infinite doors" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Biology</span>
+                        <h3 class="article-title">Your Illusion of Reality: The Brain as a Prediction Machine</h3>
+                        <p class="article-excerpt">From fleeting moments of misrememberance to intense hallucinations and sleep paralysis, the brain's complex ability to perceive is also the very thing that causes it to see what's not there...</p>
+                        <div class="article-meta">
+                            <span>Prisha Goswani</span>
+                            <span>6 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" onclick="showPage('article-5')">
+                    <div class="article-image">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.-HhHSznLc0CCzmtnW_txAQHaEc?pid=Api" alt="Fractal clock" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">Medicine</span>
+                        <h3 class="article-title">The Clock You Never Knew You Had</h3>
+                        <p class="article-excerpt">I used to think jet lag was just tiredness. A few too many hours in a cramped seat, a lukewarm meal at 3 a.m., and a body that simply hadn't caught up with the time zone yet...</p>
+                        <div class="article-meta">
+                            <span>Xinyue Ying</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item"><h3>500+</h3><p>Student Contributors</p></div>
+                <div class="stat-item"><h3>50+</h3><p>Schools Worldwide</p></div>
+                <div class="stat-item"><h3>200+</h3><p>Published Articles</p></div>
+                <div class="stat-item"><h3>15</h3><p>Issues Released</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ARTICLE 1 ========== -->
+    <div id="article-1" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('home')">← Back to Articles</a>
+                <span class="article-hero-category">Biology</span>
+                <h1 class="article-hero-title">When Medicine Stops Working: the Threat of Antimicrobial Resistance</h1>
+                <div class="article-hero-meta">
+                    <span>Maria Matias</span><span class="article-meta-dot">·</span><span>March 2026</span><span class="article-meta-dot">·</span><span>5 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <p><em>Since the discovery of penicillin, in 1928, antimicrobials have saved millions of lives — but an alarming trend has been making them obsolete against the infections they are intended to treat. Here we explore how the resistance mechanisms work, what are their causes and how we can fight this problem before it is too late.</em></p>
+                <figure>
+                    <img src="https://cdn.who.int/media/images/default-source/amr-lib/blink-shoot-malbran_sarah-pabst_00285.tmb-1920v.jpg?sfvrsn=dd75ea20_4" alt="A Petri dish with microbial cultures." style="width:85%;height:auto;">
+                    <figcaption style="font-style:italic;">World Health Organization</figcaption>
+                </figure>
+                <h2>What is AMR?</h2>
+                <p>Antimicrobials (AM), which include antivirals, antifungals or antibiotics, are medicines used to treat and/or prevent infections.</p>
+                <p>Antimicrobial resistance (AMR) is a phenomenon that occurs when pathogens, such as bacteria, viruses, or fungi, mutate or adapt in a way that allows them to develop the ability to resist the effects of antimicrobial agents, resulting in the inefficiency of the medicine and making infectious diseases harder or impossible to treat under the selective pressure of antibiotics. Susceptible bacteria are killed or inhibited, while bacteria that are naturally (or intrinsically) resistant or that have acquired antibiotic-resistant traits have a greater chance of surviving and multiplying.</p>
+                <p>AMR causes an increase in several diseases' spreadability and the risk of severe illness, disability or death.</p>
+                <h2>What is the Present Situation?</h2>
+                <p>AMR was identified by WHO as one of the top global public health and development threats.</p>
+                <p>A study from the Global Research on Antimicrobial Resistance (GRAM) estimated that in 2019, 4.95 million people died from drug-resistant infections and, of those, 1.27 million were directly caused by AMR. AMR also puts many of medicine's advances at risk: AMs are essential in procedures such as surgery, caesarean, or chemotherapy, and the AMR substantially increases their risk factor.</p>
+                <figure>
+                    <iframe src="https://ourworldindata.org/grapher/global-deaths-by-syndrome-and-antimicrobial-resistance?tab=chart" loading="lazy" style="width:100%;height:600px;border:0 none;" allow="web-share; clipboard-write"></iframe>
+                    <figcaption style="font-style:italic;">Our World in Data</figcaption>
+                </figure>
+                <p>This problem impacts all countries at all income levels, although it has a higher incidence and a higher burden level in low-resource settings, with the Sub-Saharan region presenting the highest rate of AMR burden, 23.7 deaths per 100,000 people. AMR also has a larger impact on neonatal and especially older age groups, where mortality related to AMR increased by 80% from 1990 to 2021 in adults 70 years old or over.</p>
+                <p>An analysis by EcoAMR predicted that, if left unattended, AMR could lead to 39 million human deaths between 2025 and 2050.</p>
+                <h2>What Causes AMR?</h2>
+                <p>AMR is exacerbated and accelerated by human misuse. The excessive prescription of antibiotics by general practitioners, even in the absence of appropriate indications, self-medication, and incorrect dosage/schedule of antibiotics, are the main contributors to AMR.</p>
+                <p>AMR is deeply connected with urbanisation and population growth. More than half the world's population lives in urban environments. Such a large number of individuals living in proximity provides significant conditions for the rapid proliferation of infectious diseases and, consequently, enhances the possibility of mutation in pathogens.</p>
+                <h3>Agriculture and Farming</h3>
+                <p>A substantial proportion of total antibiotic use occurs outside the field of human medicine. Antimicrobial use in food-producing animals, aquaculture and agriculture for growth promotion and for disease treatment or prevention is a major contributor to the overall problem.</p>
+                <figure>
+                    <iframe src="https://ourworldindata.org/grapher/antibiotic-usage-in-livestock?tab=map" loading="lazy" style="width:100%;height:600px;border:0 none;" allow="web-share; clipboard-write"></iframe>
+                    <figcaption style="font-style:italic;">Our World in Data</figcaption>
+                </figure>
+                <h3>Sanitation</h3>
+                <p>The spread of drug-resistant pathogens is also linked to sanitation. Contamination of municipal wastewater due to incomplete metabolism in human beings or incorrect disposal of AMs allows for the proliferation of antimicrobial-resistant microbes. Consequently, the lack of proper sanitation, poor water quality, and inadequate wastewater treatment are contributing factors to AMR, leading to a higher burden in low-income areas.</p>
+                <h3>Cross-Resistance: a Catalyst of AMR</h3>
+                <p>The agricultural use of antibiotics is often linked to another mechanism of this problem: cross-resistance. Cross-resistance occurs when a microbial develops a resistance mechanism to a specific action mode, which is shared by different groups of chemically different antimicrobial medicine. For example, studies have shown that fluoroquinolone-resistant <em>E. coli</em> containing mutations in a topoisomerase gene (<em>gyrA</em>) have changed susceptibility of the bacteria to other antibiotics.</p>
+                <h2>An Economic Challenge</h2>
+                <p>AMR results in extended hospital stays, more difficult and expensive treatment and loss of workforce for longer periods of time. A study conducted by EcoAMR found that, if no action is taken in 2050, the healthcare costs of AMR could rise to US$159 billion, and the impact on livestock production could reach US$40 billion globally.</p>
+                <h2>How Are We Coping?</h2>
+                <p>Antimicrobial resistance has been acknowledged by key organisations such as WHO and CDC as an emerging risk for global human health. Many actions are currently being taken, such as the adoption of the Global Action Plan on AMR (GAP) during the 2015 World Health Assembly. As of November 2023, 178 countries had a national plan aligned with GAP to address AMR.</p>
+                <h2>What Can We Still Do?</h2>
+                <p>Some of the most pressing measures to be taken are as follows:</p>
+                <ul>
+                    <li>Education of the broader public about the proper use of antibiotics and imposing stricter regulations on prescription by medical professionals</li>
+                    <li>Improving safe disposal systems of antibiotics</li>
+                    <li>Monitoring and restricting the use of AMs in animal farming</li>
+                    <li>Improving infection control in healthcare settings</li>
+                </ul>
+                <hr>
+                <h3>Further Reading &amp; Key Sources</h3>
+                <p class="bibliography">WHO (2023) Antimicrobial Resistance. https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance</p>
+                <p class="bibliography">Michael, C. A., Dominey-Howes, D., &amp; Labbate, M. (2014). The Antimicrobial Resistance Crisis: Causes, Consequences, and Management. https://doi.org/10.3389/fpubh.2014.00145</p>
+                <p class="bibliography">Global burden of bacterial antimicrobial resistance 1990–2021: a systematic analysis with forecasts to 2050, Naghavi, Mohsen et al. The Lancet, Volume 404, Issue 10459, 1199–1226.</p>
+                <p class="bibliography">Saloni Dattani, Fiona Spooner, Hannah Ritchie, and Max Roser (2024) – "Antibiotics and Antibiotic Resistance." OurWorldinData.org.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ARTICLE 2 ========== -->
+    <div id="article-2" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('home')">← Back to Articles</a>
+                <span class="article-hero-category">Mathematics</span>
+                <h1 class="article-hero-title">Spectral Graph Theory and Epidemic Containment</h1>
+                <div class="article-hero-meta">
+                    <span>Ritisha Agarwal</span><span class="article-meta-dot">·</span><span>March 2026</span><span class="article-meta-dot">·</span><span>10 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <h2>1. Introduction</h2>
+                <h3>1.1 Why Modern Contagion is Network-Driven</h3>
+                <p>In modern society, contagion rarely spreads at random. From infectious diseases to viral videos, the pathways through which something spreads are determined by complex networks of interactions. These networks can be represented using graphs, where entities are modelled as nodes and their interactions as edges.</p>
+                <p>The structure of these networks determines how quickly and widely contagion can propagate. In highly connected systems, an infection introduced at a single node may rapidly reach much of the network, while in more fragmented systems outbreaks may die out quickly.</p>
+                <p>Real-world networks are often dynamic, with connections appearing and disappearing over time. Nevertheless, static representations using matrices can capture many important structural features.</p>
+                <h3>1.2 Real-World Relevance</h3>
+                <p>Viewing contagion as a network process provides insight into a wide range of real-world systems. Across public health, digital communication, and cybersecurity, spreading processes follow similar mathematical patterns.</p>
+                <p>A key example is the spread of infectious diseases. Modern transportation networks create highly connected pathways that allow pathogens to move rapidly between distant populations.</p>
+                <h2>2. Graph-Theoretic Modeling</h2>
+                <h3>2.1 From Adjacency Matrices to Laplacians</h3>
+                <p>In graph theory, a network is represented as a graph G = (V, E), where V is the set of nodes and E is the set of edges connecting them.</p>
+                <p>A convenient way to describe the connections in a graph is with an <strong>adjacency matrix</strong>. For a network with n nodes, the adjacency matrix A is an n &times; n matrix where A<sub>ij</sub> = 1 if nodes i and j are connected, and 0 otherwise.</p>
+                <p>Using A and D together, we define the <strong>graph Laplacian</strong>:</p>
+                <div class="equation">L = D − A</div>
+                <h3>2.2 SIS and SIR Models on Networks</h3>
+                <p>Epidemiologists often describe the spread of disease using <strong>compartmental models</strong>. Two of the most common are the SIS model and the SIR model.</p>
+                <p>In the SIS model, each node can be in one of two states:</p>
+                <ul>
+                    <li><strong>Susceptible (S)</strong> — the node is healthy but can become infected.</li>
+                    <li><strong>Infected (I)</strong> — the node currently carries the infection and can spread it to neighbours.</li>
+                </ul>
+                <p>A simplified description of the network dynamics can be written as:</p>
+                <div class="equation">dx/dt = βAx − δx</div>
+                <h2>3. Spectral Radius and Epidemic Thresholds</h2>
+                <h3>3.1 Eigenvalue Interpretation</h3>
+                <p>A number λ is called an <strong>eigenvalue</strong> of a matrix A if there exists a non-zero vector v such that Av = λv. The largest eigenvalue of the adjacency matrix is called the <strong>spectral radius</strong>, written λ₁(A).</p>
+                <h3>3.2 Threshold Formulas and Practical Meaning</h3>
+                <p>For many network epidemic models, the critical threshold is approximately:</p>
+                <div class="equation">τ_c = 1 / λ₁(A)</div>
+                <p>If τ &lt; τ_c, infections die out. If τ &gt; τ_c, the infection can persist and spread throughout the network.</p>
+                <h3>3.3 Example: A Small Network</h3>
+                <p>Consider a simple network of five nodes. The corresponding adjacency matrix has spectral radius approximately λ₁(A) ≈ 2.41, giving a threshold τ_c ≈ 0.41.</p>
+                <h2>4. Real-World Case Studies</h2>
+                <h3>4.1 Airline Network and COVID-19</h3>
+                <p>Air travel is a major pathway for global disease spread. During the early phase of COVID-19, travel restrictions focused on Wuhan were estimated to have reduced the number of cases exported internationally by about 70–80%, and to have delayed importation of new cases to other countries by several weeks.</p>
+                <h3>4.2 Social Media Rumour Spreading</h3>
+                <p>Online social networks also behave like contagion networks. Surveys suggest that around 73% of people report seeing misleading news online, and about half struggle to distinguish true from false information.</p>
+                <h2>5. Optimization for Containment</h2>
+                <h3>5.1 Node Removal and Immunization Strategies</h3>
+                <table>
+                    <thead><tr><th>Node (Airport)</th><th>Degree (Connections)</th></tr></thead>
+                    <tbody>
+                        <tr><td>JFK</td><td>4</td></tr>
+                        <tr><td>LHR</td><td>3</td></tr>
+                        <tr><td>ATL</td><td>2</td></tr>
+                        <tr><td>CDG</td><td>2</td></tr>
+                        <tr><td>DXB</td><td>1</td></tr>
+                    </tbody>
+                </table>
+                <h3>5.2 Eigenvalue Perturbation and Heuristics</h3>
+                <ul>
+                    <li><strong>High-degree removal:</strong> remove the most connected nodes first.</li>
+                    <li><strong>Randomized immunization:</strong> randomly vaccinate nodes if no degree information is available.</li>
+                    <li><strong>Betweenness-based:</strong> remove nodes that lie on many shortest paths.</li>
+                </ul>
+                <h2>6. Open Problems and Future Work</h2>
+                <p>Real-world networks are rarely static. Flights are seasonal, social interactions vary daily, and computer connections change constantly. Studying temporal networks — networks that change over time — is an active area of research.</p>
+                <hr>
+                <h3>Further Reading &amp; Key Sources</h3>
+                <p class="bibliography">[1] Grepin KA et al. Evidence of the effectiveness of travel-related measures during the early phase of the COVID-19 pandemic. <em>BMJ Glob Health.</em> 2021;6(3):e004537.</p>
+                <p class="bibliography">[2] Anzai A et al. Assessing the impact of reduced travel on exportation dynamics of novel coronavirus infection (COVID-19). <em>J Clin Med.</em> 2020;9(2):601.</p>
+                <p class="bibliography">[3] Hauer T, Kennedy R. Misinformation really does spread like a virus. <em>Phys.org.</em> 2024 Nov 5.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ARTICLE 3 ========== -->
+    <div id="article-3" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('home')">← Back to Articles</a>
+                <span class="article-hero-category">Medicine</span>
+                <h1 class="article-hero-title">The World Is Going Blurry: Understanding the Global Myopia Epidemic</h1>
+                <div class="article-hero-meta">
+                    <span>Teresa Pan</span><span class="article-meta-dot">·</span><span>March 2026</span><span class="article-meta-dot">·</span><span>8 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <p><em>Nearly half of Americans are nearsighted — and by 2050, more than half the world will be too. Here's what's happening inside our eyes, why it's getting worse, and what science says we can do about it.</em></p>
+                <figure>
+                    <img src="https://stjohnseyeassociates.com/wp-content/uploads/2022/07/vision-comparison-img.jpg" alt="A clear image as opposed to a blurry image of the same forest" style="width:100%;">
+                    <figcaption style="font-style:italic;">St. Johns Eye Associates</figcaption>
+                </figure>
+                <p>For the first six years of my life, I thought the world was supposed to be blurry. Mountains looked like fuzzy triangles. Street signs were abstract art. Reading the board in class felt like a superpower I simply hadn't unlocked yet. Then, one afternoon at the optometrist — the doctor handed me my first pair of glasses. The world snapped into focus.</p>
+                <p>My story isn't unusual. In fact, it's becoming the default. Myopia, the clinical term for nearsightedness, has quietly grown into one of the most widespread visual health crises of the modern era.</p>
+                <blockquote><p>"By 2050, an estimated 5 billion people — more than half the world's projected population — are expected to be myopic."</p></blockquote>
+                <h2>What Is Myopia, Exactly?</h2>
+                <figure>
+                    <img src="https://www.theeyepractice.com.au/wp-content/uploads/2020/12/tep-eye-care-myopia-normal-eye-vs-myopia.jpg" alt="Diagram of a myopic eye" style="width:100%;border:0.5rem solid black;">
+                    <figcaption style="font-style:italic;">theeyepractice.com.au</figcaption>
+                </figure>
+                <p>In a healthy eye, light enters through the cornea, passes through the lens, and focuses precisely onto the retina. In a myopic eye, either the eyeball has grown too long from front to back, or the cornea is curved too steeply — light converges just in front of the retina rather than on it.</p>
+                <h2>The Numbers Behind the Epidemic</h2>
+                <figure>
+                    <img src="https://assets.weforum.org/editor/DUDOVYWJriHj5jvt2lhs0_l-B1f0Qm4Tg_2gRkMJem8.jpg" alt="Graph showing the increase of myopia" style="height:23rem;border:0.5rem solid black;">
+                    <figcaption style="font-style:italic;">World Economic Forum</figcaption>
+                </figure>
+                <p>In the United States, myopia prevalence almost doubled in just four decades: from about 25% in 1971 to approximately 42% by 2017. Global projections estimate that by 2050, around 5 billion people will have myopia.</p>
+                <h2>The Two Main Culprits</h2>
+                <h3>1. Too Much Close-Up Work</h3>
+                <p>Research suggests that sustained close-up work sends a signal to the eye that triggers axial elongation — the eye literally grows longer. A study from South Korea found that each additional hour of daily screen time was associated with a 21% increased likelihood of developing myopia.</p>
+                <h3>2. Not Enough Time Outdoors</h3>
+                <p>Natural sunlight on a clear day delivers approximately 100,000 lux to the eye. A well-lit indoor classroom provides roughly 300 to 500 lux. High-intensity light triggers the release of dopamine in the retina, which appears to act as a brake on axial elongation.</p>
+                <h2>Beyond Blurry: The Real Stakes</h2>
+                <p>The risk of retinal detachment is estimated to be up to 22 times higher in people with high myopia compared to the general population. Globally, the WHO estimates that 826 million people live with preventable vision impairment due to uncorrected refractive error.</p>
+                <blockquote><p>"An uncorrected refractive error doesn't just blur vision — it blurs opportunity."</p></blockquote>
+                <h2>What Can Actually Be Done?</h2>
+                <h3>More Time Outside</h3>
+                <p>Public health researchers recommend at least 2 hours of outdoor time per day during childhood and adolescence.</p>
+                <h3>The 20-20-20 Rule</h3>
+                <p>Every 20 minutes, look at something at least 20 feet away for at least 20 seconds.</p>
+                <h3>Atropine Eye Drops</h3>
+                <p>Low-dose atropine eye drops have been found to slow axial elongation by 50 to 60% compared to placebo in multiple clinical trials.</p>
+                <h3>Orthokeratology and Specialty Lenses</h3>
+                <p>Orthokeratology — rigid contact lenses worn overnight to temporarily reshape the cornea — has also shown promise in slowing myopia progression.</p>
+                <figure>
+                    <img src="https://journals.sagepub.com/cms/10.1089/jop.2017.0144/asset/b3ffe962-4ac1-4ec4-afe9-2a36f1156bd4/assets/images/large/10.1089_jop.2017.0144-fig1.jpg" alt="Bar graph comparing myopia control approaches" style="height:23rem;border:0.5rem solid black;">
+                    <figcaption style="font-style:italic;">A review of myopia control with Atropine — Trần Đình Minh Huy</figcaption>
+                </figure>
+                <h2>Looking Forward</h2>
+                <p>Myopia is a window into a broader truth: many significant health challenges of the 21st century are mismatches between the environments our biology evolved in and the environments we've built. The world doesn't have to stay blurry. We have the tools to bring it into focus.</p>
+                <hr>
+                <h3>Further Reading &amp; Key Sources</h3>
+                <p class="bibliography">Holden BA et al. (2016). Global Prevalence of Myopia and High Myopia. <em>Ophthalmology</em>, 123(5), 1036–1042.</p>
+                <p class="bibliography">Wu PC et al. (2013). Myopia Prevention and Outdoor Light Intensity in a School-Based Cluster Randomized Trial. <em>Ophthalmology</em>, 120(10).</p>
+                <p class="bibliography">World Health Organization. (2019). World Report on Vision. Geneva: WHO Press.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ARTICLE 4 ========== -->
+    <div id="article-4" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('home')">← Back to Articles</a>
+                <span class="article-hero-category">Biology</span>
+                <h1 class="article-hero-title">Your Illusion of Reality: The Brain as a Prediction Machine</h1>
+                <div class="article-hero-meta">
+                    <span>Prisha Goswani</span><span class="article-meta-dot">·</span><span>March 2026</span><span class="article-meta-dot">·</span><span>6 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <p><em>From fleeting moments of misrememberance to intense hallucinations and sleep paralysis, the brain's complex ability to perceive is also the very thing that causes it to see what's not there.</em></p>
+                <figure>
+                    <img src="https://static.scientificamerican.com/sciam/cache/file/37110581-A303-4A6D-B47E3F1844F0707D_source.jpg?w=1200" alt="Surreal Man in a Suit looks through infinite doors" style="width:90%;">
+                    <figcaption style="font-style:italic;">The Scientific American</figcaption>
+                </figure>
+                <p>When I was little, I thought I was an alien. I would listen to the conversation my parents were having as I sat next to the open door, cool air slipping through the muggy room and sending the wind-chimes tinkling in the corner. It would occur to me gradually that I had been here before. Not just this place, but this moment in time.</p>
+                <p>I held this longstanding belief until I was seven, when I discovered that my classmates had magic too. We all shared the same strange power: déjà vu.</p>
+                <p>In fact, 97% of the population has experienced déjà vu and 67% of adults report experiencing it regularly. But moments like these expose the fascinating mechanism of how we construct our own reality. Rather than misleading us, the brain is doing exactly what it's meant to do: predicting what comes next.</p>
+                <h2>The Brain isn't a Camera</h2>
+                <p>Modern neuroscience suggests the brain is not a simple camcorder, but an active predictor, blending our version of reality with the truth of it.</p>
+                <p>Karl Friston proposed the Free Energy Principle, stating that every self-organizing system (including the brain) is driven to minimize "surprise", or the gap between its own expectations and the world around it. This formed a key foundation for what scientists now call the Bayesian Brain Theory.</p>
+                <p>Think of your brain as a weather app: it doesn't constantly scan the sky to see if a raindrop falls. Rather, it uses past experiences to expect a sunny day, and only changes its tune when sudden data detects an incoming thunderstorm.</p>
+                <h2>A Memory or Something Different?</h2>
+                <p>Déjà vu occurs when the brain generates a powerful sense of familiarity without being able to trace where it came from. It is, in a sense, your own prediction being mistaken for a memory.</p>
+                <figure>
+                    <img src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/e856/4150674/cab1aaa86c1a/gr4.jpg" alt="Brain activity diagrams during déjà vu." style="width:90%;">
+                    <figcaption style="font-style:italic;text-align:center;">EEG studies show déjà vu is associated with hippocampal activation (Bartolomei et al., 2019)</figcaption>
+                </figure>
+                <blockquote>
+                    <p>"Sleep paralysis affects roughly 8% of people at least once in their lifetime." <em>— Sharpless and Barber, 2011</em></p>
+                </blockquote>
+                <p>A hallucination is what happens when your brain relies too much on its priors and treats its own predictions as reality. This is why in cases of extreme drug use or sleep paralysis, people can experience scary hallucinations: the brain is working in overdrive to keep you out of danger.</p>
+                <h2>Reframing the System</h2>
+                <p>Perception and hallucination are not opposites — they exist on a continuum. Both are made from the same process: the brain making sense of the world.</p>
+                <div style="display:flex;flex-direction:row;justify-content:space-between;margin-bottom:1.5rem;">
+                    <div style="text-align:center;background:var(--light);padding:1rem;">
+                        <h3>Experience</h3>
+                        <p>Recognizing a friend's voice</p>
+                        <p>Déjà vu</p>
+                        <p>Hallucinations / Sleep Paralysis</p>
+                    </div>
+                    <div style="text-align:center;background:var(--light);padding:1rem 1.5rem;">
+                        <h3>Dominant factor</h3>
+                        <p>External input</p>
+                        <p>Input and prediction</p>
+                        <p>Internal prediction</p>
+                    </div>
+                </div>
+                <h2>So, How Should We See Our Minds?</h2>
+                <p>Every moment we experience is a negotiation between truth and reality. If we're all really constructing our own reality, then it might just warrant a more empathetic approach to the experiences of others.</p>
+                <hr>
+                <h3>Further Reading &amp; Key Sources</h3>
+                <p class="bibliography">Friston, K. (2012). The history of the future of the Bayesian brain. https://pmc.ncbi.nlm.nih.gov/articles/PMC3480649/</p>
+                <p class="bibliography">Bartolomei F et al. Rhinal-hippocampal interactions during déjà vu. https://pubmed.ncbi.nlm.nih.gov/21924679/</p>
+                <p class="bibliography">Pappas, S. (2024). What Causes Déjà Vu? https://www.scientificamerican.com/article/what-causes-the-feeling-of-deja-vu/</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ARTICLE 5 ========== -->
+    <div id="article-5" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('home')">← Back to Articles</a>
+                <span class="article-hero-category">Medicine</span>
+                <h1 class="article-hero-title">The Clock You Never Knew You Had</h1>
+                <div class="article-hero-meta">
+                    <span>Xinyue Ying</span><span class="article-meta-dot">·</span><span>March 2026</span><span class="article-meta-dot">·</span><span>5 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <figure>
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.-HhHSznLc0CCzmtnW_txAQHaEc?pid=Api" alt="Fractal clock" style="width:90%;">
+                </figure>
+                <p>I used to think jet lag was just tiredness. A few too many hours in a cramped seat, a lukewarm meal at 3 a.m., and a body that simply hadn't caught up with the time zone yet. A minor inconvenience — fixed by coffee and stubbornness.</p>
+                <p>Then I flew from Dubai to Singapore, and for the first few days I genuinely felt like I was living inside a dream I couldn't quite wake up from. I'm bilingual, and somewhere over the Indian Ocean my two languages had apparently decided to swap places without telling me.</p>
+                <p>What I was experiencing wasn't just my schedule being disrupted. It was a system — an ancient, elegant, biological clock — being asked to do something it fundamentally cannot do: change quickly.</p>
+                <figure>
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.H6YQVVDrmaSe_7Z1agwbbAHaEo?pid=Api" alt="Sideways analogical clock" style="width:90%;">
+                </figure>
+                <h2>The Machine Inside the Machine</h2>
+                <p>Hidden inside almost every cell in your body is a molecular clock — a literal oscillating feedback loop of proteins that completes one full cycle approximately every 24 hours. Scientists call it the circadian clock, from the Latin <em>circa diem</em>: about a day.</p>
+                <p>A cluster of genes — most notably CLOCK, BMAL1, PER, and CRY — interact in a self-sustaining loop. The conductor of this orchestra lives in a tiny region of the brain called the suprachiasmatic nucleus (SCN), tucked just above where the optic nerves cross.</p>
+                <figure>
+                    <img src="https://images-ext-1.discordapp.net/external/zeI9CY_qKPn9yen4bIYw0OwR_H0fcyqnqE-34sq7tyk/https/media.springernature.com/m685/springer-static/image/art%253A10.1038%252Fs41583-018-0026-z/MediaObjects/41583_2018_26_Fig1_HTML.jpg?format=webp&width=856&height=591" alt="Diagram of circadian cycles in the brain" style="width:90%;">
+                    <figcaption>Hastings, M.H., Maywood, E.S. &amp; Brancaccio, M. Generation of circadian rhythms in the suprachiasmatic nucleus. <em>Nat Rev Neurosci</em></figcaption>
+                </figure>
+                <h2>Why Any of This Matters</h2>
+                <p>The circadian clock is not just a sleep scheduler. It is a global coordinator of biological timing. Your liver metabolises drugs on a 24-hour cycle, which means the same medication taken at 8 a.m. versus 8 p.m. can have meaningfully different effects on your body.</p>
+                <p>Shift workers offer an uncomfortable window into what happens when the circadian system is chronically disrupted: long-term shift work is associated with elevated rates of cardiovascular disease, metabolic syndrome, depression, and certain cancers.</p>
+                <h2>A System Hiding in Plain Sight</h2>
+                <p>In 1971, researchers Seymour Benzer and Ronald Konopka discovered mutant fruit flies whose daily activity cycles were disrupted — the differences came down to a single gene, which they named <em>period</em>. In 2017, Jeffrey Hall, Michael Rosbash, and Michael Young were awarded the Nobel Prize in Physiology or Medicine for their work unpicking the molecular mechanism.</p>
+                <figure>
+                    <img src="https://cdn-ckfjm.nitrocdn.com/towyAoJaLSzAqWLbduPFHfHYUnjGziVx/assets/images/optimized/rev-1af1acb/www.lindau-nobel.org/wp-content/uploads/2017/10/Nobel-Laureates-Medicine-2017.jpg" alt="2017 Medicine Nobel prize winners illustration" style="width:90%;">
+                    <figcaption>2017 Nobel Laureates in Physiology or Medicine. Illustration: Niklas Elmehed.</figcaption>
+                </figure>
+                <h2>What the Clock Reveals</h2>
+                <p>Jet lag is not your body failing. It is a direct encounter with a system that is usually too seamless to notice. For a few days in Singapore, my cells were insisting on a truth that the local sun flatly contradicted.</p>
+                <blockquote><p>"Most of the time, it just quietly keeps time for you. You never even know it's there."</p></blockquote>
+                <hr>
+                <h3>Further Reading &amp; Key Sources</h3>
+                <p class="bibliography">Circadian Clocks — Russell Foster &amp; Leon Kreitzman (2004)</p>
+                <p class="bibliography">Hall, Rosbash &amp; Young Nobel Lecture (2017): nobelprize.org</p>
+                <p class="bibliography">Chronotherapy — Keith Hermitage &amp; Alison Coates, Nature Reviews Drug Discovery (2021)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ABOUT PAGE ========== -->
+    <div id="about" class="page">
+        <div class="container">
+            <div class="about-content">
+                <h2>About The Centrifuge</h2>
+                <p>The Centrifuge is a student-run STEM magazine that separates signal from noise in scientific research. Just as a laboratory centrifuge isolates essential components from complex mixtures, we help high school students distill breakthrough ideas, clarify dense concepts, and share their discoveries with peers worldwide.</p>
+                <div class="mission-box">
+                    <h3>Our Mission</h3>
+                    <p>To create a platform where high school students can publish rigorous research, technical insights, and innovative perspectives on STEM. We foster a community of young scientists and engineers who challenge each other, collaborate openly, and push the boundaries of student-led inquiry.</p>
+                </div>
+                <h2>What We Publish</h2>
+                <p>We feature content that represents the full spectrum of student STEM work:</p>
+                <ul>
+                    <li><strong>Original Research</strong> - Student-led experiments, data analysis, and findings</li>
+                    <li><strong>Technical Tutorials</strong> - Step-by-step guides, coding projects, and methodology breakdowns</li>
+                    <li><strong>Opinion &amp; Analysis</strong> - Critical perspectives on emerging technologies and scientific developments</li>
+                    <li><strong>Interviews</strong> - Conversations with student researchers, professors, and industry professionals</li>
+                </ul>
+                <h2>Why The Centrifuge?</h2>
+                <p>In every lab, a centrifuge clarifies what's opaque by spinning away the noise. High school students approach STEM with fresh perspectives, spotting patterns others miss and asking uncomfortable questions. The Centrifuge amplifies these voices, bringing student-driven discoveries into sharp focus and proving that groundbreaking work doesn't wait for college.</p>
+                <p style="margin-top:3rem;font-size:1.2rem;color:var(--dark);font-family:'Outfit',sans-serif;font-weight:700;">Join us in celebrating student innovation and building the next generation of STEM leaders.</p>
+                <button class="meet-team-btn" onclick="showPage('team')">Meet the Team <span>→</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TEAM PAGE ========== -->
+    <div id="team" class="page">
+        <div class="team-hero">
+            <a class="team-back-link" onclick="showPage('about')">← Back to About</a>
+            <h1>Our Team</h1>
+            <p>The students behind The Centrifuge, working to elevate peer research</p>
+        </div>
+        <div class="container">
+            <div class="team-grid">
+                <div class="team-card" onclick="openTeamModal(0)">
+                    <div class="team-avatar avatar-gradient-1">FL</div>
+                    <h3 class="team-name">First Last</h3>
+                    <div class="team-grade">Grade</div>
+                    <div class="team-card-hint">Click to learn more</div>
+                </div>
+                <div class="team-card" onclick="openTeamModal(1)">
+                    <div class="team-avatar avatar-gradient-2">FL</div>
+                    <h3 class="team-name">First Last</h3>
+                    <div class="team-grade">Grade</div>
+                    <div class="team-card-hint">Click to learn more</div>
+                </div>
+                <div class="team-card" onclick="openTeamModal(2)">
+                    <div class="team-avatar avatar-gradient-3">FL</div>
+                    <h3 class="team-name">First Last</h3>
+                    <div class="team-grade">Grade</div>
+                    <div class="team-card-hint">Click to learn more</div>
+                </div>
+                <div class="team-card" onclick="openTeamModal(3)">
+                    <div class="team-avatar avatar-gradient-4">FL</div>
+                    <h3 class="team-name">First Last</h3>
+                    <div class="team-grade">Grade</div>
+                    <div class="team-card-hint">Click to learn more</div>
+                </div>
+                <div class="team-card" onclick="openTeamModal(4)">
+                    <div class="team-avatar avatar-gradient-5">FL</div>
+                    <h3 class="team-name">First Last</h3>
+                    <div class="team-grade">Grade</div>
+                    <div class="team-card-hint">Click to learn more</div>
+                </div>
+                <div class="team-card" onclick="openTeamModal(5)">
+                    <div class="team-avatar avatar-gradient-6">FL</div>
+                    <h3 class="team-name">First Last</h3>
+                    <div class="team-grade">Grade</div>
+                    <div class="team-card-hint">Click to learn more</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Modal -->
+    <div class="team-modal-overlay" id="teamModal" onclick="closeTeamModal(event)">
+        <div class="team-modal">
+            <button class="team-modal-close" onclick="closeTeamModal(event, true)">×</button>
+            <div class="team-modal-avatar" id="modalAvatar"></div>
+            <h2 class="team-modal-name" id="modalName"></h2>
+            <div class="team-modal-grade" id="modalGrade"></div>
+            <p class="team-modal-bio" id="modalBio"></p>
+            <div class="team-modal-links" id="modalLinks"></div>
+        </div>
+    </div>
+
+    <!-- ========== ISSUES PAGE ========== -->
+    <div id="issues" class="page">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Browse Past Issues</h2>
+                <p>Explore our archive of published research and articles</p>
+            </div>
+            <div class="issues-grid">
+                <div class="issue-card" onclick="showPage('article-5')">
+                    <div class="issue-cover"><h3>Issue #5</h3><p>Spring 2026</p><div>Neuroscience</div></div>
+                    <div class="issue-info"><p>The Clock You Never Knew You Had</p></div>
+                </div>
+                <div class="issue-card" onclick="showPage('article-4')">
+                    <div class="issue-cover"><h3>Issue #4</h3><p>Spring 2026</p><div>Neuroscience</div></div>
+                    <div class="issue-info"><p>Your Illusion of Reality: The Brain as a Prediction Machine</p></div>
+                </div>
+                <div class="issue-card" onclick="showPage('article-3')">
+                    <div class="issue-cover"><h3>Issue #3</h3><p>Spring 2026</p><div>Medicine</div></div>
+                    <div class="issue-info"><p>The World Is Going Blurry: Understanding the Global Myopia Epidemic</p></div>
+                </div>
+                <div class="issue-card" onclick="showPage('article-2')">
+                    <div class="issue-cover"><h3>Issue #2</h3><p>Spring 2026</p><div>Mathematics</div></div>
+                    <div class="issue-info"><p>Spectral Graph Theory and Epidemic Containment</p></div>
+                </div>
+                <div class="issue-card" onclick="showPage('article-1')">
+                    <div class="issue-cover"><h3>Issue #1</h3><p>Spring 2026</p><div>Biology</div></div>
+                    <div class="issue-info"><p>When Medicine Stops Working: The Threat of Antimicrobial Resistance</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SUBMIT PAGE ========== -->
+    <div id="submit" class="page">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Submit Your Work</h2>
+                <p>Share your research and insights with students worldwide</p>
+            </div>
+            <form class="submit-form" id="submit-form">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="school">School Name *</label>
+                    <input type="text" id="school" name="school" required>
+                </div>
+                <div class="form-group">
+                    <label for="grade">Grade Level *</label>
+                    <select id="grade" name="grade" required>
+                        <option value="">Select grade...</option>
+                        <option value="9">9th Grade</option>
+                        <option value="10">10th Grade</option>
+                        <option value="11">11th Grade</option>
+                        <option value="12">12th Grade</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Article Category *</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select category...</option>
+                        <option value="biology">Biology</option>
+                        <option value="chemistry">Chemistry</option>
+                        <option value="physics">Physics</option>
+                        <option value="computer-science">Computer Science</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="mathematics">Mathematics</option>
+                        <option value="other">Other STEM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="title">Article Title *</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="abstract">Abstract/Summary (250 words max) *</label>
+                    <textarea id="abstract" name="abstract" required placeholder="Provide a brief summary of your research or article..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" name="message" placeholder="Any additional details, questions, or comments..."></textarea>
+                </div>
+                <button type="submit" class="submit-button" id="submission-btn">Submit Article</button>
+                <p style="text-align:center;margin-top:1.5rem;color:var(--gray);font-family:'Lora',serif;font-size:0.95rem;">We'll review your submission and get back to you within 2 weeks</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== SUBSCRIBE PAGE ========== -->
+    <div id="subscribe" class="page">
+        <div class="hero" style="padding:8rem 2rem 6rem;">
+            <div class="hero-content">
+                <h1 style="font-size:3.5rem;">Never Miss an Issue</h1>
+                <p>Get cutting-edge student research and STEM insights delivered to your inbox every month. Completely free.</p>
+            </div>
+        </div>
+        <div class="container" style="padding-top:3rem;">
+            <div style="max-width:700px;margin:0 auto;">
+                <div style="background:var(--dark);color:white;padding:4rem 3rem;margin-bottom:4rem;border-left:4px solid var(--primary);">
+                    <h3 style="font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;margin-bottom:2rem;">What You'll Get</h3>
+                    <ul style="list-style:none;padding:0;">
+                        <li style="font-family:'Lora',serif;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;padding-left:2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--primary);font-size:1.2rem;">✓</span>Monthly digital magazine with original student research and technical articles</li>
+                        <li style="font-family:'Lora',serif;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;padding-left:2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--primary);font-size:1.2rem;">✓</span>Full access to our archive of published issues and research papers</li>
+                        <li style="font-family:'Lora',serif;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;padding-left:2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--primary);font-size:1.2rem;">✓</span>Behind-the-scenes editorial updates and submission opportunities</li>
+                    </ul>
+                </div>
+                <div class="section-heading">
+                    <h2>Subscribe for Free</h2>
+                    <p>Join thousands of students advancing STEM research</p>
+                </div>
+                <form class="submit-form" id="form-subscribe">
+                    <div class="form-group">
+                        <label for="sub-name">Full Name *</label>
+                        <input type="text" id="sub-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sub-email">Email Address *</label>
+                        <input type="email" id="sub-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sub-school">School/Institution (Optional)</label>
+                        <input type="text" id="sub-school" name="school">
+                    </div>
+                    <div class="form-group">
+                        <label for="sub-interests">What STEM topics interest you most? (Optional)</label>
+                        <textarea id="sub-interests" name="interests" placeholder="Biology, computer science, physics, engineering, mathematics, etc." rows="3"></textarea>
+                    </div>
+                    <div class="form-group" style="margin-top:2rem;">
+                        <label style="display:flex;align-items:flex-start;text-transform:none;letter-spacing:normal;font-size:1rem;cursor:pointer;">
+                            <input type="checkbox" required style="width:auto;margin-right:0.8rem;margin-top:0.2rem;flex-shrink:0;">
+                            <span style="font-family:'Lora',serif;font-weight:400;">I agree to receive monthly issues and occasional updates from The Centrifuge. You can unsubscribe at any time.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-button" id="subscribe-button">Subscribe Now</button>
+                    <p style="text-align:center;margin-top:1.5rem;color:var(--gray);font-family:'Lora',serif;font-size:0.95rem;">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+                </form>
+                <div style="margin-top:6rem;padding:4rem 3rem;background:white;border:1px solid rgba(0,0,0,0.08);">
+                    <h3 style="font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;margin-bottom:2.5rem;color:var(--dark);text-align:center;">Why We're Free</h3>
+                    <p style="font-family:'Lora',serif;color:var(--text);line-height:1.8;font-size:1.1rem;">We believe rigorous research should be accessible to everyone. The Centrifuge is run by students, for students, and we're committed to keeping all content free forever.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== CONTACT PAGE ========== -->
+    <div id="contact" class="page">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Get In Touch</h2>
+                <p>Questions, collaboration ideas, or feedback? We'd love to hear from you!</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>thecentrifugemag@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h3>Follow Us</h3>
+                            <p>@thecentrifugemag on Instagram</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="submit-form" id="contact-submit" style="margin:0;">
+                    <div class="form-group">
+                        <label for="contact-name">Name *</label>
+                        <input type="text" id="contact-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email *</label>
+                        <input type="email" id="contact-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject *</label>
+                        <input type="text" id="contact-subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message *</label>
+                        <textarea id="contact-message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button" id="contact_button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>The Centrifuge</h3>
+                <p>Separating signal from noise in student STEM research. By high schoolers, for high schoolers.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a onclick="showPage('home')">Home</a>
+                <a onclick="showPage('about')">About Us</a>
+                <a onclick="showPage('issues')">Browse Issues</a>
+                <a onclick="showPage('submit')">Submit Article</a>
+                <a onclick="showPage('subscribe')">Subscribe</a>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="#">Submission Guidelines</a>
+                <a href="#">Style Guide</a>
+                <a href="#">FAQ</a>
+                <a onclick="showPage('team')">Editorial Team</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="https://instagram.com/thecentrifugemag" target="_blank">Instagram</a>
+                <a href="#">Discord</a>
+                <a href="mailto:thecentrifugemag@gmail.com">Email</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Centrifuge Magazine. Made by students, for students. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ── Team Data ──────────────────────────────────────────────
+        const teamMembers = [
+            { name:'First Last', initials:'FL', gradient:'avatar-gradient-1', grade:'Grade', bio:'Short bio about this team member.', email:'email@example.com', linkedin:'https://linkedin.com/in/username' },
+            { name:'First Last', initials:'FL', gradient:'avatar-gradient-2', grade:'Grade', bio:'Short bio about this team member.', email:'email@example.com', linkedin:'https://linkedin.com/in/username' },
+            { name:'First Last', initials:'FL', gradient:'avatar-gradient-3', grade:'Grade', bio:'Short bio about this team member.', email:'email@example.com' },
+            { name:'First Last', initials:'FL', gradient:'avatar-gradient-4', grade:'Grade', bio:'Short bio about this team member.', email:'email@example.com' },
+            { name:'First Last', initials:'FL', gradient:'avatar-gradient-5', grade:'Grade', bio:'Short bio about this team member.', email:'email@example.com' },
+            { name:'First Last', initials:'FL', gradient:'avatar-gradient-6', grade:'Grade', bio:'Short bio about this team member.', email:'email@example.com' }
         ];
 
+        // ── Page Navigation ────────────────────────────────────────
         function showPage(pageId) {
             const target = document.getElementById(pageId);
             if (!target) return;
 
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             target.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
             history.pushState({ page: pageId }, '', '#' + pageId);
 
             const navLinks = document.getElementById('navLinks');
             const hamburger = document.getElementById('hamburger');
-            const overlay = document.getElementById('navOverlay');
-
+            const overlay   = document.getElementById('navOverlay');
             if (navLinks.classList.contains('open')) {
                 navLinks.classList.remove('open');
                 hamburger.classList.remove('active');
@@ -76,24 +1352,17 @@
             }
         }
 
-        function toggleMobileNav() {
-            const navLinks = document.getElementById('navLinks');
-            const hamburger = document.getElementById('hamburger');
-            const overlay = document.getElementById('navOverlay');
-
-            navLinks.classList.toggle('open');
-            hamburger.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
+        // Back/forward buttons
         window.addEventListener('popstate', function(e) {
             const pageId = (e.state && e.state.page) ? e.state.page : 'home';
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             const target = document.getElementById(pageId);
-            if (target) target.classList.add('active');
+            if (!target) return;
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            target.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
+        // On first load: honour hash in URL, or default to home
         window.addEventListener('DOMContentLoaded', function() {
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) {
@@ -102,6 +1371,7 @@
                 history.replaceState({ page: 'home' }, '', '#home');
             }
 
+            // CTA button
             const ctaButton = document.querySelector('.cta-button');
             if (ctaButton) {
                 ctaButton.addEventListener('click', function(e) {
@@ -111,96 +1381,102 @@
             }
         });
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbxnRk6toCyjNeFwvTBAhhd6ko6DYhrHmSON8gAu3CjMYGkBlfKQmwNZRulkx4dlCkLxiA/exec";
-        const form = document.querySelector('#submit-form');
-        const submissionButton = document.querySelector('#submission-btn');
-        form.addEventListener('submit', e => {
+        // ── Mobile Nav ─────────────────────────────────────────────
+        function toggleMobileNav() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            const overlay   = document.getElementById('navOverlay');
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // ── Submit Form ────────────────────────────────────────────
+        const scriptURL      = 'https://script.google.com/macros/s/AKfycbxnRk6toCyjNeFwvTBAhhd6ko6DYhrHmSON8gAu3CjMYGkBlfKQmwNZRulkx4dlCkLxiA/exec';
+        const submitForm     = document.querySelector('#submit-form');
+        const submitBtn      = document.querySelector('#submission-btn');
+
+        submitForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            submissionButton.disabled = true;
-            submissionButton.innerHTML = "Loading...";
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    submissionButton.disabled = false;
-                    submissionButton.innerHTML = "Submit article";
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Loading...';
+            fetch(scriptURL, { method: 'POST', body: new FormData(submitForm) })
+                .then(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Submit Article';
                     alert('Thank you for your interest! We will review your submission and get back to you within 2 weeks.');
+                    submitForm.reset();
                 })
-                .catch(error => {
-                    submissionButton.disabled = false;
-                    submissionButton.innerHTML = "Submit article";
+                .catch(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Submit Article';
                     alert('Error! Please try again later.');
                 });
-            form.reset();
         });
 
-        const subscribe_form = document.querySelector('#form-subscribe');
-        const subscribe_submit = document.querySelector('#subscribe-button');
-        const urlSubscribe = 'https://script.google.com/macros/s/AKfycbxvf8omiz3Zqn7XYclhZ0R-M3LoaZcLYAK4mpbQarjNgf_uRzGdSBIWJfeDdDmVbxR66Q/exec';
-        subscribe_form.addEventListener('submit', e => {
+        // ── Subscribe Form ─────────────────────────────────────────
+        const urlSubscribe    = 'https://script.google.com/macros/s/AKfycbxvf8omiz3Zqn7XYclhZ0R-M3LoaZcLYAK4mpbQarjNgf_uRzGdSBIWJfeDdDmVbxR66Q/exec';
+        const subscribeForm   = document.querySelector('#form-subscribe');
+        const subscribeBtn    = document.querySelector('#subscribe-button');
+
+        subscribeForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            subscribe_submit.disabled = true;
-            subscribe_submit.innerHTML = "Loading...";
-            fetch(urlSubscribe, { method: 'POST', body: new FormData(subscribe_form) })
-                .then(response => {
-                    subscribe_submit.disabled = false;
-                    subscribe_submit.innerHTML = "Subscribe now!";
+            subscribeBtn.disabled = true;
+            subscribeBtn.innerHTML = 'Loading...';
+            fetch(urlSubscribe, { method: 'POST', body: new FormData(subscribeForm) })
+                .then(() => {
+                    subscribeBtn.disabled = false;
+                    subscribeBtn.innerHTML = 'Subscribe Now';
                     alert('Thank you for subscribing to The Centrifuge! Check your email for confirmation.');
+                    subscribeForm.reset();
                 })
-                .catch(error => {
-                    subscribe_submit.disabled = false;
-                    subscribe_submit.innerHTML = "Subscribe now!";
+                .catch(() => {
+                    subscribeBtn.disabled = false;
+                    subscribeBtn.innerHTML = 'Subscribe Now';
                     alert('Error! Please try again later.');
                 });
-            subscribe_form.reset();
         });
 
-        const contact_form = document.querySelector('#contact-submit');
-        const contact_submit = document.querySelector('#contact_button');
-        const urlContact = 'https://script.google.com/macros/s/AKfycbxhSvflKIcTCLsxF318Z9lOOuzHy3LZLcVZESw5432Ced0OQRLHB2LoLWvhbe5QtNl1/exec';
-        contact_form.addEventListener('submit', e => {
+        // ── Contact Form ───────────────────────────────────────────
+        const urlContact    = 'https://script.google.com/macros/s/AKfycbxhSvflKIcTCLsxF318Z9lOOuzHy3LZLcVZESw5432Ced0OQRLHB2LoLWvhbe5QtNl1/exec';
+        const contactForm   = document.querySelector('#contact-submit');
+        const contactBtn    = document.querySelector('#contact_button');
+
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            contact_submit.disabled = true;
-            contact_submit.innerHTML = "Loading...";
-            fetch(urlContact, { method: 'POST', body: new FormData(contact_form) })
-                .then(response => {
-                    contact_submit.disabled = false;
-                    contact_submit.innerHTML = "Send message";
+            contactBtn.disabled = true;
+            contactBtn.innerHTML = 'Loading...';
+            fetch(urlContact, { method: 'POST', body: new FormData(contactForm) })
+                .then(() => {
+                    contactBtn.disabled = false;
+                    contactBtn.innerHTML = 'Send Message';
                     alert('Thank you for your message!');
+                    contactForm.reset();
                 })
-                .catch(error => {
-                    contact_submit.disabled = false;
-                    contact_submit.innerHTML = "Send message";
+                .catch(() => {
+                    contactBtn.disabled = false;
+                    contactBtn.innerHTML = 'Send Message';
                     alert('Error! Please try again later.');
                 });
-            contact_form.reset();
         });
 
+        // ── Team Modal ─────────────────────────────────────────────
         function openTeamModal(index) {
             const member = teamMembers[index];
             if (!member) return;
 
-            const overlay = document.getElementById('teamModal');
-            const avatar = document.getElementById('modalAvatar');
-            const name = document.getElementById('modalName');
-            const grade = document.getElementById('modalGrade');
-            const bio = document.getElementById('modalBio');
-            const links = document.getElementById('modalLinks');
-
-            avatar.className = 'team-modal-avatar ' + member.gradient;
-            avatar.textContent = member.initials;
-            name.textContent = member.name;
-            grade.textContent = member.grade;
-            bio.textContent = member.bio;
+            document.getElementById('modalAvatar').className = 'team-modal-avatar ' + member.gradient;
+            document.getElementById('modalAvatar').textContent = member.initials;
+            document.getElementById('modalName').textContent  = member.name;
+            document.getElementById('modalGrade').textContent = member.grade;
+            document.getElementById('modalBio').textContent   = member.bio;
 
             let linksHTML = '';
-            if (member.email) {
-                linksHTML += `<a href="mailto:${member.email}" class="team-modal-link">✉ Email</a>`;
-            }
-            if (member.linkedin) {
-                linksHTML += `<a href="${member.linkedin}" target="_blank" rel="noopener" class="team-modal-link">in LinkedIn</a>`;
-            }
-            links.innerHTML = linksHTML;
+            if (member.email)    linksHTML += `<a href="mailto:${member.email}" class="team-modal-link">✉ Email</a>`;
+            if (member.linkedin) linksHTML += `<a href="${member.linkedin}" target="_blank" rel="noopener" class="team-modal-link">in LinkedIn</a>`;
+            document.getElementById('modalLinks').innerHTML = linksHTML;
 
-            overlay.classList.add('open');
+            document.getElementById('teamModal').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
 
@@ -213,7 +1489,8 @@
         }
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeTeamModal(null, true);
-            }
+            if (e.key === 'Escape') closeTeamModal(null, true);
         });
+    </script>
+</body>
+</html>
