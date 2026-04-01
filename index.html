@@ -1457,7 +1457,7 @@
                 subscribeBtn.disabled = true;
                 subscribeBtn.innerHTML = 'Loading...';
                 var formData = new FormData(subscribeForm);
-                formData.set('agreement', form.querySelector('#agreement-check'.checked ? 'Yes': 'No');:
+                formData.set('agreement', subscribeForm.querySelector('#agreement-check').checked ? 'Yes' : 'No');
                 fetch(urlSubscribe, { method: 'POST', body: formData})
                     .then(() => {
                         subscribeBtn.disabled = false;
