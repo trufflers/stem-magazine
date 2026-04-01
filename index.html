@@ -558,7 +558,7 @@
     <nav>
         <div class="nav-container">
             <div class="logo" onclick="showPage('home')">The Centrifuge</div>
-            <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+            <button class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
@@ -569,7 +569,7 @@
                 <li><a onclick="showPage('subscribe')">Subscribe</a></li>
                 <li><a onclick="showPage('contact')">Contact</a></li>
             </ul>
-            <div class="nav-overlay" id="navOverlay" onclick="toggleMobileNav()"></div>
+            <div class="nav-overlay" id="navOverlay"></div>
         </div>
     </nav>
 
@@ -629,7 +629,7 @@
                         <h3 class="article-title">The World Is Going Blurry: Understanding the Global Myopia Epidemic</h3>
                         <p class="article-excerpt">Nearly half of Americans are nearsighted — and by 2050, more than half the world will be too. Here's what's happening inside our eyes, why it's getting worse, and what science says we can do about it...</p>
                         <div class="article-meta">
-                            <span>First Last</span>
+                            <span>Teresa Pan</span>
                             <span>8 min read</span>
                         </div>
                     </div>
@@ -1253,7 +1253,7 @@
                         <div class="contact-icon">📧</div>
                         <div class="contact-details">
                             <h3>Email Us</h3>
-                            <p>thecentrifugemag@gmail.com</p>
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2a6bab7b1b7bca6a0bbb4a7b5b7bfb3b592b5bfb3bbbefcb1bdbf">[email&#160;protected]</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1313,7 +1313,7 @@
                 <h3>Connect</h3>
                 <a href="https://instagram.com/thecentrifugemag" target="_blank">Instagram</a>
                 <a href="#">Discord</a>
-                <a href="mailto:thecentrifugemag@gmail.com">Email</a>
+                <a href="/cdn-cgi/l/email-protection#c2b6aaa7a1a7acb6b0aba4b7a5a7afa3a582a5afa3abaeeca1adaf">Email</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1321,12 +1321,12 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ── Team Data ──────────────────────────────────────────────
         const teamMembers = [
-            { name:'Teresa Pan', initials:'TP', gradient:'avatar-gradient-1', grade:'Founder & Editor-in-Chief', bio:'Hi! I’m Teresa and I’m from Vancouver, Canada. I’m the Editor-in-Chief of The Centrifuge, an idea that stemmed from my passion for STEM, writing, and education. Other than front end coding, editing articles, and writing, I’m responsible for most of the logistics surrounding this magazine. When I’m not working away at my desk, you can find me debating, eating copious amounts of cookies, or watching random video essays on YouTube. I hope you love our magazine as much as we do!', email:'teresapan888@gmail.com', linkedin:'https://linkedin.com/in/username' },
-            { name:'Ritisha Agarwal', initials:'RA', gradient:'avatar-gradient-2', grade:'Founding Editor', bio:'Hi! I’m Ritisha and I’m from London, England. I am very passionate about mathematics and how the concepts in maths can be applied to real life situations! I am a part of the founding Centrifuge team, contributing to the writing of articles, website maintenance and social media! I am always looking to further my understanding of different topic and to connect with others who feel the same love for learning!', email:'ritishaagarwal95@gmail.com', linkedin:'https://linkedin.com/in/username' },
-            { name:'Maria Matias', initials:'MM', gradient:'avatar-gradient-3', grade:'Founding Editor', bio:'Hi! I'm Maria. I am currently studying science and technology in Portugal, and I'm part of The Centrifuge team, currently working on website and article maintenance. I am passionate about mathematics, biology and all of their intersections. Likewise, I am in a continuous search to learn more about the world around me and to connect with people who feel the same drive for knowledge as I do.', email:'matias.joao.maria@gmail.com' },
+            { name:'Teresa Pan', initials:'TP', gradient:'avatar-gradient-1', grade:'Founder & Editor-in-Chief', bio:"Hi! I'm Teresa and I'm from Vancouver, Canada. I'm the Editor-in-Chief of The Centrifuge, an idea that stemmed from my passion for STEM, writing, and education. Other than front end coding, editing articles, and writing, I'm responsible for most of the logistics surrounding this magazine. When I'm not working away at my desk, you can find me debating, eating copious amounts of cookies, or watching random video essays on YouTube. I hope you love our magazine as much as we do!", email:'teresapan888@gmail.com', linkedin:'https://linkedin.com/in/username' },
+            { name:'Ritisha Agarwal', initials:'RA', gradient:'avatar-gradient-2', grade:'Founding Editor', bio:"Hi! I'm Ritisha and I'm from London, England. I am very passionate about mathematics and how the concepts in maths can be applied to real life situations! I am a part of the founding Centrifuge team, contributing to the writing of articles, website maintenance and social media! I am always looking to further my understanding of different topics and to connect with others who feel the same love for learning!", email:'ritishaagarwal95@gmail.com', linkedin:'https://linkedin.com/in/username' },
+            { name:'Maria Matias', initials:'MM', gradient:'avatar-gradient-3', grade:'Founding Editor', bio:"Hi! I'm Maria. I am currently studying science and technology in Portugal, and I'm part of The Centrifuge team, currently working on website and article maintenance. I am passionate about mathematics, biology and all of their intersections. Likewise, I am in a continuous search to learn more about the world around me and to connect with people who feel the same drive for knowledge as I do.", email:'matias.joao.maria@gmail.com' },
             { name:'First Last', initials:'FL', gradient:'avatar-gradient-4', grade:'Founding Editor', bio:'Short bio about this team member.', email:'email@example.com' },
             { name:'First Last', initials:'FL', gradient:'avatar-gradient-5', grade:'Founding Editor', bio:'Short bio about this team member.', email:'email@example.com' },
             { name:'First Last', initials:'FL', gradient:'avatar-gradient-6', grade:'Founding Editor', bio:'Short bio about this team member.', email:'email@example.com' }
@@ -1379,6 +1379,10 @@
                     showPage('submit');
                 });
             }
+
+            // Hamburger menu
+            document.getElementById('hamburger').addEventListener('click', toggleMobileNav);
+            document.getElementById('navOverlay').addEventListener('click', toggleMobileNav);
         });
 
         // ── Mobile Nav ─────────────────────────────────────────────
@@ -1483,14 +1487,3 @@
         function closeTeamModal(e, force) {
             const overlay = document.getElementById('teamModal');
             if (force || e.target === overlay) {
-                overlay.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeTeamModal(null, true);
-        });
-    </script>
-</body>
-</html>
