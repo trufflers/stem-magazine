@@ -551,6 +551,37 @@ H<!DOCTYPE html>
             .team-grid      { grid-template-columns: 1fr; }
             .team-modal     { padding: 2.5rem 1.5rem; }
         }
+
+        #btnContainer{
+            width: 80%;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: space-between;
+            overflow: auto;
+        }
+
+        .btn{
+            gap: 0.8rem;
+            background: var(--dark);
+            color: white;
+            padding: 1.1rem 2.5rem;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            border: none;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
+        }
     </style>
 </head>
 <body>
@@ -566,6 +597,7 @@ H<!DOCTYPE html>
                 <li><a onclick="showPage('home')">Home</a></li>
                 <li><a onclick="showPage('about')">About</a></li>
                 <li><a onclick="showPage('issues')">Browse Issues</a></li>
+                <li><a onclick="showPage('articles')">Articles</a></li>
                 <li><a onclick="showPage('submit')">Submit</a></li>
                 <li><a onclick="showPage('subscribe')">Subscribe</a></li>
                 <li><a onclick="showPage('contact')">Contact</a></li>
@@ -1272,7 +1304,137 @@ H<!DOCTYPE html>
             </div>
         </div>
     </div>
+    
+    <!-- ========== ARTICLE PAGE ========== -->
+    <div id="articles" class="page">
+        <div class="hero" style="padding: 8rem 2rem 6rem;">
+            <div class="hero-content">
+                <h1 style="font-size: 3.5rem;">Past Articles</h1>
+                <p>Browse all the past articles already published in The Centrifuge!</p>
+            </div>
+        </div>
 
+        <div id="btnContainer">
+            <button class="btn active" onclick="filterSelection('all')">All</button>
+            <button class="btn" onclick="filterSelection('medicine')">Medicine</button>
+            <button class="btn" onclick="filterSelection('biology')">Biology</button>
+            <button class="btn" onclick="filterSelection('mathematics')"> Mathematics</button>
+            <button class="btn" onclick="filterSelection('physics')">Physics</button>
+            <button class="btn" onclick="filterSelection('chemistry')">Chemistry</button>
+            <button class="btn" onclick="filterSelection('engineering')">Engineering</button>
+            <button class="btn" onclick="filterSelection('cs')">Computer Science</button>
+            <button class="btn" onclick="filterSelection('otherSTEM')">Other STEM</button>
+        </div>
+
+        <div class="articles-grid" style="width: 80%; margin: 4rem auto;">
+
+            <div class="article-card physics filterDiv" onclick="showPage('article-6')">
+                <div class="article-image">
+                    <p>🌌</p>
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Physics</span>
+                    <h3 class="article-title">White holes, Black Holes in Reverse</h3>
+                    <p class="article-excerpt">The forming of a black hole can be described as a fall: a star ceases nuclear fusion then falls in on itself, pulled inwards by its weight. Even objects entering a black hole fall. But what happens when something falls?  For example, a tennis ball with fall until it reaches the floor- then bounce back up. Looking at the tennis balls movement it travels as if a film of its fall was being played in reverse once it has bounced. </p>
+                    <div class="article-meta">
+                        <span>Erin Gallego</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-card mathematics filterDiv" onclick="showPage('article-7')">
+                <div class="article-image">
+                    <img src="https://ih1.redbubble.net/image.2137598632.9630/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="An illustration of the P vs NP problem" style="width: 100%; height: auto;">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Mathematics</span>
+                    <h3 class="article-title">P vs NP</h3>
+                    <p class="article-excerpt">P vs NP is a math problem that is one of the millennium prize problems which are problems that whoever solves will get one million dollars. The prize has been out since 2000 which was 26 years ago yet no one has solved it</p>
+                    <div class="article-meta">
+                        <span>Anish Alapati</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-card biology filterDiv" onclick="showPage('article-1')">
+                <div class="article-image">
+                    <img src="https://cdn.who.int/media/images/default-source/amr-lib/blink-shoot-malbran_sarah-pabst_00285.tmb-1920v.jpg?sfvrsn=dd75ea20_4" alt="A Petri dish with microbial cultures" style="width: 100%; height: auto;">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Biology</span>
+                    <h3 class="article-title">When Medicine Stops Working: the Threat of Antimicrobial Resistance</h3>
+                    <p class="article-excerpt">Since the discovery of penicillin in 1928, antimicrobials have saved millions of lives — but an alarming trend is making them obsolete against the infections they treat...</p>
+                    <div class="article-meta">
+                        <span>Maria Matias</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-card mathematics filterDiv" onclick="showPage('article-2')">
+                <div class="article-image">
+                    <p>📈</p>
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Mathematics</span>
+                    <h3 class="article-title">Spectral Graph Theory and Epidemic Containment</h3>
+                    <p class="article-excerpt">How graph theory and linear algebra model epidemic spread, predict outbreak thresholds, and guide containment strategies for real-world networks...</p>
+                    <div class="article-meta">
+                        <span>Ritisha Agarwal</span>
+                        <span>10 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-card medicine filterDiv" onclick="showPage('article-3')">
+                <div class="article-image">
+                    <img src="https://stjohnseyeassociates.com/wp-content/uploads/2022/07/vision-comparison-img.jpg" alt="A clear image as opposed to a blurry image of the same forest" style="height: 100% ; width:100%">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Medicine</span>
+                    <h3 class="article-title">The World Is Going Blurry: Understanding the Global Myopia Epidemic</h3>
+                    <p class="article-excerpt">Nearly half of Americans are nearsighted — and by 2050, more than half the world will be too. Here's what's happening inside our eyes, why it's getting worse, and what science says we can do about it...</p>
+                    <div class="article-meta">
+                        <span>Teresa Pan</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-card biology filterDiv" onclick="showPage('article-4')">
+                <div class="article-image">
+                    <img src="https://static.scientificamerican.com/sciam/cache/file/37110581-A303-4A6D-B47E3F1844F0707D_source.jpg?w=1200" alt="Surreal Man in a Suit looks through infinite doors" style="height: 100% ; width:100%">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Biology</span>
+                    <h3 class="article-title">Your Illusion of Reality: The Brain as a Prediction Machine</h3>
+                    <p class="article-excerpt">From fleeting moments of misrememberance to intense hallucinations and sleep paralysis, the brain’s complex ability to perceive is also the very thing that causes it to see what’s not there. Here, we’ll go into the system shaping our perception of reality, and what understanding it means for how we see ourselves and others.</p>
+                    <div class="article-meta">
+                        <span>Prisha Goswani</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-card medicine filterDiv" onclick="showPage('article-5')">
+                <div class="article-image">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.-HhHSznLc0CCzmtnW_txAQHaEc?pid=Api" alt="Fractal clock" style="height: 100% ; width:100%">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Medicine</span>
+                    <h3 class="article-title">The Clock You Never Knew You Had</h3>
+                    <p class="article-excerpt">I used to think jet lag was just tiredness. A few too many hours in a cramped seat, a lukewarm meal at 3 a.m., and a body that simply hadn't caught up with the time zone yet, but what we experience isn't just our schedule being disrupted. It is a system — an ancient, elegant, biological clock — being asked to do something it fundamentally cannot do: change quickly.</p>
+                    <div class="article-meta">
+                        <span>Xinyue Ying</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- ========== SUBMIT PAGE ========== -->
     <div id="submit" class="page">
         <div class="container">
@@ -1449,6 +1611,7 @@ H<!DOCTYPE html>
                 <a onclick="showPage('home')">Home</a>
                 <a onclick="showPage('about')">About Us</a>
                 <a onclick="showPage('issues')">Browse Issues</a>
+                <a onclick="showPage('articles')">Past Articles</a>
                 <a onclick="showPage('submit')">Submit Article</a>
                 <a onclick="showPage('subscribe')">Subscribe</a>
             </div>
@@ -1644,6 +1807,23 @@ H<!DOCTYPE html>
                     });
             });
         });
+
+        function filterSelection(value){
+            allElements = document.getElementsByClassName("filterDiv");
+            if (value === "all"){
+                for (let i = 0; i < allElements.length; i++) {
+                    allElements[i].style.display = "flow";
+                }
+            } else {
+                for (let i = 0; i < allElements.length; i++) {
+                    if (allElements[i].classList.contains(value)) {
+                        allElements[i].style.display = "flow";
+                    } else {
+                        allElements[i].style.display = "none";
+                    }
+                }
+            }
+        }
     </script>
 </body>
 </html>
