@@ -3,6 +3,7 @@ H<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://jsdelivr.net"></script>
     <title>The Centrifuge | High School STEM Magazine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -837,10 +838,27 @@ H<!DOCTYPE html>
                 <img src='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT2J0ZGDSJR91BeySsR8ORonOcstZJxT_rSerk5phLKjQEa9NiM' alt='global network connectivity map'/>
                 <h2>2. Graph-Theoretic Modeling</h2>
                 <h3>2.1 From Adjacency Matrices to Laplacians</h3>
-                <p>In graph theory, a network is represented as a graph G = (V, E), where V is the set of nodes and E is the set of edges connecting them.</p>
-                <p>A convenient way to describe the connections in a graph is with an <strong>adjacency matrix</strong>. For a network with n nodes, the adjacency matrix A is an n &times; n matrix where A<sub>ij</sub> = 1 if nodes i and j are connected, and 0 otherwise.</p>
-                <p>Using A and D together, we define the <strong>graph Laplacian</strong>:</p>
-                <div class="equation">L = D − A</div>
+                <p style="text-align: justify;">To study how contagion spreads through a system, we first need a mathematical way to represent the network of interactions between individuals. In graph theory, a network is represented as a graph, written as</p>
+                $$G = (V,E),$$
+                <p style="text-align: justify;">where V is the set of nodes and E is the set of edges connecting them. In the context of contagion, nodes may represent people, computers, or locations, while edges represent interactions through which infection or information can spread.</p>
+                <img src='https://graphicmaths.com/img/computer-science/graph-theory/adjacency-matrices/simple-matrix.png' alt='graph and its adjacency matrix'/>
+                <p style="text-align: justify;">A convenient way to describe the connections in a graph is with an adjacency matrix. For a network with n nodes, the adjacency matrix A is an n × n matrix defined by</p>
+                <p>
+                    $$ A_{ij} = \begin{cases} 
+                    1 & \text{if nodes } i \text{ and } j \text{ are connected,} \\ 
+                    0 & \text{otherwise.} 
+                    \end{cases} $$
+                </p>
+                <p style="text-align: justify;">Each entry of the matrix records whether two nodes are connected. For example, if A<sub>ij</sub> = 1, then node i can potentially transmit infection to node j. In many real-world networks, such as contact networks or transportation systems, the connections are mutual, meaning the adjacency matrix is symmetric (A<sub>ij</sub> = A<sub>ji</sub>).</p>
+                <p style="text-align: justify;">Using the adjacency matrix, we can also calculate the degree of a node, which is the number of connections it has. The degree of node i is given by</p>
+                $$ k_i = \sum_{j=1}^{n} A_{ij} $$
+                <p style="text-align: justify;">In simple terms, this equation counts how many neighbours node i has in the network. Nodes with large degree values are often important in spreading processes because they interact with many others.</p>
+                <p style="text-align: justify;">Another useful matrix is the degree matrix, denoted by D. This is a diagonal matrix whose entries are the degrees of each node:
+                <p>D<sub>ii</sub>=k<sub>i</sub>.</p>
+                <p style="text-align: justify;">Using the adjacency matrix and the degree matrix together, we can define the graph Laplacian</p>
+                $$L = D - A$$
+                <p style="text-align: justify;">The Laplacian matrix plays an important role in describing how quantities spread or diffuse across a network. It basically captures how strongly each node is connected to its neighbours and how easily something can flow through the network.</p>
+                <p style="text-align: justify;">Representing networks with matrices such as A, D, and L allows us to apply tools from linear algebra to study their behaviour. In particular, properties of these matrices can reveal important information about how quickly contagion spreads and how resilient a network is to outbreaks. In later sections, we will see that certain mathematical properties of the adjacency matrix, known as eigenvalues, play a key role in determining whether an epidemic will persist or die out.</p>
                 <h3>2.2 SIS and SIR Models on Networks</h3>
                 <p>Epidemiologists often describe the spread of disease using <strong>compartmental models</strong>. Two of the most common are the SIS model and the SIR model.</p>
                 <p>In the SIS model, each node can be in one of two states:</p>
