@@ -855,27 +855,67 @@ H<!DOCTYPE html>
                 $$ k_i = \sum_{j=1}^{n} A_{ij} $$
                 <p style="text-align: justify;">In simple terms, this equation counts how many neighbours node i has in the network. Nodes with large degree values are often important in spreading processes because they interact with many others.</p>
                 <p style="text-align: justify;">Another useful matrix is the degree matrix, denoted by D. This is a diagonal matrix whose entries are the degrees of each node:
-                <p>D<sub>ii</sub>=k<sub>i</sub>.</p>
+                $$D<sub>ii</sub>=k<sub>i</sub>.$$
                 <p style="text-align: justify;">Using the adjacency matrix and the degree matrix together, we can define the graph Laplacian</p>
                 $$L = D - A$$
                 <p style="text-align: justify;">The Laplacian matrix plays an important role in describing how quantities spread or diffuse across a network. It basically captures how strongly each node is connected to its neighbours and how easily something can flow through the network.</p>
                 <p style="text-align: justify;">Representing networks with matrices such as A, D, and L allows us to apply tools from linear algebra to study their behaviour. In particular, properties of these matrices can reveal important information about how quickly contagion spreads and how resilient a network is to outbreaks. In later sections, we will see that certain mathematical properties of the adjacency matrix, known as eigenvalues, play a key role in determining whether an epidemic will persist or die out.</p>
                 <h3>2.2 SIS and SIR Models on Networks</h3>
-                <p>Epidemiologists often describe the spread of disease using <strong>compartmental models</strong>. Two of the most common are the SIS model and the SIR model.</p>
-                <p>In the SIS model, each node can be in one of two states:</p>
+                <p style="text-align: justify;">Once a network has been represented using matrices, we can begin to model how a contagion spreads across it. Epidemiologists often describe the spread of disease using compartmental models. These models group individuals according to their infection state.</p>
+                <p style="text-align: justify;">Two of the most common models are the susceptible–infected–susceptible (SIS) model and the susceptible–infected–recovered (SIR) model.</p>
+                <img src='https://www.researchgate.net/publication/364613081/figure/fig1/AS:11431281091353877@1666400140117/Schematic-representations-of-the-SI-SIS-SIR-and-SIRS-models-as-described-in-the-text.png' alt='SIR and SIS flowchart'/>
+                <p style="text-align: justify;">In both models, each node in the network represents an individual (or device, or location). At any given time, each node is in one of several states describing whether it is infected.</p>
+                <p style="text-align: justify;">In the SIS model, each node can be in one of two states:</p>
                 <ul>
-                    <li><strong>Susceptible (S)</strong> — the node is healthy but can become infected.</li>
-                    <li><strong>Infected (I)</strong> — the node currently carries the infection and can spread it to neighbours.</li>
+                    <li>Susceptible (S) – the node is healthy but can become infected.</li>
+                    <li>Infected (I) – the node currently carries the infection and can spread it to its neighbours.</li>
                 </ul>
-                <p>A simplified description of the network dynamics can be written as:</p>
-                <div class="equation">dx/dt = βAx − δx</div>
+                <p style="text-align: justify;">An infected node can transmit the infection to its neighbouring nodes along the edges of the network. This occurs at an infection rate denoted by β, which represents how easily the disease spreads. Simultaneously, infected nodes recover at a recovery rate denoted by δ. In the SIS model, once a node recovers it becomes susceptible again, because it can be infected repeatedly.</p>
+                <p style="text-align: justify;">The SIR model adds a third state:</p>
+                <ul>
+                    <li>Recovered (R) – the node has recovered and cannot be infected again.</li>
+                </ul>
+                <p style="text-align: justify;">This model is commonly used for diseases that provide immunity after infection. Once all infected nodes recover, the epidemic eventually disappears from the network. When these models are applied to networks, infections can only spread between nodes that are connected by an edge. The adjacency matrix A therefore determines which transmissions are possible. If Aij = 1, node i can potentially infect node j.</p>
+                <p style="text-align: justify;">To describe the overall behaviour of the network, we can consider a vector x whose entries represent the probability that each node is infected. A simplified description of the dynamics can be written as</p>
+                <p>$$\frac{d\mathbf{x}}{dt} = \beta A\mathbf{x} - \delta\mathbf{x}$$</p>
+                <p>where:</p>
+                <ul>
+                    <li>x is a vector describing the infection level of each node (values between 0 and 1),</li>
+                    <li>βAx represents new infections spreading through the network,</li>
+                    <li>δx represents nodes recovering from infection.</li>
+                </ul>
+                <p style="text-align: justify;">Note: This is a linear approximation. In reality, the infection probability of a node is always bounded between 0 and 1, and nonlinear effects may occur when many neighbours are infected.</p>
+                <p style="text-align: justify;">The largest eigenvalue λ<sub>1</sub>(A) of the adjacency matrix (the spectral radius) plays a central role in determining epidemic behaviour. In simple terms, this is a number that tells us how strongly connected the network is overall. Networks with higher λ<sub>1</sub>(A) have lower epidemic thresholds, making them more vulnerable to sustained outbreaks.</p>
                 <h2>3. Spectral Radius and Epidemic Thresholds</h2>
                 <h3>3.1 Eigenvalue Interpretation</h3>
-                <p>A number λ is called an <strong>eigenvalue</strong> of a matrix A if there exists a non-zero vector v such that Av = λv. The largest eigenvalue of the adjacency matrix is called the <strong>spectral radius</strong>, written λ₁(A).</p>
+                <p style="text-align: justify;">In the previous section, we saw how a network can be represented using matrices such as the adjacency matrix A. Once a network is written in this form, we can use tools from linear algebra to study its structure. One of the most important concepts in this analysis is that of an eigenvalue.</p>
+                <p style="text-align: justify;">An eigenvalue is a special number associated with a matrix. It describes how the matrix transforms certain vectors. More precisely, a number λ is called an eigenvalue of a matrix A if there exists a non-zero vector v such that</p>
+                $$Av = λv$$
+                <p>In this equation:</p>
+                <ul>
+                    <li>A is the matrix describing the network (in our case, the adjacency matrix),</li>
+                    <li>v is a vector called an eigenvector,</li>
+                    <li>λ is the corresponding eigenvalue.</li>
+                </ul>
+                <p style="text-align: justify;">This equation means that when the matrix A acts on the vector v, the result is a scaled version of the same vector. The eigenvalue λ tells us how much the vector is stretched or shrunk. For networks, the eigenvalues of the adjacency matrix reveal important information about the overall structure of the graph. In particular, the largest eigenvalue of the adjacency matrix affects many dynamical processes on networks. This value is called the spectral radius and is often written as</p>
+                $$λ<sub>1</sub>(A).$$
+                <img src='https://i.sstatic.net/vPAdm.png' alt='Eigenvalue/Eigenvector Geometric Interpretation'/>
+                <p style="text-align: justify;">The spectral radius captures how connected the network is overall. Networks with many connections or highly connected hub nodes tend to have larger spectral radii. Because infections spread along edges, this quantity turns out to be closely related to how easily contagion can spread through the network.</p>
                 <h3>3.2 Threshold Formulas and Practical Meaning</h3>
-                <p>For many network epidemic models, the critical threshold is approximately:</p>
-                <div class="equation">τ_c = 1 / λ₁(A)</div>
-                <p>If τ &lt; τ_c, infections die out. If τ &gt; τ_c, the infection can persist and spread throughout the network.</p>
+                <p style="text-align: justify;">In epidemic models on networks, the behaviour of an outbreak depends on two parameters: the infection rate β and the recovery rate δ. The infection rate tells us how quickly the disease spreads between connected nodes, while the recovery rate describes how quickly infected nodes return to a healthy state.</p>
+                <p style="text-align: justify;">A useful quantity is the ratio</p>
+                $$\tau = \frac{\beta}{\delta},$$
+                <p style="text-align: justify;">which compares how quickly infections occur relative to recoveries. It shows us that if infection spreads much faster than recovery, the disease is more likely to persist.</p>
+                <p style="text-align: justify;">Spectral graph theory shows that there exists a critical threshold for this ratio. For many network epidemic models, the threshold is approximately given by</p>
+                $$\tau_c = \frac{1}{\lambda_1(A)},$$
+                <p style="text-align: justify;">where λ<sub>1</sub>(A) is the largest eigenvalue (spectral radius) of the adjacency matrix. This formula has a clear interpretation.</p>
+                <p>If</p>
+                <p>$$\tau<\tau_c,$$</p>
+                <p>then infections die out over time and the epidemic cannot sustain itself. However, if</p>
+                <p>$$\tau>\tau_c,$$</p>
+                <p>the infection can persist and potentially spread throughout the network.</p>
+                <p style="text-align: justify;">In simple terms, this shows that the structure of the network influences whether an epidemic occurs. Networks with larger spectral radii have smaller thresholds, meaning that even small infection rates can lead to widespread outbreaks. Highly connected networks, or networks with influential hub nodes, are therefore more vulnerable to contagion.</p>
+                <p style="text-align: justify;">This has important practical implications because by understanding how network structure affects the spectral radius, researchers can identify strategies for slowing or preventing epidemics. For example, protecting or removing highly connected nodes can reduce the spectral radius of the network, increasing the epidemic threshold and making large outbreaks less likely.</p>
                 <h3>3.3 Example: A Small Network</h3>
                 <p>Consider a simple network of five nodes. The corresponding adjacency matrix has spectral radius approximately λ₁(A) ≈ 2.41, giving a threshold τ_c ≈ 0.41.</p>
                 <h2>4. Real-World Case Studies</h2>
