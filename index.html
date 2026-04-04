@@ -5,16 +5,24 @@ H<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       window.MathJax = {
-        loader: {load: ['[tex]/tikz']},
         tex: {
-          packages: {'[+]': ['tikz']},
-          // This line is likely what you're missing for inline math:
-          inlineMath: [['$', '$'], ['\\(', '\\)']] 
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        },
+        startup: {
+          pageReady: () => {
+            return MathJax.startup.defaultPageReady().then(() => {
+              console.log('MathJax is ready!');
+            });
+          }
         }
       };
     </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
     <title>The Centrifuge | High School STEM Magazine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
