@@ -5,24 +5,14 @@ H<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       window.MathJax = {
+        loader: {load: ['[tex]/tikz']},
         tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-          processEscapes: true
-        },
-        options: {
-          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-        },
-        startup: {
-          pageReady: () => {
-            return MathJax.startup.defaultPageReady().then(() => {
-              console.log('MathJax is ready!');
-            });
-          }
+          packages: {'[+]': ['tikz']},
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
         }
       };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>The Centrifuge | High School STEM Magazine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -955,31 +945,27 @@ H<!DOCTYPE html>
                 <p>This means that if the ratio between infection rate and recovery rate satisfies</p>
                 $$ \frac{\beta}{\delta} > 0.41, $$
                 <p style="text-align: justify;">the infection may persist in the network. If the ratio is smaller than this threshold, the epidemic will eventually die out. This example demonstrates how the structure of a network, encoded in the adjacency matrix, directly influences whether contagion spreads or disappears.</p>
-                <figure style="text-align: center;">
-                    <div>
-                      \[
-                      \begin{tikzpicture}[
-                          node/.style={circle, draw, fill=blue!15, minimum size=10mm},
-                          edge/.style={thick}
-                      ]
-                      % Note: MathJax TikZ uses standard positioning syntax
-                      \node[node] (1) at (0,0) {1};
-                      \node[node] (2) at (3,0) {2};
-                      \node[node] (3) at (1.5,-2) {3};
-                      \node[node] (4) at (4.5,-2) {4};
-                      \node[node] (5) at (1.5,-4) {5};
+                \[
+                \begin{tikzpicture}[
+                    node/.style={circle, draw, fill=blue!15, minimum size=10mm},
+                    edge/.style={thick}
+                ]
+                    % Nodes - Added semicolons at the end of each line
+                    \node[node] (1) at (0,0) {1};
+                    \node[node] (2) at (3,0) {2};
+                    \node[node] (3) at (1.5,-2) {3};
+                    \node[node] (4) at (4.5,-2) {4};
+                    \node[node] (5) at (1.5,-4) {5};
 
-                      \draw[edge] (1) -- (2);
-                      \draw[edge] (1) -- (3);
-                      \draw[edge] (2) -- (3);
-                      \draw[edge] (2) -- (4);
-                      \draw[edge] (3) -- (5);
-                      \draw[edge] (4) -- (5);
-                      \end{tikzpicture}
-                      \]
-                    </div>
-                    <figcaption>Example interaction network between five nodes.</figcaption>
-                  </figure>
+                    % Edges - Added semicolons at the end of each line
+                    \draw[edge] (1) -- (2);
+                    \draw[edge] (1) -- (3);
+                    \draw[edge] (2) -- (3);
+                    \draw[edge] (2) -- (4);
+                    \draw[edge] (3) -- (5);
+                    \draw[edge] (4) -- (5);
+                \end{tikzpicture}
+                \]
                 <h2>4. Real-World Case Studies</h2>
                 <h3>4.1 Airline Network and COVID-19</h3>
                 <p style="text-align: justify;">Air travel is a major pathway for global disease spread. Airports can be represented as nodes, and direct flights between airports as edges. Highly connected hubs, like major international airports, can act as super-spreaders, allowing infections to travel quickly across continents. Empirical studies of COVID-19 and influenza show that higher international flight volumes are associated with significantly higher transmission rates; for example, one recent analysis found that higher flight volumes from Asia were linked to roughly 21% higher influenza transmission rates and up to 72% higher COVID-19 case rates in receiving regions, after adjusting for public health measures.[web:18]</p>
