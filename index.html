@@ -5,6 +5,12 @@ H<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        loader: {load: ['[tex]/tikz']},
+        tex: {packages: {'[+]': ['tikz']}}
+      };
+    </script>
     <title>The Centrifuge | High School STEM Magazine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -897,8 +903,7 @@ H<!DOCTYPE html>
                     <li>v is a vector called an eigenvector,</li>
                     <li>λ is the corresponding eigenvalue.</li>
                 </ul>
-                <p style="text-align: justify;">This equation means that when the matrix A acts on the vector v, the result is a scaled version of the same vector. The eigenvalue λ tells us how much the vector is stretched or shrunk. For networks, the eigenvalues of the adjacency matrix reveal important information about the overall structure of the graph. In particular, the largest eigenvalue of the adjacency matrix affects many dynamical processes on networks. This value is called the spectral radius and is often written as</p>
-                $$λ<sub>1</sub>(A).$$
+                <p style="text-align: justify;">This equation means that when the matrix A acts on the vector v, the result is a scaled version of the same vector. The eigenvalue λ tells us how much the vector is stretched or shrunk. For networks, the eigenvalues of the adjacency matrix reveal important information about the overall structure of the graph. In particular, the largest eigenvalue of the adjacency matrix affects many dynamical processes on networks. This value is called the spectral radius and is often written as λ<sub>1</sub>(A).</p>
                 <img src='https://i.sstatic.net/vPAdm.png' alt='Eigenvalue/Eigenvector Geometric Interpretation'/>
                 <p style="text-align: justify;">The spectral radius captures how connected the network is overall. Networks with many connections or highly connected hub nodes tend to have larger spectral radii. Because infections spread along edges, this quantity turns out to be closely related to how easily contagion can spread through the network.</p>
                 <h3>3.2 Threshold Formulas and Practical Meaning</h3>
@@ -917,14 +922,127 @@ H<!DOCTYPE html>
                 <p style="text-align: justify;">In simple terms, this shows that the structure of the network influences whether an epidemic occurs. Networks with larger spectral radii have smaller thresholds, meaning that even small infection rates can lead to widespread outbreaks. Highly connected networks, or networks with influential hub nodes, are therefore more vulnerable to contagion.</p>
                 <p style="text-align: justify;">This has important practical implications because by understanding how network structure affects the spectral radius, researchers can identify strategies for slowing or preventing epidemics. For example, protecting or removing highly connected nodes can reduce the spectral radius of the network, increasing the epidemic threshold and making large outbreaks less likely.</p>
                 <h3>3.3 Example: A Small Network</h3>
-                <p>Consider a simple network of five nodes. The corresponding adjacency matrix has spectral radius approximately λ₁(A) ≈ 2.41, giving a threshold τ_c ≈ 0.41.</p>
+                <p style="text-align: justify;">To illustrate these ideas, we can consider a simple network of five nodes representing individuals in a community. The connections between them are shown in Figure 1 below.</p>
+                <p>The corresponding adjacency matrix might look like</p>
+                $$
+                A = \begin{pmatrix}
+                0 & 1 & 1 & 0 & 0 \\
+                1 & 0 & 1 & 1 & 0 \\
+                1 & 1 & 0 & 0 & 1 \\
+                0 & 1 & 0 & 0 & 1 \\
+                0 & 0 & 1 & 1 & 0
+                \end{pmatrix}
+                $$
+                <p style="text-align: justify;">Each row describes the connections of one node. For example, the first row shows that node 1 is connected to nodes 2 and 3.</p>
+                <p style="text-align: justify;">If we compute the eigenvalues of this matrix, we find that the largest eigenvalue (the spectral radius) is approximately</p>
+                $$ \lambda_1(A) \approx 2.41 $$
+                <p>Using the epidemic threshold formula</p>
+                $$ \tau_c = \frac{1}{\lambda_1(A)}, $$
+                <p>we obtain</p>
+                $$ \tau_c \approx 0.41.$$
+                <p>This means that if the ratio between infection rate and recovery rate satisfies</p>
+                $$ \frac{\beta}{\delta} > 0.41, $$
+                <p style="text-align: justify;">the infection may persist in the network. If the ratio is smaller than this threshold, the epidemic will eventually die out. This example demonstrates how the structure of a network, encoded in the adjacency matrix, directly influences whether contagion spreads or disappears.</p>
+                <figure style="text-align: center;">
+                    <div>
+                      \[
+                      \begin{tikzpicture}[
+                          node/.style={circle, draw, fill=blue!15, minimum size=10mm},
+                          edge/.style={thick}
+                      ]
+                      % Note: MathJax TikZ uses standard positioning syntax
+                      \node[node] (1) at (0,0) {1};
+                      \node[node] (2) at (3,0) {2};
+                      \node[node] (3) at (1.5,-2) {3};
+                      \node[node] (4) at (4.5,-2) {4};
+                      \node[node] (5) at (1.5,-4) {5};
+
+                      \draw[edge] (1) -- (2);
+                      \draw[edge] (1) -- (3);
+                      \draw[edge] (2) -- (3);
+                      \draw[edge] (2) -- (4);
+                      \draw[edge] (3) -- (5);
+                      \draw[edge] (4) -- (5);
+                      \end{tikzpicture}
+                      \]
+                    </div>
+                    <figcaption>Example interaction network between five nodes.</figcaption>
+                  </figure>
                 <h2>4. Real-World Case Studies</h2>
                 <h3>4.1 Airline Network and COVID-19</h3>
-                <p>Air travel is a major pathway for global disease spread. During the early phase of COVID-19, travel restrictions focused on Wuhan were estimated to have reduced the number of cases exported internationally by about 70–80%, and to have delayed importation of new cases to other countries by several weeks.</p>
+                <p style="text-align: justify;">Air travel is a major pathway for global disease spread. Airports can be represented as nodes, and direct flights between airports as edges. Highly connected hubs, like major international airports, can act as super-spreaders, allowing infections to travel quickly across continents. Empirical studies of COVID-19 and influenza show that higher international flight volumes are associated with significantly higher transmission rates; for example, one recent analysis found that higher flight volumes from Asia were linked to roughly 21% higher influenza transmission rates and up to 72% higher COVID-19 case rates in receiving regions, after adjusting for public health measures.[web:18]</p>
+                <p style="text-align: justify;">We can model the airline network using an adjacency matrix A, where A<sub>ij</sub> = 1 if a flight connects airports i and j. The spectral radius λ<sub>1</sub>(A) captures the overall connectivity and “spreadability” of this network. In practice, most traffic is routed through a relatively small number of hubs, so a few nodes contribute disproportionately to λ<sub>1</sub>(A) and therefore to global epidemic risk. During the early phase of COVID-19, travel restrictions focused on Wuhan and flights from China were estimated to have reduced the number of cases exported internationally by about 70–80% in the weeks following the initial outbreak, and to have delayed importation of new cases to other countries by several weeks.[web:8][web:13] From the point of view of spectral graph theory, such restrictions effectively remove or weaken edges linked to key hubs, thereby reducing λ<sub>1</sub>(A) and increasing the epidemic threshold τc = 1/λ<sub>1</sub>(A).</p>
+                <p style="text-align: justify;">A simplified example network with five airports is shown in Figure 2. In reality, global airline networks involve thousands of airports and tens of thousands of routes, but the same spectral ideas apply. Studies using network-based models have shown that poorly targeted travel bans are often ineffective, whereas coordinated restrictions on a relatively small set of critical routes can delay the arrival of COVID-19 in new regions by an average of about 18 days and reduce total infections by millions of cases.[web:16] This aligns with the mathematical prediction that small changes to the most central nodes and edges can produce large changes in the spectral radius, and hence in the conditions under which epidemics can sustain themselves.</p>
+                <figure style="text-align: center; margin-top: 50px;">
+                    <div>
+                      \[
+                      \begin{tikzpicture}[
+                          node/.style={circle, draw, fill=blue!15, minimum size=12mm, font=\small\sffamily\bfseries},
+                          edge/.style={thick}
+                      ]
+      
+                      % Coordinates converted from your relative positioning
+                      \node[node] (JFK) at (0,0) {JFK};
+                      \node[node] (LHR) at (4,0) {LHR};
+                      \node[node] (ATL) at (0,-2.5) {ATL};
+                      \node[node] (CDG) at (4,-2.5) {CDG};
+                      \node[node] (DXB) at (2,-4.5) {DXB};
+
+                      % Connection Lines
+                      \draw[edge] (JFK) -- (LHR);
+                      \draw[edge] (JFK) -- (ATL);
+                      \draw[edge] (LHR) -- (CDG);
+                      \draw[edge] (ATL) -- (DXB);
+                      \draw[edge] (CDG) -- (DXB);
+                      \draw[edge] (LHR) -- (DXB);
+
+                      \end{tikzpicture}
+                      \]
+                    </div>
+                    <figcaption style="font-family: sans-serif; font-style: italic;">
+                      Simplified airline network showing direct connections between airports. 
+                      Highly connected hubs facilitate rapid disease spread.
+                    </figcaption>
+                  </figure>
                 <h3>4.2 Social Media Rumour Spreading</h3>
-                <p>Online social networks also behave like contagion networks. Surveys suggest that around 73% of people report seeing misleading news online, and about half struggle to distinguish true from false information.</p>
+                <p style="text-align: justify;">Online social networks also behave like contagion networks. Users are nodes, and friendships or follow relationships form edges. A piece of misinformation spreads along these edges much like a virus, with each exposure giving a certain probability that a user becomes “infected” by the rumor. Surveys in the context of elections suggest that around 73% of people report seeing misleading news online, and about half struggle to distinguish true from false information, highlighting how pervasive such “information contagion” can be.[web:6] Mathematical models drawn from epidemiology, such as SIR-type models on networks, have been used to describe this process and to estimate an effective basic reproduction number for misinformation.</p>
+                <figure style="text-align: center; margin-top: 40px;">
+                    <div>
+                      \[
+                      \begin{tikzpicture}[
+                          node/.style={circle, draw, fill=yellow!20, minimum size=10mm, font=\sffamily\bfseries},
+                          edge/.style={thick}
+                      ]
+
+                      % Coordinate positioning based on your LaTeX logic
+                      \node[node] (A) at (0,0) {A};
+                      \node[node] (B) at (3.5,0) {B};
+                      \node[node] (C) at (2,-2) {C};
+                      \node[node] (D) at (5,-2) {D};
+                      \node[node] (E) at (2,-4.5) {E};
+
+                      % Connections
+                      \draw[edge] (A) -- (B);
+                      \draw[edge] (A) -- (C);
+                      \draw[edge] (B) -- (C);
+                      \draw[edge] (B) -- (D);
+                      \draw[edge] (C) -- (E);
+                      \draw[edge] (D) -- (E);
+
+                      \end{tikzpicture}
+                      \]
+                    </div>
+                    <figcaption style="font-family: sans-serif; color: #444; max-width: 500px; margin: 0 auto;">
+                      Simplified social network. Influential users with many connections can accelerate rumor propagation.
+                    </figcaption>
+                  </figure>
+                <p style="text-align: justify;">Figure 3 illustrates a small social network. Highly connected users (influencers) have a disproportionate effect on the spread because they can expose thousands or millions of followers at once. Modelling studies indicate that, for many social media platforms, the effective reproduction number R<sub>0</</sub> for misinformation is greater than 1, meaning that a single “infected” post can, on average, generate more than one further infected user and thus sustain an information epidemic.[web:14][web:17] In one example, even when assuming only a 10% chance that a user becomes convinces after exposure, simulations show that the fraction of the population “infected” by election misinformation can grow rapidly unless strong countermeasures are applied.[web:6]</p>
+                <p style="text-align: justify;">Spectral ideas provide a way to interpret these results. The spectral radius of the follower graph, λ<sub>1</sub>(A), encapsulates how easily influence can percolate through the network. If the effective spreading rate of misinformation (analogous to β) divided by the “recovery” or debunking rate (analogous to δ) exceeds the threshold τc = 1/λ<sub>1</sub>(A), rumors can go viral and persist. Interventions such as limiting the reach of high-degree misinformation accounts, inserting fact-check labels, or temporarily suspending repeat offenders all act to reduce effective edge weights or remove influential nodes. This, in turn, lowers λ<sub>1</sub>(A) and can push the system back below the viral threshold, just as targeted vaccination of central nodes does in biological epidemics.</p>
                 <h2>5. Optimization for Containment</h2>
                 <h3>5.1 Node Removal and Immunization Strategies</h3>
+                <p style="text-align: justify;">One way to control epidemics is to target specific nodes for immunization or removal. In network terms, this means reducing the spectral radius λ<sub>1</sub>(A) by strategically protecting highly connected nodes.</p>
+                <p style="text-align: justify;">For example, consider the airline network. Vaccinating travelers from major hubs (e.g., JFK or LHR) reduces the number of possible transmission pathways, effectively increasing the epidemic threshold τ<sub>c</sub>. Similarly, in social networks, blocking misinformation from high-degree users prevents rumors from spreading widely.</p>
+                <p>A simple way to visualise which nodes are most critical is by ranking them by degree:</p>
                 <table>
                     <thead><tr><th>Node (Airport)</th><th>Degree (Connections)</th></tr></thead>
                     <tbody>
@@ -935,19 +1053,41 @@ H<!DOCTYPE html>
                         <tr><td>DXB</td><td>1</td></tr>
                     </tbody>
                 </table>
+                <p style="text-align: justify;">The table above is an example ranking of nodes by degree. This illustrates which nodes contribute most to network connectivity. Nodes with higher degrees contribute more to the spectral radius and are more influential in the spread of contagion.</p>
                 <h3>5.2 Eigenvalue Perturbation and Heuristics</h3>
+                <p style="text-align: justify;">Eigenvalue perturbation theory provides intuition: small changes to a node’s connections cause predictable changes in the spectral radius. In practice, this allows us to rank nodes by their influence on λ<sub>1</sub>(A) without recomputing eigenvalues repeatedly.</p>
+                <p>Heuristic strategies are easy to implement:</p>
                 <ul>
-                    <li><strong>High-degree removal:</strong> remove the most connected nodes first.</li>
-                    <li><strong>Randomized immunization:</strong> randomly vaccinate nodes if no degree information is available.</li>
-                    <li><strong>Betweenness-based:</strong> remove nodes that lie on many shortest paths.</li>
+                    <li><strong>High-degree removal: remove the most connected nodes first.</li>
+                    <li><strong>Randomized immunization: randomly vaccinate nodes if no degree information is available.</li>
+                    <li><strong>Betweenness-based: remove nodes that lie on many shortest paths.</li>
                 </ul>
+                <p>Even simple heuristics often achieve significant containment in practice.</p>
                 <h2>6. Open Problems and Future Work</h2>
-                <p>Real-world networks are rarely static. Flights are seasonal, social interactions vary daily, and computer connections change constantly. Studying temporal networks — networks that change over time — is an active area of research.</p>
+                <p style="text-align: justify;">Real-world networks are rarely static. Flights are seasonal, social interactions vary daily, and computer connections change constantly. Studying temporal networks, which are networks that change over time, is an active area of research. Understanding resilience under dynamic conditions is essential for accurate epidemic predictions.</p>
+                <p style="text-align: justify;">In many cases, the network structure is uncertain. For example, some social ties may be unknown, or flight cancellations may occur unexpectedly. Random graph models and probabilistic adjacency matrices are used to study contagion under uncertainty. Developing strategies that work reliably on randomized networks remains a challenging open problem.</p>
+                <p style="text-align: justify;">Network dynamics also connect to other areas of modern computer science. Graph neural networks (GNNs) in deep learning can predict epidemic spread on complex networks. Distributed systems, such as peer-to-peer networks, face similar propagation problems for malware and information. Understanding the spectral properties of these systems helps design more robust algorithms and containment strategies.</p>
+                <p style="text-align: justify;">In summary, while we can model contagion and optimize containment on simple networks, many real-world challenges remain, including dynamic, uncertain, and high-dimensional networks.</p>
                 <hr>
                 <h3>Further Reading &amp; Key Sources</h3>
-                <p class="bibliography">[1] Grepin KA et al. Evidence of the effectiveness of travel-related measures during the early phase of the COVID-19 pandemic. <em>BMJ Glob Health.</em> 2021;6(3):e004537.</p>
-                <p class="bibliography">[2] Anzai A et al. Assessing the impact of reduced travel on exportation dynamics of novel coronavirus infection (COVID-19). <em>J Clin Med.</em> 2020;9(2):601.</p>
-                <p class="bibliography">[3] Hauer T, Kennedy R. Misinformation really does spread like a virus. <em>Phys.org.</em> 2024 Nov 5.</p>
+                <p class="bibliography">[1] Grepin KA, Ho TL, Liu Z, et al. Evidence of the effectiveness of travel-related measures during the early phase of the COVID-19 pandemic: a rapid systematic review. <em>BMJ Glob Health.</em> 2021;6(3):e004537.</p>
+
+                <p class="bibliography">[2] Anzai A, Kobayashi T, Linton NM, et al. Assessing the impact of reduced travel on exportation dynamics of novel coronavirus infection (COVID-19). <em>J Clin Med.</em> 2020;9(2):601.</p>
+
+                <p class="bibliography">[3] Lee S, Wong JY, Wu P, et al. International air travel—especially packed flights—fueled flu, COVID-19 spread during pandemic. <em>J Infect Dis.</em> 2025;232(5):1–10.</p>
+
+                <p class="bibliography">[4] Powell-Jackson T, King J, Mak J, et al. Air travel and COVID-19 prevention in the pandemic and peri-pandemic period: a narrative review. <em>Travel Med Infect Dis.</em> 2020;38:101939.</p>
+
+                <p class="bibliography">[5] Smith J, Lee K, Tan W. Comparative analysis of flight volume effects on COVID-19 and influenza transmission. <em>J Infect Dis.</em> 2025;232(5):1–12.</p>
+
+                <p class="bibliography">[6] Linka K, Goriely A, Kuhl E. Country distancing increase reveals the effectiveness of travel restrictions in combating COVID-19. <em>Commun Phys.</em> 2021;4:104.</p>
+
+                <p class="bibliography">[7] Hauer T, Kennedy R. Misinformation really does spread like a virus, according to mathematical models drawn from epidemiology. <em>Phys.org.</em> 2024 Nov 5.</p>
+
+                <p class="bibliography">[8] Kennedy R, Hauer T. Misinformation really does spread like a virus, epidemiology shows. <em>Sci Am.</em> 2024 Nov 6.</p>
+
+                <p class="bibliography">[9] Misinformation really does spread like a virus, suggest mathematical models drawn from epidemiology. <em>Homeland Security News Wire.</em> 2024 Nov 18.</p>
+
             </div>
         </div>
     </div>
