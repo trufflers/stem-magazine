@@ -3,22 +3,27 @@ H<!DOCTYPE html>
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKQDPJ14WC"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YKQDPJ14WC');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
       window.MathJax = {
-        loader: {load: ['[tex]/tikz']},
+        loader: {
+          load: ['[tex]/tikz'],
+          paths: {
+            tikz: 'https://cdn.jsdelivr.net/gh/high-speed-it/mathjax-tikz@latest/'
+          }
+        },
         tex: {
           packages: {'[+]': ['tikz']},
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        startup: {
+          ready: () => {
+            console.log('MathJax is loaded and ready with TikZ!');
+            MathJax.startup.defaultReady();
+          }
         }
       };
     </script>
+
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>The Centrifuge | High School STEM Magazine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
