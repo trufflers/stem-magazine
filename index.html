@@ -600,6 +600,76 @@ H<!DOCTYPE html>
             transform: translateY(-2px);
             box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
         }
+
+        /* FAQs */
+        .purple{
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .accordion {
+            background-color: var(--primary);
+            color: var(--light);
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            margin-top: 1rem;
+            font-family: 'Outfit', 'sans-serif';
+            font-size: 1.3rem;
+            border-radius: 8px;
+        }
+        .accordion:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
+        }
+        .accordion:after {
+            content: '˃';
+            font-size: 1.2rem;
+            color: var(--light);
+            float: right;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        .active2:after {
+            content: '˅';
+            font-weight:  bold;
+            color: var(--dark);
+            font-size: 1.2rem;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active2{
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding:18px;
+            background-color: lightgray;
+            display: none;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.35s ease-out;
+            border-radius: 0 0 8px 8px;
+            font-family: 'Outfit', sans-serif;
+            text-align: justify;
+        }
+
+        .FAQs{
+            width: 90%;
+            margin: 0 auto 1rem auto;
+        }
+
+        .panel a{
+            text-decoration: underline black 1px solid;
+        }
     </style>
 </head>
 <body>
@@ -1909,6 +1979,84 @@ H<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- ========== FAQ PAGE ========== -->
+
+    <div id="FAQ" class="page active">
+        <div class="hero" style="width: 100%;">
+            <strong><h6 class="purple">The Centrifugue</h6></strong>
+            <h1>Frequently Asked Questions</h1>
+        </div>
+        <div style="width: 60%; margin: 2rem auto 0 auto;">
+
+            <h2>Submission</h2>
+            <div class="FAQs">
+                <button class="accordion">Who is eligible to publish?</button>
+                <div class="panel">
+                    <p>We publish work from curious and bright young people! Please feel free to submit <a onclick="showPage('submit')">here</a> if you are 14 or older and if you are still in high school! We accept application from people regardless of geographical location. Make sure to see our <a onclick="showPage('guidelines')">submission guidelines</a> to organize your submission.</p>
+                </div>
+                <button class="accordion">How can I submit?</button>
+                <div class="panel">
+                    <p>You can submit either in our <a onclick="showPage('submit')">submission page</a> or by emailing us at thecentrifugemag@gmail.com, however, we prefer if you send it by the appropriate channel in our website. Through both of them, we ask for the <strong>title</strong> and <strong>abstract</strong> of your article so make sure do have that ready. We will review it and ask answer back within two weeks to ask for the whole article.</p>
+                </div>
+                <button class="accordion">Do all the issues get published?</button>
+                <div class="panel">
+                    <p><strong>Yes!</strong> All the submissions we receive get published in our website as long as they follow our <a onclick="showPage('guidelines')">submission guidelines</a>. The month's best articles and which best fit our current theme get published in the next month's magazine issue.</p>
+                </div>
+                <button class="accordion">What can I submit?</button>
+                <div class="panel">
+                    <p>Right now, we are only publishing scientific articles and overviews. Further down, we expect to start opinion columns but, at the moment we only accept empirical articles. We also only publish STEM-related issues, however we might decide to publish related subjects (e.g. economy, sociology) upon revision. If you are in doubt about the fit of your work for the magazine, please submit it! You might still get published!</p>
+                </div>
+                <button class="accordion">When can I submit?</button>
+                <div class="panel">
+                    <p>We accept articles on a rolling basis, therefore, you can submit it whenever you see fit. However, we will only consider articles for the following issue of our monthly magazine if we receive them until the 26th of the previous months in order to ensure correctness of information and formating.</p>
+                </div>
+                <button class="accordion">How much does it cost to submit?</button>
+                <div class="panel">
+                    <p><strong>Nothing!</strong> Your submission and publication is completely free! We also don't charge for article maintenance on our website.</p>
+                </div>
+            </div>
+            <h2>Subscription and Magazine</h2>
+            <div class="FAQs">
+                <button class="accordion">What does the subscription include?</button>
+                <div class="panel">
+                    <p>If you subscripe to The Centrifuge you'll have access to our monthly issues right in you inbox! Furthermore, we also offer behind-the-scenes editorial updates and submission opportunities, early notifications about deadlines, calls for papers, and special issues, besides access to our Discord community! You can do so <a onclick="showPage('subscribe')">here</a>. We promise to deliver only high-quality content, so don't worry about any Spam from us!</p>
+                </div>
+                <button class="accordion">How much does the subscription cost?</button>
+                <div class="panel">
+                    <p><strong>Nothing!</strong> We believe rigorous research and knowledge should be accessible to everyone so we don't charge anything for all of the perks in our subscription!</p>
+                </div>
+                <button class="accordion">How does the magazine selection work?</button>
+                <div class="panel">
+                    <p>Every month we select a theme for our magazine. Afterwards, we select the 4-6 best articles from that month's submissions to be featured. We base our choice on fit to the month's theme, quality of writing, originality of the article and correctness of information. This filtering is done by our amazing editors throughout the whole month. We will inform the writers in advance whether or not they will be published, so keep an eye out.</p>
+                </div>
+                <button class="accordion">Can I still access the magazine even if I am not subscribed??</button>
+                <div class="panel">
+                    <p><strong>Of course!</strong> Although, for comfort, we advise you to subscribe, you can still access all our new and past articles right <a onclick="showPage('issues')">here!</a></p>
+                </div>
+            </div>
+            <h2>General</h2>
+            <div class="FAQs">
+                <button class="accordion">What is The Centrifugue?</button>
+                <div class="panel">
+                    <p>The Centrifuge is a scientific magazine made by high-schoolers for high-schoolers. Our aim is to publish high-quality scientific articles in order to incentivise young people to follow and engage STEM areas and close the gap that stops many of us to start research as students. </p>
+                </div>
+                <button class="accordion">Can I become part of the executive/editorial team?</button>
+                <div class="panel">
+                    <p><strong>Yes!</strong> We are always excited to have new people join our team of editors, coders and writers! Please email us at thecentrifugemag@gmail.com with your name, age, grade, school and position you would like to have and we will get back to you with a response within two weeks. We don't yet have a job board, however, so apply according to your own skills and positions you might think useful!.</p>
+                </div>
+                <button class="accordion">Who runs the magazine?</button>
+                <div class="panel">
+                    <p>Our entire team is exclusively composed of high-school students, who love everything STEM! We are a very heterogeneous group from all over the world, so we can bring many different insights to the magazine! If you are interested in learning more about our team you can chech us out right <a onclick="showPage('team')">here</a></p>
+                </div>
+                <button class="accordion">How do I ask a question not covered here?</button>
+                <div class="panel">
+                    <p>If you have any questions, doubts or just want to give us feedback we would love to hear all about it! Please email us at thecentrifugemag@gmail.com! You can also reach us through our <a onclick="showPage('contact')">contact form</a> in our website or on Instagram @thecentrifugemag! We are usually very swift with our responses so you can expect to have an ansewr within 1-2 days.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <!-- ========== FOOTER ========== -->
     <footer>
         <div class="footer-content">
@@ -1929,7 +2077,7 @@ H<!DOCTYPE html>
                 <h3>Resources</h3>
                 <a href="#">Submission Guidelines</a>
                 <a href="#">Style Guide</a>
-                <a href="#">FAQ</a>
+                <a onclick="showPage('FAQ')">FAQ</a>
                 <a onclick="showPage('team')">Editorial Team</a>
             </div>
             <div class="footer-section">
@@ -2135,6 +2283,35 @@ H<!DOCTYPE html>
                     }
                 }
             }
+        }
+
+        //FAQs
+
+        var acc = document.getElementsByClassName("accordion");
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active2");
+
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active2");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
         }
     </script>
 </body>
