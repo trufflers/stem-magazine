@@ -3,28 +3,24 @@ H<!DOCTYPE html>
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKQDPJ14WC"></script>
     <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YKQDPJ14WC');
+    </script>
+
+    <script>
       window.MathJax = {
-        loader: {
-          load: ['[tex]/tikz'],
-          paths: {
-            tikz: 'https://cdn.jsdelivr.net/gh/high-speed-it/mathjax-tikz@latest/'
-          }
-        },
         tex: {
-          packages: {'[+]': ['tikz']},
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        },
-        startup: {
-          ready: () => {
-            console.log('MathJax is loaded and ready with TikZ!');
-            MathJax.startup.defaultReady();
-          }
         }
       };
     </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
     <title>The Centrifuge | High School STEM Magazine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -873,24 +869,24 @@ H<!DOCTYPE html>
                 <h2>2. Graph-Theoretic Modeling</h2>
                 <h3>2.1 From Adjacency Matrices to Laplacians</h3>
                 <p style="text-align: justify;">To study how contagion spreads through a system, we first need a mathematical way to represent the network of interactions between individuals. In graph theory, a network is represented as a graph, written as</p>
-                $$G = (V,E),$$
+                $G = (V,E),$
                 <p style="text-align: justify;">where V is the set of nodes and E is the set of edges connecting them. In the context of contagion, nodes may represent people, computers, or locations, while edges represent interactions through which infection or information can spread.</p>
                 <img src='https://graphicmaths.com/img/computer-science/graph-theory/adjacency-matrices/simple-matrix.png' alt='graph and its adjacency matrix'/>
                 <p style="text-align: justify;">A convenient way to describe the connections in a graph is with an adjacency matrix. For a network with n nodes, the adjacency matrix A is an n × n matrix defined by</p>
                 <p>
-                    $$ A_{ij} = \begin{cases} 
+                    $ A_{ij} = \begin{cases} 
                     1 & \text{if nodes } i \text{ and } j \text{ are connected,} \\ 
                     0 & \text{otherwise.} 
-                    \end{cases} $$
+                    \end{cases} $
                 </p>
                 <p style="text-align: justify;">Each entry of the matrix records whether two nodes are connected. For example, if A<sub>ij</sub> = 1, then node i can potentially transmit infection to node j. In many real-world networks, such as contact networks or transportation systems, the connections are mutual, meaning the adjacency matrix is symmetric (A<sub>ij</sub> = A<sub>ji</sub>).</p>
                 <p style="text-align: justify;">Using the adjacency matrix, we can also calculate the degree of a node, which is the number of connections it has. The degree of node i is given by</p>
-                $$ k_i = \sum_{j=1}^{n} A_{ij} $$
+                $ k_i = \sum_{j=1}^{n} A_{ij} $
                 <p style="text-align: justify;">In simple terms, this equation counts how many neighbours node i has in the network. Nodes with large degree values are often important in spreading processes because they interact with many others.</p>
                 <p style="text-align: justify;">Another useful matrix is the degree matrix, denoted by D. This is a diagonal matrix whose entries are the degrees of each node:
-                $$D_{ii} = k_i$$
+                $D_{ii} = k_i$
                 <p style="text-align: justify;">Using the adjacency matrix and the degree matrix together, we can define the graph Laplacian</p>
-                $$L = D - A$$
+                $L = D - A$
                 <p style="text-align: justify;">The Laplacian matrix plays an important role in describing how quantities spread or diffuse across a network. It basically captures how strongly each node is connected to its neighbours and how easily something can flow through the network.</p>
                 <p style="text-align: justify;">Representing networks with matrices such as A, D, and L allows us to apply tools from linear algebra to study their behaviour. In particular, properties of these matrices can reveal important information about how quickly contagion spreads and how resilient a network is to outbreaks. In later sections, we will see that certain mathematical properties of the adjacency matrix, known as eigenvalues, play a key role in determining whether an epidemic will persist or die out.</p>
                 <h3>2.2 SIS and SIR Models on Networks</h3>
@@ -910,7 +906,7 @@ H<!DOCTYPE html>
                 </ul>
                 <p style="text-align: justify;">This model is commonly used for diseases that provide immunity after infection. Once all infected nodes recover, the epidemic eventually disappears from the network. When these models are applied to networks, infections can only spread between nodes that are connected by an edge. The adjacency matrix A therefore determines which transmissions are possible. If Aij = 1, node i can potentially infect node j.</p>
                 <p style="text-align: justify;">To describe the overall behaviour of the network, we can consider a vector x whose entries represent the probability that each node is infected. A simplified description of the dynamics can be written as</p>
-                <p>$$\frac{d\mathbf{x}}{dt} = \beta A\mathbf{x} - \delta\mathbf{x}$$</p>
+                <p>$\frac{d\mathbf{x}}{dt} = \beta A\mathbf{x} - \delta\mathbf{x}$</p>
                 <p>where:</p>
                 <ul>
                     <li>x is a vector describing the infection level of each node (values between 0 and 1),</li>
@@ -923,7 +919,7 @@ H<!DOCTYPE html>
                 <h3>3.1 Eigenvalue Interpretation</h3>
                 <p style="text-align: justify;">In the previous section, we saw how a network can be represented using matrices such as the adjacency matrix A. Once a network is written in this form, we can use tools from linear algebra to study its structure. One of the most important concepts in this analysis is that of an eigenvalue.</p>
                 <p style="text-align: justify;">An eigenvalue is a special number associated with a matrix. It describes how the matrix transforms certain vectors. More precisely, a number λ is called an eigenvalue of a matrix A if there exists a non-zero vector v such that</p>
-                $$Av = λv$$
+                $Av = λv$
                 <p>In this equation:</p>
                 <ul>
                     <li>A is the matrix describing the network (in our case, the adjacency matrix),</li>
@@ -936,22 +932,22 @@ H<!DOCTYPE html>
                 <h3>3.2 Threshold Formulas and Practical Meaning</h3>
                 <p style="text-align: justify;">In epidemic models on networks, the behaviour of an outbreak depends on two parameters: the infection rate β and the recovery rate δ. The infection rate tells us how quickly the disease spreads between connected nodes, while the recovery rate describes how quickly infected nodes return to a healthy state.</p>
                 <p style="text-align: justify;">A useful quantity is the ratio</p>
-                $$\tau = \frac{\beta}{\delta},$$
+                $\tau = \frac{\beta}{\delta},$
                 <p style="text-align: justify;">which compares how quickly infections occur relative to recoveries. It shows us that if infection spreads much faster than recovery, the disease is more likely to persist.</p>
                 <p style="text-align: justify;">Spectral graph theory shows that there exists a critical threshold for this ratio. For many network epidemic models, the threshold is approximately given by</p>
-                $$\tau_c = \frac{1}{\lambda_1(A)},$$
+                $\tau_c = \frac{1}{\lambda_1(A)},$
                 <p style="text-align: justify;">where λ<sub>1</sub>(A) is the largest eigenvalue (spectral radius) of the adjacency matrix. This formula has a clear interpretation.</p>
                 <p>If</p>
-                <p>$$\tau<\tau_c,$$</p>
+                <p>$\tau<\tau_c,$</p>
                 <p>then infections die out over time and the epidemic cannot sustain itself. However, if</p>
-                <p>$$\tau>\tau_c,$$</p>
+                <p>$\tau>\tau_c,$</p>
                 <p>the infection can persist and potentially spread throughout the network.</p>
                 <p style="text-align: justify;">In simple terms, this shows that the structure of the network influences whether an epidemic occurs. Networks with larger spectral radii have smaller thresholds, meaning that even small infection rates can lead to widespread outbreaks. Highly connected networks, or networks with influential hub nodes, are therefore more vulnerable to contagion.</p>
                 <p style="text-align: justify;">This has important practical implications because by understanding how network structure affects the spectral radius, researchers can identify strategies for slowing or preventing epidemics. For example, protecting or removing highly connected nodes can reduce the spectral radius of the network, increasing the epidemic threshold and making large outbreaks less likely.</p>
                 <h3>3.3 Example: A Small Network</h3>
                 <p style="text-align: justify;">To illustrate these ideas, we can consider a simple network of five nodes representing individuals in a community. The connections between them are shown in Figure 1 below.</p>
                 <p>The corresponding adjacency matrix might look like</p>
-                $$
+                $
                 A = \begin{pmatrix}
                 0 & 1 & 1 & 0 & 0 \\
                 1 & 0 & 1 & 1 & 0 \\
@@ -959,38 +955,38 @@ H<!DOCTYPE html>
                 0 & 1 & 0 & 0 & 1 \\
                 0 & 0 & 1 & 1 & 0
                 \end{pmatrix}
-                $$
+                $
                 <p style="text-align: justify;">Each row describes the connections of one node. For example, the first row shows that node 1 is connected to nodes 2 and 3.</p>
                 <p style="text-align: justify;">If we compute the eigenvalues of this matrix, we find that the largest eigenvalue (the spectral radius) is approximately</p>
-                $$ \lambda_1(A) \approx 2.41 $$
+                $ \lambda_1(A) \approx 2.41 $
                 <p>Using the epidemic threshold formula</p>
-                $$ \tau_c = \frac{1}{\lambda_1(A)}, $$
+                $ \tau_c = \frac{1}{\lambda_1(A)}, $
                 <p>we obtain</p>
-                $$ \tau_c \approx 0.41.$$
+                $ \tau_c \approx 0.41.$
                 <p>This means that if the ratio between infection rate and recovery rate satisfies</p>
-                $$ \frac{\beta}{\delta} > 0.41, $$
+                $ \frac{\beta}{\delta} > 0.41, $
                 <p style="text-align: justify;">the infection may persist in the network. If the ratio is smaller than this threshold, the epidemic will eventually die out. This example demonstrates how the structure of a network, encoded in the adjacency matrix, directly influences whether contagion spreads or disappears.</p>
-                \[
-                \begin{tikzpicture}[
-                    node/.style={circle, draw, fill=blue!15, minimum size=10mm},
-                    edge/.style={thick}
-                ]
-                    % Nodes - Added semicolons at the end of each line
-                    \node[node] (1) at (0,0) {1};
-                    \node[node] (2) at (3,0) {2};
-                    \node[node] (3) at (1.5,-2) {3};
-                    \node[node] (4) at (4.5,-2) {4};
-                    \node[node] (5) at (1.5,-4) {5};
+                <script type="text/canvas">
+                    \begin{tikzpicture}[
+                        node/.style={circle, draw, fill=blue!15, minimum size=10mm},
+                        edge/.style={thick}
+                    ]
+                        % Nodes
+                        \node[node] (1) at (0,0) {1};
+                        \node[node] (2) at (3,0) {2};
+                        \node[node] (3) at (1.5,-2) {3};
+                        \node[node] (4) at (4.5,-2) {4};
+                        \node[node] (5) at (1.5,-4) {5};
 
-                    % Edges - Added semicolons at the end of each line
-                    \draw[edge] (1) -- (2);
-                    \draw[edge] (1) -- (3);
-                    \draw[edge] (2) -- (3);
-                    \draw[edge] (2) -- (4);
-                    \draw[edge] (3) -- (5);
-                    \draw[edge] (4) -- (5);
-                \end{tikzpicture}
-                \]
+                        % Edges
+                        \draw[edge] (1) -- (2);
+                        \draw[edge] (1) -- (3);
+                        \draw[edge] (2) -- (3);
+                        \draw[edge] (2) -- (4);
+                        \draw[edge] (3) -- (5);
+                        \draw[edge] (4) -- (5);
+                    \end{tikzpicture}
+                </script>
                 <h2>4. Real-World Case Studies</h2>
                 <h3>4.1 Airline Network and COVID-19</h3>
                 <p style="text-align: justify;">Air travel is a major pathway for global disease spread. Airports can be represented as nodes, and direct flights between airports as edges. Highly connected hubs, like major international airports, can act as super-spreaders, allowing infections to travel quickly across continents. Empirical studies of COVID-19 and influenza show that higher international flight volumes are associated with significantly higher transmission rates; for example, one recent analysis found that higher flight volumes from Asia were linked to roughly 21% higher influenza transmission rates and up to 72% higher COVID-19 case rates in receiving regions, after adjusting for public health measures.[web:18]</p>
@@ -998,67 +994,65 @@ H<!DOCTYPE html>
                 <p style="text-align: justify;">A simplified example network with five airports is shown in Figure 2. In reality, global airline networks involve thousands of airports and tens of thousands of routes, but the same spectral ideas apply. Studies using network-based models have shown that poorly targeted travel bans are often ineffective, whereas coordinated restrictions on a relatively small set of critical routes can delay the arrival of COVID-19 in new regions by an average of about 18 days and reduce total infections by millions of cases.[web:16] This aligns with the mathematical prediction that small changes to the most central nodes and edges can produce large changes in the spectral radius, and hence in the conditions under which epidemics can sustain themselves.</p>
                 <figure style="text-align: center; margin-top: 50px;">
                     <div>
-                      \[
-                      \begin{tikzpicture}[
-                          node/.style={circle, draw, fill=blue!15, minimum size=12mm, font=\small\sffamily\bfseries},
-                          edge/.style={thick}
-                      ]
-      
-                      % Coordinates converted from your relative positioning
-                      \node[node] (JFK) at (0,0) {JFK};
-                      \node[node] (LHR) at (4,0) {LHR};
-                      \node[node] (ATL) at (0,-2.5) {ATL};
-                      \node[node] (CDG) at (4,-2.5) {CDG};
-                      \node[node] (DXB) at (2,-4.5) {DXB};
+                        <script type="text/canvas">
+                            \begin{tikzpicture}[
+                                node/.style={circle, draw, fill=blue!15, minimum size=12mm, font=\small\sffamily\bfseries},
+                                edge/.style={thick}
+                            ]
+                                % Coordinates 
+                                \node[node] (JFK) at (0,0) {JFK};
+                                \node[node] (LHR) at (4,0) {LHR};
+                                \node[node] (ATL) at (0,-2.5) {ATL};
+                                \node[node] (CDG) at (4,-2.5) {CDG};
+                                \node[node] (DXB) at (2,-4.5) {DXB};
 
-                      % Connection Lines
-                      \draw[edge] (JFK) -- (LHR);
-                      \draw[edge] (JFK) -- (ATL);
-                      \draw[edge] (LHR) -- (CDG);
-                      \draw[edge] (ATL) -- (DXB);
-                      \draw[edge] (CDG) -- (DXB);
-                      \draw[edge] (LHR) -- (DXB);
-
-                      \end{tikzpicture}
-                      \]
+                                % Connection Lines
+                                \draw[edge] (JFK) -- (LHR);
+                                \draw[edge] (JFK) -- (ATL);
+                                \draw[edge] (LHR) -- (CDG);
+                                \draw[edge] (ATL) -- (DXB);
+                                \draw[edge] (CDG) -- (DXB);
+                                \draw[edge] (LHR) -- (DXB);
+                            \end{tikzpicture}
+                        </script>
                     </div>
-                    <figcaption style="font-family: sans-serif; font-style: italic;">
-                      Simplified airline network showing direct connections between airports. 
-                      Highly connected hubs facilitate rapid disease spread.
+                    <figcaption style="font-family: sans-serif; font-style: italic; margin-top: 10px;">
+                        Simplified airline network showing direct connections between airports. 
+                        Highly connected hubs facilitate rapid disease spread.
                     </figcaption>
-                  </figure>
+                </figure>
                 <h3>4.2 Social Media Rumour Spreading</h3>
                 <p style="text-align: justify;">Online social networks also behave like contagion networks. Users are nodes, and friendships or follow relationships form edges. A piece of misinformation spreads along these edges much like a virus, with each exposure giving a certain probability that a user becomes “infected” by the rumor. Surveys in the context of elections suggest that around 73% of people report seeing misleading news online, and about half struggle to distinguish true from false information, highlighting how pervasive such “information contagion” can be.[web:6] Mathematical models drawn from epidemiology, such as SIR-type models on networks, have been used to describe this process and to estimate an effective basic reproduction number for misinformation.</p>
                 <figure style="text-align: center; margin-top: 40px;">
                     <div>
-                      \[
-                      \begin{tikzpicture}[
-                          node/.style={circle, draw, fill=yellow!20, minimum size=10mm, font=\sffamily\bfseries},
-                          edge/.style={thick}
-                      ]
+                        <script type="text/canvas">
+                            \begin{tikzpicture}[
+                                node/.style={circle, draw, fill=yellow!20, minimum size=10mm, font=\sffamily\bfseries},
+                                edge/.style={thick}
+                            ]
 
-                      % Coordinate positioning based on your LaTeX logic
-                      \node[node] (A) at (0,0) {A};
-                      \node[node] (B) at (3.5,0) {B};
-                      \node[node] (C) at (2,-2) {C};
-                      \node[node] (D) at (5,-2) {D};
-                      \node[node] (E) at (2,-4.5) {E};
+                                % Coordinate positioning
+                                \node[node] (A) at (0,0) {A};
+                                \node[node] (B) at (3.5,0) {B};
+                                \node[node] (C) at (2,-2) {C};
+                                \node[node] (D) at (5,-2) {D};
+                                \node[node] (E) at (2,-4.5) {E};
 
-                      % Connections
-                      \draw[edge] (A) -- (B);
-                      \draw[edge] (A) -- (C);
-                      \draw[edge] (B) -- (C);
-                      \draw[edge] (B) -- (D);
-                      \draw[edge] (C) -- (E);
-                      \draw[edge] (D) -- (E);
+                                % Connections
+                                \draw[edge] (A) -- (B);
+                                \draw[edge] (A) -- (C);
+                                \draw[edge] (B) -- (C);
+                                \draw[edge] (B) -- (D);
+                                \draw[edge] (C) -- (E);
+                                \draw[edge] (D) -- (E);
 
-                      \end{tikzpicture}
-                      \]
+                            \end{tikzpicture}
+                        </script>
                     </div>
-                    <figcaption style="font-family: sans-serif; color: #444; max-width: 500px; margin: 0 auto;">
-                      Simplified social network. Influential users with many connections can accelerate rumor propagation.
+                    <figcaption style="font-family: sans-serif; color: #444; max-width: 500px; margin: 10px auto 0;">
+                        Simplified social network. Influential users with many connections can accelerate rumor propagation.
                     </figcaption>
-                  </figure>
+                </figure>
                 <p style="text-align: justify;">Figure 3 illustrates a small social network. Highly connected users (influencers) have a disproportionate effect on the spread because they can expose thousands or millions of followers at once. Modelling studies indicate that, for many social media platforms, the effective reproduction number R<sub>0</sub> for misinformation is greater than 1, meaning that a single “infected” post can, on average, generate more than one further infected user and thus sustain an information epidemic.[web:14][web:17] In one example, even when assuming only a 10% chance that a user becomes convinces after exposure, simulations show that the fraction of the population “infected” by election misinformation can grow rapidly unless strong countermeasures are applied.[web:6]</p>
                 <p style="text-align: justify;">Spectral ideas provide a way to interpret these results. The spectral radius of the follower graph, λ<sub>1</sub>(A), encapsulates how easily influence can percolate through the network. If the effective spreading rate of misinformation (analogous to β) divided by the “recovery” or debunking rate (analogous to δ) exceeds the threshold τc = 1/λ<sub>1</sub>(A), rumors can go viral and persist. Interventions such as limiting the reach of high-degree misinformation accounts, inserting fact-check labels, or temporarily suspending repeat offenders all act to reduce effective edge weights or remove influential nodes. This, in turn, lowers λ<sub>1</sub>(A) and can push the system back below the viral threshold, just as targeted vaccination of central nodes does in biological epidemics.</p>
                 <h2>5. Optimization for Containment</h2>
