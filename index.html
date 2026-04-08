@@ -16,28 +16,280 @@
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
         }
       };
-        // 1. Page Switcher Logic
+    <script>
+/* =========================================
+   1. PAGE SWITCHER LOGIC
+   ========================================= */
 function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById(pageId).style.display = 'block';
-    
-    if(pageId === 'puzzles') {
-        initHypothesis();
-        initWordle();
+    // Hide all elements with the class 'page'
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.style.display = 'none');
+
+    // Show the targeted page
+    const activePage = document.getElementById(pageId);
+    if (activePage) {
+        activePage.style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+
+    // Initialize games if the Puzzles page is opened
+    if (pageId === 'puzzles') {
+        initH(); // Initialize Hypothesis
+        initW(); // Initialize Wordle
     }
 }
 
-// 2. The Daily Hypothesis Logic (Simplified)
-function initHypothesis() {
-    const day = new Date().getDate() % hypothesisBank.length;
-    const target = hypothesisBank[day];
-    // ... render clues to #h-stack
+/* =========================================
+   2. DATA BANKS (30-Day Cycle)
+   ========================================= */
+const hypothesisBank = [
+    { a: "Dark Matter", c: ["I am a form of matter that does not interact with the electromagnetic field.", "I account for approximately 85% of the matter in the universe.", "My existence is inferred from 'hidden' gravitational effects on visible stars."] },
+    { a: "Feedback Loop", c: ["I am a process where the output of a system is circled back as an input.", "I can be 'positive' (amplifying) or 'negative' (stabilizing).", "I am the hidden regulator of both global climates and human body temperature."] },
+    { a: "Backpropagation", c: ["I am an algorithm used to calculate the gradient of an error function.", "I am the hidden mechanism that allows artificial neural networks to 'learn'.", "I involve moving backward from the output to adjust the weights of hidden layers."] },
+    { a: "Emergence", c: ["I am a phenomenon where complex patterns arise from simple local rules.", "I explain how individual ants, with no leader, create a sophisticated colony.", "I am the hidden property where the whole is greater than the sum of its parts."] },
+    { a: "Cryptography", c: ["I am the study of techniques for secure communication in the presence of third parties.", "I rely on 'hidden' keys and mathematical functions that are easy to do but hard to undo.", "The Enigma machine was a mechanical manifestation of my principles."] },
+    { a: "Tectonic Plates", c: ["I am the massive, irregularly shaped slabs of solid rock that make up Earth's lithosphere.", "My 'hidden' movements are driven by convection currents in the mantle.", "I am the system responsible for both the birth of mountains and the trigger of tsunamis."] },
+    { a: "Fibonacci Sequence", c: ["I am a series of numbers where each number is the sum of the two preceding ones.", "I appear as a hidden blueprint in the spirals of pinecones and sunflowers.", "My ratio approaches the 'Golden Ratio' as the sequence progresses."] },
+    { a: "Blockchain", c: ["I am a distributed ledger technology that is decentralized and immutable.", "I use a hidden consensus mechanism (like Proof of Work) to validate data.", "I am the underlying architecture of cryptocurrencies, but also used for supply chain tracking."] },
+    { a: "Homeostasis", c: ["I am the state of steady internal, physical, and chemical conditions maintained by living systems.", "I am a hidden balancing act involving pH, glucose levels, and hydration.", "When I fail, organisms enter a state of disease or death."] },
+    { a: "String Theory", c: ["I am a theoretical framework in which point-like particles are replaced by one-dimensional objects.", "I require the existence of 'hidden' extra dimensions beyond the four we perceive.", "I am a candidate for the 'Theory of Everything,' linking gravity and quantum mechanics."] },
+    { a: "Latent Heat", c: ["I am the energy absorbed or released by a substance during a change in its physical state.", "I am 'hidden' because I do not cause a change in temperature while the phase change occurs.", "I am the reason why ice stays at 0°C while it is melting."] },
+    { a: "Operating System", c: ["I am the software that manages computer hardware and provides common services for programs.", "I am the hidden bridge between a user's clicks and the CPU's binary logic.", "Examples of me include kernel-based architectures like Linux or XNU."] },
+    { a: "Algorithm", c: ["I am a finite sequence of rigorous instructions used to solve a class of specific problems.", "I am the hidden logic that determines what you see on social media feeds.", "The word for me originates from the 9th-century mathematician al-Khwarizmi."] },
+    { a: "Heisenberg Uncertainty Principle", c: ["I am a fundamental limit to the precision with which certain pairs of physical properties can be known.", "I state that the more precisely position is determined, the less precisely momentum can be known.", "I am a hidden constraint of the quantum world, not a limitation of our measuring tools."] },
+    { a: "Binary", c: ["I am a base-2 numeral system that uses only two symbols.", "I am the hidden language of almost all modern computing architectures.", "I represent 'on' and 'off' states in billions of microscopic transistors."] },
+    { a: "Zero Day", c: ["I am a computer-software vulnerability that is unknown to those who should be interested in mitigating it.", "I am a hidden 'window' that hackers exploit before a patch is created.", "My name comes from the number of days the developer has had to fix the bug."] },
+    { a: "Chaos Theory", c: ["I am a branch of mathematics focusing on behavior that is highly sensitive to initial conditions.", "I am popularly known as the 'Butterfly Effect'.", "I explain why 'hidden' small changes can lead to massive, unpredictable weather patterns."] },
+    { a: "Standard Model", c: ["I am the theory describing three of the four known fundamental forces in the universe.", "I classify all known elementary particles, including quarks and leptons.", "The Higgs Boson was my final 'hidden' piece to be experimentally confirmed."] },
+    { a: "Prime Numbers", c: ["I am a natural number greater than 1 that is not a product of two smaller natural numbers.", "I am the 'hidden' atoms of mathematics; all other numbers are built from me.", "I am the backbone of modern RSA encryption."] },
+    { a: "Capillary Action", c: ["I am the ability of a liquid to flow in narrow spaces without the assistance of external forces.", "I am the hidden system that allows trees to pull water hundreds of feet into the air.", "I am driven by the forces of adhesion, cohesion, and surface tension."] },
+    { a: "Neural Network", c: ["I am a series of algorithms that endeavors to recognize underlying relationships in a set of data.", "I am loosely modeled on the hidden physical structure of the human brain.", "I consist of input, output, and multiple 'hidden' layers of processing."] },
+    { a: "Turing Test", c: ["I am a method of inquiry in artificial intelligence for determining if a computer can think like a human.", "I am a hidden evaluation of behavioral equivalence rather than internal consciousness.", "I was originally called 'The Imitation Game' by my creator."] },
+    { a: "Genetic Drift", c: ["I am the change in the frequency of an existing gene variant in a population due to random chance.", "I am a hidden driver of evolution that does not rely on natural selection.", "My effects are most dramatic in small, isolated populations."] },
+    { a: "Kelvin Scale", c: ["I am an absolute thermodynamic temperature scale.", "My hidden starting point is the complete absence of all thermal energy.", "I am used primarily in the physical sciences to avoid negative values in calculations."] },
+    { a: "Schrodinger's Cat", c: ["I am a thought experiment that illustrates a paradox of quantum superposition.", "I involve a hidden state where an entity is simultaneously dead and alive.", "I was intended to show the 'absurdity' of applying quantum logic to everyday objects."] },
+    { a: "Graphene", c: ["I am an allotrope of carbon consisting of a single layer of atoms arranged in a hexagonal lattice.", "I am a hidden component in the future of superconductors and ultra-strong materials.", "I am 200 times stronger than steel but nearly transparent."] },
+    { a: "Kevlar", c: ["I am a heat-resistant and strong synthetic fiber.", "My hidden strength comes from inter-chain hydrogen bonds and aromatic stacking.", "I am most famous for my use in ballistic-rated body armor."] },
+    { a: "Big O Notation", c: ["I am a mathematical notation that describes the limiting behavior of a function.", "I am the hidden metric used by engineers to measure the efficiency of an algorithm.", "I describe how the execution time or space requirements grow as the input size grows."] },
+    { a: "Radiocarbon Dating", c: ["I am a method for determining the age of an object containing organic material.", "I rely on the 'hidden' decay of the Carbon-14 isotope.", "I am effective for dating samples up to about 50,000 years old."] },
+    { a: "The Doppler Effect", c: ["I am the change in frequency of a wave in relation to an observer who is moving relative to the wave source.", "I am the hidden reason why a siren changes pitch as it passes you.", "I am used by astronomers to calculate if a galaxy is 'red-shifting' away from us."] }
+];
+
+const wordInfo = {
+        "CYPHER": "A hidden system of encryption that secures data by transforming it into an unreadable format without a specific key.",
+        "LOGIC": "The hidden mathematical system that governs the decision-making processes within every transistor and CPU.",
+        "PIXEL": "The fundamental unit of a digital image, part of a hidden grid system that creates visual reality on screens.",
+        "PROXY": "A hidden intermediary system that processes requests to maintain anonymity and security in network communications.",
+        "MACRO": "A hidden automation system where a single instruction triggers a complex sequence of underlying actions.",
+        "VALVE": "A hidden mechanical system that regulates the flow of fluids or gases, essential for stabilizing pressure in closed loops.",
+        "GEARS": "A system of mechanical advantage hidden within machines to transmit power and change torque or speed.",
+        "TRUSS": "A hidden structural system of triangles that distributes weight and tension to stabilize bridges and buildings.",
+        "LEVER": "A hidden simple machine system that amplifies physical force through a fixed pivot point or fulcrum.",
+        "BEAMS": "The hidden horizontal support systems that resist bending and maintain the structural integrity of modern architecture.",
+        "SPORE": "A hidden biological system for survival and dispersal, allowing organisms to remain dormant until conditions are perfect.",
+        "NODES": "Points of intersection in a hidden network system, whether they are neural, electrical, or social.",
+        "GLUON": "The hidden subatomic 'glue' that binds quarks together, forming the basis of all nuclear matter.",
+        "VIRUS": "A hidden biological system of genetic code that hijacks host cells to replicate, often bypassing complex immune defenses.",
+        "HELIX": "The hidden geometric system of DNA that stores the massive amount of information required for life in a tiny space.",
+        "RELAY": "A hidden electrical switch system that allows a low-power signal to control a much higher-power circuit.",
+        "ARRAY": "A hidden data system that organizes elements in a specific order, allowing for rapid calculation and retrieval.",
+        "SYNAP": "Short for Synapse; the hidden system of chemical signaling that allows neurons to communicate across microscopic gaps.",
+        "SHELL": "A hidden command-line interface system that provides direct access to the core operations of an operating system.",
+        "CHART": "A visual system that reveals hidden patterns and trends within raw, disorganized data sets.",
+        "ORBIT": "A hidden gravitational system that keeps celestial bodies in a stable, repeating path through space.",
+        "PHASE": "A hidden state in a physical system (like solid, liquid, or gas) determined by molecular energy and pressure.",
+        "PULSE": "A hidden rhythmic system of energy or blood flow that signals the underlying health and activity of a complex organism.",
+        "TIMER": "A hidden synchronization system that ensures processes occur in the correct sequence at precise intervals.",
+        "DRIFT": "A hidden systemic change over time, such as genetic drift in populations or clock drift in electronic systems.",
+        "INDEX": "A hidden organizational system that allows for the near-instant location of data within massive databases.",
+        "CACHE": "A hidden high-speed storage system that keeps frequently used data close at hand to improve processing speed.",
+        "STACK": "A hidden data structure system that follows the 'Last-In, First-Out' principle for managing memory and tasks.",
+        "INPUT": "The system of data entry that triggers the hidden processing layers of a computer or biological brain.",
+        "QUERY": "A hidden request system used to extract specific, meaningful information from a vast and complex database."
+    };
+/* =========================================
+   3. SHARED UTILITIES
+   ========================================= */
+const getDailyIndex = () => {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const diff = now - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    return Math.floor(diff / oneDay) % 30;
+};
+
+/* =========================================
+   4. THE DAILY HYPOTHESIS LOGIC
+   ========================================= */
+let hTarget, hRevealed = 1, hOver = false;
+
+function initH() {
+    const idx = getDailyIndex() % hypothesisBank.length;
+    hTarget = hypothesisBank[idx];
+    hRevealed = 1;
+    hOver = false;
+    document.getElementById('h-feedback').innerText = "";
+    document.getElementById('h-input').value = "";
+    renderH();
 }
 
-// 3. The Daily Element Logic
-function initWordle() {
-    // ... generate grid and keyboard into #w-grid and #w-keyboard
+function renderH() {
+    const stack = document.getElementById('h-stack');
+    if (!stack) return;
+    stack.innerHTML = "";
+    for (let i = 0; i < 3; i++) {
+        const isRevealed = i < hRevealed;
+        stack.innerHTML += `
+            <div class="observation ${isRevealed ? 'active' : ''}">
+                <small style="font-weight:800; color:${isRevealed ? 'var(--primary)' : '#ccc'}">DATA POINT #${i + 1}</small>
+                <p style="margin:5px 0 0 0; font-family:'Lora'">${isRevealed ? hTarget.c[i] : 'Locked: Submit analysis to reveal...'}</p>
+            </div>`;
+    }
 }
+
+function checkH() {
+    if (hOver) return;
+    const val = document.getElementById('h-input').value.toLowerCase().trim();
+    const feedback = document.getElementById('h-feedback');
+
+    if (val === hTarget.a.toLowerCase()) {
+        hOver = true;
+        hRevealed = 3;
+        feedback.style.color = "#6aaa64";
+        feedback.innerText = "✓ HYPOTHESIS CONFIRMED: " + hTarget.a;
+    } else {
+        if (hRevealed < 3) {
+            hRevealed++;
+            feedback.style.color = "var(--primary)";
+            feedback.innerText = "Inconclusive. Data point unlocked.";
+        } else {
+            feedback.style.color = "#e74c3c";
+            feedback.innerText = "Research Failed. Target: " + hTarget.a;
+            hOver = true;
+        }
+    }
+    renderH();
+}
+
+/* =========================================
+   5. THE DAILY ELEMENT (WORDLE) LOGIC
+   ========================================= */
+let wTarget, wRow = 0, wGuess = "", wOver = false;
+const wordBank = Object.keys(wordInfo);
+
+function initW() {
+    const idx = getDailyIndex() % wordBank.length;
+    wTarget = wordBank[idx].toUpperCase();
+    wRow = 0; wGuess = ""; wOver = false;
+
+    const grid = document.getElementById('w-grid');
+    const kb = document.getElementById('w-keyboard');
+    const overlay = document.getElementById('w-overlay');
+
+    if (grid) {
+        grid.innerHTML = "";
+        for (let i = 0; i < 30; i++) {
+            const div = document.createElement('div');
+            div.className = 'w-tile';
+            div.id = 'wt-' + i;
+            grid.appendChild(div);
+        }
+    }
+
+    if (kb) {
+        kb.innerHTML = "";
+        const rows = ["QWERTYUIOP", "ASDFGHJKL", "ENT-ZXCVBNM-DEL"];
+        rows.forEach(r => {
+            const div = document.createElement('div');
+            div.className = 'kb-row';
+            const keys = r.includes('-') ? r.split('-') : r.split('');
+            keys.forEach(k => {
+                const btn = document.createElement('button');
+                btn.className = 'key' + (k.length > 1 ? ' wide' : '');
+                btn.id = 'wk-' + k;
+                btn.innerText = k === 'ENT' ? 'ENTER' : (k === 'DEL' ? '⌫' : k);
+                btn.onclick = () => handleWInput(k);
+                div.appendChild(btn);
+            });
+            kb.appendChild(div);
+        });
+    }
+    if (overlay) overlay.style.display = "none";
+}
+
+function handleWInput(k) {
+    if (wOver) return;
+    const key = k.toUpperCase();
+    if (key === 'DEL' || key === 'BACKSPACE') {
+        if (wGuess.length > 0) wGuess = wGuess.slice(0, -1);
+    } else if (key === 'ENT' || key === 'ENTER') {
+        if (wGuess.length === 5) submitW();
+    } else if (wGuess.length < 5 && /^[A-Z]$/.test(key)) {
+        wGuess += key;
+    }
+    // Update visual tiles
+    for (let i = 0; i < 5; i++) {
+        const tile = document.getElementById('wt-' + (wRow * 5 + i));
+        if (tile) tile.innerText = wGuess[i] || "";
+    }
+}
+
+function submitW() {
+    let check = wTarget;
+    let results = new Array(5).fill("absent");
+
+    // Pass 1: Correct (Green)
+    for (let i = 0; i < 5; i++) {
+        if (wGuess[i] === wTarget[i]) {
+            results[i] = "correct";
+            check = check.replace(wGuess[i], "_");
+        }
+    }
+    // Pass 2: Present (Yellow)
+    for (let i = 0; i < 5; i++) {
+        if (results[i] !== "correct" && check.includes(wGuess[i])) {
+            results[i] = "present";
+            check = check.replace(wGuess[i], "_");
+        }
+    }
+
+    // Apply colors
+    for (let i = 0; i < 5; i++) {
+        const tile = document.getElementById('wt-' + (wRow * 5 + i));
+        tile.classList.add(results[i]);
+        const keyBtn = document.getElementById('wk-' + wGuess[i]);
+        if (keyBtn && !keyBtn.classList.contains('correct')) {
+            keyBtn.classList.remove('present', 'absent');
+            keyBtn.classList.add(results[i]);
+        }
+    }
+
+    if (wGuess === wTarget) showWResult(true);
+    else if (wRow === 5) showWResult(false);
+
+    wRow++;
+    wGuess = "";
+}
+
+function showWResult(success) {
+    wOver = true;
+    setTimeout(() => {
+        const overlay = document.getElementById('w-overlay');
+        document.getElementById('res-title').innerText = success ? "System Stabilized" : "System Failure";
+        document.getElementById('res-word').innerText = wTarget;
+        document.getElementById('res-desc').innerText = wordInfo[wTarget] || "A hidden component of reality.";
+        overlay.style.display = "block";
+    }, 600);
+}
+
+// Support for physical keyboard typing
+window.addEventListener('keydown', (e) => {
+    const puzzlePage = document.getElementById('puzzles');
+    if (puzzlePage && puzzlePage.style.display === 'block') {
+        handleWInput(e.key);
+    }
+});
+</script>
     </script>
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
