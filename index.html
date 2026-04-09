@@ -2880,23 +2880,31 @@ window.addEventListener('keydown', (e) => {
         ];
 
         // ── Page Navigation ────────────────────────────────────────
-        function showPage(pageId) {
-            const target = document.getElementById(pageId);
-            if (!target) return;
+function showPage(pageId) {
+    const target = document.getElementById(pageId);
+    if (!target) return;
 
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            history.pushState({ page: pageId }, '', '#' + pageId);
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState({ page: pageId }, '', '#' + pageId);
 
-            const navLinks = document.getElementById('navLinks');
-            const hamburger = document.getElementById('hamburger');
-            const overlay   = document.getElementById('navOverlay');
-            if (navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-                hamburger.classList.remove('active');
-                overlay.classList.remove('active');
-            }
+    // --- ADDED LOGIC TO START GAMES ---
+    if (pageId === 'puzzles') {
+        initH(); // Starts Daily Hypothesis
+        initW(); // Starts Daily Element
+    }
+    // ----------------------------------
+
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    const overlay   = document.getElementById('navOverlay');
+    if (navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+}
         }
 
         // Back/forward buttons
