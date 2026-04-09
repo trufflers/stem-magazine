@@ -182,23 +182,25 @@ function initW() {
     const idx = getDailyIndex() % wordBank.length;
     wTarget = wordBank[idx].toUpperCase();
     wRow = 0; wGuess = ""; wOver = false;
-    document.addEventListener('keydown', (e) => {
-    if (wOver || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-    const key = e.key.toUpperCase();
+    const grid = document.getElementById('w-grid');
+    const kb = document.getElementById('w-keyboard');
+    const overlay = document.getElementById('w-overlay');
 
-    if (key === 'BACKSPACE') {
-        handleWInput('DEL');
-    } else if (key === 'ENTER') {
-        handleWInput('ENT');
-    } else if (/^[A-Z]$/.test(key)) {
-        handleWInput(key);
+    if (grid) {
+        grid.innerHTML = "";
+        for (let i = 0; i < 30; i++) {
+            const div = document.createElement('div');
+            div.className = 'w-tile';
+            div.id = 'wt-' + i;
+            grid.appendChild(div);
+        }
     }
-});
+
 
     if (kb) {
         kb.innerHTML = "";
-        const rows = ["QWERTYUIOP", "ASDFGHJKL", "ENT-ZXCVBNM-DEL"];
+        const rows = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM","ENT-DEL"];
         rows.forEach(r => {
             const div = document.createElement('div');
             div.className = 'kb-row';
