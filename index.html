@@ -22,24 +22,24 @@
    1. PAGE SWITCHER LOGIC
    ========================================= */
 function showPage(pageId) {
-    // Hide all elements with the class 'page'
     const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.style.display = 'none');
+    pages.forEach(p => {
+        p.classList.remove('active'); // Remove active class from all pages
+        p.style.display = 'none';      // Ensure they are hidden
+    });
 
-    // Show the targeted page
     const activePage = document.getElementById(pageId);
     if (activePage) {
-        activePage.style.display = 'block';
+        activePage.classList.add('active'); // Add the active class
+        activePage.style.display = 'block';  // Explicitly show it
         window.scrollTo(0, 0);
     }
 
-    // Initialize games if the Puzzles page is opened
     if (pageId === 'puzzles') {
-        initH(); // Initialize Hypothesis
-        initW(); // Initialize Wordle
+        initH(); 
+        initW(); 
     }
 }
-
 /* =========================================
    2. DATA BANKS (30-Day Cycle)
    ========================================= */
