@@ -3307,6 +3307,8 @@ function showPage(pageId) {
         const correct = getCurrentEquation().correctCoeffs;
         const match = userCoeffs.length === correct.length && userCoeffs.every((val, idx) => val === correct[idx]);
         const feedback = document.getElementById('feedback');
+        const eq = getCurrentEquation();
+        const container = document.getElementById('equationContainer');
 
         if (match) {
            correctCount++;
