@@ -1021,6 +1021,125 @@ window.addEventListener('keydown', (e) => {
         animation: fadeIn 0.5s ease;
     }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /*--- Chemistry balancer ---*/
+
+        .equation-game{
+            max-width: 700px;
+            margin: 2rem auto;
+            font-family: 'Outfit', sans-serif;
+            align-content: center;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 6px solid #6167cb;
+        }
+        .equation-game:hover{
+            transform: translateY(-2%);
+            box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
+        }
+        .equation-game h2{
+            text-align: center;
+        }
+        .equation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 24px;
+            margin: 20px;
+        }
+
+        .article-category {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #6167cb;
+            margin-bottom: 1rem;
+            text-align:  center;
+        }
+        .compound {
+            display: flex;
+            align-items: center;
+            margin: 0 5px;
+        }
+        .compound input {
+            width: 50px;
+            font-size: 18px;
+            text-align: center;
+            margin-right: 5px;
+        }
+        .arrow {
+            margin: 0 10px;
+        }
+        .feedback {
+            font-size: 20px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .equation-game{
+            max-width: 700px;
+            margin: 2rem auto;
+            font-family: 'Outfit', sans-serif;
+            align-content: center;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 6px solid #6167cb;
+        }
+        .equation-game:hover{
+            transform: translateY(-2%);
+            box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
+        }
+        .equation-game h2{
+            text-align: center;
+        }
+        .equation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 24px;
+            margin: 20px;
+        }
+
+        .article-category {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #6167cb;
+            margin-bottom: 1rem;
+            text-align:  center;
+        }
+        .compound {
+            display: flex;
+            align-items: center;
+            margin: 0 5px;
+        }
+        .compound input {
+            width: 50px;
+            font-size: 18px;
+            text-align: center;
+            margin-right: 5px;
+        }
+        .arrow {
+            margin: 0 10px;
+        }
+        .feedback {
+            font-size: 20px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
         /* Missing Styles for Submit, Subscribe, and Contact Forms */
 .section-heading {
     text-align: center;
@@ -1087,6 +1206,8 @@ window.addEventListener('keydown', (e) => {
     background: #4e54b0;
     transform: translateY(-2px);
 }
+
+        
     </style>
 </head>
 <body>
@@ -2288,6 +2409,13 @@ window.addEventListener('keydown', (e) => {
                     <p id="res-desc" style="font-family: 'Lora'; line-height: 1.6;"></p>
                 </div>
             </section>
+            <section id="equation-balance" class="article-card equation game" style="padding: 2rem; text-align: center;">
+                <div class="article-category">Chemistry</div>
+                <h2 style="margin: 1rem 0;">Chemical Balancer</h2>
+                <div class="equation-container" id="equationContainer"></div>
+                <button onclick="checkBalance()" class="cta-button" style="border: none;">Balance</button>
+                <div class="feedback" id="feedback"></div>
+            </section>
         </div>
     </div>
 </div>
@@ -3095,6 +3223,104 @@ function showPage(pageId) {
                 }
             });
         }
+
+        //Equation Balancer Logic
+
+    const equations = [
+        { left: ['C₃H₈', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [1, 5, 3, 4], explanation: 'Propane combustion' },
+        { left: ['C6H₁₂O6', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [1, 6, 6, 6], explanation: 'Glucose combustion' },
+        { left: ['C₄H₁₀', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [2, 13, 8, 10], explanation: 'Butane combustion' },
+        { left: ['C₂H₅OH', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [1, 3, 2, 3], explanation: 'Ethanol combustion' },
+        { left: ['C₈H1₈', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [2, 25, 16, 18], explanation: 'Octane combustion' },
+        { left: ['Fe', 'O₂'], right: ['Fe₂O₃'], correctCoeffs: [4, 3, 2], explanation: 'Iron oxidation' },
+        { left: ['Al', 'Fe₂O₃'], right: ['Al₂O₃', 'Fe'], correctCoeffs: [2, 1, 1, 2], explanation: 'Thermite reaction' },
+        { left: ['KMnO₄', 'HCl'], right: ['KCl', 'MnCl₂', 'H₂O', 'Cl₂'], correctCoeffs: [2, 16, 2, 2, 8, 5], explanation: 'Permanganate and chloric acid' },
+        { left: ['Cu', 'HNO₃'], right: ['Cu(NO₃)₂', 'NO', 'H₂O'], correctCoeffs: [3, 8, 3, 2, 4], explanation: 'Copper and nitric acid' },
+        { left: ['Zn', 'H₂SO₄'], right: ['ZnSO₄', 'H₂'], correctCoeffs: [1, 1, 1, 1], explanation: 'Zinc and sulfuric acid' },
+        { left: ['Ca(OH)₂', 'H₃PO₄'], right: ['Ca₃(PO₄)₂', 'H₂O'], correctCoeffs: [3, 2, 1, 6], explanation: 'Calcium hydroxide and phosphoric acid' },
+        { left: ['Al(OH)₃', 'H₂SO₄'], right: ['Al₂(SO₄)₃', 'H₂O'], correctCoeffs: [2, 3, 1, 6], explanation: 'Aluminum hydroxide and sulfuric acid' },
+        { left: ['Na₃PO₄', 'CaCl₂'], right: ['Ca₃(PO₄)₂', 'NaCl'], correctCoeffs: [2, 3, 1, 6], explanation: 'Sodium phosphate and calcium chloride' },
+        { left: ['BaCl₂', 'Al₂(SO₄)₃'], right: ['BaSO₄', 'AlCl₃'], correctCoeffs: [3, 1, 3, 2], explanation: 'Barium chloride and aluminum sulfate' },
+        { left: ['Pb(NO₃)₂', 'KI'], right: ['PbI₂', 'KNO₃'], correctCoeffs: [1, 2, 1, 2], explanation: 'Lead nitrate and potassium iodide' },
+        { left: ['KClO₃'], right: ['KCl', 'O₂'], correctCoeffs: [2, 2, 3], explanation: 'Potassium chlorate decomposition' },
+        { left: ['Al₂(CO₃)₃'], right: ['Al₂O₃', 'CO₂'], correctCoeffs: [1, 1, 3], explanation: 'Aluminum carbonate decomposition' },
+        { left: ['Mg(ClO₃)₂'], right: ['MgCl₂', 'O₂'], correctCoeffs: [1, 1, 3], explanation: 'Magnesium chlorate decomposition' },
+        { left: ['N₂', 'H₂'], right: ['NH₃'], correctCoeffs: [1, 3, 2], explanation: 'Haber process' },
+        { left: ['P₄', 'O₂'], right: ['P₂O₅'], correctCoeffs: [1, 5, 2], explanation: 'Phosphorus combustion' },
+        { left: ['Fe₃O₄', 'H₂'], right: ['Fe', 'H₂O'], correctCoeffs: [1, 4, 3, 4], explanation: 'Magnetite reduction' },
+        { left: ['SiO₂', 'HF'], right: ['SiF₄', 'H₂O'], correctCoeffs: [1, 4, 1, 2], explanation: 'Silicon dioxide and hydrofluoric acid' },
+        { left: ['Na₂O₂', 'H₂O'], right: ['NaOH', 'O₂'], correctCoeffs: [2, 2, 4, 1], explanation: 'Sodium peroxide and water' },
+        { left: ['Cr₂O₃', 'Al'], right: ['Al₂O₃', 'Cr'], correctCoeffs: [1, 2, 1, 2], explanation: 'Chromium oxide and aluminum' },
+        { left: ['MnO₂', 'HCl'], right: ['MnCl₂', 'Cl₂', 'H₂O'], correctCoeffs: [1, 4, 1, 1, 2], explanation: 'Manganese dioxide and HCl' },
+        { left: ['K₂Cr₂O₇', 'HCl'], right: ['KCl', 'CrCl₃', 'H₂O', 'Cl₂'], correctCoeffs: [1, 14, 2, 2, 7, 3], explanation: 'Dichromate and chloric acid' },
+        { left: ['Fe₂O₃', 'CO'], right: ['Fe', 'CO₂'], correctCoeffs: [1, 3, 2, 3], explanation: 'Iron oxide and carbon monoxide' },
+        { left: ['Ca₃(PO₄)₂', 'SiO₂', 'C'], right: ['CaSiO₃', 'P₄', 'CO'], correctCoeffs: [2, 6, 10, 6, 1, 10], explanation: 'Phosphate rock reaction' },
+        { left: ['NH₃', 'O₂'], right: ['NO', 'H₂O'], correctCoeffs: [4, 5, 4, 6], explanation: 'Ammonia oxidation (Ostwald process)' },
+        { left: ['As₂S₃', 'HNO₃', 'H₂O'], right: ['H₃AsO₄', 'H₂SO₄', 'NO'], correctCoeffs: [3, 28, 4, 6, 9, 28], explanation: 'Arsenic sulfide and nitric acid' }
+    ];
+
+    let correctCount = 0;
+
+    function getCurrentEquation() {
+        const start = new Date(2024, 3, 1); // Starting April 1st (Issue Date)
+        const today = new Date();
+        const diff = Math.floor((today - start) / 86400000);
+        const dayIndex = Math.max(0, diff % 30);
+
+        return equations[dayIndex];
+    }
+
+    function displayEquation() {
+        const eq = getCurrentEquation();
+        const container = document.getElementById('equationContainer');
+        container.innerHTML = '';
+
+        eq.left.forEach((compound, index) => {
+            const div = document.createElement('div');
+            div.className = 'compound';
+            div.innerHTML = `<input type="number" min="1" value="1"> <span>${compound}</span>`;
+            container.appendChild(div);
+            if (index < eq.left.length - 1) {
+                container.appendChild(document.createTextNode('+'));
+            }
+        });
+
+        const arrow = document.createElement('span');
+        arrow.className = 'arrow';
+        arrow.textContent = '→';
+        container.appendChild(arrow);
+
+        eq.right.forEach((compound, index) => {
+            const div = document.createElement('div');
+            div.className = 'compound';
+            div.innerHTML = `<input type="number" min="1" value="1"> <span>${compound}</span>`;
+            container.appendChild(div);
+            if (index < eq.right.length - 1) {
+                container.appendChild(document.createTextNode('+'));
+            }
+        });
+    }
+
+    function checkBalance() {
+        const inputs = Array.from(document.querySelectorAll('.compound input'));
+        const userCoeffs = inputs.map(i => parseInt(i.value));
+        const correct = getCurrentEquation().correctCoeffs;
+        const match = userCoeffs.length === correct.length && userCoeffs.every((val, idx) => val === correct[idx]);
+        const feedback = document.getElementById('feedback');
+
+        if (match) {
+            correctCount++;
+            feedback.textContent = `✓ EQUATION CORRECTLY BALANCED: ${getCurrentEquation()['explanation']}`;
+            feedback.style.color = '#6aaa64';
+
+
+        } else {
+            feedback.textContent = "Incoherent with Lavoisier's law. Try again.";
+            feedback.style.color = '#6167cb';
+        }
+    }
+
+    displayEquation();
     </script>
 </body>
 </html>
