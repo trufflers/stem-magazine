@@ -51,7 +51,7 @@ const hypothesisBank = [
     { a: "Cryptography", c: ["I am the study of techniques for secure communication in the presence of third parties.", "I rely on 'hidden' keys and mathematical functions that are easy to do but hard to undo.", "The Enigma machine was a mechanical manifestation of my principles."] },
     { a: "Tectonic Plates", c: ["I am the massive, irregularly shaped slabs of solid rock that make up Earth's lithosphere.", "My 'hidden' movements are driven by convection currents in the mantle.", "I am the system responsible for both the birth of mountains and the trigger of tsunamis."] },
     { a: "Fibonacci Sequence", c: ["I am a series of numbers where each number is the sum of the two preceding ones.", "I appear as a hidden blueprint in the spirals of pinecones and sunflowers.", "My ratio approaches the 'Golden Ratio' as the sequence progresses."] },
-    { a: "Blockchain", c: ["I am a distributed ledger technology that is decentralized and immutable.", "I use a hidden consensus mechanism (like Proof of Work) to validate data.", "I am the underlying architecture of cryptocurrencies, but also used for supply chain tracking."] },
+    { a: "Blockchain", c: ["I am a distributed ledger technology that is decentralised and immutable.", "I use a hidden consensus mechanism (like Proof of Work) to validate data.", "I am the underlying architecture of cryptocurrencies, but also used for supply chain tracking."] },
     { a: "Homeostasis", c: ["I am the state of steady internal, physical, and chemical conditions maintained by living systems.", "I am a hidden balancing act involving pH, glucose levels, and hydration.", "When I fail, organisms enter a state of disease or death."] },
     { a: "String Theory", c: ["I am a theoretical framework in which point-like particles are replaced by one-dimensional objects.", "I require the existence of 'hidden' extra dimensions beyond the four we perceive.", "I am a candidate for the 'Theory of Everything,' linking gravity and quantum mechanics."] },
     { a: "Latent Heat", c: ["I am the energy absorbed or released by a substance during a change in its physical state.", "I am 'hidden' because I do not cause a change in temperature while the phase change occurs.", "I am the reason why ice stays at 0°C while it is melting."] },
@@ -3226,7 +3226,7 @@ function showPage(pageId) {
 
         //Equation Balancer Logic
 
-    const equations = [
+        const equations = [
         { left: ['C₃H₈', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [1, 5, 3, 4], explanation: 'Propane combustion' },
         { left: ['C6H₁₂O6', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [1, 6, 6, 6], explanation: 'Glucose combustion' },
         { left: ['C₄H₁₀', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [2, 13, 8, 10], explanation: 'Butane combustion' },
@@ -3259,6 +3259,7 @@ function showPage(pageId) {
         { left: ['As₂S₃', 'HNO₃', 'H₂O'], right: ['H₃AsO₄', 'H₂SO₄', 'NO'], correctCoeffs: [3, 28, 4, 6, 9, 28], explanation: 'Arsenic sulfide and nitric acid' }
     ];
 
+    let correctCount = 0;
 
     function getCurrentEquation() {
         const start = new Date(2024, 3, 1); // Starting April 1st (Issue Date)
@@ -3307,9 +3308,11 @@ function showPage(pageId) {
         const match = userCoeffs.length === correct.length && userCoeffs.every((val, idx) => val === correct[idx]);
         const feedback = document.getElementById('feedback');
         const eq = getCurrentEquation();
-        const container = document.querySelectorAll('#equationContainer');
+        const container = document.getElementById('equationContainer');
+
 
         if (match) {
+            correctCount++;
             feedback.textContent = `✓ EQUATION CORRECTLY BALANCED: ${getCurrentEquation()['explanation']}`;
             feedback.style.color = '#6aaa64';
             document.getElementById('equation-checker').setAttribute('disabled', 'true');
@@ -3338,6 +3341,7 @@ function showPage(pageId) {
                     container.appendChild(document.createTextNode('+'));
                 }
             });
+
         } else {
             feedback.textContent = "Incoherent with Lavoisier's law. Try again.";
             feedback.style.color = '#6167cb';
