@@ -1049,6 +1049,12 @@ window.addEventListener('keydown', (e) => {
             flex-wrap: wrap;
             font-size: 24px;
             margin: 20px;
+            font-family:  'Outfit', sans-serif;
+            background: #E8E9F8FF;
+            border-radius: 4px;
+            border-left: 3px solid var(--primary);
+            padding: 1.75rem 1.5rem;
+            position: relative;
         }
 
         .article-category {
@@ -1068,78 +1074,170 @@ window.addEventListener('keydown', (e) => {
             margin: 0 5px;
         }
         .compound input {
-            width: 50px;
-            font-size: 18px;
+            width: 48px;
+            height: 44px;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
             text-align: center;
-            margin-right: 5px;
+            border: 2px solid #c8caed;
+            border-radius: 4px;
+            background: var(--light);
+            color: var(--primary);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
         }
         .arrow {
             margin: 0 10px;
-        }
-        .feedback {
-            font-size: 20px;
-            margin-top: 15px;
-            text-align: center;
-            font-weight: 700;
-        }
-        .equation-game{
-            max-width: 700px;
-            margin: 2rem auto;
-            font-family: 'Outfit', sans-serif;
-            align-content: center;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-top: 6px solid #6167cb;
-        }
-        .equation-game:hover{
-            transform: translateY(-2%);
-            box-shadow: 0 12px 40px rgba(97, 103, 203, 0.25);
-        }
-        .equation-game h2{
-            text-align: center;
-        }
-        .equation-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            font-size: 24px;
-            margin: 20px;
         }
 
-        .article-category {
-            display: inline-block;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #6167cb;
-            margin-bottom: 1rem;
-            text-align:  center;
-        }
-        .compound {
+
+        .section-rule {
             display: flex;
             align-items: center;
-            margin: 0 5px;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
         }
-        .compound input {
-            width: 50px;
-            font-size: 18px;
-            text-align: center;
-            margin-right: 5px;
-        }
-        .arrow {
-            margin: 0 10px;
-        }
-        .feedback {
-            font-size: 20px;
-            margin-top: 15px;
-            text-align: center;
+        .section-rule span {
+            font-size: 0.6rem;
             font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #9898b8;
+            white-space: nowrap;
         }
+        .section-rule::before,
+        .section-rule::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #9898b8;
+            opacity: 0.25;
+        }
+        .card-deck {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 0.92rem;
+            color: var(--ink-mid);
+            margin-bottom: 2rem;
+            line-height: 1.55;
+        }
+
+        .card-footer {
+            border-top: 1px solid #e8e8f0;
+            padding: 1rem 2.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-byline {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.68rem;
+            color: #9a9a9a;
+            font-weight: 500;
+        }
+
+        .streak-display {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .streak-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .streak-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #c8caed;
+            transition: background 0.3s;
+        }
+
+        .streak-dot.filled { background: var(--primary); }
+
+        #feedback.show { opacity: 1; transform: translateY(0); }
+
+
+
+        .feedback-label {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-style: normal;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .compound .input-correct {
+            width: 48px;
+            height: 44px;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            border: 2px solid #2D8653FF;
+            border-radius: 4px;
+            background: var(--light);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            background: #f0faf5;
+            color: #2D8653FF;
+        }
+
+        .compound .input-wrong {
+            width: 48px;
+            height: 44px;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            border: 2px solid #D64545FF;
+            border-radius: 4px;
+            background: var(--light);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            background: #fff5f5;
+            color: #D64545FF;
+        }
+
+        @keyframes pulse-correct {
+            0%, 100% { box-shadow: 0 2px 8px rgba(97,103,203,0.08), 0 12px 40px rgba(97,103,203,0.12); }
+            50% { box-shadow: 0 4px 20px rgba(45,134,83,0.2), 0 16px 48px rgba(45,134,83,0.15); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-6px); }
+            40% { transform: translateX(6px); }
+            60% { transform: translateX(-4px); }
+            80% { transform: translateX(4px); }
+        }
+
+        .equation-game.flash-correct { animation: pulse-correct 0.6s ease; }
+        .equation-game.flash-wrong   { animation: shake 0.4s ease; }
+
+        .wrong-equation{
+            background: #fdf0f0;
+            border-left-color: red;
+        }
+
+        .correct-equation{
+            background: #f0faf5;
+            border-left-color: #2D8653FF;
+        }
+        
         /* Missing Styles for Submit, Subscribe, and Contact Forms */
 .section-heading {
     text-align: center;
@@ -2409,12 +2507,21 @@ window.addEventListener('keydown', (e) => {
                     <p id="res-desc" style="font-family: 'Lora'; line-height: 1.6;"></p>
                 </div>
             </section>
-            <section id="equation-balance" class="article-card equation game" style="padding: 2rem; text-align: center;">
+            <section id="equation-balance" class="article-card equation-game" style="padding: 2rem; text-align: center;">
                 <div class="article-category">Chemistry</div>
                 <h2 style="margin: 1rem 0;">Chemical Balancer</h2>
+                <p class="card-deck" id="reactionDeck">Balance the chemical equation below by entering the correct stoichiometric coefficients.</p>
+                <div class="section-rule"><span>Today's Equation</span></div>
                 <div class="equation-container" id="equationContainer"></div>
-                <button onclick="checkBalance()" class="cta-button" style="border: none;">Balance</button>
-                <div class="feedback" id="feedback"></div>
+                <button onclick="checkBalance()" class="cta-button" style="border: none;" id="equation-checker">Balance</button>
+                <div class="feedback-label" id="feedback"></div>
+                <div class="card-footer">
+                    <span class="footer-byline">Puzzle rotates daily · 30 equations in the series</span>
+                    <span class="streak-display">Solved today <span class="streak-dots" id="streakDots"><span class="streak-dot" id="dot0"></span>
+        </span>
+      </span>
+
+                </div>
             </section>
         </div>
     </div>
@@ -3260,7 +3367,7 @@ function showPage(pageId) {
     ];
 
     let correctCount = 0;
-
+    let solved = false;
     function getCurrentEquation() {
         const start = new Date(2024, 3, 1); // Starting April 1st (Issue Date)
         const today = new Date();
@@ -3302,50 +3409,44 @@ function showPage(pageId) {
     }
 
     function checkBalance() {
+        if (solved) return;
         const inputs = Array.from(document.querySelectorAll('.compound input'));
         const userCoeffs = inputs.map(i => parseInt(i.value));
         const correct = getCurrentEquation().correctCoeffs;
         const match = userCoeffs.length === correct.length && userCoeffs.every((val, idx) => val === correct[idx]);
         const feedback = document.getElementById('feedback');
         const eq = getCurrentEquation();
-        const container = document.getElementById('equationContainer');
+        const container = document.getElementById('equation-balance');
+        const equation = document.getElementById('equationContainer');
 
-
-        if (match) {
-            correctCount++;
-            feedback.textContent = `✓ EQUATION CORRECTLY BALANCED: ${getCurrentEquation()['explanation']}`;
-            feedback.style.color = '#6aaa64';
-            document.getElementById('equation-checker').setAttribute('disabled', 'true');
-            container.innerHTML = '';
-            eq.left.forEach((compound, index) => {
-                const div = document.createElement('div');
-                div.className = 'compound';
-                div.innerHTML = `<span>${eq.correctCoeffs[index]}</span> <span> ${compound}</span>`;
-                container.appendChild(div);
-                if (index < eq.left.length - 1) {
-                    container.appendChild(document.createTextNode('+'));
-                }
-            });
-
-            const arrow = document.createElement('span');
-            arrow.className = 'arrow';
-            arrow.textContent = '→';
-            container.appendChild(arrow);
-
-            eq.right.forEach((compound, index) => {
-                const div = document.createElement('div');
-                div.className = 'compound';
-                div.innerHTML = `<span>${eq.correctCoeffs[index]}</span> <span> ${compound}</span>`;
-                container.appendChild(div);
-                if (index < eq.right.length - 1) {
-                    container.appendChild(document.createTextNode('+'));
-                }
-            });
-
-        } else {
-            feedback.textContent = "Incoherent with Lavoisier's law. Try again.";
-            feedback.style.color = '#6167cb';
-        }
+        requestAnimationFrame( () => {
+            if (match) {
+                solved = true;
+                correctCount++;
+                feedback.textContent = `✓ EQUATION CORRECTLY BALANCED: ${getCurrentEquation()['explanation']}`;
+                feedback.style.color = '#6aaa64';
+                feedback.style.borderLeft = '3px solid #6aaa64';
+                inputs.forEach(inp => {
+                    inp.setAttribute('readonly', 'true');
+                    inp.className = 'input-correct';
+                });
+                document.getElementById('dot0').classList.add('filled');
+                container.classList.add('flash-correct');
+                equation.classList.remove('wrong-equation');
+                equation.classList.add('correct-equation');
+            } else {
+                feedback.textContent = `Incoherent with Lavoisier's law. Try again.`;
+                feedback.style.color = 'red';
+                feedback.style.borderLeft = '3px solid red';
+                inputs.forEach(inp => {
+                    inp.classList.add('input-wrong');
+                });
+                void container.offsetWidth;
+                container.classList.add('flash-wrong');
+                setTimeout(() => container.classList.remove('flash-wrong'), 500);
+                equation.classList.add('wrong-equation');
+            }
+        });
     }
 
     displayEquation();
