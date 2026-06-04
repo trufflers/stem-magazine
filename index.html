@@ -297,6 +297,7 @@ window.addEventListener('keydown', (e) => {
     <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
     <script src="https://tikzjax.com/v1/tikzjax.js"></script>
     <title>The Centrifuge | High School STEM Magazine</title>
+    <link rel="icon" type="image/x-icon" href="thecentrifugue_icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -1458,8 +1459,26 @@ window.addEventListener('keydown', (e) => {
                 <h2>Featured Articles</h2>
                 <p>Latest insights from student researchers and writers</p>
             </div>
-            
+
             <div class="articles-grid">
+                <div class="article-card biology chemistry filterDiv" onclick="showPage('article-17')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.j4Fnq8LaE-zR7ohujiv0pwHaEK?r=0&pid=Api" alt="A doctor washing his hands" style="width: 100%; height: auto;">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Biology</span>
+                    <h3 class="article-title">The Fight for Hand-Washing</h3>
+                    <p class="article-excerpt">As intuitive as it may seem to us today, the idea that diseases can be caused by micro-organisms that travel through the air, food, beverages, surfaces or even animal vectors is fairly recent in scientific history, and it wasn’t until the 19th century that it became a hypothesis, and not without a lot of scepticism from both scientists and medical professionals.</p>
+                    <div class="article-meta">
+                        <span>Maria Matias</span>
+                        <span>7 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>June 4, 2026</span>
+                    </div>
+                </div>
+                </div>
+                
                 <div class="article-card biology otherSTEM filterDiv" onclick="showPage('article-16')">
                 <div class="article-image"><span class="card-arrow-badge">↗</span>
                 <img src="https://www.communitypsychology.com/wp-content/uploads/2018/02/hand-1917895_1920-resized1-e1519691967883.jpg" alt="Image of hands" style="width:100%;height:100%;object-fit:cover;">
@@ -1568,23 +1587,6 @@ window.addEventListener('keydown', (e) => {
                 </div>
                 </div>
                 
-                <div class="article-card biology chemistry filterDiv" onclick="showPage('article-10')">
-                <div class="article-image"><span class="card-arrow-badge">↗</span>
-                    <img src="https://tse4.mm.bing.net/th/id/OIP.yI7zg-jE2sKYz-iizykfZAHaE6?pid=Api" alt="An image of a white bread" style="width: 100%; height: auto;">
-                </div>
-                <div class="article-content">
-                    <span class="article-category">Biology & Chemistry</span>
-                    <h3 class="article-title">The intricate chemistry of... Bread?</h3>
-                    <p class="article-excerpt">Probably one of the most widely consumed foods in the world, bread is almost synonymous with humanity itself, having originated multiple times throughout civilisation’s history. Its production process is notoriously basic: just flour, water, salt and yeast! But the chemical and biological processes behind this everyday staple are infinitely complex and help us understand the intricacy of the world around us.</p>
-                    <div class="article-meta">
-                        <span>Maria Matias</span>
-                        <span>8 min read</span>
-                    </div>
-                    <div class="article-date">
-                        <span>April 6, 2026</span>
-                    </div>
-                </div>
-                </div>
                 <div class="article-card" onclick="showPage('article-9')">
                     <div class="article-image"><span class="card-arrow-badge">↗</span>
                         <img src="https://www.fluidconstructions.com/wp-content/uploads/2024/05/Cantilever-Bridge-1024x568.jpg" alt="A random bridge" style="width:100%;height:100%;object-fit:cover;">
@@ -2936,6 +2938,70 @@ window.addEventListener('keydown', (e) => {
             </div>
         </div>
     </div>
+            <!-- ========== ARTICLE 17 ========== -->
+    <div id="article-17" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('articles')">← Back to Articles</a>
+                <span class="article-hero-category">Biology</span>
+                <h1 class="article-hero-title">The Fight for Hand-Washing </h1>
+                <div class="article-hero-meta">
+                    <span>Maria Matias</span><span class="article-meta-dot">·</span><span>June 2026</span><span class="article-meta-dot">·</span><span>7 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <h2>Introduction</h2>
+                <p style="text-align: justify;">As intuitive as it may seem to us today, the idea that diseases can be caused by micro-organisms that travel through the air, food, beverages, surfaces or even animal vectors is fairly recent in scientific history, and it wasn’t until the 19th century that it became a hypothesis, and not without a lot of scepticism from both scientists and medical professionals. 
+Here we explore what germ theory is, how it arose in the scientific context, the history of medical hygiene since then, and the crucial role it plays in our modern world!</p>
+                <p style="text-align: justify;">Most of our medical, public health, and day-to-day practices revolve around the idea that we can become sick. When we go to the canteen, we expect that whoever is serving our meal is wearing a pair of gloves. In the doctor’s office, you probably patiently wait until they have disinfected their hands to do whatever examination you need. Your community probably expects its water to be passed through a water treatment station before it surges in their faucets. It seems intuitive, almost essential for survival, but the truth is that throughout most of our history, we were completely unaware of the power (and even the existence) of microorganisms in all the activities the human being partakes in, from eating to working to simply breathing. This discovery, like most of those in the scientific process, was made gradually, with a lot of scepticism and with the contribution of several different actors, to whom we owe a lot of our development in public health. But let’s start from the beginning…</p>
+                <h2>What is Germ Theory?</h2>
+                <p style="text-align: justify;">The germ theory of disease, or simply germ theory, is the currently accepted scientific principle that explains the cause of contagious diseases. At its core it is mainly based in two ideas: one is that contagious diseases like cholera, smallpox or influenza are caused by microorganisms or germs, which are too small to be detected by the human eye, but which are capable of evading animals, plants and even bacteria and whose growth and reproduction within their host can cause disease. Furthermore, these microorganisms can be passed from one organism to another, causing further disease. This theory was finally proven by Louis Pasteur, the inventor of the pasteurisation method, in the 1850’s, but its principles date back hundreds of years…</p>
+                <img alt="Microscopic image of a rabies infection in the hamster brain" src="https://www.utmb.edu/images/librariesprovider266/micrographs/rabies_brain_section.jpg?sfvrsn=dfd05157_2" style="width:100%;">
+                <h2>The Development of Germ-Theory</h2>
+                <p style="text-align: justify;">This theory was rather revolutionary several times throughout history. In fact. It is important to understand that, before the 19th Century, the accepted theory of disease was the miasma theory. It states that disease is caused by a substance - miasma - that emanates from rotting organisms. This miasma is a form of “bad air” and it is not transmissible among living organisms. Infection and disease would only occur through contact with environmental factors containing these miasma particles. So, in light of this theory, it is difficult to accept that disease is caused by living things; quite the contrary, miasma is born out of dead organisms, which pollute the air. This theory makes much more sense when we put it in perspective with the few.  diseases that were understood at the time: cholera, which is transmitted by faeces, was extremely associated with foul smell, hence the explanation of transmission by “polluted” air. </p>
+                <img alt="An 18th century depiction of miasma" src="https://tse4.mm.bing.net/th/id/OIP.BDNyQA7RgEXdP0ikP1_grgHaFj?r=0&pid=Api" style="width:100%;">
+                <p style="text-align: justify;">This theory was rather revolutionary several times throughout history. In fact. It is important to understand that, before the 19th Century, the accepted theory of disease was the miasma theory. It states that disease is caused by a substance - miasma - that emanates from rotting organisms. This miasma is a form of “bad air” and it is not transmissible among living organisms. Infection and disease would only occur through contact with environmental factors containing these miasma particles. So, in light of this theory, it is difficult to accept that disease is caused by living things; quite the contrary, miasma is born out of dead organisms, which pollute the air. This theory makes much more sense when we put it in perspective with the few. </p>
+                <h2>Spontaneous Generation </h2>
+                <p style="text-align: justify;">Another widespread belief before Louis Pasteur was the idea of spontaneous generation, that is, that living organisms could rise from nonliving matter. This idea has long been disproven and even given origin to Cell Theory, but that’s beyond the point. Although this may again seem absolutely impossible to imagine to us today, what people before the 19th century predominantly saw was that if you left a piece of cheese or bread in a dark corner of a room, maggots or even mice would eventually appear. They thus thought that these living beings would actually rise from food, for example. </p>
+                <p style="text-align: justify;">Therefore, even with the idea that diseases were caused by microorganisms, one did not necessarily accept that they would be transmitted by one individual to another. If microorganisms can be generated spontaneously, they could surge in virtually any space. Louis Pasteur, however, came to disprove this theory in one of his most famous experiments: in a nutshell, he boiled a meat broth in a flask whose neck curved downward, so as not to allow any particles to enter the flask while allowing the free flow of air. He then allowed the meat broth to cool, thus sterilising the food in a process now known as pasteurisation. On those flasks whose necks were not downward, which allowed particles to come, the broth showed signs of spoilage and the presence of bacteria within days, whereas those that were only in contact with air flow did not show signs of these. </p>
+                <p style="text-align: justify;">These results showed that the living organisms couldn’t have risen from the broth alone: they must have been transported through the spores in the air, rather than spontaneously generated within that food itself. Although we have to keep in mind that Pasteur’s discovery was the culmination of many scientists’ work, his experiment provided a definitive answer to the question of how organisms are generated and opened the path for many, many more advancements in public health and epidemiology.</p>
+                <img src="https://tse3.mm.bing.net/th/id/OIP.uk2ooKYdiwe7lNBmrFBKVAHaHh?cb=thfvnextfalcon&pid=Api" alt="Pasteur's experiment" style="width:100%;">
+                <h2>Hand Washing - Early Discoveries</h2>
+                <p style="text-align: justify;">Curiously enough, many had already postulated the transmissible nature of diseases before some of the conclusions we discussed earlier. These pioneers shared a common factor of being connected to the medical activity, where they came in close contact with how diseases seemed to jump from one patient to another, and how mortality rates seemed to follow a distinctive pattern among their hospitals and clinics. Even more worrisome, some of these pioneers realised that death rates resulting from fevers and similar perils seemed to follow doctors themselves. In fact, during the 19th century, conditions within the health care facilities were so precarious that people saw them as “real houses of death” rather than infrastructures where one could go to seek treatment. And most of these rather chilling tales are owed to the extremely unhygienic procedures taking place within these hospitals. One of the areas where this problem was most quickly identified was in gynecology. In fact, transmissibility of disease to mothers was almost simultaneously identified by two of the most prominent figures in hygiene: Oliver Holes and Ignaz Simmelweiss.</p>
+                <h3>1. Ignaz Semmelweiss and Cadaveric Particles</h3>
+                <p style="text-align: justify;">The story of this great physician is rather tragic and deserving of a full article in itself. He is awarded the first to statistically prove the transmissibility of disease, although his results remain unpublished, used only for his clinical setting. </p>
+                <p style="text-align: justify;">Imagine this: it is the year 1848 in Vienna. Ignaz Semmelweiss was working as a physician in Vienna’s general hospital. During this time, it was rather common for women to deliver their children at home, although some, due to complications, lack of resources or other personal preferences, went to the hospital to deliver their children, where they were faced with a 20 to 30% maternal death rate, mostly due to puerperal infection incurred from very poor conditions in the clinical setting. Semmelweis’s hospital was no different in these challenges, and it faced a mortality rate as large as 20%. However, Vienna’s hospital had an interesting peculiarity: its maternity was divided into two distinct delivery rooms: in one of these, procedures were carried out by medical students, whilst in the second, it was mostly run by midwifery students. Asides from this, they were identical in condition and resources. But Ignaz Semmelweiss noticed something intriguing: maternal mortality seemed to follow medical students much more closely than midwives. So much so that, in the first division, the mortality rate was as high as 18.75%, while the second showed a significantly smaller representation of only 3%. After noticing this extreme discrepancy in mortality, Semmeleweiss started questioning what could cause such astounding differences. He realised that, in the first division, medical students would perform autopsies in the morning and, later in the day, would go to the maternity ward, while midwife students did not. He then hypothesised that medical students would carry some sort of ‘cadaveric particles’ from the autopsies in their hands which would cause puerperal infections in the mothers later on. </p>
+                <p style="text-align: justify;">o test this idea he ordered a strict hand-sanitizing policy: before students and physicians entered the labor room they were required to wash their hands in chlorine water until the cadaveric smell was gone and their hands did not show signs of any previous particles. They were also required to brush under their fingernails. These measures were astonishingly effective: one year after the implementation of this policy death rates from mothers in the first division of the maternity ward fell to 2.4%, even smaller than the second division. In spite of the impressive results, Semmelweiss’ theory was met with extreme skepticism. In fact, he really couldn’t find a satisfactory explanation of this result. We must remember that this was pre-germ theory, what to us now looks intuitively as bacterial agents transferring from cadavers to physician’s hands and from these to the mother’s open wounds, causing infection, was definitely a far fetch in 1847. To his superiors, Semmelweiss’ theory was unfounded and incoherent. Moreover, for these experienced doctors, it was hard to imagine ‘unholy death particles’ being transferred from the hands of ‘holy’ doctors.</p>
+                <img src="https://tse1.mm.bing.net/th/id/OIP.V5TYRAKJzUq0CB8m_nuEjAHaJq?r=0&cb=thfvnextfalcon&pid=Api" alt="Ignaz Semmelweiss' portrait" style="width:100%;">
+                <p style="text-align: justify;">His theories were very violently received by his peers. He suffered from a lot of mental health issues as a result, characterized by bouts of depression, paranoia and rage. He died in 1865 in a mental asylum. His contributions wouldn’t be recognized until 20 years later, with the development of germ theory and antisepsis by Joseph Lister. </p>
+                <hr>
+                <h3>Oliver Holmes and his Hand-Washing Defense</h3>
+                <p style="text-align: justify;">Oliver Holmes’s story is very similar to our previous one, but this time we get to see the reaction of the scientific community on the other side of the Atlantic, presenting the first theories of medical disease transmissibility in the United States of America. Oliver Holmes was an influential physician, anatomist and poet (under the pseudonym ”the Autocrat of the Breakfast Table”, if you’re curious). </p>
+                <p style="text-align: justify;">He became interested in gynaecological care, specifically childbed fever, in 1842 after attending a lecture on the topic. He quickly began a thorough investigation, which resulted in a paper, “The contagiousness of puerperal fever”, which he read before the Boston Society for Medical Improvement. In this paper, published in the New England Quarterly Journal of Medicine and Surgery, he argued that the cause of puerperal fever in mothers was the lack of hand sanitation of the doctors who provided them with care. He made remarkably radical recommendations, including but not limited to washing their hands before and after every surgical procedure or autopsy, and to burn the clothes they wore if one of their patients died of puerperal fever after a delivery performed by them.</p>
+                <p style="text-align: justify;">Because the above-mentioned journal in which the paper was published ended shortly after its release, his findings did not get the traction which they could have. Only 12 years later, in 1855 when it was republished as a booklet did it gain widespread attention. Even then, similarly to his European counterpart, Holmes’ work was met with a lot of criticism from his peers and the medical community. </p>
+                <h2>Lister, Pasteur and Contemporary Higiene</h2>
+                <p style="text-align: justify;">As we have mentioned, maybe too many times throughout this article, Pasteur’s theory of disease completely revolutionised the world’s view of hygiene. Before his work, there wasn’t an unifiable proof of disease transmission and microbial action. As a consequence, there was no practice of sterilised medicine, treatment or tools for medical practice. Needless to say, post-surgical infections and complications were beyond common. Pasteurisation, that is, the heating of a structure or substance to a high enough temperature to kill microorganisms, followed by its cooling to sterilise it, was beyond revolutionary for the beginning of hygienasation.</p>
+                <p style="text-align: justify;">Pasteur’s work heavily inspired another brilliant scientist: Joseph Lister. Joseph Lister was born in 1827 in Essex. He studied medicine in the Royal Infirmary in Edinburgh, where he developed his talents for scientific research. In 1865, he was introduced to Pasteur’s work. Lister began to think there might be a correlation between airborne microorganisms described by Pasteur and hospital sepsis he encountered in his profession. We must remember that, by this time, surgeons worked with mortality rates as high as 40% from procedures such as amputations.  And if these infections are caused by living organisms, then they can also be killed.</p>
+                <p style="text-align: justify;">He quickly began a series of experiments using carbolic acid as an antiseptic with an impressive success rate for the time: from the 13 serious patients he treated, only two succumbed to infection. He finally released an article in the British Medical Journal showing his findings. Not without scepticism was his hypothesis accepted, but the use of antiseptic acid during the Franco-Prussian wars by the Prussians led to the success of Lister’s method. By the 1870’s, antiseptic surgery was widespread and the hospital’s cleanliness became essential for practice.</p>
+                <h2>Conclusion</h2>
+                <p style="text-align: justify;">So, what can we learn from this long, difficult path towards hygienesation? </p>
+                <p style="text-align: justify;">
+Development is not a linear path. The process of acquiring new knowledge, better, more secure procedures and breaking the status quo is always met with scepticism and resistance. But this is how science works. We have to keep asking questions, we have to think and refuse what has been settled as absolute. Imagine how our world would look like if Lister had not questioned the idea that infections were a necessary, unavoidable part of surgeries?  Even something as simple as washing your hands was extremely hard to accept, over 150 years later, feels only natural to us.</p>
+                <p style="text-align: justify;">So maybe next time you go and wash your hands, with a good amount of soap and water, remember the enourmus amount of scientists that enabled that habit.</p>
+
+                <h3>Further Reading &amp; Key Sources</h3>
+                <p class="bibliography">Poczai P and Karvalics LZ (2022) The little-known history of cleanliness and the forgotten pioneers of handwashing. Front. Public Health 10:979464. doi: 10.3389/fpubh.2022.979464</p>
+                <p class="bibliography">Lane, H. J., Blum, N., & Fee, E. (2010). Oliver Wendell Holmes (1809-1894) and Ignaz Philipp Semmelweis (1818-1865): preventing the transmission of puerperal fever. American journal of public health, 100(6), 1008–1009. https://doi.org/10.2105/AJPH.2009.185363</p>
+                <p class="bibliography">Agnes Ulmann (2026), Louis Pasteur. Enciclopedia Britannica. https://www.britannica.com/biography/Louis-Pasteur</p>
+                <p class="bibliography">Amy Colleen, How Joseph Lister’s Revolutionary Hand-Washing Practice Changed Medicine Forever, Read Medium: https://readmedium.com/how-joseph-listers-revolutionary-hand-washing-practice-changed-medicine-forever-7c3e65b03ef5</p>
+
+
+            
+            </div>
+        </div>
+    </div>
     <!-- ========== ABOUT PAGE ========== -->
     <div id="about" class="page">
         <div class="container">
@@ -3143,7 +3209,26 @@ window.addEventListener('keydown', (e) => {
         </div>
 
         <div class="articles-grid" style="width: 80%; margin: 4rem auto;">
-                                    <div class="article-card biology otherSTEM: ethics filterDiv" onclick="showPage('article-16')">
+            
+            <div class="article-card biology filterDiv" onclick="showPage('article-17')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.j4Fnq8LaE-zR7ohujiv0pwHaEK?r=0&pid=Api" alt="Bacteria" style="width: 100%; height: auto;">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Biology</span>
+                    <h3 class="article-title">The Fight For Hand Washing</h3>
+                    <p class="article-excerpt">As intuitive as it may seem to us today, the idea that diseases can be caused by micro-organisms that travel through the air, food, beverages, surfaces or even animal vectors is fairly recent in scientific history, and it wasn’t until the 19th century that it became a hypothesis, and not without a lot of scepticism from both scientists and medical professionals. </p>
+                    <div class="article-meta">
+                        <span>Maria Matias</span>
+                        <span>7 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>June 4, 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-card biology otherSTEM: ethics filterDiv" onclick="showPage('article-16')">
                 <div class="article-image"><span class="card-arrow-badge">↗</span>
                     <img src="https://www.communitypsychology.com/wp-content/uploads/2018/02/hand-1917895_1920-resized1-e1519691967883.jpg" alt="hands" style="width: 100%; height: auto;">
                 </div>
@@ -3368,870 +3453,3 @@ window.addEventListener('keydown', (e) => {
                     <p class="article-excerpt">I used to think jet lag was just tiredness. A few too many hours in a cramped seat, a lukewarm meal at 3 a.m., and a body that simply hadn't caught up with the time zone yet, but what we experience isn't just our schedule being disrupted. It is a system — an ancient, elegant, biological clock — being asked to do something it fundamentally cannot do: change quickly.</p>
                     <div class="article-meta">
                         <span>Xinyue Ying</span>
-                        <span>5 min read</span>
-                    </div>
-                    <div class="article-date">
-                        <span>March 30, 2026</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article-card mathematics cs filterDiv" onclick="showPage('article-2')">
-                <div class="article-image"><span class="card-arrow-badge">↗</span>
-                    <p>📈</p>
-                </div>
-                <div class="article-content">
-                    <span class="article-category">Mathematics & CS</span>
-                    <h3 class="article-title">Spectral Graph Theory and Epidemic Containment</h3>
-                    <p class="article-excerpt">How graph theory and linear algebra model epidemic spread, predict outbreak thresholds, and guide containment strategies for real-world networks...</p>
-                    <div class="article-meta">
-                        <span>Ritisha Agarwal</span>
-                        <span>10 min read</span>
-                    </div>
-                    <div class="article-date">
-                        <span>March 28, 2026</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article-card biology filterDiv" onclick="showPage('article-1')">
-                <div class="article-image"><span class="card-arrow-badge">↗</span>
-                    <img src="https://cdn.who.int/media/images/default-source/amr-lib/blink-shoot-malbran_sarah-pabst_00285.tmb-1920v.jpg?sfvrsn=dd75ea20_4" alt="A Petri dish with microbial cultures" style="width: 100%; height: auto;">
-                </div>
-                <div class="article-content">
-                    <span class="article-category">Biology</span>
-                    <h3 class="article-title">When Medicine Stops Working: the Threat of Antimicrobial Resistance</h3>
-                    <p class="article-excerpt">Since the discovery of penicillin in 1928, antimicrobials have saved millions of lives — but an alarming trend is making them obsolete against the infections they treat...</p>
-                    <div class="article-meta">
-                        <span>Maria Matias</span>
-                        <span>5 min read</span>
-                    </div>
-                    <div class="article-date">
-                        <span>March 27, 2026</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="article-card biology filterDiv" onclick="showPage('article-3')">
-                <div class="article-image"><span class="card-arrow-badge">↗</span>
-                    <img src="https://stjohnseyeassociates.com/wp-content/uploads/2022/07/vision-comparison-img.jpg" alt="A clear image as opposed to a blurry image of the same forest" style="height: 100% ; width:100%">
-                </div>
-                <div class="article-content">
-                    <span class="article-category">Biology</span>
-                    <h3 class="article-title">The World Is Going Blurry: Understanding the Global Myopia Epidemic</h3>
-                    <p class="article-excerpt">Nearly half of Americans are nearsighted — and by 2050, more than half the world will be too. Here's what's happening inside our eyes, why it's getting worse, and what science says we can do about it...</p>
-                    <div class="article-meta">
-                        <span>Teresa Pan</span>
-                        <span>8 min read</span>
-                    </div>
-                    <div class="article-date">
-                        <span>March 27, 2026</span>
-                    </div>
-                </div>
-        </div>
-    </div>
-    </div>
-    <!-- ========== SUBMIT PAGE ========== -->
-    <div id="submit" class="page">
-        <div class="container">
-            <div class="section-heading reveal">
-                <h2>Submit Your Work</h2>
-                <p>Share your research and insights with students worldwide</p>
-            </div>
-            <form class="submit-form" id="submit-form">
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="school">School Name *</label>
-                    <input type="text" id="school" name="school" required>
-                </div>
-                <div class="form-group">
-                    <label for="grade">Grade Level *</label>
-                    <select id="grade" name="grade" required>
-                        <option value="">Select grade...</option>
-                        <option value="9">9th Grade</option>
-                        <option value="10">10th Grade</option>
-                        <option value="11">11th Grade</option>
-                        <option value="12">12th Grade</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="category">Article Category *</label>
-                    <select id="category" name="category" required>
-                        <option value="">Select category...</option>
-                        <option value="biology">Biology</option>
-                        <option value="chemistry">Chemistry</option>
-                        <option value="physics">Physics</option>
-                        <option value="computer-science">Computer Science</option>
-                        <option value="engineering">Engineering</option>
-                        <option value="mathematics">Mathematics</option>
-                        <option value="other">Other STEM</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="title">Article Title *</label>
-                    <input type="text" id="title" name="title" required>
-                </div>
-                <div class="form-group">
-                    <label for="abstract">Abstract/Summary (250 words max) *</label>
-                    <textarea id="abstract" name="abstract" required placeholder="Provide a brief summary of your research or article..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="link">Link to Google Docs (Enable 'Everyone with the link can comment' setting) *</label>
-                    <input type="url" id="link" name="link" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Additional Information</label>
-                    <textarea id="message" name="message" placeholder="Any additional details, questions, or comments..."></textarea>
-                </div>
-                <button type="submit" class="submit-button" id="submission-btn">Submit Article</button>
-                <p style="text-align:center;margin-top:1.5rem;color:var(--gray);font-family:'Lora',serif;font-size:0.95rem;">We'll review your submission and get back to you within 2 weeks</p>
-            </form>
-        </div>
-    </div>
-
-    <!-- ========== SUBSCRIBE PAGE ========== -->
-    <div id="subscribe" class="page">
-        <div class="hero" style="padding:8rem 2rem 6rem;">
-            <div class="hero-content">
-                <h1 style="font-size:3.5rem;">Never Miss an Issue</h1>
-                <p>Get cutting-edge student research and STEM insights delivered to your inbox every month. Completely free.</p>
-            </div>
-        </div>
-        <div class="container" style="padding-top:3rem;">
-            <div style="max-width:700px;margin:0 auto;">
-                <div style="background:var(--dark);color:white;padding:4rem 3rem;margin-bottom:4rem;border-left:4px solid var(--primary);">
-                    <h3 style="font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;margin-bottom:2rem;">What You'll Get</h3>
-                    <ul style="list-style:none;padding:0;">
-                        <li style="font-family:'Lora',serif;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;padding-left:2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--primary);font-size:1.2rem;">✓</span>Monthly digital magazine with original student research and technical articles</li>
-                        <li style="font-family:'Lora',serif;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;padding-left:2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--primary);font-size:1.2rem;">✓</span>Full access to our archive of published issues and research papers</li>
-                        <li style="font-family:'Lora',serif;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;padding-left:2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--primary);font-size:1.2rem;">✓</span>Behind-the-scenes editorial updates and submission opportunities</li>
-                    </ul>
-                </div>
-                <div class="section-heading reveal">
-                    <h2>Subscribe for Free</h2>
-                    <p>Join thousands of students advancing STEM research</p>
-                </div>
-                <form class="submit-form" id="form-subscribe">
-                    <div class="form-group">
-                        <label for="sub-name">Full Name *</label>
-                        <input type="text" id="sub-name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sub-email">Email Address *</label>
-                        <input type="email" id="sub-email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sub-school">School/Institution (Optional)</label>
-                        <input type="text" id="sub-school" name="school">
-                    </div>
-                    <div class="form-group">
-                        <label for="sub-interests">What STEM topics interest you most? (Optional)</label>
-                        <textarea id="sub-interests" name="interests" placeholder="Biology, computer science, physics, engineering, mathematics, etc." rows="3"></textarea>
-                    </div>
-                    <div class="form-group" style="margin-top:2rem;">
-                        <label style="display:flex;align-items:flex-start;text-transform:none;letter-spacing:normal;font-size:1rem;cursor:pointer;">
-                            <input type="checkbox" required id="agreement-check" style="width:auto;margin-right:0.8rem;margin-top:0.2rem;flex-shrink:0;">
-                            <span style="font-family:'Lora',serif;font-weight:400;">I agree to receive monthly issues and occasional updates from The Centrifuge. You can unsubscribe at any time.</span>
-                        </label>
-                    </div>
-                    <button type="submit" class="submit-button" id="subscribe-button">Subscribe Now</button>
-                    <p style="text-align:center;margin-top:1.5rem;color:var(--gray);font-family:'Lora',serif;font-size:0.95rem;">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
-                </form>
-                <div style="margin-top:6rem;padding:4rem 3rem;background:white;border:1px solid rgba(0,0,0,0.08);">
-                    <h3 style="font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;margin-bottom:2.5rem;color:var(--dark);text-align:center;">Why We're Free</h3>
-                    <p style="font-family:'Lora',serif;color:var(--text);line-height:1.8;font-size:1.1rem;">We believe rigorous research should be accessible to everyone. The Centrifuge is run by students, for students, and we're committed to keeping all content free forever.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========== CONTACT PAGE ========== -->
-    <div id="contact" class="page">
-        <div class="container">
-            <div class="section-heading reveal">
-                <h2>Get In Touch</h2>
-                <p>Questions, collaboration ideas, or feedback? We'd love to hear from you!</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <h3>Email Us</h3>
-                            <p><a href="mailto:thecentrifugemag@gmail.com">thecentrifugemag@gmail.com</a></p>
-                        
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🌐</div>
-                        <div class="contact-details">
-                            <h3>Follow Us</h3>
-                            <p>@thecentrifugemag on Instagram</p>
-                        </div>
-                    </div>
-                </div>
-                <form class="submit-form" id="contact-submit" style="margin:0;">
-                    <div class="form-group">
-                        <label for="contact-name">Name *</label>
-                        <input type="text" id="contact-name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-email">Email *</label>
-                        <input type="email" id="contact-email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-subject">Subject *</label>
-                        <input type="text" id="contact-subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-message">Message *</label>
-                        <textarea id="contact-message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button" id="contact_button">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========== FAQ PAGE ========== -->
-
-    <div id="FAQ" class="page">
-        <div class="hero" style="width: 100%;">
-            <strong><h6 class="purple">The Centrifugue</h6></strong>
-            <h1>Frequently Asked Questions</h1>
-        </div>
-        <div style="width: 60%; margin: 2rem auto 0 auto;">
-
-            <h2>Submission</h2>
-            <div class="FAQs">
-                <button class="accordion">Who is eligible to publish?</button>
-                <div class="panel">
-                    <p>We publish work from curious and bright young people! Please feel free to submit <a onclick="showPage('submit')">here</a> if you are 14 or older and if you are still in high school! We accept application from people regardless of geographical location. Make sure to see our <a onclick="showPage('guidelines')">submission guidelines</a> to organize your submission.</p>
-                </div>
-                <button class="accordion">How can I submit?</button>
-                <div class="panel">
-                    <p>You can submit either in our <a onclick="showPage('submit')">submission page</a> or by emailing us at thecentrifugemag@gmail.com, however, we prefer if you send it by the appropriate channel in our website. Through both of them, we ask for the <strong>title</strong> and <strong>abstract</strong> of your article so make sure do have that ready. We will review it and ask answer back within two weeks to ask for the whole article.</p>
-                </div>
-                <button class="accordion">Do all the issues get published?</button>
-                <div class="panel">
-                    <p><strong>Yes!</strong> All the submissions we receive get published in our website as long as they follow our <a onclick="showPage('guidelines')">submission guidelines</a>. The month's best articles and which best fit our current theme get published in the next month's magazine issue.</p>
-                </div>
-                <button class="accordion">What can I submit?</button>
-                <div class="panel">
-                    <p>Right now, we are only publishing scientific articles and overviews. Further down, we expect to start opinion columns but, at the moment we only accept empirical articles. We also only publish STEM-related issues, however we might decide to publish related subjects (e.g. economy, sociology) upon revision. If you are in doubt about the fit of your work for the magazine, please submit it! You might still get published!</p>
-                </div>
-                <button class="accordion">When can I submit?</button>
-                <div class="panel">
-                    <p>We accept articles on a rolling basis, therefore, you can submit it whenever you see fit. However, we will only consider articles for the following issue of our monthly magazine if we receive them until the 26th of the previous months in order to ensure accuracy of information and proper formatting.</p>
-                </div>
-                <button class="accordion">How much does it cost to submit?</button>
-                <div class="panel">
-                    <p><strong>Nothing!</strong> Submission and publication is completely free!</p>
-                </div>
-            </div>
-            <h2>Subscription and Magazine</h2>
-            <div class="FAQs">
-                <button class="accordion">What does the subscription include?</button>
-                <div class="panel">
-                    <p>If you subscripe to The Centrifuge you'll get our monthly issues directly in your inbox! Furthermore, we also offer behind-the-scenes editorial updates and submission opportunities, early notifications about deadlines, calls for papers, and special issues. You can do so <a onclick="showPage('subscribe')">here</a>. We promise to deliver only high-quality content, so no need to worry about receiving any spam from us!</p>
-                </div>
-                <button class="accordion">How much does the subscription cost?</button>
-                <div class="panel">
-                    <p><strong>Nothing!</strong> We believe rigorous research and knowledge should be accessible to everyone so we don't charge anything.</p>
-                </div>
-                <button class="accordion">How does the magazine selection work?</button>
-                <div class="panel">
-                    <p>Every month we select a theme for our magazine. Afterwards, we select the 4-6 best articles from that month's submissions to be featured. We base our choice on fit to the month's theme, quality of writing, originality of the article and correctness of information. This filtering is done by our amazing editors throughout the whole month. We will inform the writers in advance whether or not they will be published, so keep an eye out.</p>
-                </div>
-                <button class="accordion">Can I still access the magazine even if I am not subscribed??</button>
-                <div class="panel">
-                    <p><strong>Of course!</strong> Even though we advise you to subscribe for convenience, you can still access all our new and past issues right <a onclick="showPage('issues')">here!</a></p>
-                </div>
-            </div>
-            <h2>General</h2>
-            <div class="FAQs">
-                <button class="accordion">What is The Centrifugue?</button>
-                <div class="panel">
-                    <p>The Centrifuge is a scientific magazine made by high-schoolers for high-schoolers. Our aim is to publish high-quality scientific articles in order to incentivise young people to follow and engage STEM areas and close the gap that stops many of us to start research as students. </p>
-                </div>
-                <button class="accordion">Can I become part of the executive/editorial team?</button>
-                <div class="panel">
-                    <p><strong>Yes!</strong> We are always excited to have new people join our team of editors, coders and writers! Please email us at thecentrifugemag@gmail.com with your name, age, grade, school and position you would like to have and we will get back to you with a response within two weeks. We do not have a job board, however, so apply according to your own skills and interests.</p>
-                </div>
-                <button class="accordion">Who runs the magazine?</button>
-                <div class="panel">
-                    <p>Our entire team is exclusively composed of high-school students who love everything STEM! We are a diverse group from all over the world, bringing many different insights to the magazine! If you are interested in learning more about our team you can chech us out right <a onclick="showPage('team')">here</a></p>
-                </div>
-                <button class="accordion">How do I ask a question not covered here?</button>
-                <div class="panel">
-                    <p>If you have any questions, doubts or just want to give us feedback we would love to hear all about it! Please email us at thecentrifugemag@gmail.com. You can also reach us through our <a onclick="showPage('contact')">contact form</a> in our website or on Instagram @thecentrifugemag. We are usually very swift with our responses so you can expect to have an ansewr within 1-2 days.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- ========== FOOTER ========== -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>The Centrifuge</h3>
-                <p>Separating signal from noise in student STEM research. By high schoolers, for high schoolers.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a onclick="showPage('home')">Home</a>
-                <a onclick="showPage('about')">About Us</a>
-                <a onclick="showPage('issues')">Browse Issues</a>
-                <a onclick="showPage('articles')">Past Articles</a>
-                <a onclick="showPage('submit')">Submit Article</a>
-                <a onclick="showPage('subscribe')">Subscribe</a>
-            </div>
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <a href="https://trufflers.github.io/stem-magazine/SubmissionGuidelines.pdf" target="_blank">Submission Guidelines</a>
-                <a href="#">Style Guide</a>
-                <a onclick="showPage('FAQ')">FAQ</a>
-                <a onclick="showPage('team')">Editorial Team</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <a href="https://instagram.com/thecentrifugemag" target="_blank">Instagram</a>
-                <a href="mailto:thecentrifugemag@gmail.com">Email</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 The Centrifuge Magazine. Made by students, for students. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // ── Team Data ──────────────────────────────────────────────
-        const teamMembers = [
-            { name:'Teresa Pan', initials:'TP', gradient:'avatar-gradient-1', grade:'Founder & Editor-in-Chief', bio:"Hi! I'm Teresa and I'm from Vancouver, Canada. I'm the Editor-in-Chief of The Centrifuge, an idea that stemmed from my passion for STEM, writing, and education. Other than front end coding, editing articles, and writing, I'm responsible for most of the logistics surrounding this magazine. When I'm not working away at my desk, you can find me debating, eating copious amounts of cookies, or watching random video essays on YouTube. I hope you love our magazine as much as we do!", email:'teresapan888@gmail.com' },
-            { name:'Ritisha Agarwal', initials:'RA', gradient:'avatar-gradient-2', grade:'Founding Editor', bio:"Hi! I'm Ritisha and I'm from London, England. I am very passionate about mathematics and how the concepts in maths can be applied to real life situations! I am a part of the founding Centrifuge team, contributing to the writing of articles, website maintenance and social media! I am always looking to further my understanding of different topics and to connect with others who feel the same love for learning!", email:'ritishaagarwal95@gmail.com' },
-            { name:'Maria Matias', initials:'MM', gradient:'avatar-gradient-3', grade:'Founding Editor', bio:"Hi! I'm Maria. I am currently studying science and technology in Portugal, and I'm part of The Centrifuge team, currently working on website and article maintenance. I am passionate about mathematics, biology and all of their intersections. Likewise, I am in a continuous search to learn more about the world around me and to connect with people who feel the same drive for knowledge as I do.", email:'matias.joao.maria@gmail.com' },
-            { name:'Xinyue Ying', initials:'XY', gradient:'avatar-gradient-4', grade:'Founding Editor', bio:"I'm Xinyue Ying, and I'm always curious about how things work, especially in STEM. I like breaking down complex ideas, and asking a lot of questions. I was a quarterfinalist at the Harvard Invitational in PF Debate (JV open) and ranked 2th Best Speaker. I also earned a scholarship from Curtin University after winning a STEM challenge. I'm involved in FTC and many more.", email:'yingxinyue99@gmail.com' },
-            { name:'Anish Alapati', initials:'AA', gradient:'avatar-gradient-5', grade:'Founding Editor', bio:"I'm Anish Alapati and I am from New Jersey. I enjoy learning about math and physics, and I am always excited to learn more.", email:'anishalapati01@gmail.com' },
-            { name:'Prisha Goswami', initials:'PG', gradient:'avatar-gradient-6', grade:'Founding Editor', bio:"Hi, I'm Prisha, based in the U.S., and I'm currently interested in bridging the gap between science, technology, and society. This curiosity has led me to The Centrifuge, where I contribute as a writer and occasional editor! Outside of writing, I'm always searching for deeper connections through research and thoughtful discussions with like-minded people.", email:'prishagos242@gmail.com' },
-            { name:'Angela Wang', initials:'AW', gradient:'avatar-gradient-7', grade:'Founding Editor', bio:"I'm Angela X, based in the US! I'm mainly interested in exploring AI applications in the field of bioengineering, which leads me to Centrifuge, where I currently work as a research article editor and occasionally work on the backend of the website with the team. Outside, I am also passionate about neuroscience and music research, where I serve as a NPR's From the Top Fellow.", email:'angelawang1918@gmail.com' },
-            { name:'Spriha Pradeep', initials:'SP', gradient:'avatar-gradient-8', grade:'Founding Editor', bio:"Hi! I'm Spriha from the US! I am deeply interested in artificial intelligence, particularly how machine learning systems interact with public policy, ethical decision-making, and government. My focus is on making complex AI concepts more accessible and understandable, while also exploring issues like bias, transparency, and the societal impact of these technologies. If I'm not coding or reading, you can find me out with my friends or painting!", email:'spriha.pradeep@gmail.com' },
-        ];
-
-        // ── Page Navigation ────────────────────────────────────────
-function showPage(pageId) {
-    const target = document.getElementById(pageId);
-    if (!target) return;
-
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    target.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    history.pushState({ page: pageId }, '', '#' + pageId);
-
-    // --- ADDED LOGIC TO START GAMES ---
-    if (pageId === 'puzzles') {
-        initH(); // Starts Daily Hypothesis
-        initW(); // Starts Daily Element
-    }
-    // ----------------------------------
-
-    const navLinks = document.getElementById('navLinks');
-    const hamburger = document.getElementById('hamburger');
-    const overlay   = document.getElementById('navOverlay');
-    if (navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('active');
-        overlay.classList.remove('active');
-    }
-        }
-
-        // Back/forward buttons
-        window.addEventListener('popstate', function(e) {
-            const pageId = (e.state && e.state.page) ? e.state.page : 'home';
-            const target = document.getElementById(pageId);
-            if (!target) return;
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // On first load: honour hash in URL, or default to home
-        // ── Mobile Nav ─────────────────────────────────────────────
-        function toggleMobileNav() {
-            const navLinks = document.getElementById('navLinks');
-            const hamburger = document.getElementById('hamburger');
-            const overlay   = document.getElementById('navOverlay');
-            navLinks.classList.toggle('open');
-            hamburger.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
-        // ── Team Modal ─────────────────────────────────────────────
-        function openTeamModal(index) {
-            const member = teamMembers[index];
-            if (!member) return;
-            document.getElementById('modalAvatar').className = 'team-modal-avatar ' + member.gradient;
-            document.getElementById('modalAvatar').textContent = member.initials;
-            document.getElementById('modalName').textContent  = member.name;
-            document.getElementById('modalGrade').textContent = member.grade;
-            document.getElementById('modalBio').textContent   = member.bio;
-            let linksHTML = '';
-            if (member.email)    linksHTML += `<a href="mailto:${member.email}" class="team-modal-link">✉ Email</a>`;
-            if (member.linkedin) linksHTML += `<a href="${member.linkedin}" target="_blank" rel="noopener" class="team-modal-link">in LinkedIn</a>`;
-            document.getElementById('modalLinks').innerHTML = linksHTML;
-            document.getElementById('teamModal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeTeamModal(e, force) {
-            const overlay = document.getElementById('teamModal');
-            if (force || e.target === overlay) {
-                overlay.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeTeamModal(null, true);
-        });
-
-        // ── Forms & buttons (run after DOM is ready) ───────────────
-        window.addEventListener('DOMContentLoaded', function() {
-
-            // Hash routing
-            const hash = window.location.hash.replace('#', '');
-            if (hash && document.getElementById(hash)) {
-                showPage(hash);
-            } else {
-                history.replaceState({ page: 'home' }, '', '#home');
-            }
-
-            // CTA button
-            const ctaButton = document.querySelector('.cta-button');
-            if (ctaButton) {
-                ctaButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showPage('submit');
-                });
-            }
-
-            // Hamburger
-            document.getElementById('hamburger').addEventListener('click', toggleMobileNav);
-            document.getElementById('navOverlay').addEventListener('click', toggleMobileNav);
-
-            // Submit form
-            const scriptURL  = 'https://script.google.com/macros/s/AKfycbxnRk6toCyjNeFwvTBAhhd6ko6DYhrHmSON8gAu3CjMYGkBlfKQmwNZRulkx4dlCkLxiA/exec';
-            const submitForm = document.querySelector('#submit-form');
-            const submitBtn  = document.querySelector('#submission-btn');
-            submitForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = 'Loading...';
-                fetch(scriptURL, { method: 'POST', body: new FormData(submitForm) })
-                    .then(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = 'Submit Article';
-                        alert('Thank you! We will get back to you within 2 weeks.');
-                        submitForm.reset();
-                    })
-                    .catch(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = 'Submit Article';
-                        alert('Error! Please try again later.');
-                    });
-            });
-
-            // Subscribe form
-            const urlSubscribe  = 'https://script.google.com/macros/s/AKfycbxvf8omiz3Zqn7XYclhZ0R-M3LoaZcLYAK4mpbQarjNgf_uRzGdSBIWJfeDdDmVbxR66Q/exec';
-            const subscribeForm = document.querySelector('#form-subscribe');
-            const subscribeBtn  = document.querySelector('#subscribe-button');
-            subscribeForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                subscribeBtn.disabled = true;
-                subscribeBtn.innerHTML = 'Loading...';
-                var formData = new FormData(subscribeForm);
-                formData.set('agreement', subscribeForm.querySelector('#agreement-check').checked ? 'Yes' : 'No');
-                fetch(urlSubscribe, { method: 'POST', body: formData})
-                    .then(() => {
-                        subscribeBtn.disabled = false;
-                        subscribeBtn.innerHTML = 'Subscribe Now';
-                        alert('Thank you for subscribing!');
-                        subscribeForm.reset();
-                    })
-                    .catch(() => {
-                        subscribeBtn.disabled = false;
-                        subscribeBtn.innerHTML = 'Subscribe Now';
-                        alert('Error! Please try again later.');
-                    });
-            });
-
-            // Contact form
-            const urlContact  = 'https://script.google.com/macros/s/AKfycbxhSvflKIcTCLsxF318Z9lOOuzHy3LZLcVZESw5432Ced0OQRLHB2LoLWvhbe5QtNl1/exec';
-            const contactForm = document.querySelector('#contact-submit');
-            const contactBtn  = document.querySelector('#contact_button');
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                contactBtn.disabled = true;
-                contactBtn.innerHTML = 'Loading...';
-                fetch(urlContact, { method: 'POST', body: new FormData(contactForm) })
-                    .then(() => {
-                        contactBtn.disabled = false;
-                        contactBtn.innerHTML = 'Send Message';
-                        alert('Thank you for your message!');
-                        contactForm.reset();
-                    })
-                    .catch(() => {
-                        contactBtn.disabled = false;
-                        contactBtn.innerHTML = 'Send Message';
-                        alert('Error! Please try again later.');
-                    });
-            });
-        });
-
-        function filterSelection(value){
-            allElements = document.getElementsByClassName("filterDiv");
-            if (value === "all"){
-                for (let i = 0; i < allElements.length; i++) {
-                    allElements[i].style.display = "flow";
-                }
-            } else {
-                for (let i = 0; i < allElements.length; i++) {
-                    if (allElements[i].classList.contains(value)) {
-                        allElements[i].style.display = "flow";
-                    } else {
-                        allElements[i].style.display = "none";
-                    }
-                }
-            }
-        }
-
-        //FAQs
-
-        var acc = document.getElementsByClassName("accordion");
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active2");
-
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active2");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
-
-        //Equation Balancer Logic
-
-        const equations = [
-        { left: ['C₃H₈', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [1, 5, 3, 4], explanation: 'Propane combustion' },
-        { left: ['C6H₁₂O6', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [1, 6, 6, 6], explanation: 'Glucose combustion' },
-        { left: ['C₄H₁₀', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [2, 13, 8, 10], explanation: 'Butane combustion' },
-        { left: ['C₂H₅OH', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [1, 3, 2, 3], explanation: 'Ethanol combustion' },
-        { left: ['C₈H1₈', 'O₂'], right: ['CO₂', 'H₂O'], correctCoeffs: [2, 25, 16, 18], explanation: 'Octane combustion' },
-        { left: ['Fe', 'O₂'], right: ['Fe₂O₃'], correctCoeffs: [4, 3, 2], explanation: 'Iron oxidation' },
-        { left: ['Al', 'Fe₂O₃'], right: ['Al₂O₃', 'Fe'], correctCoeffs: [2, 1, 1, 2], explanation: 'Thermite reaction' },
-        { left: ['KMnO₄', 'HCl'], right: ['KCl', 'MnCl₂', 'H₂O', 'Cl₂'], correctCoeffs: [2, 16, 2, 2, 8, 5], explanation: 'Permanganate and chloric acid' },
-        { left: ['Cu', 'HNO₃'], right: ['Cu(NO₃)₂', 'NO', 'H₂O'], correctCoeffs: [3, 8, 3, 2, 4], explanation: 'Copper and nitric acid' },
-        { left: ['Zn', 'H₂SO₄'], right: ['ZnSO₄', 'H₂'], correctCoeffs: [1, 1, 1, 1], explanation: 'Zinc and sulfuric acid' },
-        { left: ['Ca(OH)₂', 'H₃PO₄'], right: ['Ca₃(PO₄)₂', 'H₂O'], correctCoeffs: [3, 2, 1, 6], explanation: 'Calcium hydroxide and phosphoric acid' },
-        { left: ['Al(OH)₃', 'H₂SO₄'], right: ['Al₂(SO₄)₃', 'H₂O'], correctCoeffs: [2, 3, 1, 6], explanation: 'Aluminum hydroxide and sulfuric acid' },
-        { left: ['Na₃PO₄', 'CaCl₂'], right: ['Ca₃(PO₄)₂', 'NaCl'], correctCoeffs: [2, 3, 1, 6], explanation: 'Sodium phosphate and calcium chloride' },
-        { left: ['BaCl₂', 'Al₂(SO₄)₃'], right: ['BaSO₄', 'AlCl₃'], correctCoeffs: [3, 1, 3, 2], explanation: 'Barium chloride and aluminum sulfate' },
-        { left: ['Pb(NO₃)₂', 'KI'], right: ['PbI₂', 'KNO₃'], correctCoeffs: [1, 2, 1, 2], explanation: 'Lead nitrate and potassium iodide' },
-        { left: ['KClO₃'], right: ['KCl', 'O₂'], correctCoeffs: [2, 2, 3], explanation: 'Potassium chlorate decomposition' },
-        { left: ['Al₂(CO₃)₃'], right: ['Al₂O₃', 'CO₂'], correctCoeffs: [1, 1, 3], explanation: 'Aluminum carbonate decomposition' },
-        { left: ['Mg(ClO₃)₂'], right: ['MgCl₂', 'O₂'], correctCoeffs: [1, 1, 3], explanation: 'Magnesium chlorate decomposition' },
-        { left: ['N₂', 'H₂'], right: ['NH₃'], correctCoeffs: [1, 3, 2], explanation: 'Haber process' },
-        { left: ['P₄', 'O₂'], right: ['P₂O₅'], correctCoeffs: [1, 5, 2], explanation: 'Phosphorus combustion' },
-        { left: ['Fe₃O₄', 'H₂'], right: ['Fe', 'H₂O'], correctCoeffs: [1, 4, 3, 4], explanation: 'Magnetite reduction' },
-        { left: ['SiO₂', 'HF'], right: ['SiF₄', 'H₂O'], correctCoeffs: [1, 4, 1, 2], explanation: 'Silicon dioxide and hydrofluoric acid' },
-        { left: ['Na₂O₂', 'H₂O'], right: ['NaOH', 'O₂'], correctCoeffs: [2, 2, 4, 1], explanation: 'Sodium peroxide and water' },
-        { left: ['Cr₂O₃', 'Al'], right: ['Al₂O₃', 'Cr'], correctCoeffs: [1, 2, 1, 2], explanation: 'Chromium oxide and aluminum' },
-        { left: ['MnO₂', 'HCl'], right: ['MnCl₂', 'Cl₂', 'H₂O'], correctCoeffs: [1, 4, 1, 1, 2], explanation: 'Manganese dioxide and HCl' },
-        { left: ['K₂Cr₂O₇', 'HCl'], right: ['KCl', 'CrCl₃', 'H₂O', 'Cl₂'], correctCoeffs: [1, 14, 2, 2, 7, 3], explanation: 'Dichromate and chloric acid' },
-        { left: ['Fe₂O₃', 'CO'], right: ['Fe', 'CO₂'], correctCoeffs: [1, 3, 2, 3], explanation: 'Iron oxide and carbon monoxide' },
-        { left: ['Ca₃(PO₄)₂', 'SiO₂', 'C'], right: ['CaSiO₃', 'P₄', 'CO'], correctCoeffs: [2, 6, 10, 6, 1, 10], explanation: 'Phosphate rock reaction' },
-        { left: ['NH₃', 'O₂'], right: ['NO', 'H₂O'], correctCoeffs: [4, 5, 4, 6], explanation: 'Ammonia oxidation (Ostwald process)' },
-        { left: ['As₂S₃', 'HNO₃', 'H₂O'], right: ['H₃AsO₄', 'H₂SO₄', 'NO'], correctCoeffs: [3, 28, 4, 6, 9, 28], explanation: 'Arsenic sulfide and nitric acid' }
-    ];
-
-    let correctCount = 0;
-    let solved = false;
-    function getCurrentEquation() {
-        const start = new Date(2024, 3, 1); // Starting April 1st (Issue Date)
-        const today = new Date();
-        const diff = Math.floor((today - start) / 86400000);
-        const dayIndex = Math.max(0, diff % 30);
-
-        return equations[dayIndex];
-    }
-
-    function displayEquation() {
-        const eq = getCurrentEquation();
-        const container = document.getElementById('equationContainer');
-        container.innerHTML = '';
-
-        eq.left.forEach((compound, index) => {
-            const div = document.createElement('div');
-            div.className = 'compound';
-            div.innerHTML = `<input type="number" min="1" value="1"> <span>${compound}</span>`;
-            container.appendChild(div);
-            if (index < eq.left.length - 1) {
-                container.appendChild(document.createTextNode('+'));
-            }
-        });
-
-        const arrow = document.createElement('span');
-        arrow.className = 'arrow';
-        arrow.textContent = '→';
-        container.appendChild(arrow);
-
-        eq.right.forEach((compound, index) => {
-            const div = document.createElement('div');
-            div.className = 'compound';
-            div.innerHTML = `<input type="number" min="1" value="1"> <span>${compound}</span>`;
-            container.appendChild(div);
-            if (index < eq.right.length - 1) {
-                container.appendChild(document.createTextNode('+'));
-            }
-        });
-    }
-
-    function checkBalance() {
-        if (solved) return;
-        const inputs = Array.from(document.querySelectorAll('.compound input'));
-        const userCoeffs = inputs.map(i => parseInt(i.value));
-        const correct = getCurrentEquation().correctCoeffs;
-        const match = userCoeffs.length === correct.length && userCoeffs.every((val, idx) => val === correct[idx]);
-        const feedback = document.getElementById('feedback');
-        const eq = getCurrentEquation();
-        const container = document.getElementById('equation-balance');
-        const equation = document.getElementById('equationContainer');
-
-        requestAnimationFrame( () => {
-            if (match) {
-                solved = true;
-                correctCount++;
-                feedback.textContent = `✓ EQUATION CORRECTLY BALANCED: ${getCurrentEquation()['explanation']}`;
-                feedback.style.color = '#6aaa64';
-                feedback.style.borderLeft = '3px solid #6aaa64';
-                inputs.forEach(inp => {
-                    inp.setAttribute('readonly', 'true');
-                    inp.className = 'input-correct';
-                });
-                document.getElementById('dot0').classList.add('filled');
-                container.classList.add('flash-correct');
-                equation.classList.remove('wrong-equation');
-                equation.classList.add('correct-equation');
-            } else {
-                feedback.textContent = `Incoherent with Lavoisier's law. Try again.`;
-                feedback.style.color = 'red';
-                feedback.style.borderLeft = '3px solid red';
-                inputs.forEach(inp => {
-                    inp.classList.add('input-wrong');
-                });
-                void container.offsetWidth;
-                container.classList.add('flash-wrong');
-                setTimeout(() => container.classList.remove('flash-wrong'), 500);
-                equation.classList.add('wrong-equation');
-            }
-        });
-    }
-
-    displayEquation();
-
-        // ── Design System Enhancements ─────────────────────────────
-
-        // Scroll Progress Bar
-        window.addEventListener('scroll', function() {
-            var h = document.documentElement;
-            var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 || 0;
-            var el = document.getElementById('scrollProgress');
-            if (el) el.style.width = Math.min(100, Math.max(0, pct)) + '%';
-        }, { passive: true });
-
-        // Hero Letter Animation
-        (function() {
-            var heroTitle = document.getElementById('heroTitle');
-            if (!heroTitle) return;
-            var text = heroTitle.textContent;
-            heroTitle.innerHTML = '';
-            text.split('').forEach(function(ch, i) {
-                var span = document.createElement('span');
-                span.className = 'hero-letter';
-                span.style.animationDelay = (80 + i * 30) + 'ms';
-                span.textContent = ch === ' ' ? '\u00A0' : ch;
-                if (ch === ' ') span.style.whiteSpace = 'pre';
-                heroTitle.appendChild(span);
-            });
-        })();
-
-        
-
-        // Nav Active Link
-        (function() {
-            var origShow = window.showPage;
-            if (!origShow) return;
-            window.showPage = function(pageId) {
-                origShow(pageId);
-                document.querySelectorAll('.nav-links a').forEach(function(a) {
-                    a.classList.remove('active');
-                    var linkPage = a.getAttribute('onclick');
-                    if (linkPage && linkPage.indexOf("'" + pageId + "'") !== -1) a.classList.add('active');
-                });
-            };
-            document.querySelectorAll('.nav-links a').forEach(function(a) {
-                var linkPage = a.getAttribute('onclick');
-                if (linkPage && linkPage.indexOf("'home'") !== -1) a.classList.add('active');
-            });
-        })();
-
-        // Scroll Reveal
-        (function() {
-            var reveals = document.querySelectorAll('.reveal');
-            if (!('IntersectionObserver' in window)) { reveals.forEach(function(el) { el.classList.add('revealed'); }); return; }
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
-                });
-            }, { threshold: 0.15 });
-            reveals.forEach(function(el) { observer.observe(el); });
-        })();
-
-        // Count-Up Stats
-        (function() {
-            var statEls = document.querySelectorAll('[data-count]');
-            if (!statEls.length) return;
-            var counted = false;
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting && !counted) {
-                        counted = true;
-                        statEls.forEach(function(el) {
-                            var target = parseInt(el.getAttribute('data-count'), 10);
-                            var duration = 1600, start = performance.now() + 300;
-                            function tick(t) {
-                                if (t < start) { requestAnimationFrame(tick); return; }
-                                var p = Math.min((t - start) / duration, 1);
-                                el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target);
-                                if (p < 1) requestAnimationFrame(tick);
-                            }
-                            requestAnimationFrame(tick);
-                        });
-                    }
-                });
-            }, { threshold: 0.3 });
-            statEls.forEach(function(el) { observer.observe(el); });
-        })();
-
-        // Article Card 3D Tilt
-        document.querySelectorAll('.article-card').forEach(function(card) {
-            card.addEventListener('mousemove', function(e) {
-                var r = card.getBoundingClientRect();
-                var mx = ((e.clientX - r.left) / r.width - 0.5) * 2;
-                var my = ((e.clientY - r.top) / r.height - 0.5) * 2;
-                card.style.transform = 'perspective(1200px) rotateX(' + (my * -4) + 'deg) rotateY(' + (mx * 4) + 'deg) translateY(-5px)';
-            });
-            card.addEventListener('mouseleave', function() {
-                card.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) translateY(0)';
-            });
-        });
-
-        // Subject Panel
-        var SUBJECTS = [
-            { key:'all', label:'All Subjects', symbol:'∞', color:'var(--primary)' },
-            { key:'biology', label:'Biology', symbol:'β', color:'#3aa87a' },
-            { key:'mathematics', label:'Mathematics', symbol:'π', color:'#b86cff' },
-            { key:'physics', label:'Physics', symbol:'Ω', color:'#ff6d6d' },
-            { key:'chemistry', label:'Chemistry', symbol:'Λ', color:'#3bc4ff' },
-            { key:'engineering', label:'Engineering', symbol:'↯', color:'#ffb432' },
-        ];
-        var subjectArticles = [];
-        document.querySelectorAll('#home .article-card, #articles .article-card').forEach(function(card) {
-            var cat = card.querySelector('.article-category');
-            var title = card.querySelector('.article-title');
-            var meta = card.querySelector('.article-meta');
-            if (!cat || !title) return;
-            subjectArticles.push({
-                category: cat.textContent.trim(), title: title.textContent.trim(),
-                author: meta && meta.querySelector('span') ? meta.querySelector('span').textContent.trim() : '',
-                onclick: card.getAttribute('onclick') || '',
-            });
-        });
-        var seen = {};
-        subjectArticles = subjectArticles.filter(function(a) { if (seen[a.title]) return false; seen[a.title] = true; return true; });
-        var activeSubject = 'all';
-
-        function renderSubjectPanel() {
-            var listEl = document.getElementById('subjectList'), resultsEl = document.getElementById('subjectResults');
-            if (!listEl || !resultsEl) return;
-            var counts = { all: subjectArticles.length };
-            subjectArticles.forEach(function(a) { var k = a.category.toLowerCase().replace(/\s.*/,''); counts[k] = (counts[k] || 0) + 1; });
-            listEl.innerHTML = '';
-            SUBJECTS.forEach(function(s) {
-                var c = counts[s.key] || 0;
-                if (s.key !== 'all' && c === 0) return;
-                var btn = document.createElement('button');
-                btn.className = 'subject-btn' + (activeSubject === s.key ? ' active' : '');
-                if (activeSubject === s.key) btn.style.borderLeftColor = s.color;
-                btn.innerHTML = '<div class="subject-glyph" style="' + (activeSubject === s.key ? 'background:'+s.color+';color:white;border-color:'+s.color : 'color:'+s.color) + ';">' + s.symbol + '</div><div style="flex:1;"><div style="font-size:.95rem;font-weight:600;">' + s.label + '</div><div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-top:2px;">' + c + ' article' + (c === 1 ? '' : 's') + '</div></div><div style="font-size:.7rem;font-weight:700;color:' + (activeSubject === s.key ? s.color : 'rgba(255,255,255,.3)') + ';">→</div>';
-                btn.onclick = function() { activeSubject = s.key; renderSubjectPanel(); };
-                listEl.appendChild(btn);
-            });
-            var filtered = activeSubject === 'all' ? subjectArticles : subjectArticles.filter(function(a) { return a.category.toLowerCase().replace(/\s.*/,'') === activeSubject; });
-            var activeSub = SUBJECTS.find(function(s) { return s.key === activeSubject; }) || SUBJECTS[0];
-            resultsEl.innerHTML = '<div style="font-family:\'Outfit\',sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.28em;color:' + activeSub.color + ';margin-bottom:1rem;font-weight:600;display:flex;align-items:center;gap:8px;"><span style="width:14px;height:1px;background:' + activeSub.color + ';display:inline-block;"></span>' + activeSub.label + ' · ' + filtered.length + '</div>';
-            filtered.forEach(function(a, i) {
-                var btn = document.createElement('button');
-                btn.className = 'subject-result';
-                btn.innerHTML = '<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px;"><span style="font-size:.7rem;color:rgba(255,255,255,.35);font-weight:600;letter-spacing:.1em;">' + String(i + 1).padStart(2, '0') + '</span><span style="font-size:.62rem;text-transform:uppercase;letter-spacing:.2em;color:' + activeSub.color + ';font-weight:600;">' + a.category + '</span></div><div style="font-size:1rem;font-weight:600;line-height:1.35;letter-spacing:-.01em;">' + a.title + '</div><div style="font-size:.7rem;color:rgba(255,255,255,.4);margin-top:6px;letter-spacing:.05em;">' + a.author + '</div>';
-                btn.onclick = function() { toggleSubjectPanel(false); var m = a.onclick.match(/showPage\(['"]([^'"]+)['"]\)/); if (m) showPage(m[1]); };
-                resultsEl.appendChild(btn);
-            });
-        }
-        function toggleSubjectPanel(open) {
-            document.getElementById('subjectPanel').classList.toggle('open', open);
-            document.getElementById('subjectBackdrop').classList.toggle('open', open);
-            if (open) renderSubjectPanel();
-        }
-        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') toggleSubjectPanel(false); });
-
-        // Add reveal to cards
-        document.querySelectorAll('.article-card').forEach(function(c, i) { c.classList.add('reveal'); c.style.animationDelay = (i * 90) + 'ms'; });
-        document.querySelectorAll('.team-card').forEach(function(c, i) { c.classList.add('reveal'); c.style.animationDelay = (i * 80) + 'ms'; });
-        document.querySelectorAll('.issue-card').forEach(function(c, i) { c.classList.add('reveal'); c.style.animationDelay = (i * 120) + 'ms'; });
-
-        // Re-run reveal observer for dynamically added classes
-        setTimeout(function() {
-            var reveals = document.querySelectorAll('.reveal:not(.revealed)');
-            if (!('IntersectionObserver' in window)) { reveals.forEach(function(el) { el.classList.add('revealed'); }); return; }
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); } });
-            }, { threshold: 0.15 });
-            reveals.forEach(function(el) { observer.observe(el); });
-        }, 100);
-
-    </script>
-</body>
-</html>
