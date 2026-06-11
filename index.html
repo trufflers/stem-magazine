@@ -24,20 +24,26 @@
 function showPage(pageId) {
     const pages = document.querySelectorAll('.page');
     pages.forEach(p => {
-        p.classList.remove('active'); // Remove active class from all pages
-        p.style.display = 'none';      // Ensure they are hidden
+        p.classList.remove('active');
+        p.style.display = 'none';
     });
 
     const activePage = document.getElementById(pageId);
     if (activePage) {
-        activePage.classList.add('active'); // Add the active class
-        activePage.style.display = 'block';  // Explicitly show it
+        activePage.classList.add('active');
+        activePage.style.display = 'block';
         window.scrollTo(0, 0);
     }
 
+    // Update nav underline to follow the active section
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+        var m = (a.getAttribute('onclick') || '').match(/showPage\(['"]([^'"]+)['"]\)/);
+        if (m) a.classList.toggle('active', m[1] === pageId);
+    });
+
     if (pageId === 'puzzles') {
-        initH(); 
-        initW(); 
+        initH();
+        initW();
     }
 }
 /* =========================================
@@ -2671,14 +2677,7 @@ Development is not a linear path. The process of acquiring new knowledge, better
         </div>
 
         <div id="btnContainer">
-            <button class="btn active" onclick="filterSelection('all')">All</button>
-            <button class="btn" onclick="filterSelection('biology')">Biology</button>
-            <button class="btn" onclick="filterSelection('mathematics')"> Mathematics</button>
-            <button class="btn" onclick="filterSelection('physics')">Physics</button>
-            <button class="btn" onclick="filterSelection('chemistry')">Chemistry</button>
-            <button class="btn" onclick="filterSelection('engineering')">Engineering</button>
-            <button class="btn" onclick="filterSelection('cs')">Computer Science</button>
-            <button class="btn" onclick="filterSelection('otherSTEM')">Other STEM</button>
+            <button class="btn active" onclick="filterSelection('all', event)">All</button>
         </div>
 
         <div class="articles-grid" style="width: 80%; margin: 4rem auto;">
@@ -3288,17 +3287,25 @@ function showPage(pageId) {
     const target = document.getElementById(pageId);
     if (!target) return;
 
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+        p.style.display = 'none';
+    });
     target.classList.add('active');
+    target.style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
     history.pushState({ page: pageId }, '', '#' + pageId);
 
-    // --- ADDED LOGIC TO START GAMES ---
+    // Update nav underline to follow the active section
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+        var m = (a.getAttribute('onclick') || '').match(/showPage\(['"]([^'"]+)['"]\)/);
+        if (m) a.classList.toggle('active', m[1] === pageId);
+    });
+
     if (pageId === 'puzzles') {
-        initH(); // Starts Daily Hypothesis
-        initW(); // Starts Daily Element
+        initH();
+        initW();
     }
-    // ----------------------------------
 
     const navLinks = document.getElementById('navLinks');
     const hamburger = document.getElementById('hamburger');
@@ -3315,8 +3322,16 @@ function showPage(pageId) {
             const pageId = (e.state && e.state.page) ? e.state.page : 'home';
             const target = document.getElementById(pageId);
             if (!target) return;
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(function(p) {
+                p.classList.remove('active');
+                p.style.display = 'none';
+            });
             target.classList.add('active');
+            target.style.display = 'block';
+            document.querySelectorAll('.nav-links a').forEach(function(a) {
+                var m = (a.getAttribute('onclick') || '').match(/showPage\(['"]([^'"]+)['"]\)/);
+                if (m) a.classList.toggle('active', m[1] === pageId);
+            });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
@@ -3368,7 +3383,7 @@ function showPage(pageId) {
             if (hash && document.getElementById(hash)) {
                 showPage(hash);
             } else {
-                history.replaceState({ page: 'home' }, '', '#home');
+                showPage('home');
             }
 
             // CTA button
@@ -3453,21 +3468,49 @@ function showPage(pageId) {
             });
         });
 
-        function filterSelection(value){
-            allElements = document.getElementsByClassName("filterDiv");
+        // Generate filter tabs dynamically from article card classes
+        (function() {
+            var labels = { biology:'Biology', mathematics:'Mathematics', physics:'Physics',
+                chemistry:'Chemistry', engineering:'Engineering', cs:'Computer Science',
+                'otherSTEM':'Other STEM', ethics:'Ethics' };
+            var found = {};
+            document.querySelectorAll('#articles .filterDiv').forEach(function(card) {
+                card.classList.forEach(function(cls) {
+                    if (cls !== 'article-card' && cls !== 'filterDiv' && !cls.includes(':')) {
+                        found[cls] = true;
+                    }
+                });
+            });
+            var container = document.getElementById('btnContainer');
+            Object.keys(found).sort().forEach(function(key) {
+                var btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.textContent = labels[key] || key.charAt(0).toUpperCase() + key.slice(1);
+                btn.setAttribute('onclick', "filterSelection('" + key + "', event)");
+                container.appendChild(btn);
+            });
+        })();
+
+        function filterSelection(value, evt){
+            var allElements = document.getElementsByClassName("filterDiv");
             if (value === "all"){
-                for (let i = 0; i < allElements.length; i++) {
-                    allElements[i].style.display = "flow";
+                for (var i = 0; i < allElements.length; i++) {
+                    allElements[i].style.display = "";
                 }
             } else {
-                for (let i = 0; i < allElements.length; i++) {
+                for (var i = 0; i < allElements.length; i++) {
                     if (allElements[i].classList.contains(value)) {
-                        allElements[i].style.display = "flow";
+                        allElements[i].style.display = "";
                     } else {
                         allElements[i].style.display = "none";
                     }
                 }
             }
+            var btns = document.getElementById("btnContainer").getElementsByClassName("btn");
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].classList.remove("active");
+            }
+            if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
         }
 
         //FAQs
@@ -3724,6 +3767,8 @@ function showPage(pageId) {
             { key:'physics', label:'Physics', symbol:'Ω', color:'#ff6d6d' },
             { key:'chemistry', label:'Chemistry', symbol:'Λ', color:'#3bc4ff' },
             { key:'engineering', label:'Engineering', symbol:'↯', color:'#ffb432' },
+            { key:'cs', label:'Computer Science', symbol:'λ', color:'#5bcfae' },
+            { key:'otherstem', label:'Other STEM', symbol:'◊', color:'#e8a45c' },
         ];
         var subjectArticles = [];
         document.querySelectorAll('#home .article-card, #articles .article-card').forEach(function(card) {
@@ -3745,7 +3790,11 @@ function showPage(pageId) {
             var listEl = document.getElementById('subjectList'), resultsEl = document.getElementById('subjectResults');
             if (!listEl || !resultsEl) return;
             var counts = { all: subjectArticles.length };
-            subjectArticles.forEach(function(a) { var k = a.category.toLowerCase().replace(/\s.*/,''); counts[k] = (counts[k] || 0) + 1; });
+            subjectArticles.forEach(function(a) {
+                var raw = a.category.toLowerCase();
+                var keys = raw.split(/\s*[&,]\s*/).map(function(p) { return p.replace(/[\s:].*/,'').trim(); });
+                keys.forEach(function(k) { if (k) counts[k] = (counts[k] || 0) + 1; });
+            });
             listEl.innerHTML = '';
             SUBJECTS.forEach(function(s) {
                 var c = counts[s.key] || 0;
@@ -3757,7 +3806,10 @@ function showPage(pageId) {
                 btn.onclick = function() { activeSubject = s.key; renderSubjectPanel(); };
                 listEl.appendChild(btn);
             });
-            var filtered = activeSubject === 'all' ? subjectArticles : subjectArticles.filter(function(a) { return a.category.toLowerCase().replace(/\s.*/,'') === activeSubject; });
+            var filtered = activeSubject === 'all' ? subjectArticles : subjectArticles.filter(function(a) {
+                var parts = a.category.toLowerCase().split(/\s*[&,]\s*/).map(function(p) { return p.replace(/[\s:].*/,'').trim(); });
+                return parts.indexOf(activeSubject) !== -1;
+            });
             var activeSub = SUBJECTS.find(function(s) { return s.key === activeSubject; }) || SUBJECTS[0];
             resultsEl.innerHTML = '<div style="font-family:\'Outfit\',sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.28em;color:' + activeSub.color + ';margin-bottom:1rem;font-weight:600;display:flex;align-items:center;gap:8px;"><span style="width:14px;height:1px;background:' + activeSub.color + ';display:inline-block;"></span>' + activeSub.label + ' · ' + filtered.length + '</div>';
             filtered.forEach(function(a, i) {
