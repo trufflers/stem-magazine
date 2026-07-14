@@ -922,6 +922,24 @@ window.addEventListener('keydown', (e) => {
             </div>
 
             <div class="articles-grid">
+                <div class="article-card engineering filterDiv" onclick="showPage('article-21')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://startpac.com/wp-content/uploads/2025/06/Airplane-in-the-sky-over-the-cloudy-sky-.jpg" alt="aircraft in the clouds">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">Engineering</span>
+                    <h3 class="article-title">Piezoelectric Energy Harvesting for Next-Generation Aircraft and Avionic Systems</h3>
+                    <p class="article-excerpt">For over two decades, the aviation sector has sought lightweight, passive methods of recovering energy from aerodynamic loads and reducing carbon emissions. Existing research includes limited experimentation with the placement of piezoelectric (PZT) sensors on aircraft wings, and the mediating role of angle of attack (AoA) has not been widely investigated. This study compared the electrical output of PZT ceramic disk sensors mounted at three wing locations, 50%, 75%, and 100% of span measured from root to tip, to capture flow-induced vibrations.</p>
+                    <div class="article-meta">
+                        <span>Puneeth Nunna</span>
+                        <span>15 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>July 14, 2026</span>
+                    </div>
+                </div>
+                </div>
+
                 <div class="article-card biology filterDiv" onclick="showPage('article-19')">
                 <div class="article-image"><span class="card-arrow-badge">↗</span>
                     <p>🤖</p>
@@ -1088,9 +1106,9 @@ window.addEventListener('keydown', (e) => {
         <div class="stats">
             <div class="stats-grid-bg"></div>
             <div class="stats-grid">
-                <div class="stat-item reveal"><h3 data-count="19">0</h3><p>Student Contributors</p></div>
-                <div class="stat-item reveal"><h3 data-count="17">0</h3><p>Schools Worldwide</p></div>
-                <div class="stat-item reveal"><h3 data-count="20">0</h3><p>Published Articles</p></div>
+                <div class="stat-item reveal"><h3 data-count="20">0</h3><p>Student Contributors</p></div>
+                <div class="stat-item reveal"><h3 data-count="18">0</h3><p>Schools Worldwide</p></div>
+                <div class="stat-item reveal"><h3 data-count="21">0</h3><p>Published Articles</p></div>
                 <div class="stat-item reveal"><h3 data-count="3">0</h3><p>Issues Released</p></div>
             </div>
         </div>
@@ -2854,6 +2872,909 @@ Development is not a linear path. The process of acquiring new knowledge, better
             </div>
         </div>
     </div>
+            <!-- ========== ARTICLE 21 ========== -->
+    <div id="article-21" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('articles')">← Back to Articles</a>
+                <span class="article-hero-category">engineering</span>
+                <h1 class="article-hero-title">Piezoelectric Energy Harvesting for Next-Generation Aircraft and Avionic Systems </h1>
+                <div class="article-hero-meta">
+                    <span>Puneeth Nunna</span><span class="article-meta-dot">·</span><span>July 2026</span><span class="article-meta-dot">·</span><span>15 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <h2>Abstract</h2>
+                <p style="text-align: justify;">For over two decades, the aviation sector has sought lightweight, passive methods of recovering energy from aerodynamic loads and reducing carbon emissions. Existing research includes limited experimentation with the placement of piezoelectric (PZT) sensors on aircraft wings, and the mediating role of angle of attack (AoA) has not been widely investigated. This study compared the electrical output of PZT ceramic disk sensors mounted at three wing locations, 50%, 75%, and 100% of span measured from root to tip, to capture flow-induced vibrations. A three-dimensional (3D)-printed wing model with piezoelectric sensors attached at each position was tested in a wind tunnel across three AoA settings, -10°, 0°, and 10°, to vary vortex strength and vibration intensity. Voltage production was recorded using a multimeter, and drag was recorded from the wind tunnel display. Wing geometry, sensor orientation, and sensor type were held constant to reduce variability. Two-sided Welch t-tests (α = 0.05) showed that sensors mounted at the 50% placement produced greater electrical output than the 75% placement (p = 0.0018) and the 100% placement (p < 0.001) at 0° AoA, although this placement also produced a statistically significant drag penalty relative to the baseline and other placements (p < 0.001). Placement selection therefore depends on mission priorities: maximising power or minimising drag. This proof-of-concept study demonstrated that targeted piezoelectric placement can recover useful energy for onboard sensors and low-power electronics in avionics and, with further optimisation, could be adapted for other fields such as the automotive and marine industries.</p>
+                <h2>Introduction</h2>
+                <p style="text-align: justify;">Aircraft are indispensable to modern transport, commerce, and reconnaissance, supporting activities ranging from passenger travel to global trade. According to the Federal Aviation Administration, over sixteen million flights are scheduled annually, and this figure is projected to double [1]. Although air travel is far more efficient than it was in 1990, when a passenger-kilometre required 2.9 megajoules (MJ) of energy, by 2019 it still required 1.3 MJ per passenger-kilometre, totalling roughly one billion tonnes of carbon dioxide (CO2) annually [2]. Between 2000 and 2019, emissions from aviation grew faster than those from rail, road, or shipping, highlighting the sector's increasing environmental impact [3]. As the aviation sector and the energy demands of onboard avionics and sensors continue to grow, engineers face increasing pressure to develop reliable, sustainable power solutions.</p>
+                <p style="text-align: justify;">Wingtip vortices form as air spills from the high-pressure region beneath a wing into the low-pressure region above it. Researchers have explored aerodynamic refinements and energy-harvesting concepts aimed at reducing wake losses and recovering energy from such structures [4]. Although traditionally treated only as a source of aerodynamic inefficiency to be reduced through devices such as winglets, these vortices also concentrate recoverable kinetic energy, presenting an opportunity to convert mechanical stress into small-scale electrical power [5]. One method of harvesting this energy is vortex-induced vibration (VIV) harvesting, in which airflow oscillations create structural vibrations that can be converted into electricity using piezoelectric materials [6]. Piezoelectric elements are useful in aerospace contexts because they are lightweight, compact, and able to generate electricity directly from mechanical strain without additional moving parts [6]. Proof-of-concept studies using such materials have demonstrated power outputs in the microwatt-to-milliwatt range, but scaling this technology for practical aircraft applications requires targeted experiments that weigh aerodynamic penalties against energy gains [7].</p>
+                <p style="text-align: justify;">Despite decades of research aimed at minimising induced drag, the underutilisation of wingtip vortex energy for powering avionics and onboard electronics remains a gap in current understanding. Existing literature includes limited experimentation on the placement of piezoelectric sensors along a wing and on the mediating role of angle of attack. This study tested piezoelectric ceramic sensors at three winglet locations across a range of angles of attack, measuring electrical output and drag change against a baseline winglet without a sensor attached. By assessing whether piezoelectric harvesters can reclaim a fraction of vortex energy without introducing significant aerodynamic penalties, this research aims to expand the design space for sustainable avionics systems and to provide a pathway toward self-sustaining, lightweight power solutions for future aircraft.</p>
+                <p style="text-align: justify;">The engineering goal of this project was to achieve at least one milliwatt of output per ceramic, printed-circuit-board (PCB)-mounted piezoelectric sensor during cruise-like vortex excitation, while keeping added mass below three per cent of winglet mass and drag increase under five per cent. The hypothesis was that if piezoelectric sensors were attached to a winglet at different locations and the winglet was tested at multiple angles of attack, the sensor placed at the 50% span location under a 10° angle of attack would produce the highest energy output while causing a minimal change in drag.</p>
+                <h2>Literature Review</h2>
+                <p style="text-align: justify;">Flight depends on the interaction of four primary forces: lift, weight, thrust, and drag [8]. Lift allows an aircraft to overcome gravity and remain airborne. Aircraft wings are engineered with an aerofoil cross-section, in which the top surface is curved and the bottom surface is flatter [9]. As air flows over the wing, the curved surface accelerates the air above while the air beneath moves more slowly, creating a pressure difference that generates an upward force through Bernoulli's principle, in which faster airflow corresponds to lower pressure [9]. The aerofoil's camber, thickness, and angle of attack determine the lift coefficient (Cl), which quantifies how effectively a wing converts oncoming airflow into lift [10]. As AoA increases, the wing accelerates flow over the upper surface and deflects more air downward, so Cl rises and lift increases until flow separation causes a stall [10]. Generating lift also produces induced drag, a by-product of the pressure differences that push air around the wingtips [11]. This induced downwash tilts the lift vector rearward, producing induced drag that increases especially at lower speeds or high angles of attack, since generating extra lift requires redirecting more airflow into the wake [11].</p>
+                <p style="text-align: justify;">One of the most influential refinements to wing design has been the winglet, a small vertical or canted extension added to a wingtip to alter wingtip aerodynamics and improve efficiency [4]. Winglets reshape airflow at the wingtip, where pressure differences between the upper and lower wing surfaces cause high-pressure air beneath the wing to spill over into the low-pressure region above, forming wingtip vortices [12]. These vortices are spiralling, trailing airflows that generate downwash behind the wing, tilting the effective relative wind downward and forcing part of the wing's lift vector to tilt backward, producing induced drag that the engines must overcome [13]. Stronger vortices increase induced drag and reduce aerodynamic efficiency [13]. Winglets disrupt this circulation by redirecting tip airflow upward or outward, weakening vortex strength and reducing downwash, though they do not eliminate wingtip vortices entirely; they weaken and reorganise tip circulation while leaving residual vortex strength that continues to influence wake behaviour [12]. Winglets are most beneficial during cruise at high altitude and during phases requiring high lift, such as take-off or climb, when induced drag is largest, which explains their widespread adoption across passenger, cargo, and business aircraft [14]. Modern aircraft from both Airbus and Boeing widely incorporate winglet variants, including sharklets and raked tips [15].</p>
+                <p style="text-align: justify;">The piezoelectric effect is a physical phenomenon in which certain noncentrosymmetric crystals and engineered materials generate electric charge when mechanically stressed, and conversely deform when an electric field is applied [16]. Mechanical strain moves positive and negative ions inside the material's unit cell, the smallest repeating structural block; each shifted unit cell becomes a tiny electric dipole, and when many dipoles align, a macroscopic polarisation forms, producing the measurable voltage that appears across the element under stress [17]. Manufacturers increase and lock in this response through poling, a process that uses a strong electric field to align internal domains so their dipoles do not cancel [18]. This coupling is reciprocal: applied mechanical stress produces a measurable charge and voltage, while an applied electric field produces a small mechanical strain, which underpins both sensing and energy-conversion applications [18]. Relevant piezoelectric materials include piezoceramics such as lead-zirconate-titanate (PZT) and piezopolymers such as polyvinylidene fluoride (PVDF); these families differ substantially in electromechanical coefficients and mechanical properties [19]. Typical PZT ceramics exhibit d33 values on the order of hundreds of picocoulombs per newton, while PVDF films show d33 values on the order of tens of picocoulombs per newton, explaining why ceramics deliver higher power density while polymers offer greater flexibility [19]. Device-level power extraction depends on concentrating strain at the harvester, through choices such as multilayer stacks, bimorphs, cymbal transducers, or flexible films, so that the piezoelectric element operates near the dominant vibration frequency [18]. Vibration sensors and accelerometers provide an everyday precedent for converting small motions into electrical signals using this fast, local piezoelectric response [20].</p>
+                <p style="text-align: justify;">Vortex-induced vibration harvesting has been explored across laboratory configurations, including cylinders, cantilevers, and oscillating foils, as well as preliminary wing-scale experiments, consistently demonstrating that energy capture from VIV is physically achievable [5], [21]. However, power output is generally modest, typically in the micro- to milliwatt range per harvester, unless the geometry and modal properties of the piezoelectric device are carefully matched to the natural frequency of the structure and the excitation frequency of the vortices [21]. Feasibility analyses emphasise several engineering trade-offs when integrating piezoelectric strips onto winglets: designers must balance electromechanical coupling against added drag and structural mass, while ensuring the harvester does not compromise the aeroelastic stability of the winglet under variable flight conditions [22]. Existing research combining wind-tunnel experiments on realistic winglet geometries with coupled electromechanical optimisation remains limited [6].</p>
+                <p style="text-align: justify;">Piezoelectric harvesters integrated with winglets offer potential benefits alongside limitations. Winglets alone have demonstrated typical cruise fuel burn reductions of three to six per cent, equivalent to tens of gallons per flight hour [23]. Piezoelectric harvesters, by contrast, generally produce nanowatts to milliwatts per device under realistic flight vibration or vortex conditions, sufficient for powering wireless sensors or telemetry, but orders of magnitude below propulsion needs [18]. Key limitations include fatigue of piezoelectric stacks and polymer films under cyclic aerodynamic loading, added mass and structural complexity, low energy-conversion efficiency in aeroelastic environments, and high per-watt costs compared with conventional power sources; these factors can lengthen payback periods or negate fuel savings unless harvesters are lightweight, durable, and aerodynamically neutral [22]. For harvesters to be worthwhile, they must deliver measurable onboard value in terms of sensor power and reduced battery replacement, adhere to strict mass and drag constraints, and demonstrate lifecycle savings that justify installation and certification costs [24]. The most realistic near-term application is therefore hybrid: using piezoelectric harvesters to enable self-powered health monitoring, reduce maintenance logistics, and marginally extend the endurance of uncrewed aerial vehicles, while longer-term materials advances could raise power density and lower cost [25].</p>
+                <h2>Method</h2>
+                <p style="text-align: justify;">This study was conducted indoors at Shrewsbury Senior High School. All soldering was carried out under adult supervision while wearing impact-resistant safety goggles and heat-resistant gloves, and all wind-tunnel operation was conducted under adult supervision.</p>
+                <h3>Independent Variables</h3>
+                <p style="text-align: justify;">Two independent variables were tested: the location of the piezoelectric sensor on the wing model, and the angle of attack (AoA) of the wing. Sensor location was set to 50%, 75%, and 100% of wing span, measured from the root of the wing model to the wingtip, progressively moving the PCB-mounted piezoelectric ceramic sensor closer to the wingtip. For each sensor location, AoA was set to 10°, 0°, and -10° to produce varying vortex strengths, representing angles typically observed during take-off, cruise, and landing.</p>
+                <h3>Dependent Variables</h3>
+                <p style="text-align: justify;">The dependent variables were the aerodynamic drag produced by the wing model, measured in volts (V) as output by the wind-tunnel's drag sensor, and the electrical output generated by the mounted piezoelectric sensor, also recorded in volts. As the drag sensor produces a voltage proportional to drag force and a calibration to newtons was not available for this apparatus, drag results are reported in volts and compared relatively across conditions rather than as absolute force values.</p>
+                <h3>Control Variables</h3>
+                <p style="text-align: justify;">The control condition was an unmodified wing model without a piezoelectric sensor attached, tested at the same three angles of attack. Drag produced by the unmodified model was compared with drag produced by the modified models to determine the aerodynamic impact of adding the sensor. Energy output for the unmodified wing was taken to be zero, as is the case for all unmodified wings.</p>
+                <h3>Materials and Fabrication</h3>
+                <p style="text-align: justify;">A wing model based on a KC-135 aerofoil-series winglet design was produced using computer-aided design (CAD) software and exported as a stereolithography (STL) file. The model was sliced with a layer height of 0.20 mm, 20% gyroid infill, and 1.2 mm wall thickness, and printed in polylactic acid (PLA) filament on a Prusa i3 three-dimensional (3D) printer at a nozzle temperature of 200°C and a bed temperature of 60°C. The model was scaled to 10% of the original file size to satisfy the wind tunnel's 10% blockage rule, calculated as blockage ratio (%) = (cross-sectional area of wind tunnel ÷ frontal area of model) × 100. Two identical wing models were printed, one for testing and one as a spare; any model deviating from the intended dimensions by more than 2% was reprinted.</p>
+                <p style="text-align: justify;">A piezoelectric ceramic disk sensor was mounted at each test location using 3M VHB removable indoor mounting tape and connected to two lengths of 22 American Wire Gauge (AWG) wire by soldering, with joints insulated using heat-shrink tubing and the wire secured to the wing using non-conductive tape. Wire crimps were fitted to the exposed wire ends to allow the sensor complex to be moved between the 50%, 75%, and 100% span locations across trials, and the sensor and wing assembly were gently vibrated after mounting to confirm the connection could withstand impact and vibration without detaching. A mounting attachment compatible with the wind tunnel's holding fixture was affixed to the underside of the winglet using hot glue and allowed to cure for five minutes before testing.</p>
+                <h3>Experimental Set-Up</h3>
+                <p style="text-align: justify;">Figure 1 shows the wind tunnel used for testing (LJ Technologies Aerostream Aerodynamics 2000 Scantek), including the dimensions of the holding chamber and mounting fixture.</p>
+                <img alt="Figure 1: Wind-tunnel model and holding-chamber dimensions" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-07-14%20123059.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 2 shows how the wing model was situated within the wind tunnel during testing, illustrated here with the baseline (unmodified) wing model attached to the mount at a 0° angle of attack.</p>
+                <img alt="Figure 2: Baseline wing model mounted in the wind tunnel at a 0 degree angle of attack" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-07-14%20123425.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 3 shows the wing model geometry together with the three piezoelectric sensor placements tested (50%, 75%, and 100% of span) alongside the unmodified baseline geometry.</p>
+                <img alt="Figure 3: Wing model dimensions and piezoelectric sensor placements at 50%, 75%, and 100% of span" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-07-14%20123605.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 4 illustrates the full measurement chain, from the piezoelectric ceramic sensor through the soldered leads and crimped connections to the multimeter probes.</p>
+                <img alt="Figure 4: Measurement chain from the piezoelectric sensor to the digital multimeter" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-07-14%20124830.png?raw=true" style="width:100%;">
+                <h3>Testing Procedure</h3>
+                <p style="text-align: justify;">The wing model was installed on the mounting stick inside the wind tunnel's holding chamber and set to the required angle of attack, verified to within ±0.5° using a protractor before each trial. Sensor leads were passed through the tunnel's accessory pass-through and connected to a digital multimeter (±0.01 V) using alligator clips, with the multimeter set to the 20 V direct current (DC) range. For each trial, the drag offset was zeroed, the fan was switched on and allowed to stabilise to within 2 mph of the target airspeed, and both the drag reading (in volts, from the wind-tunnel display) and the voltage output (from the multimeter) were recorded before the fan was switched off. Ten trials were completed at each combination of sensor placement (50%, 75%, 100%, and baseline) and angle of attack (10°, 0°, and -10°), giving a total of 120 trials.</p>
+                <h3>Statistical Analysis</h3>
+                <p style="text-align: justify;">Two-sided Welch t-tests were applied to the drag and energy data to determine whether differences between sensor placements, and between each placement and the baseline, were statistically significant. Welch's t-test was selected because it does not assume equal variances between groups. Comparisons were made independently for each angle of attack across the ten trials recorded per condition. A significance threshold of α = 0.05 was used to interpret results; p-values below 0.001 are reported as p < 0.001, and all other p-values are reported to four decimal places. For each pairwise comparison, the null hypothesis was that the mean measurement, drag or energy, was equal between the two conditions being compared, and the alternative hypothesis was that the means differed.</
+                <h2>Results</h2>
+                <p style="text-align: justify;">All measurements are reported in volts (V). This unit was used for both the drag produced by each wing configuration and the electrical energy produced by the piezoelectric sensor at each placement, under three angles of attack (10°, 0°, and -10°). As the wind tunnel's drag sensor outputs a voltage proportional to drag force, and calibration to newtons was not available, drag results are reported in volts and compared relatively across conditions.</p>
+                <h3>Data Tables</h3>
+                <table>
+                    <caption>Table 1: Drag Produced (V) from Placement Types at a 10° Angle of Attack</caption>
+                    <thead>
+                        <tr>
+                            <th>Trial</th>
+                            <th>Baseline</th>
+                            <th>50% Placement</th>
+                            <th>75% Placement</th>
+                            <th>100% Placement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>5.5</td>
+                            <td>6.1</td>
+                            <td>6.0</td>
+                            <td>5.1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>5.6</td>
+                            <td>6.3</td>
+                            <td>5.9</td>
+                            <td>5.7</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>5.1</td>
+                            <td>6.1</td>
+                            <td>5.8</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5.3</td>
+                            <td>6.0</td>
+                            <td>5.9</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>5.4</td>
+                            <td>6.4</td>
+                            <td>5.9</td>
+                            <td>5.6</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>5.2</td>
+                            <td>6.2</td>
+                            <td>5.7</td>
+                            <td>5.4</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>5.6</td>
+                            <td>5.9</td>
+                            <td>6.0</td>
+                            <td>5.8</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>5.5</td>
+                            <td>6.1</td>
+                            <td>5.8</td>
+                            <td>5.6</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>5.8</td>
+                            <td>5.9</td>
+                            <td>6.0</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>5.3</td>
+                            <td>5.8</td>
+                            <td>5.9</td>
+                            <td>5.4</td>
+                        </tr>
+                        <tr>
+                            <td>Mean</td>
+                            <td>5.4</td>
+                            <td>6.1</td>
+                            <td>5.9</td>
+                            <td>5.5</td>
+                        </tr>
+                        <tr>
+                            <td>SD</td>
+                            <td>0.2</td>
+                            <td>0.2</td>
+                            <td>0.1</td>
+                            <td>0.2</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 2: Pairwise Welch t-test p-values for Table 1 (Drag, 10° AoA)</caption>
+                    <thead>
+                        <tr>
+                            <th>Placement</th>
+                            <th>Baseline</th>
+                            <th>50%</th>
+                            <th>75%</th>
+                            <th>100%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Baseline</td>
+                            <td>1.0000</td>
+                            <td>&lt; 0.001</td>
+                            <td>&lt; 0.001</td>
+                            <td>0.3862</td>
+                        </tr>
+                        <tr>
+                            <td>50%</td>
+                            <td>&lt; 0.001</td>
+                            <td>1.0000</td>
+                            <td>0.0135</td>
+                            <td>&lt; 0.001</td>
+                        </tr>
+                        <tr>
+                            <td>75%</td>
+                            <td>&lt; 0.001</td>
+                            <td>0.0135</td>
+                            <td>1.0000</td>
+                            <td>&lt; 0.001</td>
+                        </tr>
+                        <tr>
+                            <td>100%</td>
+                            <td>0.3862</td>
+                            <td>&lt; 0.001</td>
+                            <td>&lt; 0.001</td>
+                            <td>1.0000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 3: Drag Produced (V) from Placement Types at a 0° Angle of Attack</caption>
+                    <thead>
+                        <tr>
+                            <th>Trial</th>
+                            <th>Baseline</th>
+                            <th>50% Placement</th>
+                            <th>75% Placement</th>
+                            <th>100% Placement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>3.5</td>
+                            <td>3.9</td>
+                            <td>3.9</td>
+                            <td>3.0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>3.0</td>
+                            <td>4.1</td>
+                            <td>3.9</td>
+                            <td>3.1</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>3.2</td>
+                            <td>4.0</td>
+                            <td>3.7</td>
+                            <td>3.3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2.9</td>
+                            <td>3.8</td>
+                            <td>3.9</td>
+                            <td>3.0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>3.1</td>
+                            <td>4.0</td>
+                            <td>3.9</td>
+                            <td>3.1</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>3.0</td>
+                            <td>3.9</td>
+                            <td>4.1</td>
+                            <td>3.0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>3.2</td>
+                            <td>3.9</td>
+                            <td>4.2</td>
+                            <td>3.2</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>3.0</td>
+                            <td>3.6</td>
+                            <td>3.8</td>
+                            <td>3.1</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>3.1</td>
+                            <td>4.0</td>
+                            <td>4.0</td>
+                            <td>3.3</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>2.9</td>
+                            <td>3.8</td>
+                            <td>3.9</td>
+                            <td>3.0</td>
+                        </tr>
+                        <tr>
+                            <td>Mean</td>
+                            <td>3.1</td>
+                            <td>3.9</td>
+                            <td>3.9</td>
+                            <td>3.1</td>
+                        </tr>
+                        <tr>
+                            <td>SD</td>
+                            <td>0.2</td>
+                            <td>0.1</td>
+                            <td>0.1</td>
+                            <td>0.1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 4: Pairwise Welch t-test p-values for Table 3 (Drag, 0° AoA)</caption>
+                    <thead>
+                        <tr>
+                            <th>Placement</th>
+                            <th>Baseline</th>
+                            <th>50%</th>
+                            <th>75%</th>
+                            <th>100%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Baseline</td>
+                            <td>1.0000</td>
+                            <td>&lt; 0.001</td>
+                            <td>&lt; 0.001</td>
+                            <td>0.7730</td>
+                        </tr>
+                        <tr>
+                            <td>50%</td>
+                            <td>&lt; 0.001</td>
+                            <td>1.0000</td>
+                            <td>0.6414</td>
+                            <td>&lt; 0.001</td>
+                        </tr>
+                        <tr>
+                            <td>75%</td>
+                            <td>&lt; 0.001</td>
+                            <td>0.6414</td>
+                            <td>1.0000</td>
+                            <td>&lt; 0.001</td>
+                        </tr>
+                        <tr>
+                            <td>100%</td>
+                            <td>0.7730</td>
+                            <td>&lt; 0.001</td>
+                            <td>&lt; 0.001</td>
+                            <td>1.0000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 5: Drag Produced (V) from Placement Types at a -10° Angle of Attack</caption>
+                    <thead>
+                        <tr>
+                            <th>Trial</th>
+                            <th>Baseline</th>
+                            <th>50% Placement</th>
+                            <th>75% Placement</th>
+                            <th>100% Placement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>5.8</td>
+                            <td>6.1</td>
+                            <td>5.7</td>
+                            <td>5.9</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>6.0</td>
+                            <td>6.1</td>
+                            <td>5.8</td>
+                            <td>5.8</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>5.7</td>
+                            <td>5.9</td>
+                            <td>5.7</td>
+                            <td>5.9</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5.9</td>
+                            <td>6.1</td>
+                            <td>6.2</td>
+                            <td>5.9</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>6.1</td>
+                            <td>6.2</td>
+                            <td>6.0</td>
+                            <td>5.7</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>5.8</td>
+                            <td>6.0</td>
+                            <td>5.9</td>
+                            <td>5.8</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>5.5</td>
+                            <td>5.8</td>
+                            <td>6.1</td>
+                            <td>5.7</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>5.9</td>
+                            <td>5.7</td>
+                            <td>5.8</td>
+                            <td>5.7</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>5.2</td>
+                            <td>5.8</td>
+                            <td>5.8</td>
+                            <td>5.9</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>6.2</td>
+                            <td>6.0</td>
+                            <td>5.9</td>
+                            <td>5.8</td>
+                        </tr>
+                        <tr>
+                            <td>Mean</td>
+                            <td>5.8</td>
+                            <td>6.0</td>
+                            <td>5.9</td>
+                            <td>5.8</td>
+                        </tr>
+                        <tr>
+                            <td>SD</td>
+                            <td>0.3</td>
+                            <td>0.2</td>
+                            <td>0.2</td>
+                            <td>0.1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 6: Pairwise Welch t-test p-values for Table 5 (Drag, -10° AoA)</caption>
+                    <thead>
+                        <tr>
+                            <th>Placement</th>
+                            <th>Baseline</th>
+                            <th>50%</th>
+                            <th>75%</th>
+                            <th>100%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Baseline</td>
+                            <td>1.0000</td>
+                            <td>0.1530</td>
+                            <td>0.4641</td>
+                            <td>1.0000</td>
+                        </tr>
+                        <tr>
+                            <td>50%</td>
+                            <td>0.1530</td>
+                            <td>1.0000</td>
+                            <td>0.2926</td>
+                            <td>0.0166</td>
+                        </tr>
+                        <tr>
+                            <td>75%</td>
+                            <td>0.4641</td>
+                            <td>0.2926</td>
+                            <td>1.0000</td>
+                            <td>0.2003</td>
+                        </tr>
+                        <tr>
+                            <td>100%</td>
+                            <td>1.0000</td>
+                            <td>0.0166</td>
+                            <td>0.2003</td>
+                            <td>1.0000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 7: Energy Produced (V) from Placement Types at a 10° Angle of Attack</caption>
+                    <thead>
+                        <tr>
+                            <th>Trial</th>
+                            <th>50% Placement</th>
+                            <th>75% Placement</th>
+                            <th>100% Placement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>0.12</td>
+                            <td>0.08</td>
+                            <td>0.09</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0.09</td>
+                            <td>0.07</td>
+                            <td>0.11</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0.10</td>
+                            <td>0.03</td>
+                            <td>0.05</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>0.07</td>
+                            <td>0.08</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0.11</td>
+                            <td>0.08</td>
+                            <td>0.03</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>0.08</td>
+                            <td>0.07</td>
+                            <td>0.07</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>0.11</td>
+                            <td>0.09</td>
+                            <td>0.05</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>0.12</td>
+                            <td>0.07</td>
+                            <td>0.05</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>0.09</td>
+                            <td>0.10</td>
+                            <td>0.05</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>0.07</td>
+                            <td>0.08</td>
+                            <td>0.04</td>
+                        </tr>
+                        <tr>
+                            <td>Mean</td>
+                            <td>0.10</td>
+                            <td>0.08</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>SD</td>
+                            <td>0.02</td>
+                            <td>0.02</td>
+                            <td>0.02</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 8: Pairwise Welch t-test p-values for Table 7 (Energy, 10° AoA)</caption>
+                    <thead>
+                        <tr>
+                            <th>Placement</th>
+                            <th>50%</th>
+                            <th>75%</th>
+                            <th>100%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>50%</td>
+                            <td>1.0000</td>
+                            <td>0.0218</td>
+                            <td>0.0017</td>
+                        </tr>
+                        <tr>
+                            <td>75%</td>
+                            <td>0.0218</td>
+                            <td>1.0000</td>
+                            <td>0.1358</td>
+                        </tr>
+                        <tr>
+                            <td>100%</td>
+                            <td>0.0017</td>
+                            <td>0.1358</td>
+                            <td>1.0000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 9: Energy Produced (V) from Placement Types at a 0° Angle of Attack</caption>
+                    <thead>
+                        <tr>
+                            <th>Trial</th>
+                            <th>50% Placement</th>
+                            <th>75% Placement</th>
+                            <th>100% Placement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>0.25</td>
+                            <td>0.17</td>
+                            <td>0.09</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0.20</td>
+                            <td>0.23</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0.17</td>
+                            <td>0.18</td>
+                            <td>0.10</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>0.29</td>
+                            <td>0.20</td>
+                            <td>0.09</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0.27</td>
+                            <td>0.16</td>
+                            <td>0.11</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>0.17</td>
+                            <td>0.13</td>
+                            <td>0.08</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>0.30</td>
+                            <td>0.16</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>0.24</td>
+                            <td>0.12</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>0.19</td>
+                            <td>0.15</td>
+                            <td>0.05</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>0.23</td>
+                            <td>0.11</td>
+                            <td>0.09</td>
+                        </tr>
+                        <tr>
+                            <td>Mean</td>
+                            <td>0.23</td>
+                            <td>0.16</td>
+                            <td>0.08</td>
+                        </tr>
+                        <tr>
+                            <td>SD</td>
+                            <td>0.05</td>
+                            <td>0.04</td>
+                            <td>0.03</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 10: Pairwise Welch t-test p-values for Table 9 (Energy, 0° AoA)</caption>
+                    <thead>
+                        <tr>
+                            <th>Placement</th>
+                            <th>50%</th>
+                            <th>75%</th>
+                            <th>100%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>50%</td>
+                            <td>1.0000</td>
+                            <td>0.0018</td>
+                            <td>&lt; 0.001</td>
+                        </tr>
+                        <tr>
+                            <td>75%</td>
+                            <td>0.0018</td>
+                            <td>1.0000</td>
+                            <td>&lt; 0.001</td>
+                        </tr>
+                        <tr>
+                            <td>100%</td>
+                            <td>&lt; 0.001</td>
+                            <td>&lt; 0.001</td>
+                            <td>1.0000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 11: Energy Produced (V) from Placement Types at a -10° Angle of Attack</caption>
+                    <thead>
+                        <tr>
+                            <th>Trial</th>
+                            <th>50% Placement</th>
+                            <th>75% Placement</th>
+                            <th>100% Placement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>0.27</td>
+                            <td>0.15</td>
+                            <td>0.05</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0.28</td>
+                            <td>0.24</td>
+                            <td>0.03</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0.25</td>
+                            <td>0.16</td>
+                            <td>0.07</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>0.26</td>
+                            <td>0.23</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0.24</td>
+                            <td>0.18</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>0.19</td>
+                            <td>0.23</td>
+                            <td>0.03</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>0.23</td>
+                            <td>0.25</td>
+                            <td>0.08</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>0.25</td>
+                            <td>0.12</td>
+                            <td>0.04</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>0.24</td>
+                            <td>0.20</td>
+                            <td>0.03</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>0.26</td>
+                            <td>0.25</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>Mean</td>
+                            <td>0.25</td>
+                            <td>0.21</td>
+                            <td>0.05</td>
+                        </tr>
+                        <tr>
+                            <td>SD</td>
+                            <td>0.02</td>
+                            <td>0.05</td>
+                            <td>0.02</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Table 12: Pairwise Welch t-test p-values for Table 11 (Energy, -10° AoA)</caption>
+                    <thead>
+                        <tr>
+                            <th>Placement</th>
+                            <th>50%</th>
+                            <th>75%</th>
+                            <th>100%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>50%</td>
+                            <td>1.0000</td>
+                            <td>0.0153</td>
+                            <td>&lt; 0.001</td>
+                        </tr>
+                        <tr>
+                            <td>75%</td>
+                            <td>0.0153</td>
+                            <td>1.0000</td>
+                            <td>&lt; 0.001</td>
+                        </tr>
+                        <tr>
+                            <td>100%</td>
+                            <td>&lt; 0.001</td>
+                            <td>&lt; 0.001</td>
+                            <td>1.0000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Graphs</h3>
+                <p style="text-align: justify;">Figure 5 compares the mean drag produced (in volts) by each placement type across all three angles of attack, with error bars showing the average standard deviations. The overall order from highest to lowest mean drag was 50%, 75%, 100%, and baseline placement (no sensor attached).</p>
+                <img alt="Figure 5: Mean drag produced (V) by placement type across all angles of attack, with error bars" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-07-14%20130728.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 6 compares the mean energy produced (in volts) by each placement type across all three angles of attack, with error bars showing the average standard deviations. The overall order from highest to lowest mean energy produced was 50%, 75%, and 100%.</p>
+                <img alt="Figure 6: Mean energy produced (V) by placement type across all angles of attack, with error bars." src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-07-14%20130959.png?raw=true" style="width:100%;">
+                <h3>Statistical Analysis</h3>
+                <p style="text-align: justify;">Percentage change in drag relative to the baseline was calculated for each placement at each angle of attack by subtracting the baseline mean drag from the placement mean drag, dividing by the baseline mean, and multiplying by 100. Table 13 summarises these results.</p>
+                <table>
+                    <caption>Table 13: Percentage Change in Drag Produced Relative to Baseline</caption>
+                    <thead>
+                        <tr>
+                            <th>Angle of Attack</th>
+                            <th>50% vs. Baseline</th>
+                            <th>75% vs. Baseline</th>
+                            <th>100% vs. Baseline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10°</td>
+                            <td>+11.97%</td>
+                            <td>+8.47%</td>
+                            <td>+1.47%</td>
+                        </tr>
+                        <tr>
+                            <td>0°</td>
+                            <td>+26.21%</td>
+                            <td>+27.18%</td>
+                            <td>+0.65%</td>
+                        </tr>
+                        <tr>
+                            <td>-10°</td>
+                            <td>+2.75%</td>
+                            <td>+1.38%</td>
+                            <td>0.00%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: justify;">These results show that moving the sensor placement to 50% or 75% of span tended to increase drag relative to the baseline at all angles tested, with the largest relative effect at 0° AoA. The 100% placement produced only a small change in drag at 10° and 0° AoA, and no measurable change at -10° AoA, indicating a negligible aerodynamic effect at the location closest to the wingtip.</p>
+                <p style="text-align: justify;">Across all three angles of attack tested, mean drag was highest for the 50% placement, at 10° AoA (baseline vs. 50% p < 0.001, baseline vs. 75% p < 0.001, 50% vs. 75% p = 0.0135, 50% vs. 100% p < 0.001, 75% vs. 100% p < 0.001) and at 0° AoA (baseline vs. 50% p < 0.001, baseline vs. 75% p < 0.001, 50% vs. 100% p < 0.001, 75% vs. 100% p < 0.001), with the exception of the comparison between 50% and 75% at 0° AoA, which was not statistically significant (p = 0.6414). At -10° AoA, most pairwise comparisons were not statistically significant, with the sole exception of 50% vs. 100% (p = 0.0166). For energy output, the mean ordering was consistently 50% > 75% > 100% across all three angles of attack. The comparison between 50% and 100% was highly significant at every angle (p < 0.001), and 50% vs. 75% was significant at 10° AoA (p = 0.0218), 0° AoA (p = 0.0018), and -10° AoA (p = 0.0153). The comparison between 75% and 100% was significant at 0° and -10° AoA (p < 0.001) but not at 10° AoA (p = 0.1358).</
+                <h2>Discussion</h2>
+                <p style="text-align: justify;">The drag results show that sensor placement meaningfully affects aerodynamic behaviour at higher angles of attack. At 10°, the 50% placement produced the largest increase in drag, followed by the 75% placement, while the 100% placement remained close to the baseline. The 100% placement therefore appears to minimise drag penalty by moving the device away from the region of the wing most sensitive to airflow disturbance at higher angles. At 0°, both the 50% and 75% placements increased drag by a similar amount relative to the baseline, with no statistically significant difference between them (p = 0.6414), while the 100% placement again remained close to the baseline. This indicates that at near-level flight conditions, drag is sensitive to whether the sensor is placed near the middle of the wing, but not to small differences within that middle region. At -10°, drag differences between placements were small and, with one exception, not statistically significant, suggesting that at negative angles of attack sensor placement has little effect on drag and allows greater flexibility in placement without compromising aerodynamic performance.</p>
+                <p style="text-align: justify;">In contrast to drag, energy production showed a clear and consistent ranking across all three angles of attack, with the 50% placement producing the most energy, followed by the 75% placement, and the 100% placement producing the least. These differences were statistically significant in nearly all pairwise comparisons, confirming that placing the sensor closer to the centre of the wing allowed it to experience stronger airflow-induced motion, making it more effective for electrical energy generation. Overall, the results reveal a trade-off between minimising drag and maximising energy production. If minimising drag is the priority, the 100% placement is the preferable choice, as it consistently behaved similarly to the baseline across all angles tested. If maximising energy production is the goal, the 50% placement is the clearest option, though it increases drag at positive angles of attack. The 75% placement offers a compromise, producing significantly more energy than the 100% placement while causing less drag than the 50% placement.</p>
+                <p style="text-align: justify;">Several sources of error should be considered when interpreting these results. Angle of attack was set and verified manually using a classroom protractor before each trial, which could introduce both systematic and random error in the true AoA tested; because piezoelectric output is sensitive to small changes in bending and flow separation, such error could mask real differences between sensor positions or create a false impression of which configuration produced the best output. Sensor mounting also introduced variability, as double-sided tape allowed for slight shifts in position and pressure between runs, which could alter how the winglet flexed at the sensor location and affect both drag and voltage readings independently of the intended placement variable. The wind tunnel itself introduced further limitations: the requirement to satisfy the 10% blockage rule meant the wing model had to be scaled down substantially, which can cause airflow to separate earlier and behave differently than it would over a full-scale wing, and the tunnel accommodated only one sensor at a time rather than an array. Finally, instrumentation error is a relevant consideration, as piezoelectric disks produce high-impedance, often transient signals that require a charge amplifier or high-impedance data acquisition system for accurate capture; a basic multimeter without amplification may underestimate peak voltages or miss brief voltage spikes, meaning the electrical output recorded here may understate the sensor's true generating capacity.</p>
+                <p style="text-align: justify;">These findings are useful for guiding further research into energy harvesting and aerodynamic efficiency in aircraft design. This study demonstrated that piezoelectric devices integrated into winglets can generate measurable electrical output under airflow while producing only a minimal increase in drag at certain placements, showing that even small structural deformations can be exploited for low-power energy generation. The results clarify which angles of attack and sensor locations are most promising, allowing future work to focus on the most favourable configurations rather than broad trial-and-error testing. Future work should test different piezoelectric materials, sensor geometries, and array configurations to determine how power output scales with design choices, expand the aerodynamic test scope to quantify the energy cost associated with any increase in drag, integrate power-conditioning electronics, embed sensors into more realistic wing structures, and conduct longer-duration tests to assess durability under repeated cyclic loading.</p>
+                <h2>Conclusion</h2>
+                <p style="text-align: justify;">This study investigated whether piezoelectric ceramic sensors integrated onto a winglet could generate measurable electrical output while remaining within acceptable aerodynamic drag limits, testing three sensor placements (50%, 75%, and 100% of wing span) across three angles of attack (10°, 0°, and -10°). The results partially supported the initial hypothesis: the 50% placement did maximise energy output at all angles tested, but it did not achieve this while minimising drag change, particularly at 10° and 0° AoA, where it produced the largest drag penalty of the three placements. The 100% placement consistently behaved most like the baseline wing in terms of drag, making it the preferable choice where minimising aerodynamic penalty is the priority, while the 75% placement offered a balance between the two extremes. These conclusions are subject to the limitations discussed above, including manual AoA verification, tape-mounted sensor variability, wind-tunnel scaling effects, and the use of an unamplified multimeter for voltage measurement, any of which could have affected the absolute values recorded even where the relative trends between placements remained consistent. Overall, this proof-of-concept study provides experimental evidence that piezoelectric energy harvesting on aerodynamic surfaces is feasible and worth further investigation as a supplementary power source for onboard sensors and low-power avionics.</p>
+                <h2>Funding Statement and Acknowledgements</h2>
+                <p style="text-align: justify;">This project received no external funding. The project utilized the supervision and support provided by teaching staff at Shrewsbury Senior High School during fabrication, soldering, and wind-tunnel testing, and the use of the school's wind-tunnel facilities.</p>
+                <h3>Further Reading &amp; Key Sources</h3>
+                <p class="bibliography">1. Federal Aviation Administration. "Air Traffic by the Numbers." FAA.gov, September 9, 2024. https://www.faa.gov/air_traffic/by_the_numbers.</p>
+                <p class="bibliography">2. Ritchie, Hannah. "What Share of Global CO2 Emissions Come from Aviation?" Our World in Data, April 8, 2024. https://ourworldindata.org/global-aviation-emissions.</p>
+                <p class="bibliography">3. International Energy Agency. "Aviation." International Energy Agency, January 16, 2025. https://www.iea.org/energy-system/transport/aviation.</p>
+                <p class="bibliography">4. Hall, Nancy. "Winglets." Glenn Research Center, NASA, July 7, 2025. https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/winglets/.</p>
+                <p class="bibliography">5. Lee, Yin J., Yao Qi, Guang Zhou, and Kim Boon Lua. "Vortex-Induced Vibration Wind Energy Harvesting by Piezoelectric MEMS Device in Formation." Scientific Reports 9, no. 1 (2019): 1–11. https://doi.org/10.1038/s41598-019-56786-0.</p>
+                <p class="bibliography">6. Lu, Dan, Zhi Li, Guangwei Hu, Bo Zhou, Yang Yang, and Guangyuan Zhang. "Two-Degree-of-Freedom Piezoelectric Energy Harvesting from Vortex-Induced Vibration." Micromachines 13, no. 11 (2022): 1936. https://doi.org/10.3390/mi13111936.</p>
+                <p class="bibliography">7. McConnell, Cody. "Application of Galloping Piezoelectric Energy Harvesters on a Small Unmanned Aircraft." Master's thesis, University of Alabama in Huntsville, 2018. https://louis.uah.edu/uah-theses/260/.</p>
+                <p class="bibliography">8. Hall, Nancy. "Four Forces on an Airplane." Glenn Research Center, NASA, July 21, 2022. https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/four-forces-on-an-airplane/.</p>
+                <p class="bibliography">9. National Aeronautics and Space Administration. "Bernoulli's Principle." NASA, 2010. https://www.nasa.gov/wp-content/uploads/2023/06/bernoullis-principle-k-4-02-09-17-508.pdf.</p>
+                <p class="bibliography">10. Anderson, John D. Fundamentals of Aerodynamics. 6th ed. New York: McGraw-Hill, 2016.</p>
+                <p class="bibliography">11. Benson, Tom. "The Drag Coefficient." Beginner's Guide to Aeronautics, NASA. Accessed September 25, 2025. https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/dragco.html.</p>
+                <p class="bibliography">12. Glazer, Neil. "How Winglets and Wingtip Vortices Work." PilotMall.com, December 30, 2024. https://www.pilotmall.com/blogs/news/how-do-winglets-work.</p>
+                <p class="bibliography">13. National Air and Space Museum. "Vortex Drag." How Things Fly, Smithsonian Institution, 2020. https://howthingsfly.si.edu/aerodynamics/vortex-drag.</p>
+                <p class="bibliography">14. Lockney, Dan. "Winglets Save Billions of Dollars in Fuel Costs." NASA Spinoff, 2025. https://spinoff.nasa.gov/Spinoff2010/t_5.html.</p>
+                <p class="bibliography">15. Collins, Michael. "What Am I: Winglets." Flight Training Magazine, Aircraft Owners and Pilots Association, May 2017. https://www.aopa.org/news-and-media/all-news/2017/may/flight-training-magazine/winglets.</p>
+                <p class="bibliography">16. Encyclopaedia Britannica. "Piezoelectricity." Encyclopaedia Britannica, August 15, 2025. https://www.britannica.com/science/piezoelectricity.</p>
+                <p class="bibliography">17. Maestre, Susie. "What Is Piezoelectric Effect?" CircuitBread, January 24, 2022. https://www.circuitbread.com/ee-faq/what-is-piezoelectric-effect.</p>
+                <p class="bibliography">18. Shaukat, Hamna, Aqsa Ali, Sadia Bibi, Wael A. Altabey, Mohammad Noori, and Sallam A. Kouritem. "A Review of the Recent Advances in Piezoelectric Materials, Energy Harvester Structures, and Their Applications in Analytical Chemistry." Applied Sciences 13, no. 3 (2023): 1300. https://doi.org/10.3390/app13031300.</p>
+                <p class="bibliography">19. Aabid, Abdul, Mohammed Ashraf Raheman, Yasser E. Ibrahim, Ashfaq Anjum, Muhammad Hrairi, Babar Parveez, Nabihah Parveen, and Jaffar Syed Mohammed Zayan. "A Systematic Review of Piezoelectric Materials and Energy Harvesters for Industrial Applications." Sensors 21, no. 12 (2021): 4145. https://doi.org/10.3390/s21124145.</p>
+                <p class="bibliography">20. Covaci, Cristina, and Aurel Gontean. "Piezoelectric Energy Harvesting Solutions: A Review." Sensors 20, no. 12 (2020): 3512. https://doi.org/10.3390/s20123512.</p>
+                <p class="bibliography">21. Joy, Aiswarya, Vinod Joshi, Kumar Narendran, and Ranjan Ghoshal. "Piezoelectric Energy Extraction from a Cylinder Undergoing Vortex-Induced Vibration Using Internal Resonance." Scientific Reports 13, no. 1 (2023). https://doi.org/10.1038/s41598-023-33760-5.</p>
+                <p class="bibliography">22. Mehmood, Adnan, Sohail Qureshi, Usman Ghafoor, Rizwan Swati, Faraz Gillani, Sadia Bibi, Abdulrahman Bakkar, and Masood Shah. "An Investigative Study on Energy Harvesting by Hydrofoils: Simple vs. Undulated." Energies 17, no. 24 (2024). https://doi.org/10.3390/en17246417.</p>
+                <p class="bibliography">23. Anton, Steven, Daniel Inman, Dan Ha, Donald Leo, Shashank Priya, and Henry Sodano. "Multifunctional Piezoelectric Energy Harvesting Concepts." Virginia Polytechnic Institute, 2011. https://vtechworks.lib.vt.edu/server/api/core/bitstreams/b389a6e6-8b36-498f-ac24-d008dd62b0ab/content.</p>
+                <p class="bibliography">24. National Research Council. Assessment of Wingtip Modifications to Increase the Fuel Efficiency of Air Force Aircraft. Washington, DC: National Academies Press, 2007. https://doi.org/10.17226/11839.</p>
+                <p class="bibliography">25. Müller, Christoph, Kai Kieckhäfer, and Thomas S. Spengler. "The Influence of Emission Thresholds and Retrofit Options on Airline Fleet Planning: An Optimization Approach." Energy Policy 112 (2018): 242–257. https://doi.org/10.1016/j.enpol.2017.10.022.</p>
+
+            
+            </div>
+        </div>
+    </div>
+
     <!-- ========== ABOUT PAGE ========== -->
     <div id="about" class="page">
         <div class="container">
@@ -3078,6 +3999,24 @@ Development is not a linear path. The process of acquiring new knowledge, better
         </div>
 
         <div class="articles-grid" style="width: 80%; margin: 4rem auto;">
+             <div class="article-card engineering filterDiv" onclick="showPage('article-21')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://startpac.com/wp-content/uploads/2025/06/Airplane-in-the-sky-over-the-cloudy-sky-.jpg" alt="aircraft in the clouds">
+                </div>
+                <div class="article-content">
+                    <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.9rem;">
+                        <span class="article-category" style="margin-bottom:0;">engineering</span>
+                    </div>
+                    <h3 class="article-title">Piezoelectric Energy Harvesting for Next-Generation Aircraft and Avionic Systems</h3>
+                    <p class="article-excerpt">For over two decades, the aviation sector has sought lightweight, passive methods of recovering energy from aerodynamic loads and reducing carbon emissions. Existing research includes limited experimentation with the placement of piezoelectric (PZT) sensors on aircraft wings, and the mediating role of angle of attack (AoA) has not been widely investigated. This study compared the electrical output of PZT ceramic disk sensors mounted at three wing locations, 50%, 75%, and 100% of span measured from root to tip, to capture flow-induced vibrations. </p>
+                    <div class="article-meta">
+                        <span>Puneeth Nunna</span>
+                        <span>15 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>July 14, 2026</span>
+                    </div>
+                </div>
              <div class="article-card biology filterDiv" onclick="showPage('article-20')">
                 <div class="article-image"><span class="card-arrow-badge">↗</span>
                     <p>🧫</p>
