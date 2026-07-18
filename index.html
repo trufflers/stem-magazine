@@ -849,7 +849,13 @@ window.addEventListener('keydown', (e) => {
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
         }
-
+        
+        /* ============================ COMPETITION ============================ */
+        .prize-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.6rem; margin: 2rem 0; }
+        .prize-card { background: var(--dark); color: #fff; padding: 2.4rem 1.8rem; text-align: center; border-top: 3px solid var(--primary); }
+        .prize-card h3 { font-family: 'Inter', sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--primary); margin-bottom: 0.8rem; }
+        .prize-card .prize-amount { font-family: 'Newsreader', serif; font-size: 2rem; font-weight: 500; margin-bottom: 0.6rem; color: #fff; }
+        .prize-card p { font-family: 'Newsreader', serif; color: rgba(255,255,255,.75); line-height: 1.6; margin: 0; }
     </style>
 </head>
 <body>
