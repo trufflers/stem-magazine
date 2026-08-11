@@ -940,7 +940,7 @@ window.addEventListener('keydown', (e) => {
                     <h3 class="article-title">Rolling Dice, Climbing Grids, and Organizing Books: A Mathematical Trifecta of 1 – 1 Correspondences</h3>
                     <p class="article-excerpt">Just as mastering Spanish verb conjugations allows you to quickly adapt to French grammar patterns, solving math problems relies on recognizing identical structures hidden beneath different scenarios. A puzzle about an ant navigating a grid and a question about arranging a bookshelf may seem completely unrelated, but they often speak the exact same underlying mathematical language. Working through contest problems over the years has fueled my curiosity and shown me the true beauty of math: discovering these unexpected, joyful connections where one mastered structure does the heavy lifting for another.</p>
                     <div class="article-meta">
-                        <span>Ryan Karima</span>
+                        <span>Ryan Karim</span>
                         <span>8 min read</span>
                     </div>
                     <div class="article-date">
@@ -4141,6 +4141,70 @@ Development is not a linear path. The process of acquiring new knowledge, better
             </div>
         </div>
     </div>
+
+          <!-- ========== ARTICLE 24 ========== -->
+    <div id="article-24" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('articles')">← Back to Articles</a>
+                <span class="article-hero-category">mathematics</span>
+                <h1 class="article-hero-title">Rolling Dice, Climbing Grids, and Organizing Books: A Mathematical Trifecta of 1 – 1 Correspondences</h1>
+                <div class="article-hero-meta">
+                    <span>Ryan Karim</span><span class="article-meta-dot">·</span><span>August 2026</span><span class="article-meta-dot">·</span><span>8 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <p style="text-align: justify;">Picture this: You spent high school mastering Spanish verb conjugations; an infinitive becomes first person, second person, third person. Now you're in college facing French 101, and the professor writes verb conjugations on the board. Instead of starting from scratch, you recognize the familiar pattern and simply swap in the French endings! The grammatical structure you already mastered does most of the heavy lifting.</p>
+                <p style="text-align: justify;">Here's something interesting: the same translation trick shows up across math problems that look nothing alike. An ant navigating a grid? A bookshelf arrangement? These scenarios seem unrelated, yet underneath their surface details, they’re speaking the exact same mathematical language.</p>
+                <p style="text-align: justify;">For me, math has always been a source of curiosity, challenge, and joy, and working through contest problems over the years has shown me the beauty of discovering unexpected connections. The three problems below illustrate how this principle plays out. </p>
+                <h2>Three Problems</h2>
+                <p style="text-align: justify;">Problem 1: Rolling Higher Each Time. Alice, Bob, Charlie, Dan, and Evan are all rolling a die. The goal is for Bob to roll a number that is greater than or equal to Alice's, Charlie to roll a number that is greater than or equal to Bob's, Dan to roll a number that is greater than or equal to Charlie's, and Evan to roll a number that is greater than or equal to Dan's. How many sequences of rolls are possible where all 4 of these conditions are true?</p>
+                <img alt="problem one dice" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-08-11%20120452.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 1. An example of a valid sequence of rolls Alice, Bob, Charlie, and Dan could have (Note that Evan would need a 5 or a 6 in order for the sequence to still be valid)</p>
+                <p style="text-align: justify;">Problem 2: Grid Navigation. Ashley the Ant is at the bottom left corner of a 5 by 5 grid. She wants to go to the top right corner in 10 steps. Each step she takes, she can either go directly up or directly to the right, following the grid lines. How many ways are there for her to go from the bottom left corner to the top right corner?</p>
+                <img alt="problem 2 grid navagation" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-08-11%20120636.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 2. An example of a path that Ashley could take, only going up and to the right.</p>
+                <p style="text-align: justify;">Problem 3: Arranging Books. Sheila has 5 copies of one book, and 5 copies of another book. She wants to arrange them all in a row on a shelf. How many arrangements are possible?</p>
+                <img alt="problem 3 arranging books" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-08-11%20120919.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 3. A sample arrangement of 5 red books and 5 blue books.</p>
+                <h2>Solutions: Building from Simple to Complex</h2>
+                <p style="text-align: justify;">These three problems might seem unrelated, but they share a common mathematical structure. Let's explore them starting with the most straightforward and building up to see how the same reasoning applies to increasingly complex situations.</p>
+                <h3>Problem 3: Arranging Books</h3>
+                <p style="text-align: justify;">Let's start with the simplest approach. We have 10 books total. Normally, that means for the first space we could choose any of the 10 books, for the second space we could choose from the 9 remaining books, and so on, until the 10th pick is forced to be the last book. This gives us 10⋅9⋅8⋯1=10! ways to arrange these books. </p>
+                <p style="text-align: justify;">However, the issue is that 5 of these books are identical (one type), and another 5 are identical (the other type). So how do we account for these duplicates? For the first 5 duplicates, we divide by 5!  (the 120 ways you can arrange them internally), and we do the same for the second 5. Therefore, our answer is: </p>
+                <p>\[ \frac{10!}{5! \cdot 5!} = 252 \text{ ways} \]</p>
+                <h3>Problem 2: Grid Navigation</h3>
+                <p style="text-align: justify;">Now for Ashley the Ant. She must reach the top in 10 steps, and the top right corner is also 10 away, specifically, 5 right steps away and 5 up steps away.</p>
+                <p style="text-align: justify;">Here's an example of one path Ashley might take: Right, then right, then up, then up, then right, then right, then up, then up, then right. We can model any path Ashley chooses as a sequence of rights and ups. But does the order matter? Yes, going in different orders produces different paths, even though both paths use 5 rights and 5 ups.</p>
+                <p style="text-align: justify;">So our question becomes: How many distinct orderings of 5 rights and 5 ups exist?</p>
+                <p style="text-align: justify;">Alternatively, we can think of this as: "Which 5 positions out of 10 steps receive a right?" (and the rest automatically get ups). This is simply choosing 5 positions from 10: 105=252. </p>
+                <img alt="figure 5" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-08-11%20121254.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 5. Choosing 5 random slots out of the 10 possible ones.</p>
+                <h3>An Unexpected Connection</h3>
+                <p style="text-align: justify;">Notice that Problems 2 and 3 gave us the same answer: 252. This isn't a coincidence. Think about what we're really counting in each problem:</p>
+                <ul>
+                    <li>Problem 3: Arranging 5 books of Type 1 and 5 books of Type 2 </li>
+                    <li>Problem 2: Arranging 5 rights and 5 ups</li>
+                </ul>
+                <p style="text-align: justify;">The number of arrangements of 5 rights and 5 ups is exactly the same as arranging 5 of one book and 5 of another book! The paths Ashley can take are in one-to-one correspondence with the arrangements from Problem 3.</p>
+                <p style="text-align: justify;">This is what we call a bijection, a perfect one-to-one correspondence between two sets. See the figure below for an example of a bijection between a set with elements {1, 2, 3, 4, 5} and one with elements {2, 4, 6, 8, 10}. Just as Spanish and French verb patterns share a common grammatical structure, ant paths and book arrangements share a common mathematical structure. Every distinct route Ashley can take maps to exactly one shelf configuration, and vice versa. Neither problem has “extra” solutions the other lacks; they're truly equivalent.</p>
+                <img alt="figure 4" src="https://github.com/trufflers/stem-magazine/blob/main/images/Screenshot%202026-08-11%20121510.png?raw=true" style="width:100%;">
+                <p style="text-align: justify;">Figure 4. An example of a bijection from one set to another set. Since every element in the first set can be multiplied by 2 to get an element of the second set, and every element in the second set can be divided by 2 to get an element of the first set, Set 1 and Set 2 have an equal number of elements (5).</p>
+                <h3>Problem 1: Rolling Higher Each Time</h3>
+                <p style="text-align: justify;">If we can somehow relate this to question 2 or maybe even question 3, we are done. Let’s try to figure out how we can relate it to question 2, paths on a grid. - Specifically, a 5 x 5 grid. Well, what if we let the up moves represent the dice number each person rolls in some way? For example, a 5 by 5 grid has 6 rows from bottom to top - we can let the bottom row represent starting at 1, then the second row be 2, etc. all the way until the top row is 6. Now, what if we let the first column represent Alice, the second column represent Bob, the third column represent Charlie, the 4th column represent Dan, and the 5th column represent Evan? Let’s see what happens for now. Let’s say the sequence of rolls is 1, 3, 4, 5, 5, a completely arbitrary sequence. The way we can model it in our path is by first going up 1 - representing Alice’s roll - then moving right one, modeling a switch from Alice to Bob. Bob rolled a 3, so we go up 2 to represent that he got a 3, then we move right 1 to switch from Bob to Charlie. Then move up 1 to represent the 4, move right one to switch to Dan, then move up one for he 5, then move right to switch to Evan, then do not move up because we are at the same number. Now, however, we are finished with the rolls. However, we are only on column 5, and row 5, while we want to reach column 6 and row 6 for any possible sequence without changing the nature of the sequence itself. Here’s the trick: in our sequence, we cant move up immediately, because that would change our representation of Evan’s roll from 5 to 6. However, moving to the right does not change our representation of it, and since theres only one way to move, it doesn’t change the number of sequences. And now that we are on the last column, there is only one way to get to the top right: going straight up. This also does not change the sequence count, and thus we have achieved a valid construction for a given sequence. So, we see that any sequence of numbers that satisfy the problem correspond to a path in the grid. Similarly, since we can only go up and not down, any path in the grid can always model a sequence. So, our final answer here is also 252.</p>
+                <h2>Concluding Remarks</h2>
+                <p style="text-align: justify;">These three problems showcase how mathematical structures can appear in completely different contexts. From ascending die rolls to grid paths to shelf organizations, we see how diverse situations can share the same underlying form, all arriving at the same answer of 252.</p>
+                <p style="text-align: justify;">The bookshelf and grid problems revealed their connection most directly through bijection; both reduce to choosing 5 items from 10 positions. The dice problem, while more complex on the surface, ultimately asks the same question: distributing 5 selections among possibilities in non-decreasing order.</p>
+                <p style="text-align: justify;">For me, these connections are what make mathematics compelling. It's not just about finding the right answer; it's about seeing how everything fits together in ways that are both logical and unexpectedly beautiful. Each moment of insight feels like uncovering something hidden, a reminder that mathematical structures are waiting to be discovered in the most surprising places.</p>
+                <p style="text-align: justify;">Similar connections appear throughout mathematics, from probability theory to abstract algebra. Sometimes two completely different scenarios turn out to be the same question wearing different costumes, and recognizing that connection can transform how we understand both.</p> 
+
+
+            </div>
+        </div>
+    </div>
+                    
                 
 
     <!-- ========== ABOUT PAGE ========== -->
@@ -4380,6 +4444,26 @@ Development is not a linear path. The process of acquiring new knowledge, better
         </div>
 
         <div class="articles-grid" style="width: 80%; margin: 4rem auto;">
+             <div class="article-card mathematics filterDiv" onclick="showPage('article-24')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://daily.jstor.org/wp-content/uploads/2018/02/dice_history_1050x700.jpg" alt="dice">
+                </div>
+                <div class="article-content">
+                    <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.9rem;">
+                        <span class="article-category" style="margin-bottom:0;">mathematics</span>
+                    </div>
+                    <h3 class="article-title">Rolling Dice, Climbing Grids, and Organizing Books: A Mathematical Trifecta of 1 – 1 Correspondences</h3>
+                    <p class="article-excerpt">Just as mastering Spanish verb conjugations allows you to quickly adapt to French grammar patterns, solving math problems relies on recognizing identical structures hidden beneath different scenarios. A puzzle about an ant navigating a grid and a question about arranging a bookshelf may seem completely unrelated, but they often speak the exact same underlying mathematical language. Working through contest problems over the years has fueled my curiosity and shown me the true beauty of math: discovering these unexpected, joyful connections where one mastered structure does the heavy lifting for another.</p>
+                    <div class="article-meta">
+                        <span>Ryan Karim</span>
+                        <span>8 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>August 11, 2026</span>
+                    </div>
+                </div>
+             </div>
+            
              <div class="article-card engineering filterDiv" onclick="showPage('article-23')">
                 <div class="article-image"><span class="card-arrow-badge">↗</span>
                     <img src="https://www.orlincohen.com/wp-content/uploads/2023/10/StressFracture_1080x1080.jpg" alt="stress fracture">
