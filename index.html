@@ -905,7 +905,6 @@ window.addEventListener('keydown', (e) => {
                 <li><a onclick="showPage('submit')">Submit</a></li>
                 <li><a onclick="showPage('subscribe')">Subscribe</a></li>
                 <li><a onclick="showPage('contact')">Contact</a></li>
-                <li><a onclick="showPage('competition')">Competition</a></li>
             </ul>
             <div class="nav-overlay" id="navOverlay"></div>
         </div>
@@ -930,6 +929,42 @@ window.addEventListener('keydown', (e) => {
             </div>
 
             <div class="articles-grid">
+                <div class="article-card engineering filterDiv" onclick="showPage('article-43')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.CuStFvmZHyt1NU9OZlQ6XgHaD8?r=0&amp;pid=Api" alt="Concrete mixing and construction">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">engineering</span>
+                    <h3 class="article-title">Green Foundations: How Machine Learning is Enabling More Sustainable Concrete Manufacturing by Optimizing Mix Design and Material Selection</h3>
+                    <p class="article-excerpt">Concrete is one of the most widely used construction materials in the world, forming the foundation of roads, bridges, buildings, dams, and other essential infrastructure. In fact, it’s the second most used material globally, which can be attributed to its strength, versatility, and durability. Concrete production contributes to 10% of worldwide carbon dioxide emissions. Reducing this footprint without compromising structural performance has become a central challenge in modern construction.</p>
+                    <div class="article-meta">
+                        <span>Evelyn Tian</span>
+                        <span>7 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>October 3, 2026</span>
+                    </div>
+                </div>
+                </div>
+
+                <div class="article-card biology filterDiv" onclick="showPage('article-42')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://as1.ftcdn.net/jpg/09/48/47/82/1000_F_948478277_kHC5l2QdwGADGslbxNlJQK04YRWmIRih.jpg" alt="T cells attacking a cancer cell">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">biology</span>
+                    <h3 class="article-title">Reprogramming the Immune System: The Promise and Risks of CAR-T Cell Therapy</h3>
+                    <p class="article-excerpt">Few medical innovations have so dramatically leveraged the immune system as both a weapon and source of healing as CAR-T cell therapy. When conventional chemotherapy fails and relapse occurs, physicians have turned to this technology as a way of redirecting the body’s immune cells to target cancerous ones. CAR-T cell therapy holds promise in its ability to attack the cancer with the person’s immune system internally, but the treatment is incredibly expensive, not always geographically accessible, and comes with potentially life-threatening side effects; however, these risks and the overall success rate for lymphomas and leukemia make it an appropriate choice therapy for those who have exhausted other options.</p>
+                    <div class="article-meta">
+                        <span>Natalie Khon</span>
+                        <span>8 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>October 3, 2026</span>
+                    </div>
+                </div>
+                </div>
+
                 <div class="article-card biology filterDiv" onclick="showPage('article-41')">
                 <div class="article-image"><span class="card-arrow-badge">↗</span>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH1PFj521vncSUXDFql8eXBClDzYxlAt_nw14vJIXNN8edGwcrTAKAb4oV&s=10" alt="gut dysbiosis">
@@ -5526,8 +5561,119 @@ Development is not a linear path. The process of acquiring new knowledge, better
             </div>
         </div>
     </div>
+        <!-- ========== ARTICLE 42 ========== -->
 
+    <div id="article-42" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('articles')">← Back to Articles</a>
+                <span class="article-hero-category">biology</span>
+                <h1 class="article-hero-title">Reprogramming the Immune System: The Promise and Risks of CAR-T Cell Therapy</h1>
+                <div class="article-hero-meta">
+                    <span>Natalie Khon</span><span class="article-meta-dot">·</span><span>October 2026</span><span class="article-meta-dot">·</span><span>8 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <h2>Introduction</h2>
+                <p style="text-align: justify;">Few medical innovations have so dramatically leveraged the immune system as both a weapon and source of healing as CAR-T cell therapy. When conventional chemotherapy fails and relapse occurs, physicians have turned to this technology as a way of redirecting the body’s immune cells to target cancerous ones. CAR-T cell therapy holds promise in its ability to attack the cancer with the person’s immune system internally, but the treatment is incredibly expensive, not always geographically accessible, and comes with potentially life-threatening side effects; however, these risks and the overall success rate for lymphomas and leukemia make it an appropriate choice therapy for those who have exhausted other options.</p>
+                <p style="text-align: justify;">CAR-T cell therapies are genetically engineered white-blood cell-based immunotherapies, meaning they manipulate the patient’s immune system to attack the cancerous cells within the body. These white blood cells are known as T cells, which this therapy converts into living drugs that produce receptors that give the cells the ability to detect and latch onto the antigens present in the cancerous cells. Called “chimeric antigen receptors” or CARs, these binding agents ultimately eliminate the cells from the body [1]. Currently, CAR-T cell therapies are only FDA approved for treating blood cancers like lymphoma, leukemia, and myeloma, but researchers are actively working toward developing consistent methods of harnessing this therapy on solid tumors and autoimmunity disorders [2].</p>
+                <p style="text-align: justify;">While groundbreaking for its ability to utilize the patient’s own immune system to attack cancerous cells, receiving CAR-T cell therapy is a long and intricate process [3]. Still, for those with few other options, the treatment holds appeal for targeting the source of a cancer without requiring external interventions, such as chemotherapy or radiation. To begin, patients get their blood drawn, which allows doctors to extract T cells [4]. This process allows scientists in specialized laboratories to personalize the treatment by synthetically creating the chimeric antigen receptors and attaching them to the genetic makeup of the cells. Because the cells reproduce with these receptors, CAR-T cell therapy has generally been effective in helping patients achieve long-term remission [5].</p>
+                <h2>Primary Benefits of CAR-T Cell Therapy</h2>
+                <p style="text-align: justify;">The success of CAR-T cell therapy owes, in large part, to the flexibility of the structure of the CAR. The CAR is made up of many proteins that combine into a fusion protein, known as the “chimera.” The bonding area contains several distinct regions, allowing scientists to alter where the CAR attaches and thus tailor the treatment to the person. Typically, the presence of MHC proteins determines T cell activation, but CAR-T cells do not require MHC expression, allowing them to detect more cancer cells, which makes the treatment more effective overall [6].</p>
+                <p style="text-align: justify;">As cells reproduce, they remember previous encounters with the disease, allowing the immune system to respond in cases when the same threat returns. As a result, CAR-T cell therapy has been associated with improved remission outcomes. Scholler et al. (2012) examined over 200 patients who had received the treatment over the course of eleven years, noting the presence of the engineered T cells in 98% of study participants [7]. In another study, Kalos et al. analyzed engineered CAR-T cells in vivo, tracking their expansion 1000-fold and their ability to function at a high level for a minimum of six months [8]. The persistence of these CAR-T cells enables the benefits of the therapy to remain in the body without immunosuppression, enabling the engineered cells to continue monitoring and attacking cancer cells.</p>
+                <p style="text-align: justify;">The novel structure of the CAR-T cell has resulted in widespread treatment success, including in patients whose cancer reappeared after an initial remission period. Research out of Rutgers Cancer Institute has noted the promise of CAR-T cell therapy in patients with aggressive cancers that other therapies fail to treat. For example, in a study examining the long-term success of the treatment, researchers found that 42% of adults with lymphoma were in remission fifteen months after receiving CAR-T cell therapy [9]. These results suggest the potential of CAR-T cell therapy to provide lasting disease control for patients who previously had very limited therapeutic options.</p>
+                <h2>Dominant Treatments</h2>
+                <p style="text-align: justify;">CAR-T cell therapy can be adapted to different cancer types by identifying variations in antigen expression and engineering T cells to recognize specific targets. In a study on patients with advanced leukemia, Kalos et al. determined that CD19 targeting CAR was particularly effective [8]. Later research identified several additional potential targets—including CD33, CD123, FLT3, LeY, CLL-1, CD7, and NKG2D—in preclinical studies of acute myeloid leukemia [10]. In patients with acute lymphoblastic leukemia, allogeneic CAR-T cell therapies, which use modified T cells from healthy donors rather than the patient’s own cells, have also produced remission with limited serious complications, including cytokine release syndrome [11]. This range of clinically effective potential CAR targets is one reason why the therapy has been so effective for patients with leukemia.</p>
+                <p style="text-align: justify;">Although CD19-targeted therapies have become a dominant approach for treating leukemia, they have required modification to improve their effectiveness against lymphomas. A recent review of 360 clinical trials of CAR-T cell therapy for non-Hodgkin lymphoma found that relapse remained relatively common with CD19-targeted therapies, particularly with first-generation treatments [12]. Researchers have therefore explored “armored” CD19 CAR T cells designed to enhance therapeutic activity. In a clinical study involving 21 patients with refractory lymphoma, for whom previous CD19 CAR treatments had failed, an intervention involving a new CD19 CAR that secretes IL18 saw partial activation in 81% of participants and complete activation in 52%. In this patient population, the CAR treatment was found to be actively working in the cells for a median response time of 9.6 months [13]. The need to modify CD19 to support full remission in refractory cases highlights the newness of CAR-T cell therapy as a treatment, but the fact that scientists have been able to successfully engineer armored versions points to the long-term flexibility and promise of the treatment.</p>
+                <h2>Treatment Side Effects and Challenges</h2>
+                <p style="text-align: justify;">Despite the novelty of the treatment, many patients experience significant side effects. The most common side effects are cytokine release syndrome and immune effector cell-associated neurotoxicity syndrome (ICANS) [2]. CRS results from the influx of proteins that stimulate the immune system (called cytokines) during treatment, which can lead to symptoms as mild as aches and a fever to severe symptoms like hypertension or organ failure [14]. As a result of these complications, the FDA produced another treatment, humanized anti-IL6 receptor antibody tocilizumab, for use alongside CAR-T cell therapies, hoping to limit the likelihood that patients would develop CRS. Another common side effect, also linked to the release of cytokines, is ICANS, which can cause brain inflammation, prompting confusion, excessive sleepiness, and impaired speech, though these side effects can generally be treated with steroids [1].</p>
+                <p style="text-align: justify;">Aside from these side effects, this therapy is not always accessible to those who need it. Many people who suffer from cancer severe enough to warrant this treatment struggle to access it due to financial or geographical constraints. The price of this treatment is exceptionally high, with the implantation and creation of the cells alone costing from $373,000 to $475,000. This price does not include the cost of treatment itself, inpatient stays, food, or travel [15]. Currently, there are also only a limited number of treatment sites, with less than four percent of U.S. health centers authorized to provide CAR-T cell therapy. A third of patients receiving treatment live more than two hours away from these facilities [16]. The number of treatment centers is a major source of disparity, particularly due to the higher number of centers in the Northeast and the more limited facilities in the South, even though disease prevalence tends to be higher in the South [17]. Nevertheless, growing recognition of these disparities provides an opportunity to expand treatment centers, reduce costs, and ensure that the benefits of CAR-T cell therapy reach a broader and more diverse population.</p>
+                <h2>Conclusion</h2>
+                <p style="text-align: justify;">Over the past decade, CAR-T cell treatment has established itself as a first-line treatment for patients with persistent cancers for whom other treatment methods, such as chemotherapy, have been ineffective. Most CAR-T cell therapies work by taking the patient’s own immune cells and engineering them to target antigens that are heavily expressed in the cancer. This approach has seen widespread success in patients with leukemias and lymphomas, particularly when the CAR targets the CD19 antigen. Even in cases where CD19-based treatment fails, scientists have been able to modify the CAR that targets CD19 so that it secretes IL-18, representing the adaptability of the CAR in the face of increasingly challenging cancers. Though there is room for improvement in making CAR-T cell therapy more widely available and tolerable, the potential in this highly personalized treatment is undeniable, pointing to the need for further research on effective targets in other cancers.</p>
+                <hr>
+                <h3>References</h3>
+                <p class="bibliography">1. National Cancer Institute [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; 2025 Feb 26 [cited 2026 Mar 2]. CAR T cells: engineering patients’ immune cells to treat their cancers. Available from: https://www.cancer.gov/about-cancer/treatment/research/car-t-cells</p>
+                <p class="bibliography">2. Posa MK, Singh J, Parveen S, Panda S. CAR T-cell therapy: a promising novel approach for treatment of cancer. Cancer Treat Res Commun. 2026;47. PMID: 41653878. doi:10.1016/j.ctarc.2026.101125</p>
+                <p class="bibliography">3. Strzelec A, Helbig G. Are we ready for personalized CAR-T therapy? Eur J Haematol. 2024 Feb;112(2):174-83. doi:10.1111/ejh.14039. Epub 2023 Jul 11. PMID:37431655</p>
+                <p class="bibliography">4. Cleveland Clinic [Internet]. Cleveland (OH): Cleveland Clinic; 2024 Feb 14 [cited 2026 Mar 2]. CAR T-cell therapy. Available from: https://my.clevelandclinic.org/health/treatments/17726-car-t-cell-therapy</p>
+                <p class="bibliography">5. Blood Cancer United [Internet]. Chimeric antigen receptor (CAR) T-cell therapy [cited 2026 Mar 2]. Available from: https://bloodcancerunited.org/blood-cancer-care/adults/types-blood-cancer-treatment/immunotherapy/chimeric-antigen-receptor-car-t-cell-therapy</p>
+                <p class="bibliography">6. De Marco RC, Monzo HJ, Ojala PM. CAR T cell therapy: a versatile living drug. Int J Mol Sci. 2023;24(7):6300. doi:10.3390/ijms24076300.</p>
+                <p class="bibliography">7. Scholler J, Brady TL, Binder-Scholl G, Hwang WT, Plesa G, Hege KM, et al. Decade-long safety and function of retroviral-modified chimeric antigen receptor T cells. Sci Transl Med. 2012 May 2;4(132):132ra53. doi:10.1126/scitranslmed.3003761.</p>
+                <p class="bibliography">8. Kalos M, Levine BL, Porter DL, Katz S, Grupp SA, Bagg A, et al. T cells with chimeric antigen receptors have potent antitumor effects and can establish memory in patients with advanced leukemia. Sci Transl Med. 2011 Aug 10;3(95). doi:10.1126/scitranslmed.3002842.</p>
+                <p class="bibliography">9. Rutgers Cancer Institute of New Jersey [Internet]. New Brunswick (NJ): Rutgers Cancer Institute of New Jersey; Advantages of CAR-T cell therapy [cited 2026 Mar 2]. Available from: https://cinj.org/patient-care/advantages-car-t-cell-therapy</p>
+                <p class="bibliography">10. Deng H, Wang Q, Tong X, Cui Z, Yang Y, Xiang Y. Recent advances of CAR-T cells in acute myeloid leukemia. Ther Adv Hematol. 2025 Mar 25;16: 1-19. doi:10.1177/20406207251326802.</p>
+                <p class="bibliography">11. Alati C, Pitea M, Molica M, Scalise L, Porto G, Bilardi E, et al. CAR-T cell therapies in B-cell acute lymphoblastic leukemia: emerging data and open issues. Cancers (Basel). 2025;17(18). doi:10.3390/cancers17183027.</p>
+                <p class="bibliography">12. Wu J, Liao Y, Wang W, Zhang X. CAR-T cell therapy in non-Hodgkin lymphoma: a clinical trial landscape review. Front Immunol. 2026;17. doi:10.3389/fimmu.2026.1820425.</p>
+                <p class="bibliography">13. Svoboda J, Landsburg DJ, Gerson J, Nasta SD, Barta SK, Chong EA, et al. Enhanced CAR T-cell therapy for lymphoma after previous failure. N Engl J Med. 2025;392:1824-35. doi:10.1056/NEJMoa2408771.</p>
+                <p class="bibliography">14. National Cancer Institute [Internet]. Bethesda (MD): National Cancer Institute; Cytokine release syndrome [cited 2026 Mar 2]. Available from: https://www.cancer.gov/publications/dictionaries/cancer-terms/def/cytokine-release-syndrome</p>
+                <p class="bibliography">15. Choi G, Shin G, Bae S. Price and prejudice? The value of chimeric antigen receptor (CAR) T-cell therapy. Int J Environ Res Public Health. 2022;19(19). doi:10.3390/ijerph191912366.</p>
+                <p class="bibliography">16. Ramos KN, Auletta JJ. Receiving CAR T-cells gets faster, but not for all in need. Blood Adv. 2025 Jan 28;9(2):436-8. doi:10.1182/bloodadvances.2024015013.</p>
+                <p class="bibliography">17. Blue B, et al. Visualizing geographic variation and systemic inequities of disease burden and CAR T-cell therapy access in multiple myeloma in the US. Blood. 2025;146(Suppl 1):6344. doi:10.1182/blood-2025-6344.</p>
+            </div>
+        </div>
+    </div>
                     
+        <!-- ========== ARTICLE 43 ========== -->
+
+    <div id="article-43" class="page">
+        <div class="article-hero-header">
+            <div class="article-hero-inner">
+                <a class="article-back-link" onclick="showPage('articles')">← Back to Articles</a>
+                <span class="article-hero-category">engineering</span>
+                <h1 class="article-hero-title">Green Foundations: How Machine Learning is Enabling More Sustainable Concrete Manufacturing by Optimizing Mix Design and Material Selection</h1>
+                <div class="article-hero-meta">
+                    <span>Evelyn Tian</span><span class="article-meta-dot">·</span><span>October 2026</span><span class="article-meta-dot">·</span><span>7 min read</span>
+                </div>
+            </div>
+        </div>
+        <div class="article-body-container">
+            <div class="article-body">
+                <h2>Concrete: Properties, Uses, and New Directions</h2>
+                <p style="text-align: justify;">Concrete is one of the most widely used construction materials in the world, forming the foundation of roads, bridges, buildings, dams, and other essential infrastructure. In fact, it’s the second most used material globally, which can be attributed to its strength, versatility, and durability (Gregory &amp; Logan, 2025). The material is also particularly attractive to developers due to its affordability. A ready-made slab of concrete costs $6 to 20 per square foot, roughly half the cost of alternatives offering similar structural support, like brick and steel (Sperling, 2024). However, the environmental costs associated with concrete are substantial. Concrete production contributes to 10% of worldwide carbon dioxide emissions (Belaid, 2022). Portland cement (PC), its primary binding component, requires energy-intensive manufacturing and is responsible for the material’s hefty carbon footprint (Adesina &amp; Zhang, 2024). Reducing this footprint without compromising structural performance has become a central challenge in modern construction.</p>
+                <p style="text-align: justify;">Traditionally, optimizing concrete mixes has relied on physical testing and empirical trial-and-error, methods that are time-consuming, costly, and difficult to scale to the size of most industrial concrete pours. Because so many variables affect concrete's strength and environmental footprint simultaneously, researchers are increasingly turning to AI-driven optimization — using machine learning models to predict mix performance and identify more sustainable material substitutes without the need for exhaustive physical testing. This paper examines how these AI-based approaches are being applied both to optimize traditional concrete mix design and to advance the search for greener alternatives to conventional cement-based concrete.</p>
+                <h2>Background on Concrete Manufacturing and Mixing</h2>
+                <p style="text-align: justify;">Part of what makes adjusting concrete formulas so difficult is the sheer number of variables involved in concrete production. Concrete is composed primarily of cement, water, and aggregates like sand, gravel, and crushed stone, and the interactions among these components determine its crucial characteristics such as strength, workability, and porosity (Hattani et al., 2024). Variables like binder properties, sand quality, and the ratio between water and cement can all impact the end product of a concrete mixture (Hattani et al., 2024). For example, in their study of concrete made with dune sand, Al-Harthy et al. (2007) found that partial incorporation of dune sand improved the mixture's workability. However, at higher dune sand contents (&gt;50%), strength values were observed to have decreased, albeit not considerably (Al-Harthy et al., 2007). Alsayad &amp; Amjad (1996) also describe how larger concrete aggregates require less mixing water. Meanwhile, experimental results from a study conducted by Konitufe et al. (2023) indicated that the compressive strength of concrete with both rounded and angular aggregates increased with increasing aggregate size. Taking into account all of these factors can prove exceedingly difficult, but manufacturers must make sure that they do so in order to produce structurally sound concrete.</p>
+                <p style="text-align: justify;">Further considerations of mixing processes are equally crucial to concrete’s production, as inadequate or inconsistent mixing can produce an uneven distribution of materials and ultimately compromise the properties of the finished concrete (Juilland et al., 2012). For example, the efficiency of the batching process can greatly affect the strength and workability of the resulting concrete (Yuan et al., 2021, p. 59). Accurate batching, which involves measuring and combining the constituent ingredients that make up concrete, is essential for maintaining an ideal water-cement ratio. Manufacturers tend to take one of two approaches to batching: either hand mixing or machine mixing (Hattani et al., 2024).</p>
+                <img src="images/article-43-figure1-hand-mixing.jpg" alt="Twelve-panel sequence of the hand mixing process: aggregate preparation, blending, adding binder and water, and final batch preparation" style="width:100%;height:auto;">
+                <p style="text-align: justify;"><em>Figure 1: Image of the stages of the hand mixing process, including aggregate preparation, blending, adding binder and water, and final batch preparation. Adapted from Hattani et al. (2023), p. 577.</em></p>
+                <img src="images/article-43-figure2-machine-mixing.jpg" alt="Four-panel sequence of the machine mixing process: dry constituents in the pan mixer, mixing, workable mixture, and prepared specimens" style="width:100%;height:auto;">
+                <p style="text-align: justify;"><em>Figure 2: Overview of the four stages of machine mixing, which noticeably expedites the process of preparing a batch compared to hand mixing. Steps include adding and mixing dry constituents, preparing a workable mixture, and preparing final batches. Adapted from Hattani et al. (2023), p. 577.</em></p>
+                <p style="text-align: justify;">A large variety of mixing processes and mixing hardware exists due to the variations in the properties and intended applications of concrete mixtures. The two main categories of mixers are batch mixers and continuous mixers, each with multiple types due to the diversity of concrete applications. As a result, these mixers can differ in blade position and removability, container angle, and rotation speed (Ferraris, 2001). Within these categories, further distinctions exist, including drum mixers, pan mixers, and planetary mixers, all employing different mechanisms to combine the constituent materials. These differences in equipment and operation methods can influence the homogeneity, workability, and strength of the resulting concrete. However, the mixing hardware is only one of several components involved in the overall mixing process: considerations must be made surrounding the loading method, discharge method, mixing time, and mixing energy in order to produce a homogeneous concrete mix.</p>
+                <p style="text-align: justify;">Ideally, such processes produce a uniformly mixed product, since this dictates the structural strength and long-term durability of the finished concrete (Chang &amp; Peng, 2001). To identify the homogeneity of a concrete mix, a manufacturer could sample the specimen to monitor properties such as its workability, density, air content, and compressive strength (Ferraris, 2001). However, while these performance attributes can be considered an indicator of a quality mix, most mixes are so large that these methods are unreliable at scale. Currently, there is no standard, catch-all test to determine homogeneity, but researchers are working towards creating such methods to address this gap. This gap has motivated a shift toward machine-learning models capable of predicting concrete properties without relying on physical sampling.</p>
+                <h2>Applications of Machine Learning in Concrete Production</h2>
+                <p style="text-align: justify;">Experimental AI-based approaches towards evaluating future characteristics of concrete are in the works. For example, Kumar et al. (2026) tested several models for accuracy in predictions when the mixes were varied through additions of repurposed coal bottom ash, finding that gradient boosting outperformed other models in forecasting concrete strength. Similarly, Baten et al. (2026) developed BOxCrete, an optimization system trained on an open-access dataset of strength measurements from over 50 concrete mixes. Using Gaussian Process (GP) regression, a probabilistic machine learning method used to predict continuous values, the BOxCrete framework predicts compressive strength development (Wang, 2022; Baten et al., 2026). Meanwhile, other researchers have utilized Random Forest Regression (RF) models to predict concrete performance with the intention of minimizing manufacturing and laboratory costs (Jagupilla &amp; Burugapelli, 2026). The availability of new developments in machine learning to forecast concrete performance in different settings marks a promising new direction in optimizing the material’s manufacturing process.</p>
+                <p style="text-align: justify;">In addition to using AI for optimizing mixing processes, several others have used machine learning to evaluate potential sustainable constituents in concrete mixes. At the MIT Concrete Sustainability Hub, a team led by postdoc Soroush Mahjoubi created a machine-learning algorithm that categorizes and assesses potential materials for greener concrete production (Laurent, 2025). In line with this research, Zandifaez et al. (2023) proposed an AI-assisted optimization framework intended to calculate proportions for green concrete mixes while considering desired compressive strength and cost. Similarly, Tanu et al. (2026) utilized a hybrid model to predict strength responses with concrete that made use of fly ash and sugarcane bagasse ash, further demonstrating AI’s versatility in forecasting performance across a range of unconventional mix elements. Making use of ceramic waste powder (CWP), a byproduct of the cutting and polishing stages of ceramic manufacturing, Yang et al. (2023) created 60 concrete mixes. Their goal was to test ultrasonic pulse velocity, an indicator of structural quality, as well as to determine whether the mix would help manufacturers save on costs and time. The researchers replaced 10% and 20% of cement with CWP and applied several machine learning models, including Bagging, Extreme Gradient Boosting (XGBoost), AdaBoost, and a standalone decision tree, to predict the resulting concrete’s ultrasonic pulse velocity. The XGBoost model performed best, having the lowest error rates among the models tested (Yang et al., 2023). These studies suggest that machine learning is a viable tool to accelerate the process of developing sustainable substitutes in concrete for a variety of real-world use cases.</p>
+                <h2>Concrete’s Green Footprint: Benefits and Drawbacks</h2>
+                <p style="text-align: justify;">Concrete’s dominance as a construction material is inseparable from its environmental cost, and closing the gap between its structural integrity and sustainability has proven difficult using traditional methods alone. As this paper has shown, the sheer number of variables involved in concrete production, from aggregate composition to mixing technique, has historically made optimization a slow, resource-intensive process. In recent years, machine learning offers a way to shortcut much of that process: models like BOxCrete and XGBoost have demonstrated their ability to predict compressive strength, workability, and other performance metrics with high accuracy. Beyond these applications, similar computational technologies are being extended to evaluate waste-based sustainable substitutes like fly ash to help researchers identify potential cement alternatives more efficiently than manual testing would allow. Still, this progress raises questions that the current body of research has yet to answer. Most of these studies measure their success in terms of the concrete’s environmental footprint, and not the models’, leaving the energy demands of training and running these systems largely unexamined. Considering that the goal of these projects is to reduce emissions, advancements in these domains need to be measured against the comparative environmental costs of using AI systems.</p>
+                <hr>
+                <h3>References</h3>
+                <p class="bibliography">Adesina, A., &amp; Zhang, J. (2024). Impact of concrete structures durability on its sustainability and climate resiliency. Next Sustainability, 3, 1-10. https://doi.org/10.1016/j.nxsust.2024.100025</p>
+                <p class="bibliography">Al-Harthy, A., Halim, M. A., Taha, R., &amp; Al-Jabri, K. (2007). The properties of concrete made with fine dune sand. Construction and Building Materials, 21(8), 1803-1808. https://doi.org/10.1016/j.conbuildmat.2006.05.053</p>
+                <p class="bibliography">Alsayed, S. H., &amp; Amjad, M. A. (1996). Strength, water absorption and porosity of concrete incorporating natural and crushed aggregate. Journal of King Saud University - Engineering Sciences, 8(1), 109-119. https://doi.org/10.1016/s1018-3639(18)30642-1</p>
+                <p class="bibliography">Baten, B., Iqbal, M. A., Ament, S., Kusuma, J., &amp; Garg, N. (2026). BOxCrete: a Bayesian optimization open-source AI model for concrete strength forecasting and mix optimization. arXiv, 1-20. https://doi.org/10.48550/ARXIV.2603.21525</p>
+                <p class="bibliography">Belaïd, F. (2022). How does concrete and cement industry transformation contribute to mitigating climate change challenges? Resources, Conservation &amp; Recycling Advances, 15, 1-6. https://doi.org/10.1016/j.rcradv.2022.200084</p>
+                <p class="bibliography">Chang, P.-K., &amp; Peng, Y.-N. (2001). Influence of mixing techniques on properties of high performance concrete. Cement and Concrete Research, 31(1), 87-95. https://doi.org/10.1016/s0008-8846(00)00439-7</p>
+                <p class="bibliography">Ferraris, C. (2001). Concrete mixing methods and concrete mixers: State of the art. Journal of Research of the National Institute of Standards and Technology, 106(2), 391-399. https://doi.org/10.6028/jres.106.016</p>
+                <p class="bibliography">Gregory, J., &amp; Logan, A. (2025, July 25). Concrete. MIT Climate Portal. Retrieved September 19, 2026, from https://climate.mit.edu/explainers/concrete</p>
+                <p class="bibliography">Hattani, F., Menu, B., Allaoui, D., Mouflih, M., Zanzoun, H., Hannache, H., &amp; Manoun, B. (2024). Evaluating the impact of material selections, mixing techniques, and on-site practices on performance of concrete mixtures. Civil Engineering Journal, 10(2), 571-598. https://doi.org/10.28991/cej-2024-010-02-016</p>
+                <p class="bibliography">H M, T., S, M. K., Pradhan, S. S., Hulipalled, P., Rihan, M. A. M., Mishra, M., Algur, V., &amp; M V, N. (2026). Data driven predictive analysis of hardened properties of sustainable geopolymer concrete developed by using fly ash and sugarcane bagasse ash using explainable AI. Next Materials, 12, 1-23. https://doi.org/10.1016/j.nxmate.2026.102519</p>
+                <p class="bibliography">Jagupilla, D. P., &amp; Burugapalli, K. R. (2026). Artificial intelligence in concrete mix design: a comprehensive review. Environmental Science and Pollution Research, 33(8), 2987-3000. https://doi.org/10.1007/s11356-026-37541-1</p>
+                <p class="bibliography">Juilland, P., Kumar, A., Gallucci, E., Flatt, R. J., &amp; Scrivener, K. L. (2012). Effect of mixing on the early hydration of alite and OPC systems. Cement and Concrete Research, 42(9), 1175-1188. https://doi.org/10.1016/j.cemconres.2011.06.011</p>
+                <p class="bibliography">Konitufe, C., Aliyu Abubakar, &amp; Sabo Baba, A. (2023). Influence of aggregate size and shape on the compressive strength of concrete. Construction, 3(1), 15-22. https://doi.org/10.15282/construction.v3i1.9075</p>
+                <p class="bibliography">Kumar, C. A., Vijay, K., Shiva Chandra, V., Kulkarni, P., Saibaba, K., Reddy, P. N., Kavyatheja, B., Kumar, A. U., &amp; Alaki, A. O. (2026). Experimental–AI approach (hybrid) for evaluating the strength characteristics of eco-efficient concrete incorporating coal bottom ash. Scientific Reports, 16(1), 1-13. https://doi.org/10.1038/s41598-026-55732-1</p>
+                <p class="bibliography">Laurent, A. P. (2025, June 2). AI stirs up the recipe for concrete in MIT study. MIT News. Retrieved September 19, 2026, from https://news.mit.edu/2025/ai-stirs-recipe-for-concrete-0602</p>
+                <p class="bibliography">Sperling, D. (2024, November 12). A 20-year cost comparison for steel versus traditional construction. Summit Steel Buildings. Retrieved September 19, 2026, from https://www.summitsteelbuildings.com/20-year-cost-comparison</p>
+                <p class="bibliography">Wang, K. (2022, October 4). Introduction to Gaussian process regression, part 1: the basics. Medium. https://medium.com/data-science-at-microsoft/introduction-to-gaussian-process-regression-part-1-the-basics-3cb79d9f155f</p>
+                <p class="bibliography">Yang, J., Jiang, P., Nassar, R.-U., Suhail, S. A., Sufian, M., &amp; Deifalla, A. F. (2023). Experimental investigation and AI prediction modelling of ceramic waste powder concrete – an approach towards sustainable construction. Journal of Materials Research and Technology, 23, 3676-3696. https://doi.org/10.1016/j.jmrt.2023.02.024</p>
+                <p class="bibliography">Yuan, Q., Liu, Z., Zheng, K., &amp; Ma, C. (2021). Portland cement concrete. In Civil engineering materials : from theory to practice (pp. 59-204). Elsevier.</p>
+                <p class="bibliography">Zandifaez, P., Asadi Shamsabadi, E., Akbar Nezhad, A., Zhou, H., &amp; Dias-da-Costa, D. (2023). AI-Assisted optimisation of green concrete mixes incorporating recycled concrete aggregates. Construction and Building Materials, 391, 1-14. https://doi.org/10.1016/j.conbuildmat.2023.131851</p>
+            </div>
+        </div>
+    </div>
+
+
 <!-- ========== ABOUT PAGE ========== -->
     <div id="about" class="page">
         <div class="container">
@@ -5787,6 +5933,44 @@ Development is not a linear path. The process of acquiring new knowledge, better
         </div>
 
         <div class="articles-grid" style="width: 80%; margin: 4rem auto;">
+             <div class="article-card engineering filterDiv" onclick="showPage('article-43')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.CuStFvmZHyt1NU9OZlQ6XgHaD8?r=0&amp;pid=Api" alt="Concrete mixing and construction">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">engineering</span>
+                    <h3 class="article-title">Green Foundations: How Machine Learning is Enabling More Sustainable Concrete Manufacturing by Optimizing Mix Design and Material Selection</h3>
+                    <p class="article-excerpt">Concrete is one of the most widely used construction materials in the world, forming the foundation of roads, bridges, buildings, dams, and other essential infrastructure. In fact, it’s the second most used material globally, which can be attributed to its strength, versatility, and durability. Concrete production contributes to 10% of worldwide carbon dioxide emissions. Reducing this footprint without compromising structural performance has become a central challenge in modern construction.</p>
+                    <div class="article-meta">
+                        <span>Evelyn Tian</span>
+                        <span>7 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>October 3, 2026</span>
+                    </div>
+                </div>
+                </div>
+
+
+             <div class="article-card biology filterDiv" onclick="showPage('article-42')">
+                <div class="article-image"><span class="card-arrow-badge">↗</span>
+                    <img src="https://as1.ftcdn.net/jpg/09/48/47/82/1000_F_948478277_kHC5l2QdwGADGslbxNlJQK04YRWmIRih.jpg" alt="T cells attacking a cancer cell">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">biology</span>
+                    <h3 class="article-title">Reprogramming the Immune System: The Promise and Risks of CAR-T Cell Therapy</h3>
+                    <p class="article-excerpt">Few medical innovations have so dramatically leveraged the immune system as both a weapon and source of healing as CAR-T cell therapy. When conventional chemotherapy fails and relapse occurs, physicians have turned to this technology as a way of redirecting the body’s immune cells to target cancerous ones. CAR-T cell therapy holds promise in its ability to attack the cancer with the person’s immune system internally, but the treatment is incredibly expensive, not always geographically accessible, and comes with potentially life-threatening side effects; however, these risks and the overall success rate for lymphomas and leukemia make it an appropriate choice therapy for those who have exhausted other options.</p>
+                    <div class="article-meta">
+                        <span>Natalie Khon</span>
+                        <span>8 min read</span>
+                    </div>
+                    <div class="article-date">
+                        <span>October 3, 2026</span>
+                    </div>
+                </div>
+                </div>
+
+
              <div class="article-card mathematics filterDiv" onclick="showPage('article-40')">
                 <div class="article-image"><span class="card-arrow-badge">↗</span>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Four_color_world_map.svg" alt="World map colored to illustrate the four color theorem">
@@ -6794,54 +6978,6 @@ Development is not a linear path. The process of acquiring new knowledge, better
 
     </div>
 
-     <!-- ========== ESSAY COMPETITION ========== -->
-    <div id="competition" class="page">
-        <div class="hero" style="width: 100%; text-align: center; margin: auto">
-            <strong><h6 class="purple" style="margin-bottom: 0.5rem;">The Centrifugue's</h6></strong>
-            <h1>Impact Essay Competition</h1>
-        </div>
-        <div style="width: 60%; margin: 2rem auto 0 auto;">
-            <h2>Have you ever wanted to show your scientific writing? Are you passionate about having a positive impact? Are you curious about how we can use science to make the world a better place?</h2>
-        </div>
-
-        <div class="container">
-            <div class="about-content">
-                <h2>Overview</h2>
-                <p>The Impact Essay Competition invites high school students to write about how science and technology can be harnessed to create positive, lasting change in the world. Full details on the competition's goals and format can be found below!</p>
-            </div>
-
-            <div class="about-content" style="margin-top:4rem;">
-                <h2>Regulation</h2>
-                <p>Please review the rules below carefully before applying. </p>
-            </div>
-            <div style="width: 60%; margin: 0 auto 4rem auto;">
-                <div class="FAQs">
-                    <button class="accordion">Eligibility</button>
-                    <div class="panel">
-                        <p>Open to all high school or gap-year students who haven't been entered university yet. We accept from 14 to 20 years old. We accept (and love to hear) from all around the world!</p>
-                    </div>
-                    <button class="accordion">Essay Format &amp; Length</button>
-                    <div class="panel">
-                        <p>Essays can have a fluid structure, as long as you believe that it makes your point clear! You do have to choose one of the themes, and if we believe your work deviates a lot from it we are unable to accept it. We accept anything from 500 to 8,000 words, but please do not feel limited by word count! You are free to include any images or figures as long as they are captioned. Source citing is mandatory.</p>
-                    </div>
-                    <button class="accordion">Submission Deadline</button>
-                    <div class="panel">
-                        <p>All submissions must be delivered by September 15th, UTC via the form below only.</p>
-                    </div>
-                    <button class="accordion">Judging Criteria</button>
-                    <div class="panel">
-                        <p>Essays will be judged on originality, clarity and quality of writing, scientific rigor, and overall adjustment to impact and theme. Every theme is equally weighted, so feel free to choose which one talks to you the most!</p>
-                    </div>
-                    <button class="accordion">Originality &amp; Plagiarism Policy</button>
-                    <div class="panel">
-                        <p>All essays must be original, unpublished work. Plagiarism is term for disqualification. AI use should be disclaimed</p>
-                    </div>
-                    <button class="accordion">More info</button>
-                    <div class="panel">
-                        <p>For more information, send us an email at thecentrifugemag@gmail.com or via the form on the <a>contact</a> page!</p>
-                    </div>
-                </div>
-            </div>
 
             <div class="about-content">
                 <h2>Themes</h2>
